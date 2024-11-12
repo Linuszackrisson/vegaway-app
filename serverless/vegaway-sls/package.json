@@ -2,7 +2,6 @@
   "name": "vegaway-sls",
   "version": "1.0.0",
   "description": "Serverless project for Vegaway app with AWS Lambda and HTTP API.",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "serverless deploy"
