@@ -38,11 +38,12 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 ### Daily Scrum (Tisdag - Torsdag)
 
 #### Tisdag (2024-11-12)
-| Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
-|------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Teammedlem | Vad har jag gjort sedan sist?                                                                                         | Vad ska jag göra idag?                                 | Finns det några hinder?               |
+|------------|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|---------------------------------------|
+| Linus      | Grupprepo, project board, React boilerplates och mappstruktur. Allmän förberedelse inför tyngre kodning. Och denna README.md-mall! | Mer kodförberedelse, ostylade komponenter, global CSS, etc. | Inte än.                              |
+| Isak       | Backend boilerplate, infrastruktur, services och grundläggande funktioner implementerade.                            | Fortsätta utveckla backend-strukturen och optimera tjänster | Nej!                                  |
+| Jacob      | Lo-fi wireframes färdiga, valt ikonbibliotek och fastställt färger och stylingstrategier.                            | Fortsätta med Hi-Fi wireframes och detaljerad design i Figma  | Inga hinder.                          |
+
 
 #### Onsdag (2024-11-13)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
