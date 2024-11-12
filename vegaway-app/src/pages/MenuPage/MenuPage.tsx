@@ -9,3 +9,8 @@ function MenuPage() {
 }
 
 export default MenuPage
+
+/**
+ * Författare Linus
+ * Boiler plate code and folder structure.
+ */

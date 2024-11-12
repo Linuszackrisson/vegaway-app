@@ -1,14 +1,14 @@
-import './CartPage.css'; 
+import './Nav.css'; 
 
-function CartPage() {
+function Nav() {
   return (
     <div>
-      <h1>CartPage</h1>
+        
     </div>
   )
 }
 
-export default CartPage
+export default Nav
 
 /**
  * Författare Linus

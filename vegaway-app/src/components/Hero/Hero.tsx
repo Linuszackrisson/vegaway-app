@@ -1,14 +1,14 @@
-import './CartPage.css'; 
+import './Hero.css'; 
 
-function CartPage() {
+function Hero() {
   return (
     <div>
-      <h1>CartPage</h1>
+        
     </div>
   )
 }
 
-export default CartPage
+export default Hero
 
 /**
  * Författare Linus
