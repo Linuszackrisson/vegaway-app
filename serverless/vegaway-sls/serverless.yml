@@ -1,16 +1,132 @@
-# "org" ensures this Service is used with the correct Serverless Framework Access Key.
-org: isaks
-# "service" is the name of this project. This will also be added to your AWS resource names.
+org: ${env:SLS_ORG} # Define SLS_ORG in .env
 service: vegaway-sls
 
 provider:
   name: aws
   runtime: nodejs20.x
+  region: eu-north-1
+  iam:
+    role: ${env:MY_ROLE_ARN} # Define MY_ROLE_ARN in .env
 
 functions:
-  hello:
-    handler: handler.hello
+  # CUSTOMER ACTIONS
+
+  getMenu:
+    handler: handlers/getMenu.handler
     events:
       - httpApi:
-          path: /
+          path: /menu
           method: get
+
+  createOrder:
+    handler: handlers/createOrder.handler
+    events:
+      - httpApi:
+          path: /orders
+          method: post
+
+  getOrderStatus:
+    handler: handlers/getOrderStatus.handler
+    events:
+      - httpApi:
+          path: /orders/status
+          method: get
+
+  deleteOrder:
+    handler: handlers/deleteOrder.handler
+    events:
+      - httpApi:
+          path: /orders
+          method: delete
+
+  updateOrder:
+    handler: handlers/updateOrder.handler
+    events:
+      - httpApi:
+          path: /orders
+          method: put
+
+  # STAFF ACTIONS
+
+  fetchActiveOrders:
+    handler: handlers/fetchOrders.handler
+    events:
+      - http:
+          path: orders/active
+          method: get
+          request:
+            parameters:
+              paths:
+                orderType: "Active"
+
+  fetchPendingOrders:
+    handler: handlers/fetchOrders.handler
+    events:
+      - http:
+          path: orders/pending
+          method: get
+          request:
+            parameters:
+              paths:
+                orderType: "Pending"
+
+  updatePendingOrder:
+    handler: handlers/updatePendingOrder.handler
+    events:
+      - httpApi:
+          path: /staff/orders/pending
+          method: put
+
+  confirmPendingOrder:
+    handler: handlers/confirmPendingOrder.handler
+    events:
+      - httpApi:
+          path: /staff/orders/confirm
+          method: post
+
+  getInventory:
+    handler: handlers/getInventory.handler
+    events:
+      - httpApi:
+          path: /staff/inventory
+          method: get
+
+  getStaffMenu:
+    handler: handlers/getStaffMenu.handler
+    events:
+      - httpApi:
+          path: /staff/menu
+          method: get
+
+  updateMenuItem:
+    handler: handlers/updateMenuItem.handler
+    events:
+      - httpApi:
+          path: /staff/menu/items
+          method: put
+
+resources:
+  Resources:
+    MenuTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:service}-menu
+        AttributeDefinitions:
+          - AttributeName: menuId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: menuId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+
+    OrdersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:service}-orders
+        AttributeDefinitions:
+          - AttributeName: orderStatus
+            AttributeType: S
+        KeySchema:
+          - AttributeName: orderStatus
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
