@@ -9,7 +9,7 @@ provider:
     role: ${env:MY_ROLE_ARN} # Define MY_ROLE_ARN in .env
 
 functions:
-  # CUSTOMERS
+  # CUSTOMER ACTIONS
 
   getMenu:
     handler: handlers/getMenu.handler
@@ -18,81 +18,81 @@ functions:
           path: /menu
           method: get
 
-  sendOrder:
-    handler: handlers/sendOrder.handler
+  createOrder:
+    handler: handlers/createOrder.handler
     events:
       - httpApi:
-          path: /sendOrder
+          path: /orders
           method: post
 
   getOrderStatus:
     handler: handlers/getOrderStatus.handler
     events:
       - httpApi:
-          path: /getOrderStatus
+          path: /orders/status
           method: get
 
   deleteOrder:
     handler: handlers/deleteOrder.handler
     events:
       - httpApi:
-          path: /deleteOrder
+          path: /orders
           method: delete
 
   updateOrder:
     handler: handlers/updateOrder.handler
     events:
       - httpApi:
-          path: /updateOrder
+          path: /orders
           method: put
 
-  # STAFF
+  # STAFF ACTIONS
 
-  getActiveOrders:
-    handler: handlers/getActiveOrders.handler
+  listActiveOrders:
+    handler: handlers/listActiveOrders.handler
     events:
       - httpApi:
-          path: /getActiveOrders
+          path: /staff/orders/active
           method: get
 
-  getPendingOrders:
-    handler: handlers/getPendingOrders.handler
+  listPendingOrders:
+    handler: handlers/listPendingOrders.handler
     events:
       - httpApi:
-          path: /getPendingOrders
+          path: /staff/orders/pending
           method: get
 
   updatePendingOrder:
     handler: handlers/updatePendingOrder.handler
     events:
       - httpApi:
-          path: /updatePendingOrder
+          path: /staff/orders/pending
           method: put
 
   confirmPendingOrder:
     handler: handlers/confirmPendingOrder.handler
     events:
       - httpApi:
-          path: /confirmPendingOrder
+          path: /staff/orders/confirm
           method: post
 
   getInventory:
     handler: handlers/getInventory.handler
     events:
       - httpApi:
-          path: /getInventory
+          path: /staff/inventory
           method: get
 
-  getMenuStaff:
-    handler: handlers/getMenuStaff.handler
+  getStaffMenu:
+    handler: handlers/getStaffMenu.handler
     events:
       - httpApi:
-          path: /getMenuStaff
+          path: /staff/menu
           method: get
 
-  updateMenuItems:
-    handler: handlers/updateMenuItems.handler
+  updateMenuItem:
+    handler: handlers/updateMenuItem.handler
     events:
       - httpApi:
-          path: /updateMenuItems
+          path: /staff/menu/items
           method: put
