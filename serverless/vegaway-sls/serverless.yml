@@ -110,3 +110,15 @@ resources:
           - AttributeName: menuId
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
+
+    OrdersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:service}-orders
+        AttributeDefinitions:
+          - AttributeName: orderStatus
+            AttributeType: S
+        KeySchema:
+          - AttributeName: orderStatus
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
