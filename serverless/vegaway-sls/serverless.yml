@@ -48,19 +48,27 @@ functions:
 
   # STAFF ACTIONS
 
-  listActiveOrders:
-    handler: handlers/listActiveOrders.handler
+  fetchActiveOrders:
+    handler: handlers/fetchOrders.handler
     events:
-      - httpApi:
-          path: /staff/orders/active
+      - http:
+          path: orders/active
           method: get
+          request:
+            parameters:
+              paths:
+                orderType: "Active"
 
-  listPendingOrders:
-    handler: handlers/listPendingOrders.handler
+  fetchPendingOrders:
+    handler: handlers/fetchOrders.handler
     events:
-      - httpApi:
-          path: /staff/orders/pending
+      - http:
+          path: orders/pending
           method: get
+          request:
+            parameters:
+              paths:
+                orderType: "Pending"
 
   updatePendingOrder:
     handler: handlers/updatePendingOrder.handler
