@@ -1,14 +1,14 @@
-import './CartPage.css'; 
+import './CartPayButton.css'; 
 
-function CartPage() {
+function CartPayButton() {
   return (
     <div>
-      <h1>CartPage</h1>
+        
     </div>
   )
 }
 
-export default CartPage
+export default CartPayButton
 
 /**
  * Författare Linus

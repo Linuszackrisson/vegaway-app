@@ -23,3 +23,8 @@ function App() {
 }
 
 export default App
+
+/**
+ * Författare Linus
+ * App.jsx boiler plate, importer och routes setup.
+ */

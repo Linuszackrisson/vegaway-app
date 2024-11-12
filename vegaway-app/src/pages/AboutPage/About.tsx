@@ -9,3 +9,8 @@ function About() {
 }
 
 export default About
+
+/**
+ * Författare Linus
+ * Boiler plate code and folder structure.
+ */

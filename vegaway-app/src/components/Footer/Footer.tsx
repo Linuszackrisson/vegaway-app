@@ -1,14 +1,14 @@
-import './CartPage.css'; 
+import './Footer.css'; 
 
-function CartPage() {
+function Footer() {
   return (
     <div>
-      <h1>CartPage</h1>
+        
     </div>
   )
 }
 
-export default CartPage
+export default Footer
 
 /**
  * Författare Linus

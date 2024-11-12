@@ -9,3 +9,8 @@ function HomePage() {
 }
 
 export default HomePage
+
+/**
+ * Författare Linus
+ * Boiler plate code and folder structure.
+ */
