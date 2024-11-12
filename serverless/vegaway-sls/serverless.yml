@@ -1,11 +1,12 @@
-# "org" ensures this Service is used with the correct Serverless Framework Access Key.
-org: isaks
-# "service" is the name of this project. This will also be added to your AWS resource names.
+org: ${env:SLS_ORG} # Define SLS_ORG in .env
 service: vegaway-sls
 
 provider:
   name: aws
   runtime: nodejs20.x
+  region: eu-north-1
+  iam:
+    role: ${env:MY_ROLE_ARN} # Define MY_ROLE_ARN in .env
 
 functions:
   hello:
