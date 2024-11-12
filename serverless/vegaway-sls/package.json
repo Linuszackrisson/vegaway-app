@@ -15,5 +15,8 @@
     "Node.js"
   ],
   "author": "Isak, Linus, Jacob",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1692.0"
+  }
 }
