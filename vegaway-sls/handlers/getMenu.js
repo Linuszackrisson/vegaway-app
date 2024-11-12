@@ -1,10 +1,12 @@
 // handlers/getMenu.js
 const AWS = require("aws-sdk");
 const createResponse = require("../utils/response");
-
+const middy = require("@middy/core");
+const validateKey = require("../middlewares/validateKey");
+const errorHandler = require("../middlewares/errorHandler");
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-module.exports.handler = async (event) => {
+module.exports.handler = middy(async (event) => {
   try {
     const params = {
       TableName: "vegaway-sls-menu", // Replace with your actual table name
@@ -21,7 +23,9 @@ module.exports.handler = async (event) => {
       error: error.message,
     });
   }
-};
+})
+  .use(validateKey())
+  .use(errorHandler());
 
 /* 
 Författare isak
