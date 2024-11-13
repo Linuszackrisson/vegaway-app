@@ -51,7 +51,7 @@ functions:
   fetchOrders:
     handler: handlers/getOrders.handler
     events:
-      - http:
+      - httpApi:
           path: staff/orders/{orderType}
           method: get
           request:
