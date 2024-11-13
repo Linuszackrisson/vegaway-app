@@ -1,17 +1,17 @@
-import { vegetarianDishes } from '../../api/mockupData';
+import React from "react";
+import { MenuItem as MenuItemType } from "../../api/menuApi";
 
-const MenuItem = () => {
+interface MenuItemProps {
+  item: MenuItemType;
+}
+
+const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
   return (
-    <div>
-      {vegetarianDishes.map(dish => (
-        <div key={dish.id}>
-          <h3>{dish.name}</h3>
-          <p>{dish.description}</p>
-          <p>Price: ${dish.price.toFixed(2)}</p>
-          <p>Ingredients: {dish.ingredients.join(', ')}</p>
-        </div>
-      ))}
-    </div>
+    <li key={item.menuId}>
+      <h2>{item.name}</h2>
+      <p>{item.description}</p>
+      <p>Price: ${item.price.toFixed(2)}</p>
+    </li>
   );
 };
 
@@ -19,6 +19,6 @@ export default MenuItem;
 
 /**
  * Författare Linus
- * Boiler plate code and folder structure, also added map thru test data from mockupData.ts
+ * Boiler plate code, import av menuAPI function.
  * 
  */
