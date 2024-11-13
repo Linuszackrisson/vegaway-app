@@ -2,7 +2,7 @@ require("dotenv").config(); // Load environment variables from .env
 
 module.exports = () => ({
   before: (handler) => {
-    const { key } = handler.event.headers?.Authorization || {};
+    const { key } = handler.event.headers?.Authorization;
 
     if (!key) {
       throw new Error("API key missing");
