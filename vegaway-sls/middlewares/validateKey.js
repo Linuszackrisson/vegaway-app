@@ -1,9 +1,8 @@
-const AWS = require("aws-sdk");
 require("dotenv").config(); // Load environment variables from .env
 
-module.exports.validateKey = () => ({
+module.exports = () => ({
   before: (handler) => {
-    const { key } = handler.event.queryStringParameters;
+    const { key } = handler.event.headers?.Authorization || {};
 
     if (!key) {
       throw new Error("API key missing");
