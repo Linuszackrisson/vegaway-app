@@ -7,6 +7,8 @@ provider:
   region: eu-north-1
   iam:
     role: ${env:MY_ROLE_ARN} # Define MY_ROLE_ARN in .env
+  httpApi:
+    cors: true
 
 functions:
   # CUSTOMER ACTIONS
