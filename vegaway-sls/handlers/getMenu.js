@@ -7,6 +7,7 @@ const errorHandler = require("../middlewares/errorHandler");
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 module.exports.handler = middy(async (event) => {
+  console.log("Request received:", event); // Log the event to see the request details
   try {
     const params = {
       TableName: "vegaway-sls-menu", // Replace with your actual table name

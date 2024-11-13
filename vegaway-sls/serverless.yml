@@ -7,6 +7,23 @@ provider:
   region: eu-north-1
   iam:
     role: ${env:MY_ROLE_ARN} # Define MY_ROLE_ARN in .env
+  httpApi:
+    cors:
+      allowedOrigins:
+        - "*"
+      allowedHeaders:
+        - Content-Type
+        - Authorization
+        - x-api-key
+      allowedMethods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - OPTIONS
+      exposedResponseHeaders:
+        - Special-Response-Header
+      maxAge: 6000 # In seconds
 
 functions:
   # CUSTOMER ACTIONS
