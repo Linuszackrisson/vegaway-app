@@ -2,20 +2,19 @@ import "./MenuPage.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+const invokeUrl = import.meta.env.VITE_INVOKE_URL;
+
 function MenuPage() {
   const [menuItems, setMenuItems] = useState([]);
 
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await axios.get(
-          "https://5u4tfoeny0.execute-api.eu-north-1.amazonaws.com/menu",
-          {
-            headers: {
-              Authentication: "MY_API_KEY",
-            },
-          }
-        );
+        const response = await axios.get(`${invokeUrl}/menu`, {
+          headers: {
+            Authorization: "MY_API_KEY",
+          },
+        });
         setMenuItems(response.data.data);
       } catch (error) {
         console.error("Error fetching menu:", error);
