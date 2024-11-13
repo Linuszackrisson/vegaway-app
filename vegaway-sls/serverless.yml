@@ -48,12 +48,12 @@ functions:
 
   # STAFF ACTIONS
 
-  fetchOrders:
-  handler: handlers/getOrders.handler
-  events:
-    - httpApi:
-        path: /staff/orders/{orderType}
-        method: get
+  getOrders:
+    handler: handlers/getOrders.handler
+    events:
+      - httpApi:
+          path: /staff/orders/{orderType}
+          method: get
 
   updatePendingOrder:
     handler: handlers/updatePendingOrder.handler
