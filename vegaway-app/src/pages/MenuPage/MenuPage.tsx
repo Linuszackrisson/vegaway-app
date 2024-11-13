@@ -1,41 +1,30 @@
 import "./MenuPage.css";
-import axios from "axios";
 import { useEffect, useState } from "react";
-
-const invokeUrl = import.meta.env.VITE_INVOKE_URL;
+import { fetchMenuItems, MenuItem as MenuItemType } from "../../api/menuApi";
+import MenuItem from "../../components/MenuItem/MenuItem";
 
 function MenuPage() {
-  const [menuItems, setMenuItems] = useState([]);
+  const [menuItems, setMenuItems] = useState<MenuItemType[]>([]);
 
   useEffect(() => {
-    const fetchMenu = async () => {
-      try {
-        const response = await axios.get(`${invokeUrl}/menu`, {
-          headers: {
-            Authorization: "MY_API_KEY",
-          },
-        });
-        setMenuItems(response.data.data);
-      } catch (error) {
-        console.error("Error fetching menu:", error);
-      }
+    const getMenuItems = async () => {
+      const items = await fetchMenuItems();
+      setMenuItems(items);
     };
 
-    fetchMenu();
+    getMenuItems();
   }, []);
 
   return (
     <div>
       <h1>Menu Page</h1>
-      <ul>
-        {menuItems.map((item) => (
-          <li key={item.menuId}>
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-            <p>Price: ${item.price.toFixed(2)}</p>
-          </li>
-        ))}
-      </ul>
+      <div>
+        {menuItems.length > 0 ? (
+          menuItems.map((item) => <MenuItem key={item.menuId} item={item} />)
+        ) : (
+          <p>Inga menyobjekt tillgängliga, kolla api anropet.</p>
+        )}
+      </div>
     </div>
   );
 }
@@ -45,4 +34,5 @@ export default MenuPage;
 /**
  * Författare Linus
  * Boiler plate code and folder structure.
+ * MenuPage, hämtar och visar en lista av menyobjekt från ett API.
  */
