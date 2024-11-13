@@ -1,10 +1,12 @@
 // handlers/updateMenuItem.js
 const AWS = require("aws-sdk");
 const createResponse = require("../utils/response");
-
+const middy = require("@middy/core");
+const validateKey = require("../middlewares/validateKey");
+const errorHandler = require("../middlewares/errorHandler");
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-module.exports.handler = async (event) => {
+module.exports.handler = middy(async (event) => {
   try {
     // Parse the request body to get the menu item details
     const { menuId, name, description, price } = JSON.parse(event.body);
@@ -70,7 +72,9 @@ module.exports.handler = async (event) => {
       }
     );
   }
-};
+})
+  .use(validateKey())
+  .use(errorHandler());
 
 /* 
 Författare: Isak
