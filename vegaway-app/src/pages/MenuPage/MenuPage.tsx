@@ -1,6 +1,6 @@
-import './MenuPage.css'; 
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import "./MenuPage.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function MenuPage() {
   const [menuItems, setMenuItems] = useState([]);
@@ -8,14 +8,17 @@ function MenuPage() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await axios.get('https://cors-anywhere.herokuapp.com/https://5u4tfoeny0.execute-api.eu-north-1.amazonaws.com/menu', {
-          headers: {
-            'Authentication': 'MY_API_KEY'
+        const response = await axios.get(
+          "https://5u4tfoeny0.execute-api.eu-north-1.amazonaws.com/menu",
+          {
+            headers: {
+              Authentication: "MY_API_KEY",
+            },
           }
-        });
-        setMenuItems(response.data.data); 
+        );
+        setMenuItems(response.data.data);
       } catch (error) {
-        console.error('Error fetching menu:', error);
+        console.error("Error fetching menu:", error);
       }
     };
 
@@ -26,7 +29,7 @@ function MenuPage() {
     <div>
       <h1>Menu Page</h1>
       <ul>
-        {menuItems.map(item => (
+        {menuItems.map((item) => (
           <li key={item.menuId}>
             <h2>{item.name}</h2>
             <p>{item.description}</p>
