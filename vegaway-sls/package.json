@@ -16,8 +16,9 @@
   "author": "Isak, Linus, Jacob",
   "license": "ISC",
   "dependencies": {
-    "@middy/core": "^5.5.1",
+    "@middy/core": "^2.5.4",
     "aws-sdk": "^2.1692.0",
+    "dotenv": "^16.4.5",
     "joi": "^17.13.3"
   }
 }

@@ -48,27 +48,16 @@ functions:
 
   # STAFF ACTIONS
 
-  fetchActiveOrders:
-    handler: handlers/fetchOrders.handler
+  fetchOrders:
+    handler: handlers/getOrders.handler
     events:
       - http:
-          path: orders/active
+          path: staff/orders/{orderType}
           method: get
           request:
             parameters:
               paths:
-                orderType: "Active"
-
-  fetchPendingOrders:
-    handler: handlers/fetchOrders.handler
-    events:
-      - http:
-          path: orders/pending
-          method: get
-          request:
-            parameters:
-              paths:
-                orderType: "Pending"
+                orderType: true
 
   updatePendingOrder:
     handler: handlers/updatePendingOrder.handler
