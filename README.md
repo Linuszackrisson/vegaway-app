@@ -48,9 +48,9 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 #### Onsdag (2024-11-13)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |           Mappstruktur, boilerplates, testanrop från mockup, förberedlser inför vår första getanrop.                   |  Testa vårt första get-anrop och fortsätta med förberedlser inför kodning i react.                      |   Nej.                      |
+| Isak       |        Mycket backend arbete, handlers utifrån flow charten, alla är inte kompletta men på god väg att bli. Också pysslat med middy.                      |     Fortsätta med backend                   |    Nej                     |
+| Jacob      |           Tagit fram illustrationer på ikoner och grafik vi ska använda oss av, gjort en high-fi layout samt tänkt ut mer grundligt hur UI/UX skall va.                   |  Fortsätta med UI/UX                      |         Nej                |
 
 #### Torsdag (2024-11-14)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
