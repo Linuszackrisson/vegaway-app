@@ -159,4 +159,4 @@ resources:
           - email
           - openid
         CallbackURLs:
-          - "https://yourapp.com/callback"
+          - "http://localhost/*"
