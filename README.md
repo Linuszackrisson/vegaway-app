@@ -84,9 +84,9 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 #### Tisdag (2024-11-19)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |            Bråkat med cors. Fått menyn renderad till webbläsaren. Fixat menuAPI, menuPage & menuItem funktioner.                  |   Bygga vars för CSS följt av att börja styla menuPage & menuItem.                    |  Nej                       |
+| Isak       |          Backend, cors bugg fix, försöker få in middy in allt. Yaml-file struktur. Börjat på cognito-issuen.                  |     Fortsätta med cognito                   |    Nej.                     |
+| Jacob      |           Hi-fi wireframes                   |          Fortsätta med detaljerad hi-fi              |         Nej.                |
 
 #### Onsdag (2024-11-20)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
