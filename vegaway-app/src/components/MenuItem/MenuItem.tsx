@@ -1,5 +1,7 @@
-import React from "react";
+// vegaway-app/src/components/MenuItem/MenuItem.tsx
+import React, { useState } from "react";
 import { MenuItem as MenuItemType } from "../../api/menuApi";
+import './MenuItem.css'
 
 interface MenuItemProps {
   item: MenuItemType;
@@ -7,10 +9,19 @@ interface MenuItemProps {
 
 const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
   return (
-    <li key={item.menuId}>
-      <h2>{item.name}</h2>
-      <p>{item.description}</p>
-      <p>Price: ${item.price.toFixed(2)}</p>
+    <li className="menu-item" key={item.menuId}>
+        <div className="menu-item__collapsed">
+          <div className="menu-item__image-container">
+            <img className="menu-item__image--small" src="https://placehold.co/200x115" alt={item.name} />
+            <button className="menu-item__add-button">+</button>
+          </div>
+          <div className="menu-item__info">
+            <div className="menu-item__title-price">
+              <p className="menu-item__title">{item.name}</p>
+              <p className="menu-item__price">${item.price.toFixed(2)}</p>
+            </div>
+          </div>
+        </div>
     </li>
   );
 };

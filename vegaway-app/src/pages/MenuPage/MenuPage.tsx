@@ -18,7 +18,7 @@ function MenuPage() {
   return (
     <div>
       <h1>Menu Page</h1>
-      <div>
+      <div className="MenuPage-grid">
         {menuItems.length > 0 ? (
           menuItems.map((item) => <MenuItem key={item.menuId} item={item} />)
         ) : (
