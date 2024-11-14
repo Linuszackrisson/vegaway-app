@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@100;300;400;500;700;900&display=swap');
 
+*, html {
+  box-sizing: border-box;
+}
+
 :root {
   --text-color: #1B1B1B;
   --h1-size: 32px;
@@ -13,12 +17,18 @@
 #root {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0;
   text-align: center;
   background-color: var(--bg-color); 
 }
 
+h1, h2, h3, h4, h5, h6, p, span, a, label, li {
+    margin: 0;
+    display: inline-block;
+    width: auto; 
+}
+
 h1 {
-  margin: auto;
   color: var(--text-color); 
   font-size: var(--h1-size); 
 }

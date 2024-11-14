@@ -1,0 +1,28 @@
+/* src/components/ProductSlider/ProductSlider.css */
+.product-slider {
+    margin: 0;
+    padding: 0;
+}
+
+.product-slider__title {
+    display: flex;
+    padding: 0 14px;
+}
+
+.product-slider__list {
+    margin: 8px auto 20px;
+    padding: 0 14px;
+    display: flex;
+    overflow-x: auto;
+    gap: 11px;
+    list-style: none;
+}
+
+.product-slider__list::-webkit-scrollbar {
+    display: none;
+}
+
+.product-card {
+    flex: 0 0 75%;
+    scroll-snap-align: start;
+}
