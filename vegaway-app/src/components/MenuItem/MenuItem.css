@@ -1,0 +1,55 @@
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+  
+.menu-item__collapsed {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+  
+.menu-item__image-container {
+    position: relative;
+}
+  
+.menu-item__image--small {
+    width: 100%;
+}
+  
+.menu-item__add-button {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+  
+.menu-item__info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+  
+.menu-item__title-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.menu-item__title {
+    margin: 0;
+}
+  
+.menu-item__price {
+    margin: 0;
+}
+  
+.menu-item__info-button {
+    align-self: flex-start;
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    font-family: 'Darker Grotesque', sans-serif; 
+
+}

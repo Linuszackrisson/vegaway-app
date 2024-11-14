@@ -31,10 +31,12 @@ h2 {
 button {
   background-color: var(--button-color); 
   color: var(--text-color);
+  
 }
 
 p {
   font-size: var(--p-size); 
+  font-weight: 500;
 }
 
 body {
