@@ -2,9 +2,11 @@ org: ${env:SLS_ORG} # Define SLS_ORG in .env
 service: vegaway-sls
 custom:
   guestUserRole: ${file(./YAML/resources/guest-user-role.yml)}
+  authUserRole: ${file(./YAML/resources/auth-user-role.yml)}
   cognitoIdentityPool: ${file(./YAML/resources/cognito-identity-pool.yml)}
   cognitoUserPool: ${file(./YAML/resources/cognito-user-pool.yml)}
   cognitoUserPoolClient: ${file(./YAML/resources/cognito-user-pool-client.yml)}
+  cognitoIdentityPoolRoleAttachment: ${file(./YAML/resources/cognito-identity-pool-role-attachment.yml)}
 
 provider:
   name: aws
@@ -104,10 +106,12 @@ functions:
 resources:
   Resources:
     # Imported resources first
-    GuestUserRole: ${self:custom.guestUserRole}
-    CognitoIdentityPool: ${self:custom.cognitoIdentityPool}
-    CognitoUserPool: ${self:custom.cognitoUserPool}
     CognitoUserPoolClient: ${self:custom.cognitoUserPoolClient}
+    CognitoUserPool: ${self:custom.cognitoUserPool}
+    CognitoIdentityPool: ${self:custom.cognitoIdentityPool}
+    GuestUserRole: ${self:custom.guestUserRole}
+    AuthUserRole: ${self:custom.authUserRole}
+    CognitoIdentityPoolRoleAttachment: ${self:custom.cognitoIdentityPoolRoleAttachment}
 
     # DynamoDB Resources
     MenuTable:
