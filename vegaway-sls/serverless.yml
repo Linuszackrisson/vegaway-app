@@ -10,6 +10,7 @@ custom:
 
 provider:
   name: aws
+  stage: dev
   runtime: nodejs20.x
   region: eu-north-1
   iam:
