@@ -10,8 +10,9 @@ Properties:
         Action: "sts:AssumeRoleWithWebIdentity"
         Condition:
           StringEquals:
-            "cognito-identity.amazonaws.com:aud": !Ref CognitoIdentityPool # Reference to Cognito Identity Pool
-          "ForAnyValue:StringLike":
+            "cognito-identity.amazonaws.com:aud":
+              Fn::GetAtt: [CognitoIdentityPool, Id] # Dynamically reference the Identity Pool ID
+          ForAnyValue:StringLike:
             "cognito-identity.amazonaws.com:amr": "unauthenticated"
   Policies:
     - PolicyName: GuestUserReadOnlyPolicy
