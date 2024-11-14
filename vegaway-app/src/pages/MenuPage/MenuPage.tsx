@@ -1,38 +1,51 @@
-import "./MenuPage.css";
+// src/pages/MenuPage/MenuPage.tsx
 import { useEffect, useState } from "react";
-import { fetchMenuItems, MenuItem as MenuItemType } from "../../api/menuApi";
-import MenuItem from "../../components/MenuItem/MenuItem";
+import { fetchMenuItems, MenuItem } from "../../api/menuApi";
+import "./MenuPage.css";
+import ProductSlider from "../../components/productSlider/ProductSlider";
+
+
+interface ProductItem {
+	id: string;
+	name: string;
+	price: number;
+}
 
 function MenuPage() {
-  const [menuItems, setMenuItems] = useState<MenuItemType[]>([]);
+	const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
 
-  useEffect(() => {
-    const getMenuItems = async () => {
-      const items = await fetchMenuItems();
-      setMenuItems(items);
-    };
+	useEffect(() => {
+		const getMenuItems = async () => {
+			const items = await fetchMenuItems();
+			setMenuItems(items);
+		};
+		getMenuItems();
+	}, []);
 
-    getMenuItems();
-  }, []);
+	const groupedItems: Record<string, ProductItem[]> = {}; 
 
-  return (
-    <div>
-      <h1>Menu Page</h1>
-      <div>
-        {menuItems.length > 0 ? (
-          menuItems.map((item) => <MenuItem key={item.menuId} item={item} />)
-        ) : (
-          <p>Inga menyobjekt tillgängliga, kolla api anropet.</p>
-        )}
-      </div>
-    </div>
-  );
+	menuItems.forEach(item => {
+		const productItem: ProductItem = { id: item.menuId, name: item.name, price: item.price };
+		if (!groupedItems[item.category]) {
+			groupedItems[item.category] = []; // 
+		}
+		groupedItems[item.category].push(productItem); 
+	});
+
+	return (
+		<div className="menu-page">
+			{Object.entries(groupedItems).map(([category, items]) => (
+				<ProductSlider key={category} title={category} items={items} />
+			))}
+		</div>
+	);
 }
 
 export default MenuPage;
 
 /**
  * Författare Linus
- * Boiler plate code and folder structure.
- * MenuPage, hämtar och visar en lista av menyobjekt från ett API.
+ * Implementerat en menyvisning som hämtar och grupperar menyobjekt
+ * baserat på kategori och visar dem med hjälp av ProductSlider-komponenten.
  */
+ 
