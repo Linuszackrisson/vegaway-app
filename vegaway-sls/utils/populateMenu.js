@@ -13,6 +13,7 @@ const menuItems = [
     name: "Vegetable Stir Fry",
     description: "A colorful mix of stir-fried vegetables with a savory sauce.",
     price: 12.99,
+    category: "Category 1",
   },
   {
     menuId: "2",
@@ -20,6 +21,7 @@ const menuItems = [
     description:
       "A delicious patty made from black beans, served with lettuce and tomato.",
     price: 10.99,
+    category: "Category 1",
   },
   {
     menuId: "3",
@@ -27,6 +29,7 @@ const menuItems = [
     description:
       "Classic pizza with fresh mozzarella, basil, and tomato sauce.",
     price: 14.99,
+    category: "Category 2",
   },
   {
     menuId: "4",
@@ -34,6 +37,7 @@ const menuItems = [
     description:
       "A hearty and filling soup made with lentils and a variety of vegetables.",
     price: 8.99,
+    category: "Category 2",
   },
   {
     menuId: "5",
@@ -41,12 +45,14 @@ const menuItems = [
     description:
       "A vegan alternative to scrambled eggs made with tofu and veggies.",
     price: 9.99,
+    category: "Category 3",
   },
   {
     menuId: "6",
     name: "Stuffed Bell Peppers",
     description: "Bell peppers stuffed with quinoa, black beans, and corn.",
     price: 11.49,
+    category: "Category 3",
   },
   {
     menuId: "7",
@@ -54,6 +60,7 @@ const menuItems = [
     description:
       "Crispy falafel wrapped in pita with hummus, tomatoes, and cucumbers.",
     price: 10.49,
+    category: "Category 4",
   },
   {
     menuId: "8",
@@ -61,6 +68,7 @@ const menuItems = [
     description:
       "A hearty and spicy chili made with beans, tomatoes, and vegetables.",
     price: 13.49,
+    category: "Category 4",
   },
 ];
 
