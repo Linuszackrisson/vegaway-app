@@ -30,4 +30,7 @@ export default ProductSlider;
 
 /**
  * Författare Jacob
+ * 
+ * Författare Linus
+ * Uppdaterade komponent för att fungera med ändringar i MenuPage
  */

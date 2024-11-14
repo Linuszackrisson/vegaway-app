@@ -4,10 +4,11 @@ const invokeUrl = import.meta.env.VITE_INVOKE_URL;
 const API_KEY = "MY_API_KEY";
 
 export interface MenuItem {
-  menuId: number;
+  menuId: string;
   name: string;
   description: string;
   price: number;
+  category: string;
 }
 
 export const fetchMenuItems = async (): Promise<MenuItem[]> => {
@@ -29,4 +30,5 @@ export const fetchMenuItems = async (): Promise<MenuItem[]> => {
  * 
  * API-anrop för att hämta menyobjekt och 
  * hantera fel. Via ENVOKE. Fuck CORS!
+ * Adderade nu en category string.
  */
