@@ -1,22 +1,42 @@
 // src/pages/MenuPage/MenuPage.tsx
+import { useEffect, useState } from "react";
+import { fetchMenuItems, MenuItem } from "../../api/menuApi";
 import "./MenuPage.css";
 import ProductSlider from "../../components/productSlider/ProductSlider";
 
+
+interface ProductItem {
+	id: string;
+	name: string;
+	price: number;
+}
+
 function MenuPage() {
-	// Statiska placeholder-produkter
-	const placeholderItems = [
-		{ id: "1", name: "Product 1", price: 9.99 },
-		{ id: "2", name: "Product 2", price: 19.99 },
-		{ id: "3", name: "Product 3", price: 29.99 },
-		{ id: "4", name: "Product 4", price: 39.99 }
-	];
+	const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+
+	useEffect(() => {
+		const getMenuItems = async () => {
+			const items = await fetchMenuItems();
+			setMenuItems(items);
+		};
+		getMenuItems();
+	}, []);
+
+	const groupedItems: Record<string, ProductItem[]> = {}; 
+
+	menuItems.forEach(item => {
+		const productItem: ProductItem = { id: item.menuId, name: item.name, price: item.price };
+		if (!groupedItems[item.category]) {
+			groupedItems[item.category] = []; // 
+		}
+		groupedItems[item.category].push(productItem); 
+	});
 
 	return (
 		<div className="menu-page">
-			<ProductSlider title="New Releases" items={placeholderItems} />
-			<ProductSlider title="Chef's Choice" items={placeholderItems} />
-			<ProductSlider title="Classics" items={placeholderItems} />
-			<ProductSlider title="Only Greens" items={placeholderItems} />
+			{Object.entries(groupedItems).map(([category, items]) => (
+				<ProductSlider key={category} title={category} items={items} />
+			))}
 		</div>
 	);
 }
@@ -24,5 +44,8 @@ function MenuPage() {
 export default MenuPage;
 
 /**
- * Författare Jacob
+ * Författare Linus
+ * Implementerat en menyvisning som hämtar och grupperar menyobjekt
+ * baserat på kategori och visar dem med hjälp av ProductSlider-komponenten.
  */
+ 

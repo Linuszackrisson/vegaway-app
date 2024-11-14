@@ -44,4 +44,7 @@ export default ProductCard;
 
 /**
  * Författare Jacob
+ * 
+ * Författare Linus
+ * Uppdaterade kompontent så att den fungerar enligt issuen
  */
