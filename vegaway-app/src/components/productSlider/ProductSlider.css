@@ -7,7 +7,11 @@
 .product-slider__title {
     display: flex;
     padding: 0 14px;
+    
+    
 }
+
+
 
 .product-slider__list {
     margin: 8px auto 20px;
@@ -26,3 +30,13 @@
     flex: 0 0 75%;
     scroll-snap-align: start;
 }
+
+.filter-button {
+    border: none;
+    background: none;
+    text-align: start;
+    text-decoration: underline;
+    display: flex;
+    align-items: end;
+}
+
