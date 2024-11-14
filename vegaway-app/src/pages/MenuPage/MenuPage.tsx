@@ -1,38 +1,28 @@
+// src/pages/MenuPage/MenuPage.tsx
 import "./MenuPage.css";
-import { useEffect, useState } from "react";
-import { fetchMenuItems, MenuItem as MenuItemType } from "../../api/menuApi";
-import MenuItem from "../../components/MenuItem/MenuItem";
+import ProductSlider from "../../components/productSlider/ProductSlider";
 
 function MenuPage() {
-  const [menuItems, setMenuItems] = useState<MenuItemType[]>([]);
+	// Statiska placeholder-produkter
+	const placeholderItems = [
+		{ id: "1", name: "Product 1", price: 9.99 },
+		{ id: "2", name: "Product 2", price: 19.99 },
+		{ id: "3", name: "Product 3", price: 29.99 },
+		{ id: "4", name: "Product 4", price: 39.99 }
+	];
 
-  useEffect(() => {
-    const getMenuItems = async () => {
-      const items = await fetchMenuItems();
-      setMenuItems(items);
-    };
-
-    getMenuItems();
-  }, []);
-
-  return (
-    <div>
-      <h1>Menu Page</h1>
-      <div className="MenuPage-grid">
-        {menuItems.length > 0 ? (
-          menuItems.map((item) => <MenuItem key={item.menuId} item={item} />)
-        ) : (
-          <p>Inga menyobjekt tillgängliga, kolla api anropet.</p>
-        )}
-      </div>
-    </div>
-  );
+	return (
+		<div className="menu-page">
+			<ProductSlider title="New Releases" items={placeholderItems} />
+			<ProductSlider title="Chef's Choice" items={placeholderItems} />
+			<ProductSlider title="Classics" items={placeholderItems} />
+			<ProductSlider title="Only Greens" items={placeholderItems} />
+		</div>
+	);
 }
 
 export default MenuPage;
 
 /**
- * Författare Linus
- * Boiler plate code and folder structure.
- * MenuPage, hämtar och visar en lista av menyobjekt från ett API.
+ * Författare Jacob
  */

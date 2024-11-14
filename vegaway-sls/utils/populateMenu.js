@@ -1,10 +1,10 @@
-const AWS = require("aws-sdk");
+import { config, DynamoDB } from "aws-sdk";
 
 // Set the region for AWS SDK
-AWS.config.update({ region: "eu-north-1" }); // Replace with your region
+config.update({ region: "eu-north-1" }); // Replace with your region
 
 // Set up the DynamoDB DocumentClient
-const dynamoDb = new AWS.DynamoDB.DocumentClient();
+const dynamoDb = new DynamoDB.DocumentClient();
 
 // Define your dishes
 const menuItems = [
