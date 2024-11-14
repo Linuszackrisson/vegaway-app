@@ -1,4 +1,5 @@
 Type: AWS::Cognito::IdentityPool
+DependsOn: CognitoUserPoolClient
 Properties:
   IdentityPoolName: VegAwayIdentityPool
   AllowUnauthenticatedIdentities: true
