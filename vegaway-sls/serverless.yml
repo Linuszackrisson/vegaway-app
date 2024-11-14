@@ -1,5 +1,8 @@
 org: ${env:SLS_ORG} # Define SLS_ORG in .env
 service: vegaway-sls
+custom:
+  guestUserRole: ${file(./YAML/resources/guest-user-role.yml)}
+  cognitoIdentityPool: ${file(./YAML/resources/cognito-identity-pool.yml)}
 
 provider:
   name: aws
@@ -27,35 +30,30 @@ provider:
 
 functions:
   # CUSTOMER ACTIONS
-
   getMenu:
     handler: handlers/getMenu.handler
     events:
       - httpApi:
           path: /menu
           method: get
-
   createOrder:
     handler: handlers/createOrder.handler
     events:
       - httpApi:
           path: /orders
           method: post
-
   getOrderStatus:
     handler: handlers/getOrderStatus.handler
     events:
       - httpApi:
           path: /orders/status
           method: get
-
   deleteOrder:
     handler: handlers/deleteOrder.handler
     events:
       - httpApi:
           path: /orders
           method: delete
-
   updateOrder:
     handler: handlers/updateOrder.handler
     events:
@@ -64,42 +62,36 @@ functions:
           method: put
 
   # STAFF ACTIONS
-
   getOrders:
     handler: handlers/getOrders.handler
     events:
       - httpApi:
           path: /staff/orders/{orderType}
           method: get
-
   updatePendingOrder:
     handler: handlers/updatePendingOrder.handler
     events:
       - httpApi:
           path: /staff/orders/pending
           method: put
-
   confirmPendingOrder:
     handler: handlers/confirmPendingOrder.handler
     events:
       - httpApi:
           path: /staff/orders/confirm
           method: post
-
   getInventory:
     handler: handlers/getInventory.handler
     events:
       - httpApi:
           path: /staff/inventory
           method: get
-
   getStaffMenu:
     handler: handlers/getStaffMenu.handler
     events:
       - httpApi:
           path: /staff/menu
           method: get
-
   updateMenuItem:
     handler: handlers/updateMenuItem.handler
     events:
@@ -109,8 +101,10 @@ functions:
 
 resources:
   Resources:
-    # DynamoDB
-
+    # Imported resources first
+    GuestUserRole: ${self:custom.guestUserRole}
+    CognitoIdentityPool: ${self:custom.cognitoIdentityPool}
+    # DynamoDB Resources
     MenuTable:
       Type: AWS::DynamoDB::Table
       Properties:
@@ -136,7 +130,6 @@ resources:
         BillingMode: PAY_PER_REQUEST
 
     # Cognito user pools
-
     CognitoUserPool:
       Type: AWS::Cognito::UserPool
       Properties:
