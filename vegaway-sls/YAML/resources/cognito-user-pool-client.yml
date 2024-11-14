@@ -1,0 +1,13 @@
+Type: AWS::Cognito::UserPoolClient
+Properties:
+  ClientName: MyUserPoolClient
+  UserPoolId:
+    Ref: CognitoUserPool
+  GenerateSecret: false
+  AllowedOAuthFlows:
+    - code
+  AllowedOAuthScopes:
+    - email
+    - openid
+  CallbackURLs:
+    - "http://localhost/*"

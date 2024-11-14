@@ -3,6 +3,8 @@ service: vegaway-sls
 custom:
   guestUserRole: ${file(./YAML/resources/guest-user-role.yml)}
   cognitoIdentityPool: ${file(./YAML/resources/cognito-identity-pool.yml)}
+  cognitoUserPool: ${file(./YAML/resources/cognito-user-pool.yml)}
+  cognitoUserPoolClient: ${file(./YAML/resources/cognito-user-pool-client.yml)}
 
 provider:
   name: aws
@@ -104,6 +106,9 @@ resources:
     # Imported resources first
     GuestUserRole: ${self:custom.guestUserRole}
     CognitoIdentityPool: ${self:custom.cognitoIdentityPool}
+    CognitoUserPool: ${self:custom.cognitoUserPool}
+    CognitoUserPoolClient: ${self:custom.cognitoUserPoolClient}
+
     # DynamoDB Resources
     MenuTable:
       Type: AWS::DynamoDB::Table
@@ -128,35 +133,3 @@ resources:
           - AttributeName: orderStatus
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
-
-    # Cognito user pools
-    CognitoUserPool:
-      Type: AWS::Cognito::UserPool
-      Properties:
-        UserPoolName: MyUserPool
-        AutoVerifiedAttributes:
-          - email
-        UsernameAttributes:
-          - email
-        Policies:
-          PasswordPolicy:
-            MinimumLength: 8
-            RequireUppercase: true
-            RequireLowercase: true
-            RequireNumbers: true
-            RequireSymbols: true
-
-    CognitoUserPoolClient:
-      Type: AWS::Cognito::UserPoolClient
-      Properties:
-        ClientName: MyUserPoolClient
-        UserPoolId:
-          Ref: CognitoUserPool
-        GenerateSecret: false
-        AllowedOAuthFlows:
-          - code
-        AllowedOAuthScopes:
-          - email
-          - openid
-        CallbackURLs:
-          - "http://localhost/*"
