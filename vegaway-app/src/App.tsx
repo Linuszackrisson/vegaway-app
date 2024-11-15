@@ -8,22 +8,26 @@ import ProductPage from "./pages/productPage/ProductPage";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import CartPage from "./pages/CartPage/CartPage";
 import CallbackPage from "./pages/callbackPage/CallbackPage";
+import LoginButton from "./components/loginButton/LoginButton";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/callback" element={<CallbackPage />} />
-        </Routes>
-      </div>
-    </Router>
+    <>
+      <LoginButton />
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/menu" element={<MenuPage />} />
+            <Route path="/product/:id" element={<ProductPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/callback" element={<CallbackPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   );
 }
 
