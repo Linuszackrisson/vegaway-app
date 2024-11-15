@@ -48,7 +48,6 @@ functions:
       - httpApi:
           path: /menu
           method: get
-          authorizer: cognitoAuthorizer
 
   createOrder:
     handler: handlers/createOrder.handler
@@ -56,6 +55,7 @@ functions:
       - httpApi:
           path: /orders
           method: post
+          authorizer: cognitoAuthorizer
 
   getOrderStatus:
     handler: handlers/getOrderStatus.handler
@@ -63,6 +63,7 @@ functions:
       - httpApi:
           path: /orders/status
           method: get
+          authorizer: cognitoAuthorizer
 
   deleteOrder:
     handler: handlers/deleteOrder.handler
@@ -70,6 +71,7 @@ functions:
       - httpApi:
           path: /orders
           method: delete
+          authorizer: cognitoAuthorizer
 
   updateOrder:
     handler: handlers/updateOrder.handler
@@ -77,6 +79,7 @@ functions:
       - httpApi:
           path: /orders
           method: put
+          authorizer: cognitoAuthorizer
 
   # STAFF ACTIONS
   getOrders:
@@ -85,6 +88,7 @@ functions:
       - httpApi:
           path: /staff/orders/{orderType}
           method: get
+          authorizer: cognitoAuthorizer
 
   updatePendingOrder:
     handler: handlers/updatePendingOrder.handler
@@ -92,6 +96,7 @@ functions:
       - httpApi:
           path: /staff/orders/pending
           method: put
+          authorizer: cognitoAuthorizer
 
   confirmPendingOrder:
     handler: handlers/confirmPendingOrder.handler
@@ -99,6 +104,7 @@ functions:
       - httpApi:
           path: /staff/orders/confirm
           method: post
+          authorizer: cognitoAuthorizer
 
   getInventory:
     handler: handlers/getInventory.handler
@@ -106,6 +112,7 @@ functions:
       - httpApi:
           path: /staff/inventory
           method: get
+          authorizer: cognitoAuthorizer
 
   getStaffMenu:
     handler: handlers/getStaffMenu.handler
@@ -113,6 +120,7 @@ functions:
       - httpApi:
           path: /staff/menu
           method: get
+          authorizer: cognitoAuthorizer
 
   updateMenuItem:
     handler: handlers/updateMenuItem.handler
@@ -120,6 +128,7 @@ functions:
       - httpApi:
           path: /staff/menu/items
           method: put
+          authorizer: cognitoAuthorizer
 
 resources:
   Resources:
