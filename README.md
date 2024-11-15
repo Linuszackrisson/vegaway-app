@@ -1,4 +1,4 @@
-# Sprint Planering och Översikt
+![image](https://github.com/user-attachments/assets/0d0afc31-ff00-4641-b935-86f83d27a8f3)# Sprint Planering och Översikt
 
 Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för vårt team under de kommande fyra veckorna. Teammedlemmarna är:
 - Linus
@@ -63,10 +63,14 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 ### Sprint Review (Fredag)
 - **Resultat**:
   - Vad har uppnåtts under veckan?
+    Hi-fi figma skiss, flow-chart, grundlig react kod. Menu, sliders, api anrop, navigering.
   - Vad fungerade bra, och vad kan förbättras?
+    Det mesta har fungerat bra men vi har hade bristfällig kommunkation vid ett tillfälle.
 - **Feedback**:
   - Ge och ta emot feedback från alla teammedlemmar.
+  Done. Samtalet dokumenteras ej.
   - Identifiera åtgärder för förbättring inför nästa vecka.
+  Vi identiferade problemet, diskuterade det, löste det. Ses nästa vecka!
 
 ---
 
