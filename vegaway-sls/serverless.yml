@@ -1,8 +1,16 @@
 org: ${env:SLS_ORG} # Define SLS_ORG in .env
 service: vegaway-sls
+custom:
+  guestUserRole: ${file(./YAML/resources/guest-user-role.yml)}
+  authUserRole: ${file(./YAML/resources/auth-user-role.yml)}
+  cognitoIdentityPool: ${file(./YAML/resources/cognito-identity-pool.yml)}
+  cognitoUserPool: ${file(./YAML/resources/cognito-user-pool.yml)}
+  cognitoUserPoolClient: ${file(./YAML/resources/cognito-user-pool-client.yml)}
+  cognitoIdentityPoolRoleAttachment: ${file(./YAML/resources/cognito-identity-pool-role-attachment.yml)}
 
 provider:
   name: aws
+  stage: dev
   runtime: nodejs20.x
   region: eu-north-1
   iam:
@@ -27,35 +35,30 @@ provider:
 
 functions:
   # CUSTOMER ACTIONS
-
   getMenu:
     handler: handlers/getMenu.handler
     events:
       - httpApi:
           path: /menu
           method: get
-
   createOrder:
     handler: handlers/createOrder.handler
     events:
       - httpApi:
           path: /orders
           method: post
-
   getOrderStatus:
     handler: handlers/getOrderStatus.handler
     events:
       - httpApi:
           path: /orders/status
           method: get
-
   deleteOrder:
     handler: handlers/deleteOrder.handler
     events:
       - httpApi:
           path: /orders
           method: delete
-
   updateOrder:
     handler: handlers/updateOrder.handler
     events:
@@ -64,42 +67,36 @@ functions:
           method: put
 
   # STAFF ACTIONS
-
   getOrders:
     handler: handlers/getOrders.handler
     events:
       - httpApi:
           path: /staff/orders/{orderType}
           method: get
-
   updatePendingOrder:
     handler: handlers/updatePendingOrder.handler
     events:
       - httpApi:
           path: /staff/orders/pending
           method: put
-
   confirmPendingOrder:
     handler: handlers/confirmPendingOrder.handler
     events:
       - httpApi:
           path: /staff/orders/confirm
           method: post
-
   getInventory:
     handler: handlers/getInventory.handler
     events:
       - httpApi:
           path: /staff/inventory
           method: get
-
   getStaffMenu:
     handler: handlers/getStaffMenu.handler
     events:
       - httpApi:
           path: /staff/menu
           method: get
-
   updateMenuItem:
     handler: handlers/updateMenuItem.handler
     events:
@@ -109,6 +106,15 @@ functions:
 
 resources:
   Resources:
+    # Imported resources first
+    CognitoUserPoolClient: ${self:custom.cognitoUserPoolClient}
+    CognitoUserPool: ${self:custom.cognitoUserPool}
+    CognitoIdentityPool: ${self:custom.cognitoIdentityPool}
+    GuestUserRole: ${self:custom.guestUserRole}
+    AuthUserRole: ${self:custom.authUserRole}
+    CognitoIdentityPoolRoleAttachment: ${self:custom.cognitoIdentityPoolRoleAttachment}
+
+    # DynamoDB Resources
     MenuTable:
       Type: AWS::DynamoDB::Table
       Properties:

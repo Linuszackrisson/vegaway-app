@@ -1,0 +1,9 @@
+Type: AWS::Cognito::IdentityPoolRoleAttachment
+Properties:
+  IdentityPoolId:
+    Ref: CognitoIdentityPool
+  Roles:
+    unauthenticated:
+      Fn::GetAtt: [GuestUserRole, Arn]
+    authenticated:
+      Fn::GetAtt: [AuthUserRole, Arn]

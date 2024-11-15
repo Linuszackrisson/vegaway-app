@@ -1,0 +1,19 @@
+Type: AWS::Cognito::UserPoolClient
+Properties:
+  ClientName: MyUserPoolClient
+  UserPoolId:
+    Ref: CognitoUserPool
+  GenerateSecret: false
+  AllowedOAuthFlows:
+    - code
+  AllowedOAuthFlowsUserPoolClient: true
+  AllowedOAuthScopes:
+    - email
+    - openid
+    - profile
+  CallbackURLs:
+    - ${env:APP_URL} # Specify where users should navigate after sign up / login
+  LogoutURLs:
+    - ${env:APP_URL} # Specify where users should navigate after logout
+  SupportedIdentityProviders:
+    - COGNITO # Allows the built-in Cognito user pool to handle logins

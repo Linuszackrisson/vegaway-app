@@ -4,5 +4,8 @@
 - Add to .env ---> SLS_ORG=YOUR_ORG
 - Add to .env ---> MY_ROLE=YOUR_ROLE_ARN
 - Add to .env ---> API_KEY=MY_API_KEY
+- Add to .env ---> APP_URL=YOUR_LOCAL_HOST_URL
+- Create cognito domain in the console @ cognito/userpool
 
-Change placeholder values with your actual credentials
+Change placeholder values with your actual credentials  
+Value for APP_URL will later be replaced with the url to the hosted application in s3
