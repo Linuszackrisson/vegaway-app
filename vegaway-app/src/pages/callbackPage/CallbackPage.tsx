@@ -43,6 +43,9 @@ const CallbackPage: React.FC = () => {
 
             // Redirect to the home page or your main route
             navigate("/");
+
+            // Reload the page after navigation to update the UI
+            window.location.reload();
           } else {
             console.error("Error exchanging code for tokens:", data);
           }
@@ -66,3 +69,11 @@ const CallbackPage: React.FC = () => {
 };
 
 export default CallbackPage;
+
+/* 
+Författare: Isak
+
+Middleman för cognitos hosted ui och våran frontend. Användare blir navigarade till denna komponent efter lyckad inloggning. Denna komponent ansvarar för att hämta JWT access token.
+
+Efter token har blivit hämtad och sparad i local storage navigerar den till default routen "/".
+*/
