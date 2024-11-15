@@ -23,6 +23,7 @@ provider:
         - Content-Type
         - Authorization
         - x-api-key
+        - x-cognito-auth
       allowedMethods:
         - GET
         - POST
@@ -32,7 +33,13 @@ provider:
       exposedResponseHeaders:
         - Special-Response-Header
       maxAge: 6000 # In seconds
-
+    authorizers:
+      cognitoAuthorizer:
+        type: jwt
+        identitySource: $request.header.x-cognito-auth
+        issuerUrl: !Sub "https://cognito-idp.${self:provider.region}.amazonaws.com/${CognitoUserPool}"
+        audience:
+          - !Ref CognitoUserPoolClient
 functions:
   # CUSTOMER ACTIONS
   getMenu:
@@ -41,24 +48,29 @@ functions:
       - httpApi:
           path: /menu
           method: get
+          authorizer: cognitoAuthorizer
+
   createOrder:
     handler: handlers/createOrder.handler
     events:
       - httpApi:
           path: /orders
           method: post
+
   getOrderStatus:
     handler: handlers/getOrderStatus.handler
     events:
       - httpApi:
           path: /orders/status
           method: get
+
   deleteOrder:
     handler: handlers/deleteOrder.handler
     events:
       - httpApi:
           path: /orders
           method: delete
+
   updateOrder:
     handler: handlers/updateOrder.handler
     events:
@@ -73,30 +85,35 @@ functions:
       - httpApi:
           path: /staff/orders/{orderType}
           method: get
+
   updatePendingOrder:
     handler: handlers/updatePendingOrder.handler
     events:
       - httpApi:
           path: /staff/orders/pending
           method: put
+
   confirmPendingOrder:
     handler: handlers/confirmPendingOrder.handler
     events:
       - httpApi:
           path: /staff/orders/confirm
           method: post
+
   getInventory:
     handler: handlers/getInventory.handler
     events:
       - httpApi:
           path: /staff/inventory
           method: get
+
   getStaffMenu:
     handler: handlers/getStaffMenu.handler
     events:
       - httpApi:
           path: /staff/menu
           method: get
+
   updateMenuItem:
     handler: handlers/updateMenuItem.handler
     events:
