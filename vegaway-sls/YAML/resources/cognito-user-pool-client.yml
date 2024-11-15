@@ -10,4 +10,4 @@ Properties:
     - email
     - openid
   CallbackURLs:
-    - "http://localhost/*"
+    - "http://localhost/*" # Change this to actual URL when application is hosted in s3
