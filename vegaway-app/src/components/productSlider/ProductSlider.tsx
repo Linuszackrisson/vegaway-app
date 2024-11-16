@@ -40,3 +40,12 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ title, items }) => {
 		</div>
 	);
 };
+
+export default ProductSlider;
+/**
+ * Författare Jacob
+ * 
+ * Författare Linus
+ * Uppdaterade komponent för att fungera med ändringar i MenuPage
+ * Lade till filtrerings-funktion för priser, högst till lägst och vice verse, samt knapp som lyssnar.
+ */
