@@ -1,0 +1,24 @@
+{
+  "name": "vegaway-sls",
+  "version": "1.0.0",
+  "description": "Serverless project for Vegaway app with AWS Lambda and HTTP API.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "serverless deploy"
+  },
+  "keywords": [
+    "serverless",
+    "AWS",
+    "Lambda",
+    "HTTP API",
+    "Node.js"
+  ],
+  "author": "Isak, Linus, Jacob",
+  "license": "ISC",
+  "dependencies": {
+    "@middy/core": "^2.5.4",
+    "aws-sdk": "^2.1692.0",
+    "dotenv": "^16.4.5",
+    "joi": "^17.13.3"
+  }
+}
