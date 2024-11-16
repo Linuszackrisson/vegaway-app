@@ -1,3 +1,4 @@
+Condition: IsUserPoolCreator
 Type: AWS::Cognito::UserPool
 Properties:
   UserPoolName: MyUserPool

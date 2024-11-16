@@ -164,3 +164,9 @@ resources:
           - AttributeName: orderStatus
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
+
+Conditions:
+  IsUserPoolCreator:
+    Fn::Equals:
+      - ${env:CREATE_USER_POOL}
+      - "true"
