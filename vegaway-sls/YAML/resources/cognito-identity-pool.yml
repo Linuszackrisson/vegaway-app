@@ -1,0 +1,10 @@
+Type: AWS::Cognito::IdentityPool
+DependsOn: CognitoUserPoolClient
+Properties:
+  IdentityPoolName: VegAwayIdentityPool
+  AllowUnauthenticatedIdentities: true
+  CognitoIdentityProviders:
+    - ClientId:
+        Ref: CognitoUserPoolClient # Dynamically resolving ClientId
+      ProviderName:
+        Fn::GetAtt: [CognitoUserPool, ProviderName]
