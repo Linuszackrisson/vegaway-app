@@ -22,11 +22,16 @@ const LoginButton: React.FC = () => {
   };
 
   const handleLogout = () => {
-    // Clear the access token from local storage to log the user out
+    // Import Cognito domain and redirect URI
+    const logoutRedirectUri = import.meta.env.VITE_APP_URL;
+    const logoutUrl = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${logoutRedirectUri}`;
+
+    // Clear local storage
     localStorage.removeItem("access_token");
     setIsLoggedIn(false); // Update the state to reflect the user is logged out
-    // Optionally, redirect the user to a specific page after logout
-    window.location.href = "/"; // Redirect to home page or login page
+
+    // Redirect to Cognito's logout endpoint
+    window.location.href = logoutUrl;
   };
 
   return (
