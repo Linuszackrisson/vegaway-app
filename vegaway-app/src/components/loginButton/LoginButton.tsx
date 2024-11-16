@@ -34,7 +34,7 @@ const LoginButton: React.FC = () => {
       className="login-button"
       onClick={isLoggedIn ? handleLogout : handleLogin}
     >
-      {isLoggedIn ? "Log Out" : "Sign In with Cognito"}
+      {isLoggedIn ? "Log Out" : "Sign In"}
     </button>
   );
 };
