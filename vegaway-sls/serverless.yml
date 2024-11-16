@@ -131,6 +131,12 @@ functions:
           authorizer: cognitoAuthorizer
 
 resources:
+  Conditions:
+    IsUserPoolCreator:
+      Fn::Equals:
+        - ${env:CREATE_USER_POOL}
+        - "true"
+
   Resources:
     # Imported resources first
     CognitoUserPoolClient: ${self:custom.cognitoUserPoolClient}
@@ -164,9 +170,3 @@ resources:
           - AttributeName: orderStatus
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
-
-Conditions:
-  IsUserPoolCreator:
-    Fn::Equals:
-      - ${env:CREATE_USER_POOL}
-      - "true"
