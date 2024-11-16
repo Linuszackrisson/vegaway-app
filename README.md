@@ -1,4 +1,3 @@
-<<<<<<< dev
 ![image](https://github.com/user-attachments/assets/0d0afc31-ff00-4641-b935-86f83d27a8f3)# Sprint Planering och Översikt
 
 Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för vårt team under de kommande fyra veckorna. Teammedlemmarna är:
