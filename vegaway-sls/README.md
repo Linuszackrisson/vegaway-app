@@ -7,7 +7,6 @@
   - `API_KEY` - ...
   - `APP_URL` - ...
 
-Replace the placeholder values with your actual credentials.  
 The value for `APP_URL` will later be replaced with the URL to the hosted application in S3.
 
-In the aws console, configure a domain for the cognito user pool. Enter "vegaway".
+In the aws console, configure a domain for the cognito user pool.
