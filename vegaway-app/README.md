@@ -36,5 +36,5 @@
   - Change values for the template classes
 
 - **Upload the customized template file**
-  - Click on **Choose file** and select the modyfied css file
+  - Click on **Choose file** and select the modified css file
   - Save changes
