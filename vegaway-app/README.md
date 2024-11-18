@@ -1,50 +1,40 @@
-# React + TypeScript + Vite
+# Instructions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Create a `.env` file and add it to `.gitignore`.
+- Add the following key/values pairs to `.env` (replace ... with correct values):
 
-Currently, two official plugins are available:
+  - `VITE_APP_URL` - http://localhost:5174
+  - `VITE_INVOKE_URL` - ...
+  - `VITE_APP_CLIENT_ID` - ...
+  - `VITE_COGNITO_DOMAIN` - ...
+  - `VITE_COGNITO_REDIRECT_URI` - http://localhost:5174/callback
+  - `VITE_COGNITO_USER_POOL_ID` - ...
+  - `VITE_COGNITO_CLIENT_ID` - ...
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to style Cognitos hosted UI
 
-## Expanding the ESLint configuration
+- **Log in to the AWS Management Console**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+  - Navigate to the `Amazon Cognito` service.
 
-- Configure the top-level `parserOptions` property like this:
+- **Select Your User Pool**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+  - In the `User Pools` section, choose the user pool you have deployed.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Open the App integration Section**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+  - Make sure the `Cognito Domain` is the same as in your `.env` file
+  - Scroll all the way down in the `App integration` section and open your `App client` in the `App client list`
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Scroll to Hosted UI Customization section**
+
+  - Click on `Use client-level settings`
+  - Download `template.css`
+
+- **Open template.css in editor**
+
+  - Change values for the template classes
+
+- **Upload the customized template file**
+  - Click on `Choose file` and select the modified css file
+  - Save changes
