@@ -66,12 +66,19 @@
     min-height: 144px;
     min-width:152px;
     align-self: flex-end;
+    overflow: hidden;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
 }
 .twist-arrow {
     max-width: 175px;
     min-height: 193px;
     align-self: flex-end;
     margin-top: -7rem;
+    position: absolute;
+    bottom: 20px;
+    right: 10%;
 }
 
 .contact-page__readabout {
