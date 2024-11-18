@@ -1,17 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@100;300;400;500;700;900&display=swap');
 
-*, html {
+*,
+html {
   box-sizing: border-box;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
 }
 
 :root {
   --text-color: #1B1B1B;
   --h1-size: 32px;
-  --h2-size: 22px;
+  --h2-size: 24px;
   --p-size: 16px;
   --button-color: #FFC704;
   --bg-color: #fcfcfc;
-  
+
 }
 
 #root {
@@ -19,38 +24,80 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  background-color: var(--bg-color); 
+  background-color: var(--bg-color);
 }
 
-h1, h2, h3, h4, h5, h6, p, span, a, label, li {
-    margin: 0;
-    display: inline-block;
-    width: auto; 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+label,
+li {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: auto;
+  height: auto;
 }
 
 h1 {
-  color: var(--text-color); 
-  font-size: var(--h1-size); 
+  color: var(--text-color);
+  font-size: var(--h1-size);
 }
 
 h2 {
-  color: var(--text-color); 
-  font-size: var(--h2-size); 
+  color: var(--text-color);
+  font-size: var(--h2-size);
+  font-weight: 500;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
 }
 
-button {
-  background-color: var(--button-color); 
+.button__first,
+.button__second {
+  position: relative;
+  cursor: pointer;
+  border: 1px solid var(--text-color);
+  box-shadow: 2px 2px var(--text-color);
+  transition: all 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.button__first:active,
+.button__second:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.button__first:hover,
+.button__second:hover {
+  filter: brightness(98%);
+}
+
+.button__first {
+  background-color: var(--button-color);
   color: var(--text-color);
-  
+}
+
+.button__second {
+  background-color: white;
+  color: var(--text-color);
 }
 
 p {
-  font-size: var(--p-size); 
+  font-size: var(--p-size);
   font-weight: 500;
 }
 
 body {
-  font-family: 'Darker Grotesque', sans-serif; 
+  font-family: 'Darker Grotesque', sans-serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;

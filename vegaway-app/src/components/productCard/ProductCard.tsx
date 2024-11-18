@@ -1,6 +1,7 @@
 // src/components/productCard/ProductCard.tsx
 import "./ProductCard.css";
 import { useNavigate } from "react-router-dom";
+import { Plus } from "lucide-react";
 
 interface ProductCardProps {
 	item: {
@@ -25,7 +26,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 					src="https://placehold.co/200x115"
 					alt={item.name}
 				/>
-				<button className="product-card__add-button">+</button>
+				<button className="product-card__add-button button__first">
+					<Plus />
+				</button>
 			</div>
 			<div className="product-card__info">
 				<div className="product-card__title-price">
@@ -44,7 +47,7 @@ export default ProductCard;
 
 /**
  * Författare Jacob
- * 
+ *
  * Författare Linus
  * Uppdaterade kompontent så att den fungerar enligt issuen
  */

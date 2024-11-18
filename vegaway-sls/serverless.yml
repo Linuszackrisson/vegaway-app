@@ -23,6 +23,7 @@ provider:
         - Content-Type
         - Authorization
         - x-api-key
+        - x-cognito-auth
       allowedMethods:
         - GET
         - POST
@@ -32,7 +33,13 @@ provider:
       exposedResponseHeaders:
         - Special-Response-Header
       maxAge: 6000 # In seconds
-
+    authorizers:
+      cognitoAuthorizer:
+        type: jwt
+        identitySource: $request.header.x-cognito-auth
+        issuerUrl: !Sub "https://cognito-idp.${self:provider.region}.amazonaws.com/${CognitoUserPool}"
+        audience:
+          - !Ref CognitoUserPoolClient
 functions:
   # CUSTOMER ACTIONS
   getMenu:
@@ -41,30 +48,38 @@ functions:
       - httpApi:
           path: /menu
           method: get
+
   createOrder:
     handler: handlers/createOrder.handler
     events:
       - httpApi:
           path: /orders
           method: post
+          authorizer: cognitoAuthorizer
+
   getOrderStatus:
     handler: handlers/getOrderStatus.handler
     events:
       - httpApi:
           path: /orders/status
           method: get
+          authorizer: cognitoAuthorizer
+
   deleteOrder:
     handler: handlers/deleteOrder.handler
     events:
       - httpApi:
           path: /orders
           method: delete
+          authorizer: cognitoAuthorizer
+
   updateOrder:
     handler: handlers/updateOrder.handler
     events:
       - httpApi:
           path: /orders
           method: put
+          authorizer: cognitoAuthorizer
 
   # STAFF ACTIONS
   getOrders:
@@ -73,36 +88,47 @@ functions:
       - httpApi:
           path: /staff/orders/{orderType}
           method: get
+          authorizer: cognitoAuthorizer
+
   updatePendingOrder:
     handler: handlers/updatePendingOrder.handler
     events:
       - httpApi:
           path: /staff/orders/pending
           method: put
+          authorizer: cognitoAuthorizer
+
   confirmPendingOrder:
     handler: handlers/confirmPendingOrder.handler
     events:
       - httpApi:
           path: /staff/orders/confirm
           method: post
+          authorizer: cognitoAuthorizer
+
   getInventory:
     handler: handlers/getInventory.handler
     events:
       - httpApi:
           path: /staff/inventory
           method: get
+          authorizer: cognitoAuthorizer
+
   getStaffMenu:
     handler: handlers/getStaffMenu.handler
     events:
       - httpApi:
           path: /staff/menu
           method: get
+          authorizer: cognitoAuthorizer
+
   updateMenuItem:
     handler: handlers/updateMenuItem.handler
     events:
       - httpApi:
           path: /staff/menu/items
           method: put
+          authorizer: cognitoAuthorizer
 
 resources:
   Resources:

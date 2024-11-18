@@ -1,12 +1,12 @@
 /* src/components/ProductCard/ProductCard.css */
 .product-card {
     display: flex;
-    overflow: hidden;
     flex-direction: column;
+    flex: 0 0 auto;
+    overflow: hidden;
     min-width: 200px;
-    min-height: 140px;
     border: 1px solid black;
-    border-radius: 6px;
+    border-radius: 8px;
     margin-bottom: 2px;
     box-shadow: 1px 1px black, 2px 2px black;
     background-color: white;
@@ -14,24 +14,33 @@
 
 .product-card__image-container {
     position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 1;
+    overflow: hidden;
+    border-bottom: 1px solid var(--text-color);
 }
 
 .product-card__image {
     width: 100%;
-    border-bottom: 1px solid black;
+    height: 100%;
+    object-fit: cover;
 }
 
 .product-card__add-button {
+    width: 30px;
+    height: 30px;
     position: absolute;
-    bottom: 10px;
+    bottom: 14px;
     right: 10px;
     border-radius: 50%;
-    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-card__info {
     display: flex;
-    gap: 5px;
+    gap: 7px;
     flex-direction: column;
     padding: 0 10px 10px;
 }

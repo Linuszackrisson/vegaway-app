@@ -7,6 +7,8 @@ import MenuPage from "./pages/MenuPage/MenuPage";
 import ProductPage from "./pages/productPage/ProductPage";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import CartPage from "./pages/CartPage/CartPage";
+import CallbackPage from "./pages/callbackPage/CallbackPage";
+import LoginButton from "./components/loginButton/LoginButton";
 
 function App() {
 	return (
@@ -14,7 +16,7 @@ function App() {
 			<div>
 				<Routes>
 					<Route path="/" element={<HomePage />} />
-					<Route path="/contact" element={<ContactPage />} />
+					<Route path="/about" element={<About />} />
 					<Route path="/menu" element={<MenuPage />} />
 					<Route path="/product/:id" element={<ProductPage />} />
 					<Route path="/dashboard" element={<DashboardPage />} />
