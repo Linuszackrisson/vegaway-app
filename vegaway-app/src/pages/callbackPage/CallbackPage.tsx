@@ -26,7 +26,7 @@ const CallbackPage: React.FC = () => {
                 grant_type: "authorization_code",
                 client_id: import.meta.env.VITE_COGNITO_CLIENT_ID, // Using the client ID from .env
                 code: authorizationCode,
-                redirect_uri: `${import.meta.env.VITE_APP_URL}callback`, // Your redirect URI
+                redirect_uri: `${import.meta.env.VITE_COGNITO_REDIRECT_URI}`, // Your redirect URI
               }),
             }
           );
