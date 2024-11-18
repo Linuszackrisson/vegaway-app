@@ -37,26 +37,27 @@
 }
 
 .contact-page__button {
-    width: 104px;
+    min-width: 104px;
+    min-height: 42px;
     align-self: flex-end;
     background-color: white;
     font-family: 'Darker Grotesque', sans-serif; 
     font-weight: 600;
     font-size: 16px;
     display: flex;
-    justify-content: space-evenly;
-    
-    
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
     
     
 }
-.contact-page__button {
-    align-items: m;
-}
-
 
 .contact-page__textarea::placeholder {
     padding: 12px;
     
 }
 
+.button_p {
+    margin-bottom: 4px;
+}
