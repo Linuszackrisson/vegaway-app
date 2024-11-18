@@ -9,6 +9,7 @@
 }
 .contact-page__title {
     align-self: flex-start;
+    margin-bottom: 12px;
 
 }
 .contact-page__form {
@@ -21,6 +22,7 @@
 .contact-page__description {
     margin-bottom: 22px;
     color: #808080;
+    text-align: left;
     
 }
 
