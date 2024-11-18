@@ -81,8 +81,11 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 - **Teammedlemmar**: Linus, Isak, Jacob.
 - **Diskussioner**:
   - Vad ska prioriteras under denna vecka?
+Frontend flöde och cart, vi kommer köra zustand
   - Vilka uppgifter har högsta prioritet?
+Cart och frontend
   - Förväntade hinder och lösningar.
+Inga ännu, förutom att Linus ska vara barnvakt 13-15. 
 
 ### Daily Scrum (Tisdag - Torsdag)
 
