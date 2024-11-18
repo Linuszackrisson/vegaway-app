@@ -3,13 +3,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 12px;
     text-align: left;
+
     
+}
+
+.contact-container-page {
+    padding: 14px;
+
 }
 .contact-page__title {
     align-self: flex-start;
-    margin-bottom: 12px;
+    margin-bottom: 22px;
 
 }
 .contact-page__form {
@@ -64,39 +69,10 @@
     margin-bottom: 4px;
 }
 
-.yellow-circle {
-    min-height: 144px;
-    min-width:152px;
+.about-group-icon {
     align-self: flex-end;
-    overflow: hidden;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-}
-.twist-arrow {
-    max-width: 175px;
-    min-height: 193px;
-    align-self: flex-end;
-    margin-top: -7rem;
-    position: absolute;
-    bottom: 20px;
-    right: 10%;
+    width: 100%;
+    height: 500px;
+    
 }
 
-.contact-page__readabout {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 130px;
-    background: none;
-    position: absolute;
-    top: 360px;
-    left: 120px;
-}
-
-.ellipse-text {
-    position: absolute;
-    text-align: center;
-    text-decoration: underline;
-}

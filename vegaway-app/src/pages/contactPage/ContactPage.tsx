@@ -1,14 +1,18 @@
 import './ContactPage.css'; 
 import navigationIcon from '../../assets/navigation.png';
-import arrowIcon from '../../assets/arrowright.png'
-
+import arrowIcon from '../../assets/arrowright.png';
+import AboutGroup from '../../assets/Aboutgroup.svg';
 
 function ContactPage() {
   return (
     <div className='contact-page'>
+      
+            <img src={AboutGroup} alt="About Vegaway" className='about-group-icon' />
+            <div className="contact-container-page">
             <h2 className='contact-page__title'>About Vegaway</h2>
-            <p className='contact-page__description'>We usually reply within a few hours .. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has ... </p>
-            <p className='contact-page__description'>We usually reply within a few hours .. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has ... </p>
+
+            <p className='contact-page__description'>We usually reply within a few hours .. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has ... </p>
+            <p className='contact-page__description'>We usually reply within a few hours .. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has ... </p>
       <h2 className='contact-page__title'>Contact us</h2>
  
       <form id="kontaktForm" className='contact-page__form'>
@@ -19,7 +23,7 @@ function ContactPage() {
           <img src={arrowIcon} alt="Arrow Right" className='button-icon' />
         </button>
         </form>
-      
+        </div>
     </div>
   )
 }
