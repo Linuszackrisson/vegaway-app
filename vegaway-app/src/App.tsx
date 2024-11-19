@@ -1,6 +1,6 @@
 // src/App.tsx
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import ContactPage from "./pages/contactPage/ContactPage";
 import MenuPage from "./pages/MenuPage/MenuPage";
