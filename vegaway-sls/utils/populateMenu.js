@@ -1,12 +1,12 @@
 const AWS = require("aws-sdk");
 
-// Sätt region för AWS SDK
-AWS.config.update({ region: "eu-north-1" }); // Byt ut till din region
+// Region for AWS SDK
+AWS.config.update({ region: "eu-north-1" });
 
-// Konfigurera DynamoDB DocumentClient
+// DynamoDB DocumentClient
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-// Definiera dina maträtter
+// Meny
 const menuItems = [
 	// New Releases
 	{
@@ -16,7 +16,8 @@ const menuItems = [
 			"Fresh tofu cubes stir-fried with mango slices in a spicy sauce.",
 		price: 13.99,
 		category: "New Releases",
-		imageUrl: "https://images.unsplash.com/photo-1601933471719-6b2308ba1f84", // Spicy tofu dish
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2016/11/20/09/20/tofu-1841296_1280.jpg", // Spicy tofu dish
 	},
 	{
 		menuId: "2",
@@ -24,7 +25,8 @@ const menuItems = [
 		description: "Baked eggplant stuffed with seasoned quinoa and vegetables.",
 		price: 14.99,
 		category: "New Releases",
-		imageUrl: "https://images.unsplash.com/photo-1612286307890-9d59d74c8d63", // Stuffed eggplant
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2018/03/10/18/10/eggplant-3216711_1280.jpg", // Stuffed eggplant
 	},
 	{
 		menuId: "3",
@@ -32,7 +34,8 @@ const menuItems = [
 		description: "An assortment of vegan sushi rolls with fresh vegetables.",
 		price: 16.99,
 		category: "New Releases",
-		imageUrl: "https://images.unsplash.com/photo-1585238342028-3a69e45479a5", // Vegan sushi
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2016/03/05/19/02/sushi-1235942_1280.jpg", // Vegan sushi
 	},
 	{
 		menuId: "4",
@@ -40,7 +43,8 @@ const menuItems = [
 		description: "Pasta with vegan 'meatballs' in tomato sauce.",
 		price: 15.49,
 		category: "New Releases",
-		imageUrl: "https://images.unsplash.com/photo-1603133872877-23c48e199e30", // Vegan meatball pasta
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2017/06/07/12/54/meatball-2386807_1280.jpg", // Vegan meatball pasta
 	},
 	{
 		menuId: "5",
@@ -48,182 +52,249 @@ const menuItems = [
 		description: "A chilled soup made with avocado, cucumber, and lime.",
 		price: 9.99,
 		category: "New Releases",
-		imageUrl: "https://images.unsplash.com/photo-1601315483751-614d48cd74b6", // Avocado soup
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2017/05/07/08/56/avocado-2298262_1280.jpg", // Avocado soup
+	},
+	{
+		menuId: "6",
+		name: "Jackfruit Tacos",
+		description: "Soft tacos filled with spiced jackfruit and fresh salsa.",
+		price: 12.99,
+		category: "New Releases",
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2017/09/02/13/41/taco-2704629_1280.jpg", // Jackfruit tacos
 	},
 	// Chef's Choice
 	{
-		menuId: "6",
+		menuId: "7",
 		name: "Truffle Mushroom Risotto",
 		description: "Creamy risotto with wild mushrooms and truffle oil.",
 		price: 18.99,
 		category: "Chef's Choice",
-		imageUrl: "https://images.unsplash.com/photo-1602502208203-bc9b7bd524a7", // Mushroom risotto
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2015/08/20/20/07/risotto-897046_1280.jpg", // Mushroom risotto
 	},
 	{
-		menuId: "7",
+		menuId: "8",
 		name: "Grilled Vegetable Platter",
 		description: "A selection of grilled seasonal vegetables with herbs.",
 		price: 16.49,
 		category: "Chef's Choice",
-		imageUrl: "https://images.unsplash.com/photo-1604251382621-7114d962d872", // Grilled vegetables
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2017/03/27/14/46/vegetables-2179845_1280.jpg", // Grilled vegetables
 	},
 	{
-		menuId: "8",
+		menuId: "9",
 		name: "Vegan Pad Thai",
 		description:
 			"Rice noodles stir-fried with tofu, vegetables, and tamarind sauce.",
 		price: 14.99,
 		category: "Chef's Choice",
-		imageUrl: "https://images.unsplash.com/photo-1609357893024-8e33f5e6cd59", // Vegan Pad Thai
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2020/08/04/08/18/noodles-5462168_1280.jpg", // Vegan Pad Thai
 	},
 	{
-		menuId: "9",
+		menuId: "10",
 		name: "Beetroot Carpaccio",
 		description: "Thinly sliced beetroot with arugula and balsamic glaze.",
 		price: 12.49,
 		category: "Chef's Choice",
-		imageUrl: "https://images.unsplash.com/photo-1603296852745-d6b339e2fe22", // Beetroot dish
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2018/05/06/14/35/salad-3378690_1280.jpg", // Beetroot dish
 	},
 	{
-		menuId: "10",
+		menuId: "11",
 		name: "Coconut Curry Noodles",
 		description: "Rice noodles in a creamy coconut curry with vegetables.",
 		price: 15.99,
 		category: "Chef's Choice",
-		imageUrl: "https://images.unsplash.com/photo-1607952953333-2bcd8e8c5271", // Coconut curry noodles
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2017/08/10/07/32/curry-2612828_1280.jpg", // Coconut curry noodles
+	},
+	{
+		menuId: "12",
+		name: "Stuffed Portobello Mushrooms",
+		description:
+			"Baked portobello mushrooms filled with spinach and vegan cheese.",
+		price: 17.49,
+		category: "Chef's Choice",
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_1280.jpg", // Stuffed mushrooms
 	},
 	// Classics
 	{
-		menuId: "11",
+		menuId: "13",
 		name: "Veggie Lasagna",
 		description:
 			"Layers of pasta with vegetables, tomato sauce, and vegan cheese.",
 		price: 14.49,
 		category: "Classics",
-		imageUrl: "https://images.unsplash.com/photo-1613488163175-2c2b3e9119ae", // Veggie lasagna
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2017/01/22/19/20/lasagna-2001632_1280.jpg", // Veggie lasagna
 	},
 	{
-		menuId: "12",
+		menuId: "14",
 		name: "Margherita Pizza",
 		description:
 			"Classic pizza with fresh basil, tomato sauce, and vegan cheese.",
 		price: 12.99,
 		category: "Classics",
-		imageUrl: "https://images.unsplash.com/photo-1594007650118-5c1b2a7fe3ab", // Margherita pizza
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2016/03/05/19/02/pizza-1239071_1280.jpg", // Margherita pizza
 	},
 	{
-		menuId: "13",
+		menuId: "15",
 		name: "Minestrone Soup",
 		description: "Italian vegetable soup with beans and pasta.",
 		price: 8.99,
 		category: "Classics",
-		imageUrl: "https://images.unsplash.com/photo-1596910708041-e944571f1b68", // Minestrone soup
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2016/11/29/08/56/soup-1866395_1280.jpg", // Minestrone soup
 	},
 	{
-		menuId: "14",
+		menuId: "16",
 		name: "Eggplant Parmesan",
 		description: "Breaded eggplant baked with tomato sauce and vegan cheese.",
 		price: 13.99,
 		category: "Classics",
-		imageUrl: "https://images.unsplash.com/photo-1596405670077-0d982d7ee2fd", // Eggplant Parmesan
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2018/05/08/08/24/eggplant-3381090_1280.jpg", // Eggplant Parmesan
 	},
 	{
-		menuId: "15",
+		menuId: "17",
 		name: "Vegetable Stir Fry",
 		description: "Mixed vegetables stir-fried with soy sauce and garlic.",
 		price: 11.99,
 		category: "Classics",
-		imageUrl: "https://images.unsplash.com/photo-1615486360859-6e7a20e975d3", // Vegetable stir fry
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2018/03/17/15/01/fried-3235816_1280.jpg", // Vegetable stir fry
+	},
+	{
+		menuId: "18",
+		name: "Vegan Burger",
+		description: "Plant-based burger with lettuce, tomato, and vegan mayo.",
+		price: 13.49,
+		category: "Classics",
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2017/04/29/18/16/burger-2276160_1280.jpg", // Vegan burger
 	},
 	// Only Greens
 	{
-		menuId: "16",
+		menuId: "19",
 		name: "Kale Caesar Salad",
 		description: "Fresh kale in vegan Caesar dressing with croutons.",
 		price: 10.99,
 		category: "Only Greens",
-		imageUrl: "https://images.unsplash.com/photo-1589307000285-0e81bd7c485e", // Kale salad
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2017/07/16/10/43/salad-2508631_1280.jpg", // Kale salad
 	},
 	{
-		menuId: "17",
+		menuId: "20",
 		name: "Quinoa and Arugula Salad",
 		description:
 			"Quinoa salad with arugula, cherry tomatoes, and lemon vinaigrette.",
 		price: 11.49,
 		category: "Only Greens",
-		imageUrl: "https://images.unsplash.com/photo-1604005995300-7538b119c322", // Quinoa salad
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2017/06/12/19/55/quinoa-salad-2392355_1280.jpg", // Quinoa salad
 	},
 	{
-		menuId: "18",
+		menuId: "21",
 		name: "Spinach and Strawberry Salad",
 		description: "Baby spinach with fresh strawberries and balsamic dressing.",
 		price: 9.99,
 		category: "Only Greens",
-		imageUrl: "https://images.unsplash.com/photo-1611759416054-0f7c2e4ad889", // Spinach strawberry salad
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2016/03/05/19/02/salad-1238334_1280.jpg", // Spinach strawberry salad
 	},
 	{
-		menuId: "19",
+		menuId: "22",
 		name: "Mediterranean Chickpea Salad",
 		description: "Chickpeas with cucumber, tomatoes, olives, and vegan feta.",
 		price: 12.49,
 		category: "Only Greens",
-		imageUrl: "https://images.unsplash.com/photo-1604607054693-fca9a7c1d2cf", // Chickpea salad
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2016/08/01/21/08/vegetables-1568565_1280.jpg", // Chickpea salad
 	},
 	{
-		menuId: "20",
+		menuId: "23",
 		name: "Grilled Asparagus Salad",
 		description: "Grilled asparagus with mixed greens and citrus dressing.",
 		price: 11.99,
 		category: "Only Greens",
-		imageUrl: "https://images.unsplash.com/photo-1607330286524-27e773c04755", // Grilled asparagus
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2016/03/05/19/02/asparagus-1238335_1280.jpg", // Grilled asparagus
+	},
+	{
+		menuId: "24",
+		name: "Roasted Beet Salad",
+		description: "Roasted beets with goat cheese, walnuts, and mixed greens.",
+		price: 12.99,
+		category: "Only Greens",
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2016/03/27/22/16/beetroot-1280608_1280.jpg", // Roasted beet salad
 	},
 	// Desserts
 	{
-		menuId: "21",
+		menuId: "25",
 		name: "Vegan Chocolate Cake",
 		description: "Rich and moist chocolate cake with vegan frosting.",
 		price: 6.99,
 		category: "Desserts",
-		imageUrl: "https://images.unsplash.com/photo-1612197523825-5ad5d836115c", // Vegan chocolate cake
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2015/04/20/13/25/cake-731888_1280.jpg", // Vegan chocolate cake
 	},
 	{
-		menuId: "22",
+		menuId: "26",
 		name: "Mango Sorbet",
 		description: "Refreshing mango sorbet made from fresh mangoes.",
 		price: 5.49,
 		category: "Desserts",
-		imageUrl: "https://images.unsplash.com/photo-1621636952020-f640e0d2e0a8", // Mango sorbet
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2018/02/05/21/46/ice-cream-3134787_1280.jpg", // Mango sorbet
 	},
 	{
-		menuId: "23",
+		menuId: "27",
 		name: "Berry Parfait",
 		description: "Layers of mixed berries and coconut yogurt.",
 		price: 7.49,
 		category: "Desserts",
-		imageUrl: "https://images.unsplash.com/photo-1611174747038-3b605d31e929", // Berry parfait
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2015/03/30/12/35/food-698587_1280.jpg", // Berry parfait
 	},
 	{
-		menuId: "24",
+		menuId: "28",
 		name: "Apple Crumble",
 		description: "Baked apples with a crispy oat topping.",
 		price: 6.49,
 		category: "Desserts",
-		imageUrl: "https://images.unsplash.com/photo-1603126851155-6a6782b1d8bd", // Apple crumble
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2014/10/18/15/25/apple-crumble-493170_1280.jpg", // Apple crumble
 	},
 	{
-		menuId: "25",
+		menuId: "29",
 		name: "Vegan Cheesecake",
 		description: "Creamy cheesecake with a biscuit base.",
 		price: 7.99,
 		category: "Desserts",
-		imageUrl: "https://images.unsplash.com/photo-1599058917211-2c1391d13f56", // Vegan cheesecake
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_1280.jpg", // Vegan cheesecake
+	},
+	{
+		menuId: "30",
+		name: "Banana Bread",
+		description: "Moist banana bread with walnuts and cinnamon.",
+		price: 5.99,
+		category: "Desserts",
+		imageUrl:
+			"https://cdn.pixabay.com/photo/2016/11/29/03/03/bread-1867204_1280.jpg", // Banana bread
 	},
 ];
 
-// Ange tabellnamnet (uppdatera till ditt faktiska DynamoDB-tabellnamn)
+// Define the table name (update to your actual DynamoDB table name)
 const tableName = "vegaway-sls-menu";
 
-// Funktion för att lägga till artiklar i DynamoDB-tabellen
+// Function to add items to DynamoDB table
 const populateMenu = async () => {
 	for (const item of menuItems) {
 		const params = {
@@ -233,20 +304,20 @@ const populateMenu = async () => {
 
 		try {
 			await dynamoDb.put(params).promise();
-			console.log(`Lade till: ${item.name}`);
+			console.log(`Added: ${item.name}`);
 		} catch (error) {
-			console.error(`Fel vid tillägg av: ${item.name}`, error);
+			console.error(`Error adding: ${item.name}`, error);
 		}
 	}
 };
 
-// Kör funktionen. Använd "node populateMenu.js" i konsolen.
+// Run the function. Use "node populateMenu.js" in the console.
 populateMenu();
 
 /* 
-Författare Isak
-En temporär fil för att snabbt fylla ut menyn med data
+Author Isak
+A temporary file to quickly populate the menu with data
 
-Uppdaterad
-av Jacob - Fem kategorier fem rätter i varje.
+Updated
+by Jacob - Six categories, six dishes in each, imageURL m.m
 */
