@@ -70,9 +70,10 @@
 }
 
 .about-group-icon {
-    align-self: flex-end;
     width: 100%;
-    height: 500px;
+    height: 50vh;
     
 }
-
+.kontaktLink {
+    align-self: flex-end;
+}

@@ -7,7 +7,7 @@ function ContactPage() {
   return (
     <div className='contact-page'>
       
-      <a href="#kontaktForm">
+      <a className='kontaktLink' href="#kontaktForm">
               <img src={AboutGroup} alt="About Vegaway" className='about-group-icon' />
             </a>
             <div className="contact-container-page">
