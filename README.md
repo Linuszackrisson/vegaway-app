@@ -89,9 +89,9 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 #### Tisdag (2024-11-19)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |                Contact-page/about              |   Avslutade och påbörja cart.js                     |      Tennis kl 17:00                   |
+| Isak       |                 Fungerande inlogg             |         Bilder till menu db               |           Nej.              |
+| Jacob      |                  Skiss och diverse frontend            |        Namnge matkatategorier och göra nav                |           Nej.              |
 
 #### Onsdag (2024-11-20)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
