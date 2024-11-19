@@ -7,12 +7,15 @@ function ContactPage() {
   return (
     <div className='contact-page'>
       
-            <img src={AboutGroup} alt="About Vegaway" className='about-group-icon' />
+      <a href="#kontaktForm">
+              <img src={AboutGroup} alt="About Vegaway" className='about-group-icon' />
+            </a>
             <div className="contact-container-page">
             <h2 className='contact-page__title'>About Vegaway</h2>
 
-            <p className='contact-page__description'>We usually reply within a few hours .. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has ... </p>
-            <p className='contact-page__description'>We usually reply within a few hours .. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has ... </p>
+            <p className='contact-page__description'>Vegaway was born one late night in Malmö when Jacob, a passionate vegetarian, stared at his empty fridge. He dreamed of a service that could deliver fresh, plant-based options straight to his door—a perfect blend of convenience and sustainability.</p>
+            <p className='contact-page__description'>With the help of his friends Isak, a tech expert, and Linus, a culinary creator, Jacob launched Vegaway in 2020. Starting with bike deliveries in Malmö, the company quickly gained popularity for its high-quality, eco-friendly approach.</p>
+            <p className='contact-page__description'>Today, Vegaway is a leader in vegetarian home delivery, proving that green eating can be both accessible and sustainable.</p>
       <h2 className='contact-page__title'>Contact us</h2>
  
       <form id="kontaktForm" className='contact-page__form'>
