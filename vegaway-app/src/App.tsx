@@ -14,10 +14,7 @@ function App() {
 	return (
 		<>
 		<LoginButton />
-		
 		<Router>
-		<Link to="/menu"><button>Till Meny</button></Link> 
-		<Link to="/cart"><button>Till Kundvagn</button></Link>
 			<Routes>
 			  <Route path="/" element={<HomePage />} />
 			  <Route path="/contact" element={<ContactPage />} />
