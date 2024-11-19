@@ -89,7 +89,7 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 #### Tisdag (2024-11-19)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                Contact-page/about              |   Avslutade och påbörja cart.js                     |      Tennis kl 17:00                   |
+| Linus      |                Contact-page/about              |   Avsluta gårdagens projekt och påbörja cart.js                     |      Tennis kl 17:00                   |
 | Isak       |                 Fungerande inlogg             |         Bilder till menu db               |           Nej.              |
 | Jacob      |                  Skiss och diverse frontend            |        Namnge matkatategorier och göra nav                |           Nej.              |
 
