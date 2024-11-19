@@ -21,10 +21,12 @@ html {
 
 #root {
   max-width: 1000px;
+  height: 100vh;
   margin: 0 auto;
   padding: 0;
   text-align: center;
   background-color: var(--bg-color);
+
 }
 
 h1,
