@@ -1,26 +1,21 @@
-// src/components/ProductSlider/ProductSlider.tsx
+// src/components/productSlider/ProductSlider.tsx
 import React, { useState, useRef, useEffect } from "react";
 import ProductCard from "../productCard/ProductCard";
 import "./ProductSlider.css";
 import { CircleDollarSign, MoveDown, MoveUp } from "lucide-react";
-
-interface ProductItem {
-	id: string;
-	name: string;
-	price: number;
-}
+import { MenuItem } from "../../api/menuApi";
 
 interface ProductSliderProps {
 	title: string;
-	items: ProductItem[];
+	items: MenuItem[];
 }
 
 type SortState = "none" | "asc" | "desc";
 
 const ProductSlider: React.FC<ProductSliderProps> = ({ title, items }) => {
-	const [filteredItems, setFilteredItems] = useState<ProductItem[]>(items);
+	const [filteredItems, setFilteredItems] = useState<MenuItem[]>(items);
 	const [sortState, setSortState] = useState<SortState>("none");
-	const originalOrder = useRef<ProductItem[]>([]);
+	const originalOrder = useRef<MenuItem[]>([]);
 
 	useEffect(() => {
 		originalOrder.current = items;
@@ -30,7 +25,7 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ title, items }) => {
 
 	const filterByPrice = () => {
 		let newSortState: SortState;
-		let sortedItems: ProductItem[];
+		let sortedItems: MenuItem[];
 
 		switch (sortState) {
 			case "none":
@@ -80,13 +75,16 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ title, items }) => {
 		<div className="product-slider">
 			<div className="titleToggle-box">
 				<h2 className="product-slider__title">{title}</h2>
-				<button className="filter-button button__second" onClick={filterByPrice}>
+				<button
+					className="filter-button button__second"
+					onClick={filterByPrice}
+				>
 					{renderSortIcon()}
 				</button>
 			</div>
 			<ul className="product-slider__list">
 				{filteredItems.map((item) => (
-					<ProductCard key={item.id} item={item} />
+					<ProductCard key={item.menuId} item={item} />
 				))}
 			</ul>
 		</div>
@@ -102,4 +100,7 @@ export default ProductSlider;
  * Uppdaterade komponent för att fungera med ändringar i MenuPage
  * Lade till filtrerings-funktion för priser, högst till lägst och vice versa, samt knapp som lyssnar.
  * Lagt till ikoner som ändras beroende på sorteringstillstånd.
+ * 
+ * Uppdaterad Jacob
+ * Uppdaterade filtreringen, ikonerna och lagt till menuId ist. för id
  */

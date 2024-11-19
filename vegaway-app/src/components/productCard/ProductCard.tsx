@@ -2,20 +2,17 @@
 import "./ProductCard.css";
 import { useNavigate } from "react-router-dom";
 import { Plus } from "lucide-react";
+import { MenuItem } from "../../api/menuApi";
 
 interface ProductCardProps {
-	item: {
-		id: string;
-		name: string;
-		price: number;
-	};
+	item: MenuItem;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 	const navigate = useNavigate();
 
 	const handleInfoClick = () => {
-		navigate(`/product/${item.id}`);
+		navigate(`/product/${item.menuId}`);
 	};
 
 	return (
@@ -23,7 +20,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 			<div className="product-card__image-container">
 				<img
 					className="product-card__image"
-					src="https://placehold.co/200x115"
+					src={item.imageUrl}
 					alt={item.name}
 				/>
 				<button className="product-card__add-button button__first">
@@ -49,5 +46,8 @@ export default ProductCard;
  * Författare Jacob
  *
  * Författare Linus
- * Uppdaterade kompontent så att den fungerar enligt issuen
+ * Uppdaterade komponenten så att den fungerar enligt issuen
+ * 
+ * Uppdaterad Jacob
+ * Förenklade propsen använder menuItem
  */
