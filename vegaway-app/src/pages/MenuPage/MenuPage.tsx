@@ -15,7 +15,6 @@ function MenuPage() {
 		getMenuItems();
 	}, []);
 
-	// Group items by category
 	const groupedItems = menuItems.reduce<Record<string, MenuItem[]>>(
 		(acc, item) => {
 			if (!acc[item.category]) {
