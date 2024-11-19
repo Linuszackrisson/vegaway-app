@@ -1,0 +1,19 @@
+Type: AWS::DynamoDB::Table
+Properties:
+  TableName: ${self:service}-orders
+  AttributeDefinitions:
+    - AttributeName: orderId
+      AttributeType: S
+    - AttributeName: isConfirmed
+      AttributeType: S # String: "true" or "false"
+  KeySchema:
+    - AttributeName: orderId
+      KeyType: HASH
+  BillingMode: PAY_PER_REQUEST
+  GlobalSecondaryIndexes:
+    - IndexName: IsConfirmedIndex
+      KeySchema:
+        - AttributeName: isConfirmed
+          KeyType: HASH
+      Projection:
+        ProjectionType: ALL
