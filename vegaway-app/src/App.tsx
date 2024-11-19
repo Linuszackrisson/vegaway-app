@@ -11,22 +11,22 @@ import CallbackPage from "./pages/callbackPage/CallbackPage";
 import LoginButton from "./components/loginButton/LoginButton";
 
 function App() {
-	return (
-		<>
-		<LoginButton />
-		<Router>
-			<Routes>
-			  <Route path="/" element={<HomePage />} />
-			  <Route path="/contact" element={<ContactPage />} />
-			  <Route path="/menu" element={<MenuPage />} />
-			  <Route path="/product/:id" element={<ProductPage />} />
-			  <Route path="/dashboard" element={<DashboardPage />} />
-			  <Route path="/cart" element={<CartPage />} />
-			  <Route path="/callback" element={<CallbackPage />} />
-			</Routes>
-		</Router>
-	  </>
-	);
+  return (
+    <>
+      <LoginButton />
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/callback" element={<CallbackPage />} />
+        </Routes>
+      </Router>
+    </>
+  );
 }
 
 export default App;
