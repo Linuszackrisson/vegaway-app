@@ -8,68 +8,68 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 // Define your dishes
 const menuItems = [
-  {
-    menuId: "1",
-    name: "Vegetable Stir Fry",
-    description: "A colorful mix of stir-fried vegetables with a savory sauce.",
-    price: 12.99,
-    category: "Category 1",
-  },
-  {
-    menuId: "2",
-    name: "Vegan Burger",
-    description:
-      "A delicious patty made from black beans, served with lettuce and tomato.",
-    price: 10.99,
-    category: "Category 1",
-  },
-  {
-    menuId: "3",
-    name: "Margherita Pizza",
-    description:
-      "Classic pizza with fresh mozzarella, basil, and tomato sauce.",
-    price: 14.99,
-    category: "Category 2",
-  },
-  {
-    menuId: "4",
-    name: "Lentil Soup",
-    description:
-      "A hearty and filling soup made with lentils and a variety of vegetables.",
-    price: 8.99,
-    category: "Category 2",
-  },
-  {
-    menuId: "5",
-    name: "Tofu Scramble",
-    description:
-      "A vegan alternative to scrambled eggs made with tofu and veggies.",
-    price: 9.99,
-    category: "Category 3",
-  },
-  {
-    menuId: "6",
-    name: "Stuffed Bell Peppers",
-    description: "Bell peppers stuffed with quinoa, black beans, and corn.",
-    price: 11.49,
-    category: "Category 3",
-  },
-  {
-    menuId: "7",
-    name: "Falafel Wrap",
-    description:
-      "Crispy falafel wrapped in pita with hummus, tomatoes, and cucumbers.",
-    price: 10.49,
-    category: "Category 4",
-  },
-  {
-    menuId: "8",
-    name: "Vegetarian Chili",
-    description:
-      "A hearty and spicy chili made with beans, tomatoes, and vegetables.",
-    price: 13.49,
-    category: "Category 4",
-  },
+	{
+		menuId: "1",
+		name: "Vegetable Stir Fry",
+		description: "A colorful mix of stir-fried vegetables with a savory sauce.",
+		price: 12.99,
+		category: "New Releases",
+	},
+	{
+		menuId: "2",
+		name: "Vegan Burger",
+		description:
+			"A delicious patty made from black beans, served with lettuce and tomato.",
+		price: 10.99,
+		category: "Chef's choice",
+	},
+	{
+		menuId: "3",
+		name: "Margherita Pizza",
+		description:
+			"Classic pizza with fresh mozzarella, basil, and tomato sauce.",
+		price: 14.99,
+		category: "Classics",
+	},
+	{
+		menuId: "4",
+		name: "Lentil Soup",
+		description:
+			"A hearty and filling soup made with lentils and a variety of vegetables.",
+		price: 8.99,
+		category: "Only Greens",
+	},
+	{
+		menuId: "5",
+		name: "Tofu Scramble",
+		description:
+			"A vegan alternative to scrambled eggs made with tofu and veggies.",
+		price: 9.99,
+		category: "Category 3",
+	},
+	{
+		menuId: "6",
+		name: "Stuffed Bell Peppers",
+		description: "Bell peppers stuffed with quinoa, black beans, and corn.",
+		price: 11.49,
+		category: "Category 3",
+	},
+	{
+		menuId: "7",
+		name: "Falafel Wrap",
+		description:
+			"Crispy falafel wrapped in pita with hummus, tomatoes, and cucumbers.",
+		price: 10.49,
+		category: "Category 4",
+	},
+	{
+		menuId: "8",
+		name: "Vegetarian Chili",
+		description:
+			"A hearty and spicy chili made with beans, tomatoes, and vegetables.",
+		price: 13.49,
+		category: "Category 4",
+	},
 ];
 
 // Define the table name (update this to your actual DynamoDB table name)
