@@ -1,0 +1,10 @@
+Type: AWS::DynamoDB::Table
+Properties:
+  TableName: ${self:service}-menu
+  AttributeDefinitions:
+    - AttributeName: menuId
+      AttributeType: S
+  KeySchema:
+    - AttributeName: menuId
+      KeyType: HASH
+  BillingMode: PAY_PER_REQUEST

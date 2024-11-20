@@ -1,0 +1,6 @@
+handler: handlers/getOrderStatus.handler
+events:
+  - httpApi:
+      path: /orders/status
+      method: get
+      authorizer: cognitoAuthorizer
