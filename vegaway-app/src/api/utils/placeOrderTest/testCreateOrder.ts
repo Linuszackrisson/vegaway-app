@@ -1,20 +1,14 @@
-import { createOrder } from "../../placeOrder";
+// testData.js
+export const testOrder = {
+  items: [
+    { productId: "123", name: "Pizza" },
+    { productId: "456", name: "Burger" },
+  ],
+  price: 49.99,
+};
 
-async function testCreateOrder() {
-  try {
-    const testOrder = {
-      items: [
-        { productId: "123", name: "Pizza" },
-        { productId: "456", name: "Burger" },
-      ],
-      price: 49.99,
-    };
+/* 
+Författare: Isak
 
-    const response = await createOrder(testOrder);
-    console.log("Order created successfully:", response);
-  } catch (error) {
-    console.error("Error during order creation:", error);
-  }
-}
-
-testCreateOrder();
+Test data för att skapa en order
+*/

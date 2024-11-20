@@ -1,16 +1,9 @@
+import { testOrder } from "./testCreateOrder";
 import { createOrder } from "../../placeOrder";
 
 const TestOrderButton = () => {
   const testCreateOrder = async () => {
     try {
-      const testOrder = {
-        items: [
-          { productId: "123", name: "Pizza" },
-          { productId: "456", name: "Burger" },
-        ],
-        price: 49.99,
-      };
-
       const response = await createOrder(testOrder);
       console.log("Order created successfully:", response);
       alert("Order created successfully!");
@@ -24,3 +17,9 @@ const TestOrderButton = () => {
 };
 
 export default TestOrderButton;
+
+/* 
+Författare: Isak
+
+Test knapp för att simulera att man lägger en order
+*/

@@ -60,3 +60,10 @@ export async function createOrder(order: Omit<Order, "customerEmail">) {
     throw error;
   }
 }
+
+/* 
+Författare: Isak
+
+Funktion createOrder som tar emot varukorgens innehåll, samt totalpriset på varukorgen. 
+Helper funktion getEmailFromIdToken används för att decoda id token så användarens mail kan läggas till i ordern.
+*/
