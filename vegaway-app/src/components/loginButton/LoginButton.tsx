@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
 
 const LoginButton: React.FC = () => {
   // Get the access token from local storage to determine if the user is logged in
@@ -7,7 +8,27 @@ const LoginButton: React.FC = () => {
   // Check if the user is logged in when the component mounts
   useEffect(() => {
     const accessToken = localStorage.getItem("access_token");
-    setIsLoggedIn(!!accessToken); // Set true if access token exists
+    if (accessToken) {
+      try {
+        // Decode the JWT to extract the expiration time
+        const decodedToken: { exp: number } = jwtDecode(accessToken);
+        const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+
+        // Check if the token is still valid
+        if (decodedToken.exp > currentTime) {
+          setIsLoggedIn(true);
+        } else {
+          // Remove expired token
+          localStorage.removeItem("access_token");
+          setIsLoggedIn(false);
+        }
+      } catch (error) {
+        console.error("Failed to decode token:", error);
+        setIsLoggedIn(false);
+      }
+    } else {
+      setIsLoggedIn(false);
+    }
   }, []);
 
   // Import the environment variables individually
@@ -49,4 +70,7 @@ export default LoginButton;
 /* 
 Författare: Isak
 En simpel login knapp som triggar cognitos hosted ui för login och sign up
+
+Uppdatering - Isak
+Nu visar isLoggedIn state korrekt baserat på tokens expiration time. Innan kunde detta state vara true även fast expiration time hade passerat på dessa tokens
 */
