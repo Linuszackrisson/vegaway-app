@@ -31,7 +31,7 @@
     height: 30px;
     position: absolute;
     bottom: 5px;
-    right: 10px;
+    right: 7px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -40,30 +40,31 @@
 
 .product-card__info {
     display: flex;
-    gap: 7px;
     flex-direction: column;
-    padding: 0 10px 10px;
+    padding: 5px 7px;
+    flex-grow: 1;
+    gap: 5px;
 }
 
 .product-card__title-price {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .product-card__title,
 .product-card__price {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 500;
+    text-align: start;
+
 }
 
 .product-card__info-button {
     background: none;
     border: none;
-    padding: 0;
-    font-size: 16px;
+    padding: 5px 0;
+
     text-decoration: underline;
     cursor: pointer;
-    align-self: flex-start;
+    display: flex;
+    margin-top: auto;
 }
