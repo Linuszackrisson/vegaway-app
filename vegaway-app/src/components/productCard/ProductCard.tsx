@@ -61,4 +61,3 @@ export default ProductCard;
 * 
 * Uppdaterad Jacob
 * Förenklade propsen använder menuItem
-*/
