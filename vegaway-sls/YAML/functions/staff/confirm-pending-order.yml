@@ -1,0 +1,6 @@
+handler: handlers/confirmPendingOrder.handler
+events:
+  - httpApi:
+      path: /staff/orders/confirm
+      method: post
+      authorizer: cognitoAuthorizer

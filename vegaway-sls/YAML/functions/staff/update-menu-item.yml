@@ -1,0 +1,6 @@
+handler: handlers/updateMenuItem.handler
+events:
+  - httpApi:
+      path: /staff/menu/items
+      method: put
+      authorizer: cognitoAuthorizer

@@ -1,0 +1,6 @@
+handler: handlers/deleteOrder.handler
+events:
+  - httpApi:
+      path: /orders
+      method: delete
+      authorizer: cognitoAuthorizer
