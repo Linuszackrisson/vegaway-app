@@ -21,8 +21,11 @@ functions:
 
 resources:
   Resources:
+    # TABLES
     MenuTable: ${file(./YAML/resources/tables/menu-table.yml)}
     OrdersTable: ${file(./YAML/resources/tables/orders-table.yml)}
+
+    # COGNITO
     CognitoUserPoolClient: ${file(./YAML/resources/cognito-user-pool-client.yml)}
     CognitoUserPool: ${file(./YAML/resources/cognito-user-pool.yml)}
     CognitoIdentityPool: ${file(./YAML/resources/cognito-identity-pool.yml)}
