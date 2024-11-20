@@ -1,8 +1,8 @@
-import { confirmOrder } from "../../confirmOrderStaff"; // Adjust the import path if needed
+import { confirmOrder } from "../../confirmOrderStaff";
 
 const ConfirmOrderButton: React.FC = () => {
   const handleConfirmOrder = async () => {
-    const orderId = "12345"; // The orderId to be confirmed
+    const orderId = "12345";
 
     try {
       const response = await confirmOrder({ orderId });
@@ -16,3 +16,9 @@ const ConfirmOrderButton: React.FC = () => {
 };
 
 export default ConfirmOrderButton;
+
+/* 
+Författare: Isak
+
+Test-knapp för att markera en order som behandlad.
+*/

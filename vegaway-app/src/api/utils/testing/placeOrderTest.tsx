@@ -39,5 +39,5 @@ export default OrderButton;
 /* 
 Författare: Isak
 
-Test knapp för att lägga en test order
+Test-knapp för att lägga en test order
 */
