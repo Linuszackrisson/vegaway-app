@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/0d0afc31-ff00-4641-b935-86f83d27a8f3)# Sprint Planering och Översikt
 
 Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för vårt team under de kommande fyra veckorna. Teammedlemmarna är:
 - Linus
@@ -96,9 +95,9 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 #### Onsdag (2024-11-20)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |             CartStore med Zustand, localstorage, skickas till CartPage.                 |     Mer frontend issues                   |        Nej                 |
+| Isak       |                        Placeorder handler och api fil för placeorder, and it works! Token validation feature.    | Serverless work. Mappstruktur. Ta en kik op JOI.   |        Nej.           |
+| Jacob      |          Utökade produkterna och kategorier, jobbat med att få bilder till produkterna. Allmänt CSS arbete.          |          NAV-barmenu & collapse menu.              |           Bilderna krånglar, gemensam felsökning behövs.              |
 
 #### Torsdag (2024-11-21)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
