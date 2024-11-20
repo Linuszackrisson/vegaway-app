@@ -7,7 +7,7 @@ const API_KEY = "MY_API_KEY";
 export interface Order {
   customerEmail: string;
   items: Array<Record<string, any>>;
-  price: number;
+  totalPrice: number;
 }
 
 /**
