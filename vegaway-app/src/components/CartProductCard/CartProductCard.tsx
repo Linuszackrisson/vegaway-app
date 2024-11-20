@@ -38,9 +38,9 @@ const CartProductCard: React.FC<CartProductCardProps> = ({ item }) => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <h3 className="cart-product-card__title">{item.name}</h3>
           <div className="cart-product-card__quantity-controls">
-            <button className="cart-product-card__remove-button" onClick={handleDecrease}>-</button>
+            <button className="cart-product-card__remove-button" onClick={handleDecrease}>&lt;</button>
             <span className="cart-product-card__quantity">{itemCount}</span>
-            <button className="cart-product-card__add-button" onClick={handleIncrease}>+</button>
+            <button className="cart-product-card__add-button" onClick={handleIncrease}>&gt;</button>
           </div>
         </div>
         <p className="cart-product-card__price">${item.price.toFixed(2)}</p>

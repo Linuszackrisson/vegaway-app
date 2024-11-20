@@ -28,6 +28,7 @@
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
+    margin-left: 5px;
 }
 
 .cart-product-card__title {
@@ -36,14 +37,14 @@
 }
 
 .cart-product-card__price {
-    font-size: 0.9rem;
-    color: #333;
+    font-weight: 600;
+    
 }
 
 .cart-product-card__quantity-controls {
     display: flex;
     align-items: center;
-    gap: 5px;
+    border: solid 1px black;
 }
 
 .cart-product-card__add-button,
@@ -55,7 +56,7 @@
     background: none;
     color: var(--text-color);
     border-radius: 5px;
-    font-size: 0.9rem;
+    display: inline-block;
 }
 
 .cart-product-card__info-button {
