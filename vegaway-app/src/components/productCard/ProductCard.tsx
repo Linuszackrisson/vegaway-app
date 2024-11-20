@@ -38,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
       </div> 
       <div className="product-card__info"> 
         <div className="product-card__title-price"> 
-          <p className="product-card__title">{item.name}</p> 
+          <h3 className="product-card__title">{item.name}</h3> 
           <p className="product-card__price">${item.price.toFixed(2)}</p> 
         </div> 
         <button 
@@ -61,4 +61,3 @@ export default ProductCard;
 * 
 * Uppdaterad Jacob
 * Förenklade propsen använder menuItem
-*/
