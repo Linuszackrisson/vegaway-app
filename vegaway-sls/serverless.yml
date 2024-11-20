@@ -1,6 +1,7 @@
 org: ${env:SLS_ORG} # Define SLS_ORG in .env
 service: vegaway-sls
 custom:
+  ordersTable: ${file(./YAML/resources/tables/orders-table.yml)}
   guestUserRole: ${file(./YAML/resources/guest-user-role.yml)}
   authUserRole: ${file(./YAML/resources/auth-user-role.yml)}
   cognitoIdentityPool: ${file(./YAML/resources/cognito-identity-pool.yml)}
@@ -133,6 +134,7 @@ functions:
 resources:
   Resources:
     # Imported resources first
+    OrdersTable: ${self:custom.ordersTable}
     CognitoUserPoolClient: ${self:custom.cognitoUserPoolClient}
     CognitoUserPool: ${self:custom.cognitoUserPool}
     CognitoIdentityPool: ${self:custom.cognitoIdentityPool}
@@ -150,17 +152,5 @@ resources:
             AttributeType: S
         KeySchema:
           - AttributeName: menuId
-            KeyType: HASH
-        BillingMode: PAY_PER_REQUEST
-
-    OrdersTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${self:service}-orders
-        AttributeDefinitions:
-          - AttributeName: orderStatus
-            AttributeType: S
-        KeySchema:
-          - AttributeName: orderStatus
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
