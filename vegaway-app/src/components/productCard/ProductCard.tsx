@@ -50,8 +50,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 };
 
 export default ProductCard;
-
-/* Författare Linus
+/*
  * Uppdaterade komponenten så att den fungerar enligt issuen.
  * Adderade funktion för att knappen ska lägga till i varukorgen
  * Lade till logs så vi ser om det fungerar (it actually does)
@@ -59,3 +58,4 @@ export default ProductCard;
  * Uppdaterad Jacob
  * Förenklade propsen använder menuItem
  */
+

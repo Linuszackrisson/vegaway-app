@@ -1,27 +1,27 @@
-import { useEffect } from 'react';
 import { useCartStore } from '../../store/cartStore';
 import './CartPage.css';
-import ProductCard from '../../components/productCard/ProductCard';
+import CartProductCard from '../../components/CartProductCard/CartProductCard';
+import { MenuItem } from "../../api/menuApi";
+import Underline_06 from '../../assets/Underline_06.svg';
 
 function CartPage() {
   const cartItems = useCartStore((state) => state.items);
-  const clearCart = useCartStore((state) => state.clearCart); 
+  const uniqueCartItems = Array.from(new Map(cartItems.map(item => [item.menuId, item])).values());
 
-  useEffect(() => {
-    console.log('Current cart:', cartItems);
-  }, [cartItems]);
- /* * OBSERVERAR DETTA ÄR TEMPORÄRT JAG VILLE BARA SE EFTER MINA CONSOLE LOGS OM JAG KUNDE RENDERA PÅ SKÄRMEN OCKSÅ!!!!!!!!!!!!!!!!!!!*/
   return (
-    <div>
-      <h1>Cart Page</h1>
-      <button onClick={clearCart}>Clear Cart</button> {/* Lägg till denna rad */}
-      {cartItems.length === 0 ? (
-        <p>Tom kundvagn, tom mage.</p>
+    <div className='cartpage'>
+      <h1 className='cartpage__title'>Your Cart</h1>
+      <img src={Underline_06} alt='Cart' className='cartpage__image' />
+      {uniqueCartItems.length === 0 ? (
+        <p className='cartpage__empty-message'>Tom kundvagn, tom mage.</p>
       ) : (
-        <div className="card-container">
-          {cartItems.map((item) => (
-            <ProductCard key={item.menuId} item={item} />
-          ))}
+        <div className="cartpage__card-container">
+          {uniqueCartItems.map((item) => {
+            const itemCount = cartItems.filter(cartItem => cartItem.menuId === item.menuId).length;
+            return (
+              <CartProductCard key={item.menuId} item={{ ...item, count: itemCount } as MenuItem & { count: number }} />
+            );
+          })}
         </div>
       )}
     </div>
@@ -31,8 +31,6 @@ function CartPage() {
 export default CartPage;
 
 /* Författare Linus
-* Komponent struktur, samt funktion för rendering av cartStore med hjälp av productCard.
-
-* 
+* Hela komponenten ink alla funktioner och styling, nu ska det fungera som väntat.
 * 
 */ 

@@ -6,6 +6,7 @@ interface CartStore {
   items: MenuItem[];
   addToCart: (item: MenuItem) => void;
   removeFromCart: (menuId: string) => void;
+  decreaseQuantity: (menuId: string) => void;
   clearCart: () => void;
   getTotalItems: () => number;
   getTotalPrice: () => number;
@@ -24,6 +25,17 @@ export const useCartStore = create<CartStore>()(
         items: state.items.filter(item => item.menuId !== menuId)
       })),
       
+      decreaseQuantity: (menuId) => set((state) => {
+        const updatedItems = [...state.items];
+        const indexToRemove = updatedItems.findIndex(item => item.menuId === menuId);
+        
+        if (indexToRemove !== -1) {
+          updatedItems.splice(indexToRemove, 1);
+        }
+        
+        return { items: updatedItems };
+      }),
+      
       clearCart: () => set({ items: [] }),
       
       getTotalItems: () => {
@@ -35,7 +47,7 @@ export const useCartStore = create<CartStore>()(
       }
     }),
     {
-      name: 'cart-storage', // unikt namn för localStorage nyckeln
+      name: 'cart-storage',
       storage: createJSONStorage(() => localStorage),
     }
   )
