@@ -13,12 +13,13 @@
 
 .product-page__info {
     display: flex;
-    justify-content: space-between; /* Flexbox to space title and price */
-    align-items: center; /* Align items vertically */
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 .product-page__image-container {
-    position: relative; /* Make this container relative for absolute positioning of the button */
+    position: relative; 
+    min-height: 312px;
     
 
 
@@ -48,4 +49,8 @@
     font-weight: 600;
     font-size: 18px;
     letter-spacing: 0.18px;
+}
+
+.product-page__title {
+
 }

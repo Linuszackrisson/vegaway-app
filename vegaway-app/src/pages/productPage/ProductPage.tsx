@@ -48,8 +48,8 @@ const ProductPage: React.FC = () => {
 				</button>
 			</div>
 			<div className="product-page__info">
-				<h1 className="product-page__title">{product.name}</h1>
-				<p className="product-page__price">Pris: ${product.price.toFixed(2)}</p>
+				<h2 className="product-page__title">{product.name}</h2>
+				<p className="product-page__price">${product.price.toFixed(2)}</p>
 			</div>
 			<p className="product-page__description">{product.description}</p>
 
