@@ -60,3 +60,7 @@
         padding: 0 18px 0 24px;
     }
 }
+
+.product-slider__title {
+    font-weight: 500;
+}
