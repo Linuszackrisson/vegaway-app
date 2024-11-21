@@ -1,6 +1,5 @@
 .cartpage {
     padding: 14px;
-    height: 100vh;
 }
 .cartpage__title {
     margin-bottom: 5px;
@@ -8,6 +7,7 @@
 
 .cartpage__image {
     margin-bottom: 34px;
+    height: 100%;
 }
 
 .cartpage {
@@ -16,4 +16,6 @@
     background-position: left 100px;
     background-repeat: no-repeat;
     background-size: fit;
+    min-height: calc(100vh - 70px);
+    
   }

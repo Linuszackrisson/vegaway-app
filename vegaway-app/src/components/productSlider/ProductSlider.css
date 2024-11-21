@@ -21,6 +21,7 @@
     cursor: pointer;
 }
 
+
 .filter-button:hover {
     filter: brightness(1);
 }

@@ -9,7 +9,8 @@ function CartPage() {
   const uniqueCartItems = Array.from(new Map(cartItems.map(item => [item.menuId, item])).values());
 
   return (
-    <div className='cartpage'>
+    
+    <div className='cartpage wrapper'>
       <h1 className='cartpage__title'>Your Cart</h1>
       <img src={Underline_06} alt='Cart' className='cartpage__image' />
       {uniqueCartItems.length === 0 ? (
@@ -25,6 +26,7 @@ function CartPage() {
         </div>
       )}
     </div>
+    
   )
 }
 
