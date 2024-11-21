@@ -11,6 +11,7 @@ Kan möjligtvis vara onödiga rader, rör på egen risk mvh Linus */
     box-shadow: 2px 2px 0px 0px #3A3A3A;
     margin-bottom: 14px;
     height: 75px;
+    background: #FFF;
 }
 
 .cart-product-card__image-container {
