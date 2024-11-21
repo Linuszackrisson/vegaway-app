@@ -4,12 +4,14 @@ import { MenuItem } from '../../api/menuApi';
 import { useCartStore } from '../../store/cartStore';
 import chevronLeft from '../../assets/chevron-left.svg';
 import chevronRight from '../../assets/chevron-right.svg';
+import { useNavigate } from 'react-router-dom';
 
 interface CartProductCardProps {
   item: MenuItem;
 }
 
 const CartProductCard: React.FC<CartProductCardProps> = ({ item }) => {
+  const navigate = useNavigate();
   const removeFromCart = useCartStore((state) => state.removeFromCart);
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
   const addToCart = useCartStore((state) => state.addToCart);
@@ -26,6 +28,10 @@ const CartProductCard: React.FC<CartProductCardProps> = ({ item }) => {
     } else {
       removeFromCart(item.menuId);
     }
+  };
+
+  const handleInfoClick = () => {
+    navigate(`/product/${item.menuId}`);
   };
 
   return (
@@ -57,7 +63,7 @@ const CartProductCard: React.FC<CartProductCardProps> = ({ item }) => {
           </div>
         </div>
         <p className="cart-product-card__price">${(item.price * itemCount).toFixed(2)}</p>
-        <button className="cart-product-card__info-button">info</button>
+        <button className="cart-product-card__info-button" onClick={handleInfoClick}>info</button>
       </div>
     </div>
   );
