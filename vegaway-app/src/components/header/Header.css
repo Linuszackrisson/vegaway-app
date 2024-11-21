@@ -1,0 +1,18 @@
+/* src/components/header/Header.css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+.header-left .logo {
+    height: 40px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 16px;
+    cursor: pointer;
+}

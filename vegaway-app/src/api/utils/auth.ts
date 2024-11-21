@@ -12,7 +12,7 @@ export const getAuthHeaders = (): { [key: string]: string } | null => {
 };
 
 /* 
-Författare: Isak
-
-Utility funktion som har boilerplate för att hämta samta inkludera access token i request headers
-*/
+  Författare: Isak
+  
+  Utility funktion som har boilerplate för att hämta samta inkludera access token i request headers
+  */

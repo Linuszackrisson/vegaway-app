@@ -1,0 +1,19 @@
+/* src/pages/ProfilePage/ProfilePage.css */
+.profile-page {
+    padding: 2rem;
+}
+
+.order-list {
+    list-style: none;
+    padding: 0;
+}
+
+.order-list li {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+}
+
+.order-list h3 {
+    margin: 0;
+}
