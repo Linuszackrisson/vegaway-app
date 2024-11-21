@@ -2,6 +2,8 @@ import React from 'react';
 import './CardProductCard.css';
 import { MenuItem } from '../../api/menuApi';
 import { useCartStore } from '../../store/cartStore';
+import chevrenLeft from '../../assets/chevron-left.svg';
+import chevrenRight from '../../assets/chevron-right.svg';
 
 interface CartProductCardProps {
   item: MenuItem;
@@ -38,13 +40,23 @@ const CartProductCard: React.FC<CartProductCardProps> = ({ item }) => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <h3 className="cart-product-card__title">{item.name}</h3>
           <div className="cart-product-card__quantity-controls">
-            <button className="cart-product-card__remove-button" onClick={handleDecrease}>&lt;</button>
+            <img 
+              className="cart-product-card__remove-button" 
+              src={chevrenLeft} 
+              alt="Decrease" 
+              onClick={handleDecrease} 
+            />
             <span className="cart-product-card__quantity">{itemCount}</span>
-            <button className="cart-product-card__add-button" onClick={handleIncrease}>&gt;</button>
+            <img 
+              className="cart-product-card__add-button" 
+              src={chevrenRight} 
+              alt="Increase" 
+              onClick={handleIncrease} 
+            />
           </div>
         </div>
         <p className="cart-product-card__price">${item.price.toFixed(2)}</p>
-        <button className="cart-product-card__info-button">info &gt;</button>
+        <button className="cart-product-card__info-button">info</button>
       </div>
     </div>
   );
