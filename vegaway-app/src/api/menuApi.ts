@@ -11,6 +11,7 @@ export interface MenuItem {
 	price: number;
 	category: string;
 	imageUrl: string;
+	quantity: number; 
 }
 
 export const fetchMenuItems = async (): Promise<MenuItem[]> => {
