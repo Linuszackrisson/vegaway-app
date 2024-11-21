@@ -27,7 +27,7 @@ function MenuPage() {
 	);
 
 	return (
-		<div className="menu-page">
+		<div className="menu-page wrapper">
 			{Object.entries(groupedItems).map(([category, items]) => (
 				<ProductSlider key={category} title={category} items={items} />
 			))}
