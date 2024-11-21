@@ -29,6 +29,7 @@ body {
 
 .wrapper {
   padding-bottom: 5rem;
+  
 }
 
 h1,
@@ -77,6 +78,11 @@ p {
   transition: all 0.1s ease;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+}
+
+.button__second {
+  border: none;
+  box-shadow: none;
 }
 
 .button__first:active,
