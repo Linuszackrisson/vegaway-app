@@ -102,9 +102,9 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 #### Torsdag (2024-11-21)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |      Cartpage påbörjat.                        |        Cartpage och productview page.                |         Nej, tid kanske. CSS tar tid.                |
+| Isak       |                   Order confirmation function           |                 Staff notes & protected routes.       |        Nej.                 |
+| Jacob      |        Header / Nav och en slider menu.                      |     Fortsätta med gårdagen och avsluta.                   |        Behöver möjligtvis hjälp.                 |
 
 ### Sprint Review (Fredag)
 - **Resultat**:
