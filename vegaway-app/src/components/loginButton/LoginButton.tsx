@@ -1,43 +1,21 @@
-import { useState, useEffect } from "react";
-import { jwtDecode } from "jwt-decode";
+import { useEffect } from "react";
+import useAuthStore from "../../store/useLoggedInStore"; // Import the Zustand store
 
 const LoginButton: React.FC = () => {
-  // Get the access token from local storage to determine if the user is logged in
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn, updateLoginState } = useAuthStore(); // Zustand state and updater
 
-  // Check if the user is logged in when the component mounts
   useEffect(() => {
-    const accessToken = localStorage.getItem("access_token");
-    if (accessToken) {
-      try {
-        // Decode the JWT to extract the expiration time
-        const decodedToken: { exp: number } = jwtDecode(accessToken);
-        const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+    // Update login state when the component mounts
+    updateLoginState();
+  }, [updateLoginState]);
 
-        // Check if the token is still valid
-        if (decodedToken.exp > currentTime) {
-          setIsLoggedIn(true);
-        } else {
-          // Remove expired token
-          localStorage.removeItem("access_token");
-          setIsLoggedIn(false);
-        }
-      } catch (error) {
-        console.error("Failed to decode token:", error);
-        setIsLoggedIn(false);
-      }
-    } else {
-      setIsLoggedIn(false);
-    }
-  }, []);
-
-  // Import the environment variables individually
+  // Import environment variables
   const cognitoDomain: string = import.meta.env.VITE_COGNITO_DOMAIN;
   const clientId: string = import.meta.env.VITE_COGNITO_CLIENT_ID;
   const redirectUri: string = import.meta.env.VITE_COGNITO_REDIRECT_URI;
 
   const handleLogin = () => {
-    // Construct the signIn URL with the imported variables
+    // Construct the sign-in URL
     const signInUrl = `${cognitoDomain}/login?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectUri}`;
     window.location.href = signInUrl;
   };
@@ -49,7 +27,10 @@ const LoginButton: React.FC = () => {
 
     // Clear local storage
     localStorage.removeItem("access_token");
-    setIsLoggedIn(false); // Update the state to reflect the user is logged out
+    localStorage.removeItem("id_token"); // Assuming you store id_token as well
+
+    // Update global state
+    updateLoginState();
 
     // Redirect to Cognito's logout endpoint
     window.location.href = logoutUrl;
@@ -66,11 +47,3 @@ const LoginButton: React.FC = () => {
 };
 
 export default LoginButton;
-
-/* 
-Författare: Isak
-En simpel login knapp som triggar cognitos hosted ui för login och sign up
-
-Uppdatering - Isak
-Nu visar isLoggedIn state korrekt baserat på tokens expiration time. Innan kunde detta state vara true även fast expiration time hade passerat på dessa tokens
-*/
