@@ -71,3 +71,7 @@ const CartProductCard: React.FC<CartProductCardProps> = ({ item }) => {
 
 export default CartProductCard;
 
+/* Författare Linus
+*  Hela komponenten, nu ska det sänka och höja som väntat och se ut enligt skiss.
+* 
+*/ 

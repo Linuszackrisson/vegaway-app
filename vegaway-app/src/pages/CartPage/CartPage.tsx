@@ -31,7 +31,6 @@ function CartPage() {
 export default CartPage;
 
 /* Författare Linus
-* Komponent struktur, samt funktion för rendering av cartStore med hjälp av productCard.
-* Nu försvinner kortet om det är NÖLL
+* Hela komponenten ink alla funktioner och styling, nu ska det fungera som väntat.
 * 
 */ 
