@@ -291,27 +291,47 @@ const menuItems = [
   },
 ];
 
-// Define the table name (update to your actual DynamoDB table name)
+// Define the table name
 const tableName = "vegaway-sls-menu";
 
 // Function to add items to DynamoDB table
 const populateMenu = async () => {
-  for (const item of menuItems) {
-    const params = {
-      TableName: tableName,
-      Item: item,
-    };
+  try {
+    // Step 1: Scan the table for all existing items
+    const existingItems = await dynamoDb
+      .scan({ TableName: tableName })
+      .promise();
 
-    try {
-      await dynamoDb.put(params).promise();
-      console.log(`Added: ${item.name}`);
-    } catch (error) {
-      console.error(`Error adding: ${item.name}`, error);
+    // Step 2: Delete each existing item
+    if (existingItems.Items.length > 0) {
+      const deletePromises = existingItems.Items.map((item) =>
+        dynamoDb
+          .delete({
+            TableName: tableName,
+            Key: { menuId: item.menuId },
+          })
+          .promise()
+      );
+      await Promise.all(deletePromises);
+      console.log("Deleted existing items from MenuTable.");
     }
+
+    // Step 3: Add new items to the table
+    const putPromises = menuItems.map((item) =>
+      dynamoDb
+        .put({
+          TableName: tableName,
+          Item: item,
+        })
+        .promise()
+    );
+    await Promise.all(putPromises);
+    console.log("Menu populated successfully.");
+  } catch (error) {
+    console.error("Error populating menu:", error);
   }
 };
 
-// Run the function. Use "node populateMenu.js" in the console.
 populateMenu();
 
 /* 
