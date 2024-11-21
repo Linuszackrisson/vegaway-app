@@ -1,5 +1,5 @@
 // src/App.tsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import ContactPage from "./pages/contactPage/ContactPage";
@@ -11,6 +11,7 @@ import CallbackPage from "./pages/callbackPage/CallbackPage";
 import Header from "./components/header/Header";
 import SliderMenu from "./components/sliderMenu/SliderMenu";
 import { getUserInfo } from "./api/utils/auth";
+import "./App.css";
 
 function App() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);

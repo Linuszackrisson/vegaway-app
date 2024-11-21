@@ -47,7 +47,7 @@ const SliderMenu: React.FC<SliderMenuProps> = ({
 				</nav>
 			</div>
 			<div className="menu-footer">
-				{/* Include your SVG graphic here */}
+				{/* Graphics */}
 				<img src="/path-to-your-graphic.svg" alt="Graphic" />
 			</div>
 		</div>
