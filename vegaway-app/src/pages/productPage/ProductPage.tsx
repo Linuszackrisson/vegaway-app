@@ -19,7 +19,6 @@ const ProductPage: React.FC = () => {
 			const foundProduct = items.find(item => item.menuId === id);
 			setProduct(foundProduct || null);
 			if (foundProduct) {
-				// Hämta relaterade produkter baserat på kategori
 				const filteredProducts = items.filter(item => item.category === foundProduct.category && item.menuId !== foundProduct.menuId);
 				setRelatedProducts(filteredProducts);
 			}
