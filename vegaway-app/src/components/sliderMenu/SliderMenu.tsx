@@ -1,55 +1,76 @@
 // src/components/sliderMenu/SliderMenu.tsx
+import React from "react";
 import { Link } from "react-router-dom";
+import { useMenu } from "../../contexts/MenuContext";
+import { useAuth } from "../../contexts/AuthContext";
 import "./SliderMenu.css";
-import { ChevronLeft, User, BookOpen, ShoppingBag, Mail } from "lucide-react"; // Import Lucide icons
 
-interface SliderMenuProps {
-	isOpen: boolean;
-	onClose: () => void;
-	isAuthenticated: boolean;
-	userName: string;
-}
+const SliderMenu: React.FC = () => {
+	const { isMenuOpen, closeMenu } = useMenu();
+	const { isAuthenticated, logout } = useAuth();
 
-const SliderMenu: React.FC<SliderMenuProps> = ({
-	isOpen,
-	onClose,
-	isAuthenticated,
-	userName,
-}) => {
+	const menuClass = isMenuOpen ? "slider-menu open" : "slider-menu";
+
+	const handleLogin = () => {
+		const cognitoDomain: string = import.meta.env.VITE_COGNITO_DOMAIN;
+		const clientId: string = import.meta.env.VITE_COGNITO_CLIENT_ID;
+		const redirectUri: string = import.meta.env.VITE_COGNITO_REDIRECT_URI;
+		const signInUrl = `${cognitoDomain}/login?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectUri}`;
+		window.location.href = signInUrl;
+	};
+
 	return (
-		<div className={`slider-menu ${isOpen ? "open" : ""}`}>
-			<div className="menu-header">
-				<ChevronLeft className="icon" onClick={onClose} />
-			</div>
-			<div className="menu-content">
-				<div className="profile-section">
-					<div className="profile-pic">
-						<User className="icon" />
-					</div>
-					<h2>Welcome{isAuthenticated ? `, ${userName}` : ""}</h2>
-					{!isAuthenticated && <p>Login to see your order history</p>}
-				</div>
-				<nav className="menu-nav">
-					<Link to="/menu" onClick={onClose}>
-						<BookOpen className="icon" />
+		<div className={menuClass}>
+			<button className="close-button" onClick={closeMenu}>
+				Close
+			</button>
+			<ul className="menu-items">
+				<li>
+					<Link to="/" onClick={closeMenu}>
+						Home
+					</Link>
+				</li>
+				<li>
+					<Link to="/menu" onClick={closeMenu}>
 						Menu
 					</Link>
-					{isAuthenticated && (
-						<Link to="/orders" onClick={onClose}>
-							<ShoppingBag className="icon" />
-							Order History
-						</Link>
-					)}
-					<Link to="/contact" onClick={onClose}>
-						<Mail className="icon" />
+				</li>
+				<li>
+					<Link to="/contact" onClick={closeMenu}>
 						Contact Us
 					</Link>
-				</nav>
-			</div>
-			<div className="menu-footer">
-				{/* Graphics */}
-				<img src="/path-to-your-graphic.svg" alt="Graphic" />
-			</div>
+				</li>
+				{isAuthenticated ? (
+					<>
+						<li>
+							<Link to="/profile" onClick={closeMenu}>
+								Profile
+							</Link>
+						</li>
+						<li>
+							<button
+								onClick={() => {
+									logout();
+									closeMenu();
+								}}
+							>
+								Logout
+							</button>
+						</li>
+					</>
+				) : (
+					<li>
+						<button
+							onClick={() => {
+								handleLogin();
+								closeMenu();
+							}}
+						>
+							Login
+						</button>
+					</li>
+				)}
+			</ul>
 		</div>
 	);
 };
