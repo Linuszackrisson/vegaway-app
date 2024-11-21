@@ -47,3 +47,13 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
+/* 
+Författare: Jacob
+
+Header komponent som renderar knappar och slider menu
+
+Uppdatering: Isak
+Använder nu zustand store för att göra den fil simplare.
+
+*/

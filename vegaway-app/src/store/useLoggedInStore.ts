@@ -25,7 +25,7 @@ const useLoggedInStore = create<AuthState>((set) => ({
       try {
         // Decode token with the defined type
         const { exp } = jwtDecode<DecodedToken>(accessToken);
-        isValid = exp * 1000 > Date.now(); // Convert expiration to milliseconds
+        isValid = exp * 1000 > Date.now(); // Set isValid to true or false
       } catch (error) {
         console.error("Invalid token:", error);
         isValid = false;
@@ -37,3 +37,9 @@ const useLoggedInStore = create<AuthState>((set) => ({
 }));
 
 export default useLoggedInStore;
+
+/* 
+Författare: Isak
+
+Zustand store för att hålla koll på om en användare är inloggad
+*/

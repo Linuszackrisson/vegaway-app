@@ -43,3 +43,12 @@ const SliderMenu: React.FC<SliderMenuProps> = ({ isOpen, onClose }) => {
 };
 
 export default SliderMenu;
+
+/* 
+Författare: Jacob
+
+Komponent för slider menu med navigeringsalternativ
+
+Uppdatering: Isak
+Använder LoginButton component vilket gör denna komponent mycket simplare
+*/
