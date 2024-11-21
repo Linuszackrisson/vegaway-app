@@ -1,21 +1,50 @@
 // src/components/header/Header.tsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, User, LogIn } from "lucide-react";
-import { useAuth } from "../../contexts/AuthContext";
-import { useMenu } from "../../contexts/MenuContext";
+import { Menu, User } from "lucide-react";
+import { jwtDecode } from "jwt-decode";
+import LoginButton from "../loginButton/LoginButton";
+import SliderMenu from "../sliderMenu/SliderMenu";
 import "./Header.css";
 
-const Header: React.FC = () => {
-	const { isAuthenticated } = useAuth();
-	const { openMenu } = useMenu();
+interface DecodedToken {
+	exp: number;
+	[key: string]: any;
+}
 
-	const handleLogin = () => {
-		const cognitoDomain: string = import.meta.env.VITE_COGNITO_DOMAIN;
-		const clientId: string = import.meta.env.VITE_COGNITO_CLIENT_ID;
-		const redirectUri: string = import.meta.env.VITE_COGNITO_REDIRECT_URI;
-		const signInUrl = `${cognitoDomain}/login?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectUri}`;
-		window.location.href = signInUrl;
+const Header: React.FC = () => {
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+	// Check if the user is logged in when the component mounts
+	useEffect(() => {
+		const accessToken = localStorage.getItem("access_token");
+		if (accessToken) {
+			try {
+				const decodedToken: DecodedToken = jwtDecode(accessToken);
+				const currentTime = Math.floor(Date.now() / 1000);
+
+				if (decodedToken.exp > currentTime) {
+					setIsLoggedIn(true);
+				} else {
+					localStorage.removeItem("access_token");
+					setIsLoggedIn(false);
+				}
+			} catch (error) {
+				console.error("Failed to decode token:", error);
+				setIsLoggedIn(false);
+			}
+		} else {
+			setIsLoggedIn(false);
+		}
+	}, []);
+
+	const openMenu = () => {
+		setIsMenuOpen(true);
+	};
+
+	const closeMenu = () => {
+		setIsMenuOpen(false);
 	};
 
 	return (
@@ -27,16 +56,15 @@ const Header: React.FC = () => {
 				Vegaway
 			</Link>
 			<div className="header-icons">
-				{isAuthenticated ? (
+				{isLoggedIn ? (
 					<Link to="/profile">
 						<User />
 					</Link>
 				) : (
-					<button className="login-button" onClick={handleLogin}>
-						<LogIn />
-					</button>
+					<LoginButton />
 				)}
 			</div>
+			<SliderMenu isOpen={isMenuOpen} onClose={closeMenu} />
 		</header>
 	);
 };

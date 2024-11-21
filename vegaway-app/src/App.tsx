@@ -9,14 +9,12 @@ import CartPage from "./pages/CartPage/CartPage";
 import CallbackPage from "./pages/callbackPage/CallbackPage";
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import Header from "./components/header/Header";
-import SliderMenu from "./components/sliderMenu/SliderMenu";
 import "./App.css";
 
 function App() {
   return (
     <Router>
       <Header />
-      <SliderMenu />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
