@@ -1,47 +1,63 @@
 // src/components/header/Header.tsx
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Menu, User } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Equal, User, ChevronLeft } from "lucide-react";
 import LoginButton from "../loginButton/LoginButton";
 import SliderMenu from "../sliderMenu/SliderMenu";
 import useLoggedInStore from "../../store/useLoggedInStore";
+import Logo from "../../assets/logo.svg";
 import "./Header.css";
 
 const Header: React.FC = () => {
   const { isLoggedIn, updateLoginState } = useLoggedInStore();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isHomePage = location.pathname === "/";
+
   // Check the login state when the component mounts
   useEffect(() => {
     updateLoginState();
   }, [updateLoginState]);
 
-  const openMenu = () => {
-    setIsMenuOpen(true);
+  const toggleMenu = () => {
+    setIsMenuOpen((prevState) => !prevState);
   };
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
+  const handleBack = () => {
+    navigate(-1);
   };
 
   return (
     <header className="header">
-      <button className="menu-button" onClick={openMenu}>
-        <Menu />
-      </button>
-      <Link to="/" className="logo">
-        Vegaway
-      </Link>
-      <div className="header-icons">
-        {isLoggedIn ? (
-          <Link to="/profile">
-            <User />
+      <div className="header__left">
+        {isHomePage ? (
+          <Link to="/">
+            <img src={Logo} alt="Logo" className="logo" />
           </Link>
         ) : (
-          <LoginButton />
+          <button className="back-button" onClick={handleBack}>
+            <ChevronLeft />
+          </button>
         )}
       </div>
-      <SliderMenu isOpen={isMenuOpen} onClose={closeMenu} />
+      <div className="header__right">
+        <button className="menu-button" onClick={toggleMenu}>
+          <Equal />
+        </button>
+        <div className="header__profile">
+          {isLoggedIn ? (
+            <Link to="/profile">
+              <User />
+            </Link>
+          ) : (
+            <LoginButton />
+          )}
+        </div>
+      </div>
+      <SliderMenu isOpen={isMenuOpen} onClose={toggleMenu} />
     </header>
   );
 };
@@ -51,9 +67,11 @@ export default Header;
 /* 
 Författare: Jacob
 
-Header komponent som renderar knappar och slider menu
+Header-komponent som renderar knappar och slider-menu
 
 Uppdatering: Isak
-Använder nu zustand store för att göra den fil simplare.
+Använder nu Zustand store för att göra filen enklare.
 
+Ytterligare uppdatering:
+Menyn kan nu öppnas och stängas med menyknappen i headern.
 */

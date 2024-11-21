@@ -4,8 +4,6 @@
     align-items: center;
     justify-content: center;
     text-align: left;
-
-    
 }
 
 .contact-container-page {
@@ -62,7 +60,6 @@
 
 .contact-page__textarea::placeholder {
     padding: 12px;
-    
 }
 
 .button_p {
@@ -72,8 +69,8 @@
 .about-group-icon {
     width: 100%;
     height: 50vh;
-    
 }
+
 .kontaktLink {
     align-self: flex-end;
 }
