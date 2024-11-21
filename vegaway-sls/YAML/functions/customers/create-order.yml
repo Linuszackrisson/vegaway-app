@@ -1,0 +1,6 @@
+handler: handlers/createOrder.handler
+events:
+  - httpApi:
+      path: /orders
+      method: post
+      authorizer: cognitoAuthorizer

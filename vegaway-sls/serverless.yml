@@ -1,156 +1,34 @@
 org: ${env:SLS_ORG} # Define SLS_ORG in .env
 service: vegaway-sls
-custom:
-  ordersTable: ${file(./YAML/resources/tables/orders-table.yml)}
-  guestUserRole: ${file(./YAML/resources/guest-user-role.yml)}
-  authUserRole: ${file(./YAML/resources/auth-user-role.yml)}
-  cognitoIdentityPool: ${file(./YAML/resources/cognito-identity-pool.yml)}
-  cognitoUserPool: ${file(./YAML/resources/cognito-user-pool.yml)}
-  cognitoUserPoolClient: ${file(./YAML/resources/cognito-user-pool-client.yml)}
-  cognitoIdentityPoolRoleAttachment: ${file(./YAML/resources/cognito-identity-pool-role-attachment.yml)}
 
-provider:
-  name: aws
-  stage: dev
-  runtime: nodejs20.x
-  region: eu-north-1
-  iam:
-    role: ${env:MY_ROLE_ARN} # Define MY_ROLE_ARN in .env
-  httpApi:
-    cors:
-      allowedOrigins:
-        - "*"
-      allowedHeaders:
-        - Content-Type
-        - Authorization
-        - x-api-key
-        - x-cognito-auth
-      allowedMethods:
-        - GET
-        - POST
-        - PUT
-        - DELETE
-        - OPTIONS
-      exposedResponseHeaders:
-        - Special-Response-Header
-      maxAge: 6000 # In seconds
-    authorizers:
-      cognitoAuthorizer:
-        type: jwt
-        identitySource: $request.header.x-cognito-auth
-        issuerUrl: !Sub "https://cognito-idp.${self:provider.region}.amazonaws.com/${CognitoUserPool}"
-        audience:
-          - !Ref CognitoUserPoolClient
+provider: ${file(./YAML/provider/provider.yml)}
+
 functions:
   # CUSTOMER ACTIONS
-  getMenu:
-    handler: handlers/getMenu.handler
-    events:
-      - httpApi:
-          path: /menu
-          method: get
-
-  createOrder:
-    handler: handlers/createOrder.handler
-    events:
-      - httpApi:
-          path: /orders
-          method: post
-          authorizer: cognitoAuthorizer
-
-  getOrderStatus:
-    handler: handlers/getOrderStatus.handler
-    events:
-      - httpApi:
-          path: /orders/status
-          method: get
-          authorizer: cognitoAuthorizer
-
-  deleteOrder:
-    handler: handlers/deleteOrder.handler
-    events:
-      - httpApi:
-          path: /orders
-          method: delete
-          authorizer: cognitoAuthorizer
-
-  updateOrder:
-    handler: handlers/updateOrder.handler
-    events:
-      - httpApi:
-          path: /orders
-          method: put
-          authorizer: cognitoAuthorizer
+  getMenu: ${file(./YAML/functions/customers/get-menu.yml)}
+  createOrder: ${file(./YAML/functions/customers/create-order.yml)}
+  getOrderStatus: ${file(./YAML/functions/customers/get-order-status.yml)}
+  deleteOrder: ${file(./YAML/functions/customers/delete-order.yml)}
+  updateOrder: ${file(./YAML/functions/customers/update-order.yml)}
 
   # STAFF ACTIONS
-  getOrders:
-    handler: handlers/getOrders.handler
-    events:
-      - httpApi:
-          path: /staff/orders/{orderType}
-          method: get
-          authorizer: cognitoAuthorizer
-
-  updatePendingOrder:
-    handler: handlers/updatePendingOrder.handler
-    events:
-      - httpApi:
-          path: /staff/orders/pending
-          method: put
-          authorizer: cognitoAuthorizer
-
-  confirmPendingOrder:
-    handler: handlers/confirmPendingOrder.handler
-    events:
-      - httpApi:
-          path: /staff/orders/confirm
-          method: post
-          authorizer: cognitoAuthorizer
-
-  getInventory:
-    handler: handlers/getInventory.handler
-    events:
-      - httpApi:
-          path: /staff/inventory
-          method: get
-          authorizer: cognitoAuthorizer
-
-  getStaffMenu:
-    handler: handlers/getStaffMenu.handler
-    events:
-      - httpApi:
-          path: /staff/menu
-          method: get
-          authorizer: cognitoAuthorizer
-
-  updateMenuItem:
-    handler: handlers/updateMenuItem.handler
-    events:
-      - httpApi:
-          path: /staff/menu/items
-          method: put
-          authorizer: cognitoAuthorizer
+  getOrders: ${file(./YAML/functions/staff/get-orders.yml)}
+  updatePendingOrder: ${file(./YAML/functions/staff/update-pending-order.yml)}
+  confirmPendingOrder: ${file(./YAML/functions/staff/confirm-pending-order.yml)}
+  getInventory: ${file(./YAML/functions/staff/get-inventory.yml)}
+  getStaffMenu: ${file(./YAML/functions/staff/get-staff-menu.yml)}
+  updateMenuItem: ${file(./YAML/functions/staff/update-menu-item.yml)}
 
 resources:
   Resources:
-    # Imported resources first
-    OrdersTable: ${self:custom.ordersTable}
-    CognitoUserPoolClient: ${self:custom.cognitoUserPoolClient}
-    CognitoUserPool: ${self:custom.cognitoUserPool}
-    CognitoIdentityPool: ${self:custom.cognitoIdentityPool}
-    GuestUserRole: ${self:custom.guestUserRole}
-    AuthUserRole: ${self:custom.authUserRole}
-    CognitoIdentityPoolRoleAttachment: ${self:custom.cognitoIdentityPoolRoleAttachment}
+    # TABLES
+    MenuTable: ${file(./YAML/resources/tables/menu-table.yml)}
+    OrdersTable: ${file(./YAML/resources/tables/orders-table.yml)}
 
-    # DynamoDB Resources
-    MenuTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${self:service}-menu
-        AttributeDefinitions:
-          - AttributeName: menuId
-            AttributeType: S
-        KeySchema:
-          - AttributeName: menuId
-            KeyType: HASH
-        BillingMode: PAY_PER_REQUEST
+    # COGNITO
+    CognitoUserPoolClient: ${file(./YAML/resources/cognito-user-pool-client.yml)}
+    CognitoUserPool: ${file(./YAML/resources/cognito-user-pool.yml)}
+    CognitoIdentityPool: ${file(./YAML/resources/cognito-identity-pool.yml)}
+    GuestUserRole: ${file(./YAML/resources/guest-user-role.yml)}
+    AuthUserRole: ${file(./YAML/resources/auth-user-role.yml)}
+    CognitoIdentityPoolRoleAttachment: ${file(./YAML/resources/cognito-identity-pool-role-attachment.yml)}

@@ -1,0 +1,6 @@
+handler: handlers/updateOrder.handler
+events:
+  - httpApi:
+      path: /orders
+      method: put
+      authorizer: cognitoAuthorizer
