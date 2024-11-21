@@ -12,7 +12,7 @@ html {
 :root {
   --text-color: #1B1B1B;
   --button-color: #FFC704;
-  --bg-color: #f9f9f9;
+  --bg-color: #FCFCFC;
 
 }
 
@@ -23,6 +23,11 @@ body {
   max-width: 1100px;
   height: 100vh;
   background-color: var(--bg-color);
+  overflow-y: auto;
+}
+
+.wrapper {
+  padding-bottom: 5rem;
 }
 
 h1,
