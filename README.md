@@ -108,11 +108,11 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 
 ### Sprint Review (Fredag)
 - **Resultat**:
-  - Vad har uppnåtts under veckan?
-  - Vad fungerade bra, och vad kan förbättras?
+  - Vad har uppnåtts under veckan? Login function, majoriteten av frontend pages. Navigation. Cart. Zustand. 
+  - Vad fungerade bra, och vad kan förbättras? Alla har bidragit mycket och vi visar samma engangemang. Git kan vi möjligtvis bli bättre på. 
 - **Feedback**:
-  - Ge och ta emot feedback från alla teammedlemmar.
-  - Identifiera åtgärder för förbättring inför nästa vecka.
+  - Ge och ta emot feedback från alla teammedlemmar. Linus sprider positiv feedback. Kommunikationen har stärkts under veckan. 
+  - Identifiera åtgärder för förbättring inför nästa vecka. En issue för varje enstaka sak och regelbundna commits. Gå igenom flowchart så den även passar med design flowcharten så dom är på samma bana. 
 
 ---
 
