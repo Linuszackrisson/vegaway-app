@@ -1,5 +1,6 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+import { useCartStore } from "../store/cartStore";
 
 const invokeUrl = import.meta.env.VITE_INVOKE_URL;
 const API_KEY = "MY_API_KEY";
@@ -24,46 +25,56 @@ function getEmailFromIdToken(idToken: string): string {
 }
 
 /**
- * Submits a new order to the API.
- * @param order - The order details excluding the email.
- * @returns A promise resolving to the server's response.
+ * Handles the entire order creation process, including fetching cart state,
+ * decoding user email, and clearing the cart after successful order placement.
  */
-export async function createOrder(order: Omit<Order, "customerEmail">) {
+export async function createOrder() {
   try {
-    const idToken = localStorage.getItem("id_token"); // Get ID token from storage
-
+    const idToken = localStorage.getItem("id_token");
     if (!idToken) {
       throw new Error("ID token not found.");
     }
 
-    const customerEmail = getEmailFromIdToken(idToken); // Decode ID token to get the email
+    const customerEmail = getEmailFromIdToken(idToken);
 
-    // Access token is required for authorization in the header
-    const accessToken = localStorage.getItem("access_token"); // Fetch access token from local storage
+    const accessToken = localStorage.getItem("access_token");
     if (!accessToken) {
       throw new Error("Access token not found.");
     }
 
-    const orderWithEmail: Order = { ...order, customerEmail };
+    // Access cart state from the store
+    const { items, getTotalPrice, clearCart } = useCartStore.getState();
 
+    if (items.length === 0) {
+      throw new Error("Cart is empty. Cannot create order.");
+    }
+
+    const totalPrice = getTotalPrice();
+
+    const orderWithEmail: Order = { items, totalPrice, customerEmail };
+
+    // Send the order request
     const response = await axios.post(`${invokeUrl}/orders`, orderWithEmail, {
       headers: {
         "Content-Type": "application/json",
         Authorization: API_KEY,
-        "x-cognito-auth": `Bearer ${accessToken}`, // Pass the access token in the x-cognito-auth header
+        "x-cognito-auth": `Bearer ${accessToken}`,
       },
     });
+
+    // Clear the cart after successful order creation
+    clearCart();
 
     return response.data;
   } catch (error) {
     console.error("Error creating order:", error);
-    throw error;
+    throw new Error(`Failed to create order: ${error}`);
   }
 }
 
 /* 
 Författare: Isak
 
-Funktion createOrder som tar emot varukorgens innehåll, samt totalpriset på varukorgen. 
+Funktion createOrder hämtar cart state och lägger en order.
 Helper funktion getEmailFromIdToken används för att decoda id token så användarens mail kan läggas till i ordern.
 */
