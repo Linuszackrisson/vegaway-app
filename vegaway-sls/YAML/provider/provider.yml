@@ -13,6 +13,7 @@ httpApi:
       - Authorization
       - x-api-key
       - x-cognito-auth
+      - x-cognito-id
     allowedMethods:
       - GET
       - POST
