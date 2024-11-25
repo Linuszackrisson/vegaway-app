@@ -3,16 +3,17 @@ import axios from "axios";
 const invokeUrl = import.meta.env.VITE_INVOKE_URL;
 const API_KEY = "MY_API_KEY";
 
-export interface OrderId {
+export interface OrderIdAndNote {
   orderId: string;
+  note?: string; // Optional
 }
 
 /**
  * Confirms an order by staff.
- * @param orderId - Sends the orderId to the backend
+ * @param order - Send an object containing orderId (required) and note (optional)
  * @returns Success message.
  */
-export async function confirmOrder(order: OrderId) {
+export async function confirmOrder(order: OrderIdAndNote) {
   try {
     const accessToken = localStorage.getItem("access_token");
     if (!accessToken) {
