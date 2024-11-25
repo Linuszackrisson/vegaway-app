@@ -7,30 +7,31 @@ const errorHandler = require("../middlewares/errorHandler");
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 module.exports.handler = middy(async (event) => {
-  const status = event.queryStringParameters?.status; // Expecting "Pending" or "Active"
+  const isConfirmed = event.queryStringParameters?.isConfirmed; // Expecting "true" or "false"
 
-  if (!status) {
-    return createResponse(400, "Missing required query parameter: status");
+  if (isConfirmed !== "true" && isConfirmed !== "false") {
+    return createResponse(
+      400,
+      "Missing or invalid query parameter: isConfirmed"
+    );
   }
 
   const params = {
     TableName: "vegaway-sls-orders",
-    KeyConditionExpression: "#orderStatus = :status",
+    IndexName: "IsConfirmedIndex", // Use the GSI
+    KeyConditionExpression: "#isConfirmed = :isConfirmed",
     ExpressionAttributeNames: {
-      "#orderStatus": "orderStatus",
+      "#isConfirmed": "isConfirmed",
     },
     ExpressionAttributeValues: {
-      ":status": status,
+      ":isConfirmed": isConfirmed,
     },
+    ScanIndexForward: false, // Ensures results are sorted by `createdAt` in descending order
   };
 
   try {
     const result = await dynamoDb.query(params).promise();
-    return createResponse(
-      200,
-      `Orders with status ${status} fetched successfully`,
-      result.Items
-    );
+    return createResponse(200, `Orders fetched successfully`, result.Items);
   } catch (error) {
     console.error("Error fetching orders:", error);
     return createResponse(500, "Failed to fetch orders", {
@@ -43,5 +44,5 @@ module.exports.handler = middy(async (event) => {
 
 /* 
 Författare: Isak
-Handler som hämtar beställningar från databasen baserat på orderStatus
+Handler som hämtar beställningar från databasen baserat på isConfirmed
 */
