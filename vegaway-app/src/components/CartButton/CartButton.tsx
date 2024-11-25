@@ -1,33 +1,63 @@
 // src/components/cartButton/CartButton.tsx
 import { useLocation, useNavigate } from "react-router-dom";
-import { ShoppingCart, CreditCard, ChevronRight } from "lucide-react";
+import {
+	ShoppingCart,
+	CreditCard,
+	ChevronRight,
+	Edit3,
+	ShoppingBag,
+} from "lucide-react";
 import "./CartButton.css";
 import { createOrder } from "../../api/placeOrder";
+import { useState } from "react";
 
 const CartButton: React.FC = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+	const location = useLocation();
+	const navigate = useNavigate();
+	const [orderConfirmed, setOrderConfirmed] = useState(false);
 
-  const isCartPage = location.pathname === "/cart";
+	const isCartPage = location.pathname === "/cart";
+	const isOrderConfirmationPage = location.pathname === "/order-confirmation";
 
-  const handleClick = async () => {
-    if (isCartPage) {
-      await createOrder();
-      navigate("/checkout");
-    } else {
-      navigate("/cart");
-    }
-  };
+	const handleClick = async () => {
+		if (isCartPage) {
+			await createOrder();
+			navigate("/order-confirmation");
+		} else if (isOrderConfirmationPage) {
+			if (orderConfirmed) {
+				navigate("/menu");
+			} else {
+				navigate("/order-confirmation?edit=true");
+			}
+		} else {
+			navigate("/cart");
+		}
+	};
 
-  return (
-    <button className="cart-button" onClick={handleClick}>
-      <div className="cart-button-content">
-        {isCartPage ? <CreditCard /> : <ShoppingCart />}
-        <span>{isCartPage ? "Complete Order" : "See Your Cart"}</span>
-        <ChevronRight />
-      </div>
-    </button>
-  );
+	// Bestäm knappens text och ikon
+	let buttonIcon;
+	let buttonText;
+
+	if (isCartPage) {
+		buttonIcon = <CreditCard />;
+		buttonText = "Complete Order";
+	} else if (isOrderConfirmationPage) {
+		buttonIcon = orderConfirmed ? <ShoppingBag /> : <Edit3 />;
+		buttonText = orderConfirmed ? "Order Something More" : "Edit Your Order";
+	} else {
+		buttonIcon = <ShoppingCart />;
+		buttonText = "See Your Cart";
+	}
+
+	return (
+		<button className="cart-button" onClick={handleClick}>
+			<div className="cart-button-content">
+				{buttonIcon}
+				<span>{buttonText}</span>
+				<ChevronRight />
+			</div>
+		</button>
+	);
 };
 
 export default CartButton;
@@ -40,4 +70,8 @@ export default CartButton;
 /* 
 Updated: Isak
 Added the createOrder function to click handler
+*/
+/* 
+Updated: Jacob
+Uppdated to show different buttons on different pages
 */
