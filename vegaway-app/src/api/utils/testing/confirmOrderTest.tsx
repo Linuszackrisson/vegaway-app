@@ -2,7 +2,7 @@ import { confirmOrder } from "../../confirmOrderStaff";
 
 const ConfirmOrderButton: React.FC = () => {
   const handleConfirmOrder = async () => {
-    const orderId: string = "order-1732527529607";
+    const orderId: string = "order-1732556832037";
     const note: string = "This is a test;";
 
     try {

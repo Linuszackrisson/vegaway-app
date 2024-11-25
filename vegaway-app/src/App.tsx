@@ -7,6 +7,7 @@ import ProductPage from "./pages/productPage/ProductPage";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import CartPage from "./pages/CartPage/CartPage";
 import CartButton from "./components/CartButton/CartButton";
+import OrderConfirmationPage from "./pages/orderConfirmationPage/OrderConfirmationPage";
 import CallbackPage from "./pages/callbackPage/CallbackPage";
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import Header from "./components/header/Header";
@@ -23,6 +24,7 @@ function App() {
 				<Route path="/product/:id" element={<ProductPage />} />
 				<Route path="/dashboard" element={<DashboardPage />} />
 				<Route path="/cart" element={<CartPage />} />
+				<Route path="/order-confirmation" element={<OrderConfirmationPage />} />
 				<Route path="/callback" element={<CallbackPage />} />
 				<Route path="/profile" element={<ProfilePage />} />
 			</Routes>

@@ -62,6 +62,10 @@ export async function createOrder() {
       },
     });
 
+    console.log(response.data.data.orderId);
+
+    localStorage.setItem("current_order_id", response.data.data.orderId);
+
     // Clear the cart after successful order creation
     clearCart();
 
@@ -77,4 +81,9 @@ Författare: Isak
 
 Funktion createOrder hämtar cart state och lägger en order.
 Helper funktion getEmailFromIdToken används för att decoda id token så användarens mail kan läggas till i ordern.
+*/
+
+/* 
+Uppdated Jacob
+Saving orderID in local storage. 
 */
