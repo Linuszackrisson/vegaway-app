@@ -122,9 +122,9 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 - **Mål**: Definiera veckans mål och uppgifter.
 - **Teammedlemmar**: Linus, Isak, Jacob.
 - **Diskussioner**:
-  - Vad ska prioriteras under denna vecka?
-  - Vilka uppgifter har högsta prioritet?
-  - Förväntade hinder och lösningar.
+  - Vad ska prioriteras under denna vecka? Avslutade kundflödet och påbörja staff-flödet. 
+  - Vilka uppgifter har högsta prioritet? Kundflödet. 
+  - Förväntade hinder och lösningar. Inte ännu. 
 
 ### Daily Scrum (Tisdag - Torsdag)
 
