@@ -10,7 +10,6 @@ import CartButton from "./components/CartButton/CartButton";
 import OrderConfirmationPage from "./pages/orderConfirmationPage/OrderConfirmationPage";
 import CallbackPage from "./pages/callbackPage/CallbackPage";
 import ProfilePage from "./pages/profilePage/ProfilePage";
-import RefreshStatusBtn from "./api/utils/testing/RefreshStatusBtn"
 import Header from "./components/header/Header";
 import "./App.css";
 
@@ -18,7 +17,6 @@ function App() {
   return (
 		<Router>
 			<Header />
-			<RefreshStatusBtn />
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="/contact" element={<ContactPage />} />
