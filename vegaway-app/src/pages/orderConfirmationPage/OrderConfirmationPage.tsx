@@ -4,7 +4,7 @@ import "./OrderConfirmationPage.css";
 import { RefreshCw } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { refreshStatus } from "../../api/refreshStatus";
-import EditOrder from "../../components/EditOrder/EditOrder";
+import EditOrder from "../../components/editOrder/EditOrder"; 
 import Underline_06 from "../../assets/Underline_06.svg";
 
 const OrderConfirmationPage: React.FC = () => {
@@ -36,10 +36,6 @@ const OrderConfirmationPage: React.FC = () => {
 		}
 	}, [location.search]);
 
-	useEffect(() => {
-		refreshOrderStatus();
-	}, []);
-
 	const handleRefreshClick = () => {
 		refreshOrderStatus();
 	};
@@ -63,7 +59,7 @@ const OrderConfirmationPage: React.FC = () => {
 					: "Your order is awaiting confirmation from our staff."}
 			</p>
 			<button
-				className="order-confirmation__refresh-button"
+				className="order-confirmation__refresh-button button__second"
 				onClick={handleRefreshClick}
 				disabled={isLoading}
 			>

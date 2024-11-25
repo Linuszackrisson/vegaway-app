@@ -23,11 +23,6 @@
 .order-confirmation__refresh-button {
     display: inline-flex;
     align-items: center;
-    background-color: #007bff;
-    /* Anpassa efter din design */
-    color: white;
-    padding: 10px 20px;
-    border: none;
     cursor: pointer;
     font-size: 16px;
 }
