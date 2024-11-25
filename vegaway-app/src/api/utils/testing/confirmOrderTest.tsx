@@ -2,10 +2,11 @@ import { confirmOrder } from "../../confirmOrderStaff";
 
 const ConfirmOrderButton: React.FC = () => {
   const handleConfirmOrder = async () => {
-    const orderId = "12345";
+    const orderId: string = "order-1732527529607";
+    const note: string = "This is a test;";
 
     try {
-      const response = await confirmOrder({ orderId });
+      const response = await confirmOrder({ orderId, note });
       console.log("Order confirmed successfully:", response);
     } catch (error) {
       console.error("Error confirming order:", error);
