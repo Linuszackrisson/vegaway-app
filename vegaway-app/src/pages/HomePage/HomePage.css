@@ -7,17 +7,30 @@
     max-width: 250px;
     margin: auto;
     margin-bottom: 36px;
-    margin-top: 80px;
-
-
+    height: 100%;   
+    padding-top: 5rem;
+    
+    
 }
+
+.home-page-container {
+    background-image: url('../../assets/purpleface.svg');
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size:40%;
+
+    
+    
+}
+
+
 .new-icon {
-    align-self: center;
-    margin-bottom: -20px;
+    margin-top: 50px;
     
     
 }
 .home-page__slider {
+    margin-top: -60px;
     display: flex;
     flex-direction: column;
 }

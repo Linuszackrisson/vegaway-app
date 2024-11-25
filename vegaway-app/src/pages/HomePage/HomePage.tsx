@@ -21,6 +21,7 @@ function HomePage() {
 
   return (
     <>
+    <div className="home-page-container">
       <div className="button-container">
         <img className='like-icon' src={likeIcon} alt="like"/>
         <button className='button__first ig-white'> <p>We're on Instagram</p></button>
@@ -29,13 +30,17 @@ function HomePage() {
           <p>Check us out</p>
           <img src={chevronIcon} alt="Chevron Right"/>
         </button>
+        <img className='new-icon' src={newIcon} alt="newIcon"/>
+
+      </div>
       </div>
       <div className="home-page__slider">
-      <img className='new-icon' src={newIcon} alt="newIcon"/>
+      
       {featuredProducts.length > 0 && (
         <ProductSlider title="New Releases" items={featuredProducts} />
       )}
       </div>
+      
     </>
   );
 }
