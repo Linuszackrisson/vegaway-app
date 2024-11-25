@@ -4,13 +4,26 @@
     align-items: center;
     justify-content: center;
     gap: 4px;
+    max-width: 250px;
+    margin: auto;
+    margin-bottom: 36px;
+    margin-top: 80px;
+
 
 }
-
+.new-icon {
+    align-self: center;
+    margin-bottom: -20px;
+    
+    
+}
+.home-page__slider {
+    display: flex;
+    flex-direction: column;
+}
 .like-icon {
     width: 36px;;
     align-self: flex-end;
-    margin-right: 65px;
 }
 
 .button__first.ig-white {
