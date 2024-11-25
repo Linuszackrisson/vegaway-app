@@ -7,12 +7,14 @@ const errorHandler = require("../middlewares/errorHandler");
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 module.exports.handler = middy(async (event) => {
-  const isConfirmed = event.queryStringParameters?.isConfirmed; // Expecting "true" or "false"
+  const isConfirmed = event.pathParameters?.isConfirmed; // Expecting "true" or "false"
+  console.log("isConfirmed:", isConfirmed);
 
   if (isConfirmed !== "true" && isConfirmed !== "false") {
     return createResponse(
       400,
-      "Missing or invalid query parameter: isConfirmed"
+      "Missing or invalid path parameter: isConfirmed",
+      isConfirmed
     );
   }
 
