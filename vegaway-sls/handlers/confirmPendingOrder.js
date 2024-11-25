@@ -10,20 +10,24 @@ module.exports.handler = middy(async (event) => {
   try {
     // Parse the orderId from the request body
     const requestBody = JSON.parse(event.body);
-    const { orderId } = requestBody;
+    const { orderId, note } = requestBody;
 
     // Validate orderId
     if (!orderId) {
       return createResponse(400, "orderId is required");
     }
 
+    // Set default value for note if not provided
+    const orderNote = note || "No note provided";
+
     // Update the order in the DynamoDB table
     const params = {
       TableName: "vegaway-sls-orders",
-      Key: { orderId }, // Assuming 'orderId' is the partition key
-      UpdateExpression: "SET isConfirmed = :confirmedValue",
+      Key: { orderId },
+      UpdateExpression: "SET isConfirmed = :confirmedValue, note = :noteValue",
       ExpressionAttributeValues: {
         ":confirmedValue": "true",
+        ":noteValue": orderNote,
       },
       ReturnValues: "UPDATED_NEW",
     };
@@ -51,4 +55,10 @@ Författare: Isak
 
 Handler som tar emot en order och markerar den som behandlad.
 Handlern förväntar sig ett värde för "orderId" i request body. 
+*/
+
+/* 
+Uppdatering: Isak
+
+Extraherar note från request bodyn. Om ingen note finns med används ett default value. orderNote skickas sedan med i ordern när den blir confirmad.
 */
