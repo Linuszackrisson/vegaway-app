@@ -6,6 +6,8 @@ Properties:
       AttributeType: S
     - AttributeName: isConfirmed
       AttributeType: S # String: "true" or "false"
+    - AttributeName: createdAt
+      AttributeType: N
   KeySchema:
     - AttributeName: orderId
       KeyType: HASH
@@ -15,5 +17,7 @@ Properties:
       KeySchema:
         - AttributeName: isConfirmed
           KeyType: HASH
+        - AttributeName: createdAt
+          KeyType: RANGE
       Projection:
         ProjectionType: ALL
