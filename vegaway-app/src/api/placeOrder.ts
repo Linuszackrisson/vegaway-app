@@ -62,7 +62,9 @@ export async function createOrder() {
       },
     });
 
-    localStorage.setItem("current_order_id", response.data.orderId);
+    console.log(response.data.data.orderId);
+
+    localStorage.setItem("current_order_id", response.data.data.orderId);
 
     // Clear the cart after successful order creation
     clearCart();
