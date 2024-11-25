@@ -6,7 +6,7 @@ const RefreshStatusBtn = () => {
   const handleClick = () => {
     refreshStatus(orderId);
   };
-  return <button onClick={handleClick}></button>;
+  return <button onClick={handleClick}>Refresh order status</button>;
 };
 
 export default RefreshStatusBtn;
