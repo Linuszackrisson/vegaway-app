@@ -1,20 +1,53 @@
 .button-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 
 }
 
 .like-icon {
     width: 36px;;
     align-self: flex-end;
+    margin-right: 65px;
 }
 
 .button__first.ig-white {
     background-color: white;
     font-family: Darker Grotesque;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 24px;
     
+    line-height: normal;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 4px;
+    transform: rotate(1.006deg);
+    height: auto;
+}
+
+.button__first.ig-white p {
+    color: var(--primary, #000);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; 
+    display: inline-block;
+}
+
+.button__first.ig-yellow {
+    display: flex;
+    height: 100%;
+    padding: 6px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.button__first.ig-yellow p {
+    display: inline-block;
+    line-height: 100%;
+    font-size: 18px;
+    font-weight: 500;
 
 }
