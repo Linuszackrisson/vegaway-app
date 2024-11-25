@@ -13,9 +13,8 @@ function HomePage() {
   useEffect(() => {
     const loadFeaturedProducts = async () => {
       const items = await fetchMenuItems();
-      // Example: Filter for featured products (you can modify this logic)
       const featured = items.filter(item => item.category === 'New Releases' || item.price < 10);
-      setFeaturedProducts(featured.slice(0, 5)); // Limit to 5 products
+      setFeaturedProducts(featured.slice(0, 5)); 
     };
     loadFeaturedProducts();
   }, []);
