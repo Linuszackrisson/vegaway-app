@@ -1,0 +1,20 @@
+.button-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.like-icon {
+    width: 36px;;
+    align-self: flex-end;
+}
+
+.button__first.ig-white {
+    background-color: white;
+    font-family: Darker Grotesque;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+    
+
+}
