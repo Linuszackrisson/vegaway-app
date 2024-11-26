@@ -1,3 +1,17 @@
+
+.homepage-hero {
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    background-image: url('../../assets/Gubbe.svg');
+    min-height: 30vh;
+    background-size: contain;
+    
+    
+
+}
+
 .button-container {
     display: flex;
     flex-direction: column;
@@ -7,32 +21,37 @@
     max-width: 250px;
     margin: auto;
     margin-bottom: 36px;
-    height: 100%;   
+    height: auto;   
     padding-top: 5rem;
     
     
-}
-
-.home-page-container {
-    background-image: url('../../assets/purpleface.svg');
-    background-position: left top;
-    background-repeat: no-repeat;
-    background-size:40%;
-
     
     
 }
+.homepage {
+   z-index: 2;
+    height: 100vh;
+    
+}
 
+
+.about-pink {
+   
+    display: flex;
+    width: 70%;
+
+}
 
 .new-icon {
-    margin-top: 50px;
-    
+    width: 55px;
+    align-self: center;
+    margin-bottom: -25px;
     
 }
 .home-page__slider {
-    margin-top: -60px;
     display: flex;
     flex-direction: column;
+   
 }
 .like-icon {
     width: 36px;;
