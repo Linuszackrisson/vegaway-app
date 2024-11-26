@@ -33,11 +33,10 @@
     gap: 4px;
     max-width: 250px;
     margin: auto;
-    margin-bottom: 36px;
     height: auto;   
-    position: absolute; /* Absolute positioning within .homepage-hero */
-    top: 50%; /* Position in the middle vertically */
-    left: 50%; /* Position in the middle horizontally */
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
     transform: translate(-50%, -50%);
 
     
@@ -52,13 +51,15 @@
     
 }
 
-
-.about-pink {
-   
-    display: flex;
-    width: 70%;
-
+.pink-button {
+    width: 70vw; 
+    height: auto;  
+    z-index: -1; 
+    margin-left: -30px; 
+    
 }
+
+
 
 .new-icon {
     width: 55px;

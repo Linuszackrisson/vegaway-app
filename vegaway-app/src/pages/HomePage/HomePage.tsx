@@ -6,7 +6,7 @@ import likeIcon from '../../assets/like.svg';
 import instagramIcon from '../../assets/instagram.svg';
 import newIcon from '../../assets/new.svg';
 import chevronIcon from '../../assets/chevron-right2.svg';
-import aboutPink from '../../assets/aboutpink.png';
+import aboutPink from '../../assets/pink-about.svg';
 
 function HomePage() {
   const [featuredProducts, setFeaturedProducts] = useState<MenuItem[]>([]);
@@ -45,6 +45,8 @@ function HomePage() {
         <ProductSlider title="New Releases" items={featuredProducts} />
       )}
       </div>
+      <img className='pink-button' src={aboutPink} alt="Pink About Button"/>
+
       </div>
     </>
   );
