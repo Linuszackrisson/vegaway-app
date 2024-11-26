@@ -131,9 +131,9 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 #### Tisdag (2024-11-26)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |            Home-page sidan                  |   Justera den sista styling och eventuellt börja med ui för staff.                     |                         |
+| Isak       |                  Api request file, staff order confirm, refresh order status med testknapp, x-cognito-id, order status handler, gosi orders table, sorts key to gsi, api request file get orders, test buttons fetch orders och buggfix med Jacob.          |                        |    Resercha lösningar för kommande utmaningar. Möjligtvis påbörja lite ui i frontend.                     |
+| Jacob      |            OrderConfirm Page, påbörjat edit order component. Buggfix                  |   Edit order component                     |          Kan möjligtvis behöva hjälp.               |
 
 #### Onsdag (2024-11-27)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
