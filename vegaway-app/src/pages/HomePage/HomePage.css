@@ -1,14 +1,25 @@
 
 .homepage-hero {
-    background-position: left center;
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 1;
-    background-image: url('../../assets/Gubbe.svg');
     min-height: 30vh;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    
+    
+
+}
+.hero-background {
+    background-image: url(../../assets/Gubbe.svg);
+    height: 300px;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    background-position: calc(50% - 100px) center;
+    background-repeat: no-repeat;
     background-size: contain;
-    
-    
 
 }
 
@@ -23,6 +34,9 @@
     margin-bottom: 36px;
     height: auto;   
     padding-top: 5rem;
+    position: relative;
+
+    
     
     
     

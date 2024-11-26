@@ -25,7 +25,7 @@ function HomePage() {
 
     <div className="homepage wrapper">
     <div className="homepage-hero">
-      
+      <div className="hero-background"></div>
       <div className="button-container">
         <img className='like-icon' src={likeIcon} alt="like"/>
         <button className='button__first ig-white'> <p>We're on Instagram</p></button>
@@ -34,8 +34,9 @@ function HomePage() {
           <p>Check us out</p>
           <img src={chevronIcon} alt="Chevron Right"/>
         </button>
+        </div>
 
-      </div>
+      
       </div>
       <div className="home-page__slider">
       <img className='new-icon' src={newIcon} alt="newIcon"/>
