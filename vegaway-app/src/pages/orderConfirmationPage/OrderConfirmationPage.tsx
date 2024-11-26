@@ -14,7 +14,12 @@ const OrderConfirmationPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const orderId = localStorage.getItem("current_order_id");
+  const currentOrder = JSON.parse(
+    localStorage.getItem("current-order") || "{}"
+  );
+  console.log(currentOrder.state.order.orderId);
+
+  const orderId = currentOrder.state.order.orderId;
 
   const refreshOrderStatus = async () => {
     if (!orderId) return;
