@@ -46,17 +46,18 @@
     
 }
 .homepage {
-   z-index: 2;
+   
     height: 100vh;
     
 }
 
 .pink-button {
     width: 70vw; 
-    height: auto;  
-    z-index: -1; 
-    margin-left: -30px; 
-    
+    max-width: 500px;
+    min-width: 80px; 
+    height: auto; 
+    z-index: -1;
+    margin-left: -30px;
 }
 
 

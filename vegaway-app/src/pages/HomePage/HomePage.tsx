@@ -58,4 +58,6 @@ export default HomePage;
  * Författare Linus
  * Importerar befintlig ProductSlider
  * Hämtar featured produkter från menuApi
+ * Fantastisk med snygg design, men en mardröm att implementera.
+ * OBS! Filtreringsknapp skall vara en go-to menu istället, skapar issue för detta separata ärende.
  */
