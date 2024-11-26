@@ -7,6 +7,7 @@ import instagramIcon from '../../assets/instagram.svg';
 import newIcon from '../../assets/new.svg';
 import chevronIcon from '../../assets/chevron-right2.svg';
 import aboutPink from '../../assets/pink-about.svg';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
   const [featuredProducts, setFeaturedProducts] = useState<MenuItem[]>([]);
@@ -45,7 +46,9 @@ function HomePage() {
         <ProductSlider title="New Releases" items={featuredProducts} />
       )}
       </div>
-      <img className='pink-button' src={aboutPink} alt="Pink About Button"/>
+      <Link to="/contact">
+        <img className="pink-button" src={aboutPink} alt="Pink About Button" />
+      </Link>
 
       </div>
     </>
@@ -57,6 +60,7 @@ export default HomePage;
 /**
  * Författare Linus
  * Importerar befintlig ProductSlider
+ * All ovanstående kod + css.
  * Hämtar featured produkter från menuApi
  * Fantastisk med snygg design, men en mardröm att implementera.
  * OBS! Filtreringsknapp skall vara en go-to menu istället, skapar issue för detta separata ärende.
