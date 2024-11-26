@@ -68,12 +68,12 @@ export async function createOrder() {
     const orderData = response.data.data;
     // Save the full order in the useCurrentOrderStore
     useCurrentOrderStore.getState().setOrder({
-      orderId: orderData.orderId,
-      customerEmail: orderData.customerEmail,
-      createdAt: orderData.createdAt,
-      isConfirmed: orderData.isConfirmed,
+      orderId: orderData.order.orderId,
+      customerEmail: orderData.order.customerEmail,
+      createdAt: orderData.order.createdAt,
+      isConfirmed: orderData.order.isConfirmed,
       items: orderData.order.items, // Extract items from response
-      totalPrice: orderData.totalPrice,
+      totalPrice: orderData.order.totalPrice,
     });
     // Clear the cart after successful order creation
     clearCart();
