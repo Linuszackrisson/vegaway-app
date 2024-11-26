@@ -1,6 +1,7 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { useCartStore } from "../store/cartStore";
+import { useCurrentOrderStore } from "../store/useCurrentOrderStore";
 
 const invokeUrl = import.meta.env.VITE_INVOKE_URL;
 const API_KEY = "MY_API_KEY";
@@ -62,14 +63,22 @@ export async function createOrder() {
       },
     });
 
-    console.log(response.data.data.orderId);
+    console.log(response.data.data);
 
-    localStorage.setItem("current_order_id", response.data.data.orderId);
-
+    const orderData = response.data.data;
+    // Save the full order in the useCurrentOrderStore
+    useCurrentOrderStore.getState().setOrder({
+      orderId: orderData.orderId,
+      customerEmail: orderData.customerEmail,
+      createdAt: orderData.createdAt,
+      isConfirmed: orderData.isConfirmed,
+      items: orderData.order.items, // Extract items from response
+      totalPrice: orderData.totalPrice,
+    });
     // Clear the cart after successful order creation
     clearCart();
 
-    return response.data;
+    return response.data.data;
   } catch (error) {
     console.error("Error creating order:", error);
     throw new Error(`Failed to create order: ${error}`);
