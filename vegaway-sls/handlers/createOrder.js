@@ -23,7 +23,7 @@ module.exports.handler = middy(async (event) => {
     await dynamoDB.put(params).promise();
 
     return createResponse(200, "Order placed successfully.", {
-      orderId: params.Item.orderId,
+      order: params.Item,
     });
   } catch (error) {
     console.error("Error placing order:", error);
