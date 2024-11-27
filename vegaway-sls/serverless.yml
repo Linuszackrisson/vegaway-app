@@ -10,6 +10,7 @@ functions:
   getOrderStatus: ${file(./YAML/functions/customers/get-order-status.yml)}
   deleteOrder: ${file(./YAML/functions/customers/delete-order.yml)}
   updateOrder: ${file(./YAML/functions/customers/update-order.yml)}
+  getOrderHistory: ${file(./YAML/functions/customers/get-order-history.yml)}
 
   # STAFF ACTIONS
   getOrders: ${file(./YAML/functions/staff/get-orders.yml)}
