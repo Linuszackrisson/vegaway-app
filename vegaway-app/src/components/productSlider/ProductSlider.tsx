@@ -75,10 +75,7 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ title, items }) => {
 		<div className="product-slider">
 			<div className="titleToggle-box">
 				<h2 className="product-slider__title">{title}</h2>
-				<button
-					className="filter-button button__second"
-					onClick={filterByPrice}
-				>
+				<button className="filter-button button__third" onClick={filterByPrice}>
 					{renderSortIcon()}
 				</button>
 			</div>

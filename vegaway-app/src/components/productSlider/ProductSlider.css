@@ -21,11 +21,6 @@
     cursor: pointer;
 }
 
-
-.filter-button:hover {
-    filter: brightness(1);
-}
-
 .product-slider__list {
     margin: 7px auto 12px;
     padding: 0 14px;
@@ -60,8 +55,4 @@
     .titleToggle-box {
         padding: 0 18px 0 24px;
     }
-}
-
-.product-slider__title {
-    font-weight: 500;
 }

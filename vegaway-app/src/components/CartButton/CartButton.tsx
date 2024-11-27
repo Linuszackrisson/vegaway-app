@@ -14,7 +14,17 @@ import { useState } from "react";
 const CartButton: React.FC = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
-	const [orderConfirmed, setOrderConfirmed] = useState(false);
+	const [orderConfirmed] = useState(false);
+
+	const hideCartButtonPaths = ["/dashboard", "/staff-sida2-etc"];
+
+	const shouldHideCartButton = hideCartButtonPaths.some((path) =>
+		location.pathname.startsWith(path)
+	);
+
+	if (shouldHideCartButton) {
+		return null;
+	}
 
 	const isCartPage = location.pathname === "/cart";
 	const isOrderConfirmationPage = location.pathname === "/order-confirmation";
@@ -34,7 +44,6 @@ const CartButton: React.FC = () => {
 		}
 	};
 
-	// Bestäm knappens text och ikon
 	let buttonIcon;
 	let buttonText;
 
@@ -74,4 +83,8 @@ Added the createOrder function to click handler
 /* 
 Updated: Jacob
 Uppdated to show different buttons on different pages
+*/
+/* 
+Updated: Jacob
+Conditionally render null if staffpage
 */
