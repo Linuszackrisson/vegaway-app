@@ -96,3 +96,9 @@ Helper funktion getEmailFromIdToken används för att decoda id token så använ
 Uppdated Jacob
 Saving orderID in local storage. 
 */
+
+/* 
+Updated: Isak
+
+Saving the order to useCurrentOrderStore
+*/
