@@ -139,8 +139,8 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
 | Linus      |               Home-page               |        Frontend och vila                |    Sjukdom                     |
-| Isak       |                 zustand store som liknar cart store för ordern medans den väntar på att bli bekräftad
-Småpill i olika filer för att få det att funka korrekt             |         More of that stuff               |       Nej                  |
+| Isak       |                 zustand store som liknar cart store för ordern medans den väntar på att bli bekräftad, Småpill i olika filer för att få det att funka korrekt 
+            |         More of that stuff               |       Nej                  |
 | Jacob      |               Hjälpt Isak               |        Staff-dash-board-page                |         Nej                |
 
 #### Torsdag (2024-11-28)
