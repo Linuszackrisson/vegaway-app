@@ -10,7 +10,9 @@ const dynamoDB = new DynamoDB.DocumentClient();
 module.exports.handler = middy(async (event) => {
   try {
     const body = JSON.parse(event.body);
-    const orderId = body.order?.orderId;
+    console.log("Event body:", body);
+
+    const orderId = body.orderId;
 
     // Get the ID token from the 'x-cognito-id' header
     const idToken = event.headers["x-cognito-id"];
@@ -35,16 +37,17 @@ module.exports.handler = middy(async (event) => {
 
     const params = {
       TableName: "vegaway-sls-orders",
-      Key: {
-        pk: orderId,
-      },
+      Key: { orderId },
       UpdateExpression: `
-    SET items = :items,
+    SET #items = :items,
         totalPrice = :totalPrice
   `,
+      ExpressionAttributeNames: {
+        "#items": "items", // Alias the 'items' field to avoid reserved keyword conflict
+      },
       ExpressionAttributeValues: {
-        ":items": body.order.items,
-        ":totalPrice": body.order.totalPrice,
+        ":items": body.items,
+        ":totalPrice": body.totalPrice,
         ":userEmail": userEmail,
       },
       ConditionExpression: "customerEmail = :userEmail",
@@ -67,6 +70,7 @@ module.exports.handler = middy(async (event) => {
 
     return createResponse(200, "Order updated successfully", result);
   } catch (error) {
+    console.error("Failed to update order:", error);
     return createResponse(500, "Failed to update order", {
       error: error.message,
     });
