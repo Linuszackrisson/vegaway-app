@@ -8,6 +8,8 @@ Properties:
       AttributeType: S # String: "true" or "false"
     - AttributeName: createdAt
       AttributeType: N
+    - AttributeName: customerEmail
+      AttributeType: S
   KeySchema:
     - AttributeName: orderId
       KeyType: HASH
@@ -16,6 +18,14 @@ Properties:
     - IndexName: IsConfirmedIndex
       KeySchema:
         - AttributeName: isConfirmed
+          KeyType: HASH
+        - AttributeName: createdAt
+          KeyType: RANGE
+      Projection:
+        ProjectionType: ALL
+    - IndexName: CustomerEmailIndex
+      KeySchema:
+        - AttributeName: customerEmail
           KeyType: HASH
         - AttributeName: createdAt
           KeyType: RANGE
