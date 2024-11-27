@@ -1,31 +1,8 @@
 import axios from "axios";
+import { FetchOrdersResponse } from "./utils/orderInterface";
 
 const invokeUrl = import.meta.env.VITE_INVOKE_URL;
 const API_KEY = "MY_API_KEY";
-
-interface Item {
-  category: string;
-  description: string;
-  imageUrl: string;
-  menuId: string;
-  name: string;
-  price: number;
-}
-
-interface Order {
-  orderId: string;
-  createdAt: number;
-  isConfirmed: string;
-  customerEmail: string;
-  totalPrice: number;
-  items: Item[];
-  note?: string;
-}
-
-interface FetchOrdersResponse {
-  message: string;
-  orders: Order[];
-}
 
 export async function fetchOrders(
   isConfirmed: string
