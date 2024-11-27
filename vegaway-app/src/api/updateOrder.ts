@@ -34,7 +34,7 @@ export async function updateOrder() {
         "%cError updating order: " + errorMessage,
         "color: red; font-size: 16px; font-weight: bold; background-color: yellow; padding: 2px 5px; border-radius: 4px;"
       );
-      return errorMessage; // Send the error message to the component calliing this function
+      throw new Error(errorMessage);
     } else {
       console.error("Unexpected error:", error);
       throw new Error(`Unexpected error: ${error}`);
