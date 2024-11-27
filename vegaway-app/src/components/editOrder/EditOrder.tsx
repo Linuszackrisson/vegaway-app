@@ -1,15 +1,33 @@
 // src/components/EditOrder/EditOrder.tsx
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./EditOrder.css";
 import CartProductCard from "../CartProductCard/CartProductCard";
 import { useCurrentOrderStore } from "../../store/useCurrentOrderStore";
 import { MenuItem } from "../../api/menuApi";
+import { updateOrder } from "../../api/updateOrder";
 
 interface EditOrderProps {
   onClose: () => void;
 }
 
 const EditOrder: React.FC<EditOrderProps> = ({ onClose }) => {
+  // Update order handler
+  const [errorMessage, setErrorMessage] = useState("");
+  const handleUpdateOrder = async () => {
+    try {
+      const response = await updateOrder();
+      console.log("Updated order response:", response);
+
+      setErrorMessage("");
+    } catch (error) {
+      if (error instanceof Error) {
+        setErrorMessage(error.message); // Store the error message if an error occurs
+      } else {
+        setErrorMessage("An unexpected error occurred.");
+      }
+    }
+  };
+
   // Get the current order from the store
   const order = useCurrentOrderStore((state) => state.order);
   console.log("Logging order state:", order);
@@ -36,8 +54,25 @@ const EditOrder: React.FC<EditOrderProps> = ({ onClose }) => {
 
   return (
     <div className="edit-order">
+      {errorMessage !== "" && (
+        <div className="edit-order__error-message">
+          <button
+            className="edit-order__error-message__close"
+            onClick={onClose}
+          >
+            X
+          </button>
+          {errorMessage}
+        </div>
+      )}
       <div className="edit-order__overlay" onClick={onClose}></div>
       <div className="edit-order__content" ref={contentRef}>
+        <button
+          className="edit-order__update-button"
+          onClick={handleUpdateOrder}
+        >
+          Update
+        </button>
         <button className="edit-order__close-button" onClick={onClose}>
           Close
         </button>
