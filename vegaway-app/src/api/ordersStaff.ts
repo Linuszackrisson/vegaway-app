@@ -61,3 +61,11 @@ export async function fetchOrders(
     throw new Error(`Failed to fetch orders: ${error}`);
   }
 }
+
+/*
+ * Författare: Isak
+ *
+ * Api request som låter staff hämta orders baserat på isConfirmed på ordern i databasen.
+ * Använd "true" som argument för att hämta active orders
+ * Använd "false" som argument för att hämta pending orders
+ */
