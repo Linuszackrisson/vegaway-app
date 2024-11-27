@@ -26,8 +26,19 @@ export async function updateOrder() {
 
     return response.data.data;
   } catch (error) {
-    console.error("Error creating order:", error);
-    throw new Error(`Failed to create order: ${error}`);
+    if (axios.isAxiosError(error)) {
+      // Accessing error.response safely
+      const errorMessage =
+        error.response?.data?.message || "Unknown error occurred";
+      console.error(
+        "%cError updating order: " + errorMessage,
+        "color: red; font-size: 16px; font-weight: bold; background-color: yellow; padding: 2px 5px; border-radius: 4px;"
+      );
+      throw new Error(`Failed to update order: ${errorMessage}`);
+    } else {
+      console.error("Unexpected error:", error);
+      throw new Error(`Unexpected error: ${error}`);
+    }
   }
 }
 
