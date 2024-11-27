@@ -16,7 +16,7 @@ const EditOrder: React.FC<EditOrderProps> = ({ onClose }) => {
 
   // Ensure only unique items are used, based on menuId
   const uniqueOrderItems = Array.from(
-    new Map(order.items.map((item) => [item.menuId, item])).values()
+    new Map(order?.items.map((item) => [item.menuId, item])).values()
   );
 
   const contentRef = useRef<HTMLDivElement>(null);

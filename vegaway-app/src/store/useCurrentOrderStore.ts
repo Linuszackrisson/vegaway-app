@@ -81,17 +81,19 @@ export const useCurrentOrderStore = create<CurrentOrderStore>()(
 
       // Get the total number of items in the order
       getTotalItems: () => {
-        return get().order ? get().order.items.length : 0; // Count items if order exists, else return 0
+        const order = get().order;
+        return order ? order.items.length : 0; // Safely check if order exists
       },
 
       // Get the total price of the order
       getTotalPrice: () => {
-        return get().order
-          ? get().order.items.reduce(
+        const order = get().order;
+        return order
+          ? order.items.reduce(
               (total, item) => total + item.price * item.quantity,
               0
-            ) // Calculate total price considering quantity
-          : 0; // Return 0 if there's no order
+            )
+          : 0; // Safely check if order exists
       },
 
       // Set the full order data
