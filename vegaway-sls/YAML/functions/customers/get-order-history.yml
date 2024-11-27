@@ -1,0 +1,6 @@
+handler: handlers/getOrderHistory.handler
+events:
+  - httpApi:
+      path: /orders/orderHistory
+      method: get
+      authorizer: cognitoAuthorizer
