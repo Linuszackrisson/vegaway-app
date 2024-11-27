@@ -7,7 +7,7 @@
 
 .cartpage__image {
     margin-bottom: 34px;
-    height: 100%;
+    max-width: 10rem;
 }
 
 .cartpage {
@@ -17,5 +17,4 @@
     background-repeat: no-repeat;
     background-size: fit;
     min-height: calc(100vh - 70px);
-    
   }

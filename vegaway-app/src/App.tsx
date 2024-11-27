@@ -4,13 +4,13 @@ import HomePage from "./pages/HomePage/HomePage";
 import ContactPage from "./pages/contactPage/ContactPage";
 import MenuPage from "./pages/MenuPage/MenuPage";
 import ProductPage from "./pages/productPage/ProductPage";
-import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import CartPage from "./pages/CartPage/CartPage";
 import CartButton from "./components/CartButton/CartButton";
 import OrderConfirmationPage from "./pages/orderConfirmationPage/OrderConfirmationPage";
 import CallbackPage from "./pages/callbackPage/CallbackPage";
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import Header from "./components/header/Header";
+import DashboardPage from "./pages/dashboardPage/DashboardPage";
 import "./App.css";
 
 function App() {
