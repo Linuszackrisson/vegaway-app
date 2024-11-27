@@ -34,6 +34,6 @@ export async function updateOrder() {
 /*
  * Författare: Isak
  *
- * Api request för att uppdatera en order
+ * Api request för att låta kund uppdatera en order
  * Skickar order från useCurrentOrderStore till backend som hanterar uppdateringen
  */
