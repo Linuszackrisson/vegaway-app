@@ -32,26 +32,44 @@ export const useCurrentOrderStore = create<CurrentOrderStore>()(
       increaseQuantity: (item) =>
         set((state) => {
           if (state.order) {
+            const updatedItems = [...state.order.items, item];
+
+            // Calculate the updated total price by summing up the price of each item
+            const updatedTotalPrice = updatedItems.reduce(
+              (total, item) => total + item.price,
+              0
+            );
+            console.log("Updated items:", updatedItems);
+            console.log("Updated Total Price:", updatedTotalPrice);
+
             return {
               order: {
                 ...state.order,
-                items: [...state.order.items, item], // Add the item to the array
+                items: updatedItems,
+                totalPrice: updatedTotalPrice, // Update total price
               },
             };
           }
-          return state; // Return unchanged state if no order exists
+          return state;
         }),
 
       // Remove item from the order
       removeFromOrder: (menuId) =>
         set((state) => {
           if (state.order) {
+            const updatedItems = state.order.items.filter(
+              (item) => item.menuId !== menuId
+            );
+            // Calculate the updated total price by summing the price of each item
+            const updatedTotalPrice = updatedItems.reduce(
+              (total, item) => total + item.price,
+              0
+            );
             return {
               order: {
                 ...state.order,
-                items: state.order.items.filter(
-                  (item) => item.menuId !== menuId
-                ),
+                items: updatedItems,
+                totalPrice: updatedTotalPrice, // Update total price
               },
             };
           }
@@ -71,7 +89,19 @@ export const useCurrentOrderStore = create<CurrentOrderStore>()(
               updatedItems.splice(indexToRemove, 1);
             }
 
-            return { order: { ...state.order, items: updatedItems } };
+            // Calculate the updated total price by summing the price of each item
+            const updatedTotalPrice = updatedItems.reduce(
+              (total, item) => total + item.price,
+              0
+            );
+
+            return {
+              order: {
+                ...state.order,
+                items: updatedItems,
+                totalPrice: updatedTotalPrice, // Update total price
+              },
+            };
           }
           return state;
         }),
