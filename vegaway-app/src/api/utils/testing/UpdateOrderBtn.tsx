@@ -19,7 +19,7 @@ const UpdateOrderBtn = () => {
   };
   return (
     <div>
-      <button onClick={handleClick}>Refresh order status</button>
+      <button onClick={handleClick}>Update your order!</button>
 
       {/* Render the error message if it exists */}
       {errorMessage && (
