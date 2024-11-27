@@ -49,8 +49,10 @@ module.exports.handler = middy(async (event) => {
         ":items": body.items,
         ":totalPrice": body.totalPrice,
         ":userEmail": userEmail,
+        ":isConfirmed": "true",
       },
-      ConditionExpression: "customerEmail = :userEmail",
+      ConditionExpression:
+        "customerEmail = :userEmail AND isConfirmed <> :isConfirmed",
       ReturnValues: "ALL_NEW",
     };
 
@@ -59,6 +61,15 @@ module.exports.handler = middy(async (event) => {
     try {
       result = await dynamoDB.update(params).promise();
     } catch (error) {
+      // Make sure the order has not been confirmed by staff
+      if (error.code === "ConditionalCheckFailedException") {
+        return createResponse(
+          400,
+          "Staff has confirmed the order. Updating the order is no longer possible"
+        );
+      }
+
+      // Make sure the owner of the order initiated the request
       if (error.code === "ConditionalCheckFailedException") {
         return createResponse(
           403,
