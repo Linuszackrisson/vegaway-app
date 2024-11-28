@@ -149,3 +149,9 @@ export default CartProductCard;
  *  Hela komponenten, nu ska det sänka och höja som väntat och se ut enligt skiss.
  *
  */
+
+/* 
+Uppdatering: Isak
+
+Använder funktioner villkorligt beroende på props som skickas med till denna komponent.
+*/

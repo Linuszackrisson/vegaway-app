@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { fetchOrders } from "../../api/ordersStaff";
 import { Link } from "react-router-dom";
 import "./PendingOrders.css";
+import { confirmOrder } from "../../api/confirmOrderStaff";
+import { OrderIdAndNote } from "../../api/confirmOrderStaff";
 
 const PendingOrders: React.FC = () => {
   const [pendingOrders, setPendingOrders] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [notes, setNotes] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const getPendingOrders = async () => {
@@ -28,8 +31,22 @@ const PendingOrders: React.FC = () => {
     console.log("Pending orders:", pendingOrders);
   }, [pendingOrders]); // This useEffect runs whenever pendingOrders changes
 
-  const confirmOrder = (orderId: number) => {
-    console.log(`Order ${orderId} confirmed! Isak, do your thing!`);
+  const handleConfirmation = async (orderId: string) => {
+    // Extract note for the order
+    const note = notes[orderId] || ""; // Default to empty string if no note
+    const orderData: OrderIdAndNote = {
+      orderId,
+      note,
+    };
+
+    // Send the orderData object to the confirmOrder function
+    const response = await confirmOrder(orderData);
+    console.log("Trying to update order:", response);
+
+    // Remove the confirmed order from the list
+    setPendingOrders((prevOrders) =>
+      prevOrders.filter((order) => order.orderId !== orderId)
+    );
   };
 
   if (loading) {
@@ -39,6 +56,10 @@ const PendingOrders: React.FC = () => {
   if (error) {
     return <p>{error}</p>;
   }
+
+  const handleNoteChange = (orderId: string, note: string) => {
+    setNotes((prevNotes) => ({ ...prevNotes, [orderId]: note }));
+  };
 
   return (
     <div className="pending-orders wrapper">
@@ -65,9 +86,12 @@ const PendingOrders: React.FC = () => {
                   type="text"
                   placeholder="Antecking till kocken"
                   defaultValue={order.note || ""}
+                  onChange={(e) =>
+                    handleNoteChange(order.orderId, e.target.value)
+                  }
                 />
               </p>
-              <button onClick={() => confirmOrder(order.orderId)}>
+              <button onClick={() => handleConfirmation(order.orderId)}>
                 Confirm
               </button>
             </div>
@@ -83,3 +107,8 @@ export default PendingOrders;
 /* Författare: Linus
  * Denna filen hanterar pending orders och innehåller funktioner för att hantera ordrar.
  */
+
+/* 
+Uppdatering: Isak
+La funktionalitet på confirm knappen för att markera en order som hanterad
+*/
