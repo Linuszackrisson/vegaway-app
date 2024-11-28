@@ -31,11 +31,6 @@ const PendingOrders: React.FC = () => {
     console.log("Pending orders:", pendingOrders);
   }, [pendingOrders]); // This useEffect runs whenever pendingOrders changes
 
-  /*  const confirmOrder = (orderId: number) => {
-    console.log(`Order ${orderId} confirmed! Isak, do your thing!`);
-  };
- */
-
   const handleConfirmation = async (orderId: string) => {
     // Extract note for the order
     const note = notes[orderId] || ""; // Default to empty string if no note
