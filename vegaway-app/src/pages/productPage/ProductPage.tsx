@@ -37,7 +37,7 @@ const ProductPage: React.FC = () => {
 	}
 
 	return (
-		<div className="product-page">
+		<div className="product-page wrapper">
 			<div className="product-page__image-container">
 				<img src={product.imageUrl} alt={product.name} className="product-page__image" />
 				<button

@@ -1,18 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@100;300;400;500;700;900&display=swap');
+@import '@fontsource-variable/darker-grotesque';
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   user-select: none;
   -webkit-user-drag: none;
   -moz-user-select: none;
 }
 
+/* Root Variables */
 :root {
-  --text-color: #1B1B1B;
-  --button-color: #FFC704;
-  --bg-color: #FCFCFC;
+  /* Site Colors */
+  --color-text: #3E3E3E;
+  --color-background: #FCFCFC;
+  --color-card-background: #FFFFFF;
+  /* Branding Colors */
+  --color-purple: #A259FF;
+  --color-blue: #5651FF;
+  --color-yellow: #FFC704;
+  --color-red: #FF7D7D;
+  /* Also for error and active states */
+  --color-green: #EDEDF1;
+  /* Also for success and confirmed states */
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  /* Font Sizes */
+  --font-size-h1: clamp(1.5rem, 4vw, 2.25rem);
+  --font-size-h2: clamp(1.25rem, 3.5vw, 1.75rem);
+  --font-size-h3: clamp(1.125rem, 3vw, 1.5rem);
+  --font-size-p: clamp(1rem, 2.5vw, 1.5rem);
+  /* 14px */
+  /* Spacing */
+  --spacing-section: 2rem;
+  /* Border Radius */
+  --border-radius: 6px;
+  /* Shadows */
+  --box-shadow: 2px 2px 0px 0px var(--color-text);
 }
 
 #root {
@@ -26,27 +56,45 @@ body {
   margin: 0 auto;
   padding: 0;
   max-width: 1100px;
-  font-family: "darker-grotesque", sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-.wrapper {
-  flex: 1;
+  font-family: 'Darker Grotesque Variable', sans-serif;
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-p);
+  line-height: 1.6;
+  background-color: var(--color-background);
+  color: var(--color-text);
   display: flex;
   flex-direction: column;
-  padding-bottom: 4rem;
-  width: 100%;
+  min-height: 100vh;
 }
 
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-text);
+  border-radius: 6px;
+  border: 3px solid var(--color-background);
+}
+
+.wrapper,
 .staff__wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 14px;
   width: 100%;
+  /* Removed padding to prevent issues with full-width elements */
 }
 
+.wrapper {
+  padding-bottom: 4rem;
+}
+
+/* Typography */
 h1,
 h2,
 h3,
@@ -57,112 +105,160 @@ p,
 span,
 a,
 label,
-li {
-  margin: 0;
-  padding: 0;
-  color: var(--text-color);
+li,
+button {
+  color: var(--color-text);
+  font-family: inherit;
+  font-weight: inherit;
   box-sizing: content-box;
 }
 
 h1 {
-  font-size: clamp(1.6rem, 5vw, 2.2rem);
-  font-weight: 600;
-}
-
-h2 {
-  font-size: clamp(1.6rem, 4vw, 2rem);
-  font-style: normal;
-  font-weight: 500;
-}
-
-h3 {
-  font-size: clamp(1.4rem, 3vw, 1.6rem);
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1;
-}
-
-p {
-  font-size: clamp(1.3rem, 3vw, 1.5rem);
-  font-weight: 500;
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-semibold);
   line-height: 1.2;
 }
 
-span {
-  font-size: clamp(1.3rem,3vw, 1.2rem);
-  font-weight: 500;
-  line-height: 1;
-  box-sizing: content-box;
-  vertical-align: middle;
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+}
+
+p {
+  font-size: var(--font-size-p);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.6;
+}
+
+span,
+label,
+li,
+button {
+  font-size: var(--font-size-p);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 button {
-  font-size: clamp(1.1rem, 4vw, 1.2rem);
-  font-weight: 500;
-  line-height: 1;
-  vertical-align: middle;
-}
-
-svg {
-  margin: 0;
-  padding: 0;
-  box-sizing: content-box;
-  vertical-align: middle;
-}
-
-.button__first,
-.button__second {
   cursor: pointer;
-  border: 1px solid var(--text-color);
-  border-radius: 6px;
-  box-shadow: 2px 2px var(--text-color);
-  transition: all 0.1s ease;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* SVG Icons */
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
 
-.button__third {
-    cursor: pointer;
-    border: transparent;
-    box-shadow: transparent;
-    transition: all 0.1s ease;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+.button--first {
+  background-color: var(--color-yellow);
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  box-shadow: var(--box-shadow);
 }
 
-.button__first:active,
-.button__second:active,
-.button__third:active {
+.button--second {
+  background-color: var(--color-card-background);
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  box-shadow: var(--box-shadow);
+}
+
+.button--third {
+  background-color: transparent;
+  color: var(--color-text);
+  border: none;
+  box-shadow: none;
+}
+
+.button--first:active,
+.button--second:active,
+.button--third:active {
   transform: translate(2px, 2px);
   box-shadow: none;
 }
 
-.button__first:hover,
-.button__second:hover {
-  filter: brightness(98%);
+.button--first:hover,
+.button--second:hover {
+  filter: brightness(0.95);
 }
 
-.button__third:hover {
-  filter: grayscale(1.1);
+.button--third:hover {
+  filter: grayscale(1);
 }
 
-.button__first {
-  background-color: var(--button-color);
-  color: var(--text-color);
+/* Utility Classes */
+.text-center {
+  text-align: center;
 }
 
-.button__second {
-  background-color: white;
-  color: var(--text-color);
+.card {
+  background-color: var(--color-card-background);
+  border: 2px solid var(--color-text);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
 }
 
-.button__third {
-  background-color: white;
-  color: var(--text-color);
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: var(--font-size-p);
+  border: 1px solid var(--color-text);
+  border-radius: var(--border-radius);
+  background-color: var(--color-card-background);
+  color: var(--color-text);
+  margin-bottom: 1rem;
 }
 
-/**
- * Författare Linus
- * Global CSS för hela appen.
- * Modiferad av Jacob. Lagt till rader.
- */
+a.button {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Default padding */
+.px-1 {
+  padding-left: clamp(1rem, 2vw, 2rem);
+  padding-right: clamp(1rem, 2vw, 2rem);
+}
