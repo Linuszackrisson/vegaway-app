@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import "./CardProductCard.css";
 import { MenuItem } from "../../api/menuApi";
 import { useCartStore } from "../../store/cartStore";
@@ -10,11 +10,13 @@ import { useCurrentOrderStore } from "../../store/useCurrentOrderStore";
 interface CartProductCardProps {
   item: MenuItem;
   editOrder?: boolean;
+  isStaffOrderDetails?: boolean;
 }
 
 const CartProductCard: React.FC<CartProductCardProps> = ({
   item,
   editOrder,
+  isStaffOrderDetails,
 }) => {
   const navigate = useNavigate();
   // Cart store actions
@@ -36,16 +38,32 @@ const CartProductCard: React.FC<CartProductCardProps> = ({
   const currentOrder = useCurrentOrderStore((state) => state.order); // Get the entire order object
   const currentOrderItems = currentOrder ? currentOrder.items : []; // Access items if order exists, else default to an empty array
 
+  // Staff order details actions
+  const [localQuantity, setLocalQuantity] = useState<number>(item.quantity);
+
+  const decreaseQuantityInOrderStaff = () => {
+    setLocalQuantity((prev) => (prev > 0 ? prev - 1 : 0)); // Decrease the local quantity directly, but not below 0
+  };
+
+  const increaseQuantityInOrderStaff = () => {
+    setLocalQuantity((prev) => prev + 1); // Increase the local quantity directly
+  };
+
   // Determine the item count (quantity) from the current order if editOrder is true, else from cart
   const itemCount = editOrder
     ? currentOrderItems.filter((orderItem) => orderItem.menuId === item.menuId)
         .length
+    : isStaffOrderDetails
+    ? localQuantity // Use the provided quantity directly when isStaffOrderDetails is true
     : cartItems.filter((cartItem) => cartItem.menuId === item.menuId).length;
+  console.log("Item count:", itemCount);
 
   // Handle increasing the quantity of an item
   const handleIncrease = () => {
     if (editOrder) {
       increaseQuantityInOrder(item); // Add item to the current order store
+    } else if (isStaffOrderDetails) {
+      increaseQuantityInOrderStaff();
     } else {
       addToCart(item); // Add item to the cart store
     }
@@ -59,6 +77,8 @@ const CartProductCard: React.FC<CartProductCardProps> = ({
       } else {
         removeFromOrder(item.menuId); // Remove item from current order
       }
+    } else if (isStaffOrderDetails) {
+      decreaseQuantityInOrderStaff();
     } else {
       if (itemCount > 1) {
         decreaseQuantity(item.menuId); // Decrease quantity in cart
