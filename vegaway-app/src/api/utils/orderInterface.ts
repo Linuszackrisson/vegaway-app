@@ -7,7 +7,7 @@ interface Item {
   price: number;
 }
 
-interface Order {
+export interface Order {
   orderId: string;
   createdAt: number;
   isConfirmed: string;
