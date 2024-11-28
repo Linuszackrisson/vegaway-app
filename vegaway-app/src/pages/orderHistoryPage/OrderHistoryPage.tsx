@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchOrderHistory } from "../../api/orderHistory";
 import { FetchOrdersResponse, Order } from "../../api/utils/orderInterface";
+import OrderHistory from "../../components/orderHistory/OrderHistory";
 
 const OrderHistoryPage = () => {
   const [orderHistory, setOrderHistory] = useState<Order[] | null>(null);
@@ -32,22 +33,8 @@ const OrderHistoryPage = () => {
         <ul>
           {orderHistory.map((order) => (
             <li key={order.orderId}>
-              <div>Order ID: {order.orderId}</div>
-              <div>Total Price: {order.totalPrice}</div>
-              <div>Is confirmed: {order.isConfirmed}</div>
-              <div>
-                Order Items:
-                <ul>
-                  {order.items.map((item, index) => (
-                    <li key={index}>
-                      <div>Name: {item.name}</div>
-                      <div>Price: {item.price}</div>
-                      <div>Category: {item.category}</div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              {/* Replace this placeholder with your imported component */}
+              {/* Replace this li with the OrderHistory component */}
+              <OrderHistory order={order} />
             </li>
           ))}
         </ul>
