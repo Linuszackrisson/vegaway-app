@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { fetchOrders } from "../../api/ordersStaff"; // Importera funktionen för att hämta ordrar
-import "./PendingOrders.css"; // Importera CSS för styling
-import { Link } from "react-router-dom"; // Importera Link för navigering
+import { fetchOrders } from "../../api/ordersStaff";
+import { Link } from "react-router-dom";
+import "./PendingOrders.css";
 
 const PendingOrders: React.FC = () => {
   const [pendingOrders, setPendingOrders] = useState<any[]>([]);
@@ -24,7 +24,7 @@ const PendingOrders: React.FC = () => {
   }, []);
 
   const confirmOrder = (orderId: number) => {
-    console.log(`Order ${orderId} confirmed! Isak, do you your thing!`);
+    console.log(`Order ${orderId} confirmed! Isak, do your thing!`);
   };
 
   if (loading) {
@@ -45,7 +45,7 @@ const PendingOrders: React.FC = () => {
             <div className="order-card" key={order.orderId}>
               <h2>{`${order.orderId}`.charAt(0).toUpperCase() + `${order.orderId}`.slice(1)}</h2>
               <Link to={`/pending-orders/${order.orderId}`} className="no-underline"><p>Edit</p></Link> 
-              <p>Note: <input type="text" placeholder="Antecking till kocken" defaultValue={order.note || ""} /></p> {/* Textinmatning för anteckning */}
+              <p>Note: <input type="text" placeholder="Antecking till kocken" defaultValue={order.note || ""} /></p>
               <button onClick={() => confirmOrder(order.orderId)}>Confirm</button>
             </div>
           ))}
