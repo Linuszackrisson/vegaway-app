@@ -71,3 +71,7 @@ const OrderDetails: React.FC = () => {
 };
 
 export default OrderDetails;
+
+/* Författare: Linus
+* Denna filen hanterar orderdetaljer och innehåller funktioner för att hantera ordrar.
+*/ 
