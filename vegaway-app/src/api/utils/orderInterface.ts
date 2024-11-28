@@ -1,10 +1,11 @@
-interface Item {
+export interface Item {
   category: string;
   description: string;
   imageUrl: string;
   menuId: string;
   name: string;
   price: number;
+  quantity?: number;
 }
 
 export interface Order {

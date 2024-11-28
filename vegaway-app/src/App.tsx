@@ -11,16 +11,19 @@ import ProfilePage from "./pages/profilePage/ProfilePage";
 import Header from "./components/header/Header";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import PendingOrders from "./pages/pendingOrdersPage/PendingOrders";
+import OrderDetails from "./components/orderDetails/OrderDetails";
 import "./App.css";
 import OrderHistoryPage from "./pages/orderHistoryPage/OrderHistoryPage";
 
 function App() {
   return (
+
     <Router>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/pending-orders" element={<PendingOrders />} />
+       	<Route path="/pending-orders/:orderId" element={<OrderDetails />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
@@ -34,6 +37,7 @@ function App() {
       <CartButton />
     </Router>
   );
+
 }
 
 export default App;

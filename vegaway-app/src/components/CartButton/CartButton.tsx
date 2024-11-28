@@ -16,7 +16,7 @@ const CartButton: React.FC = () => {
   const navigate = useNavigate();
   const currentOrder = useCurrentOrderStore((state) => state.order);
 
-  const hideCartButtonPaths = ["/dashboard", "/staff-sida2-etc"];
+  const hideCartButtonPaths = ["/dashboard", "/pending-orders"];
 
   const shouldHideCartButton = hideCartButtonPaths.some((path) =>
     location.pathname.startsWith(path)
