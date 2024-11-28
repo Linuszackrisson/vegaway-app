@@ -39,9 +39,13 @@ const ProductPage: React.FC = () => {
 	return (
 		<div className="product-page wrapper">
 			<div className="product-page__image-container">
-				<img src={product.imageUrl} alt={product.name} className="product-page__image" />
+				<img
+					src={product.imageUrl}
+					alt={product.name}
+					className="product-page__image"
+				/>
 				<button
-					className="product-card__add-button button__first button__custom-position"
+					className="product-card__add-button button--first button__custom-position"
 					onClick={handleAddToCart}
 				>
 					<Plus />
