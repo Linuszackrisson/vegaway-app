@@ -1,8 +1,11 @@
 // src/components/OrderHistory/OrderHistory.tsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./OrderHistory.css";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Order } from "../../api/utils/orderInterface";
+import { useCurrentOrderStore } from "../../store/useCurrentOrderStore";
+import { MenuItem } from "../../api/menuApi";
 
 interface OrderHistoryProps {
   order: Order;
@@ -10,6 +13,9 @@ interface OrderHistoryProps {
 
 const OrderHistory: React.FC<OrderHistoryProps> = ({ order }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const setOrder = useCurrentOrderStore((state) => state.setOrder);
+  const navigate = useNavigate(); // Initialize navigate
 
   // Map isConfirmed to status
   const status = order.isConfirmed === "true" ? "Confirmed" : "Active";
@@ -19,10 +25,25 @@ const OrderHistory: React.FC<OrderHistoryProps> = ({ order }) => {
     setIsOpen(!isOpen);
   };
 
+  // Function to set the order in the store and navigate
+  const handleHeaderClick = () => {
+    setOrder({
+      orderId: order.orderId,
+      customerEmail: order.customerEmail,
+      createdAt: order.createdAt,
+      isConfirmed: order.isConfirmed,
+      items: order.items as MenuItem[], // Duct tape solution :D
+      totalPrice: order.totalPrice,
+    });
+
+    // Navigate to /order-confirmation after setting the order
+    navigate("/order-confirmation");
+  };
+
   return (
     <div className="order-history">
       {/* Header */}
-      <div className="order-history__header">
+      <div className="order-history__header" onClick={handleHeaderClick}>
         <div className="order-history__header-left">
           <span className="order-history__order-id">
             Order ID: {order.orderId}
