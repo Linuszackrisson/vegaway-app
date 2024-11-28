@@ -1,4 +1,3 @@
-// src/App.tsx
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import ContactPage from "./pages/contactPage/ContactPage";

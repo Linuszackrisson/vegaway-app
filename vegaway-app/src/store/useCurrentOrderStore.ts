@@ -21,6 +21,7 @@ interface CurrentOrderStore {
   getTotalPrice: () => number;
   setOrder: (order: Order) => void; // Set the full order data
   resetOrder: () => void; // Optionally reset the order state
+  updateOrderField: (field: keyof Order, value: any) => void;
 }
 
 export const useCurrentOrderStore = create<CurrentOrderStore>()(
@@ -131,6 +132,12 @@ export const useCurrentOrderStore = create<CurrentOrderStore>()(
 
       // Reset the order state if needed (for example, after successful checkout)
       resetOrder: () => set({ order: null }),
+
+      // Update a single field in the order
+      updateOrderField: (field, value) =>
+        set((state) => ({
+          order: state.order ? { ...state.order, [field]: value } : null,
+        })),
     }),
     {
       name: "current-order", // Persistent key for the order
