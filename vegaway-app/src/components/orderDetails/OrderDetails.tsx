@@ -1,7 +1,7 @@
 // Rätta till importerna
 import React, { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { Order, Item } from "../../api/utils/orderInterface";
+import { Order } from "../../api/utils/orderInterface";
 import CartProductCard from "../CartProductCard/CartProductCard";
 import "./OrderDetails.css";
 
@@ -45,9 +45,13 @@ const OrderDetails: React.FC = () => {
   }
 
   const itemCountMap: Record<string, number> = {};
+
+  // Loop through the items and count the quantities
   orderDetails.items.forEach((item) => {
-    itemCountMap[item.menuId] =
-      (itemCountMap[item.menuId] || 0) + (item.quantity || 1);
+    const menuId = item.menuId; // Access menuId directly from each item
+
+    // Add to the item count for the specific menuId
+    itemCountMap[menuId] = (itemCountMap[menuId] || 0) + (item.quantity || 1); // Ensure we handle undefined quantities
   });
 
   return (
@@ -58,14 +62,21 @@ const OrderDetails: React.FC = () => {
       </h2>
 
       {Object.entries(itemCountMap).map(([menuId, count]) => {
+        // Find the first matching item for this menuId
         const item = orderDetails.items.find((item) => item.menuId === menuId);
-        return (
-          <div key={menuId}>
-            <CartProductCard
-              item={{ ...item, quantity: count } as Item & { quantity: number }} // Använd det totala antalet
-            />
-          </div>
-        );
+
+        if (item) {
+          // Spread the item and update its quantity
+          const updatedItem = { ...item, quantity: count };
+
+          return (
+            <div key={menuId}>
+              <CartProductCard item={updatedItem} isStaffOrderDetails={true} />
+            </div>
+          );
+        }
+
+        return null; // In case no item was found for this menuId
       })}
     </div>
   );
