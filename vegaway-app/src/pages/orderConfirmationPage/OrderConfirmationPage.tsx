@@ -75,14 +75,16 @@ const OrderConfirmationPage: React.FC = () => {
           ? "Your order has been confirmed!"
           : "Your order is awaiting confirmation from our staff."}
       </p>
-      <button
-        className="order-confirmation__refresh-button button__second"
-        onClick={handleRefreshClick}
-        disabled={isLoading}
-      >
-        <RefreshCw />
-        <span>Refresh Status</span>
-      </button>
+      {currentOrder?.isConfirmed === "false" && (
+        <button
+          className="order-confirmation__refresh-button button__second"
+          onClick={handleRefreshClick}
+          disabled={isLoading}
+        >
+          <RefreshCw />
+          <span>Refresh Status</span>
+        </button>
+      )}
       {showEditOrder && <EditOrder onClose={handleOverlayClose} />}
     </div>
   );
