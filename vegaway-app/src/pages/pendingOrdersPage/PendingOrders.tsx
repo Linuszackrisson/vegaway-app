@@ -44,9 +44,8 @@ const PendingOrders: React.FC = () => {
           {pendingOrders.map((order) => (
             <div className="order-card" key={order.orderId}>
               <h2>Order ID {order.orderId}</h2>
-              <Link to={`/pending-orders/${order.orderId}`}>Edit</Link> 
-              <p>Status: {order.isConfirmed ? "Confirmed" : "Open"}</p>
-              <p>Note: <input type="text" placeholder="Fyll i anteckning" defaultValue={order.note || ""} /></p> {/* Textinmatning för anteckning */}
+              <Link to={`/pending-orders/${order.orderId}`} className="no-underline"><p>Edit</p></Link> 
+              <p>Note: <input type="text" placeholder="Antecking till kocken" defaultValue={order.note || ""} /></p> {/* Textinmatning för anteckning */}
               <button onClick={() => confirmOrder(order.orderId)}>Confirm</button>
             </div>
           ))}
