@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchOrders } from "../../api/ordersStaff"; 
-import { Order, Item } from "../../api/utils/orderInterface"; // Importera Order och Item
+import { Order, Item } from "../../api/utils/orderInterface"; 
 import CartProductCard from "../CartProductCard/CartProductCard";
 import "./OrderDetails.css"; 
 
