@@ -16,9 +16,6 @@ const OrderDetails: React.FC = () => {
   useEffect(() => {
     const getOrderDetails = async () => {
       try {
-        //const result = await fetchOrders("false");
-        // const foundOrder = result.orders.find((order: Order) => order.orderId === orderId);
-
         const foundOrder = location.state?.order;
         if (foundOrder) {
           setOrderDetails(foundOrder);
