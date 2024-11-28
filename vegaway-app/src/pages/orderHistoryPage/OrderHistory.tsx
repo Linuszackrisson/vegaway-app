@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { fetchOrderHistory } from "../../api/orderHistory";
-import { FetchOrdersResponse } from "../../api/utils/orderInterface";
+import { FetchOrdersResponse, Order } from "../../api/utils/orderInterface";
 
 const OrderHistoryPage = () => {
-  const [orderHistory, setOrderHistory] = useState<FetchOrdersResponse | null>(
-    null
-  );
+  const [orderHistory, setOrderHistory] = useState<Order[] | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetchOrderHistory();
-        setOrderHistory(response);
+        const response: FetchOrdersResponse = await fetchOrderHistory();
+        console.log("Response:", response);
+
+        setOrderHistory(response.orders);
       } catch (err) {
         console.error("error:", err);
       }
@@ -19,6 +19,11 @@ const OrderHistoryPage = () => {
 
     fetchData();
   }, []);
+
+  // Log orderHistory after it updates
+  useEffect(() => {
+    console.log("Order history state updated:", orderHistory);
+  }, [orderHistory]); // This useEffect runs whenever orderHistory changes
 
   return <div></div>;
 };
