@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchOrderHistory } from "../../api/orderHistory";
 import { FetchOrdersResponse, Order } from "../../api/utils/orderInterface";
 import OrderHistory from "../../components/orderHistory/OrderHistory";
+import "./OrderHistoryPage.css";
 
 const OrderHistoryPage = () => {
   const [orderHistory, setOrderHistory] = useState<Order[] | null>(null);
@@ -27,12 +28,12 @@ const OrderHistoryPage = () => {
   }, [orderHistory]); // This useEffect runs whenever orderHistory changes
 
   return (
-    <div>
-      <h1>Order History</h1>
+    <div className="wrapper order-history-page">
+      <h1 className="order-history-page__heading">Order History</h1>
       {orderHistory ? (
-        <ul>
+        <ul className="order-history-page___ul">
           {orderHistory.map((order) => (
-            <li key={order.orderId}>
+            <li className="order-history-page__list-item" key={order.orderId}>
               {/* Replace this li with the OrderHistory component */}
               <OrderHistory order={order} />
             </li>
