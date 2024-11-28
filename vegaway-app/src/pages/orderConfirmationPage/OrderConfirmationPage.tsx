@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { refreshStatus } from "../../api/refreshStatus";
 import EditOrder from "../../components/editOrder/EditOrder";
 import Underline_06 from "../../assets/Underline_06.svg";
+import { useCurrentOrderStore } from "../../store/useCurrentOrderStore";
 
 const OrderConfirmationPage: React.FC = () => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
@@ -14,20 +15,30 @@ const OrderConfirmationPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const currentOrder = JSON.parse(
-    localStorage.getItem("current-order") || "{}"
+  const updateOrderField = useCurrentOrderStore(
+    (state) => state.updateOrderField
   );
-  console.log(currentOrder.state.order.orderId);
+  const currentOrder = useCurrentOrderStore((state) => state.order);
 
-  const orderId = currentOrder.state.order.orderId;
+  useEffect(() => {
+    if (currentOrder?.isConfirmed === "true") {
+      setOrderConfirmed(true);
+    }
+  }, [currentOrder?.isConfirmed]);
+
+  const orderId = currentOrder?.orderId;
+  console.log(currentOrder?.orderId);
 
   const refreshOrderStatus = async () => {
     if (!orderId) return;
     setIsLoading(true);
     try {
       const response = await refreshStatus(orderId);
-      setOrderConfirmed(response.isConfirmed === "true");
-      console.log(response);
+      console.log("Response:", response);
+
+      if (response.isConfirmed === "true") {
+        updateOrderField("isConfirmed", "true");
+      }
     } catch (error) {
       console.error("Error refreshing order status:", error);
     } finally {
