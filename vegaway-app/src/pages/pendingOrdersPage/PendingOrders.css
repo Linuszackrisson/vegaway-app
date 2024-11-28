@@ -28,6 +28,9 @@
     margin-bottom: 14px;
     padding: 6px 8px;
     background: #FFF;
+    display: inline-block;
+    width: 100%;
+    
 
 }
 
@@ -36,7 +39,7 @@
     line-height: var(--font-size-small);
     font-weight: 400;
     letter-spacing: 0.15px;
-    
+    border-top: 1px solid rgba(129, 129, 129, 0.19);
 
 }
 
@@ -47,6 +50,7 @@
 input[type="text"] {
     border: none; 
     font-style: italic;
+    
   }
 
 .order-card h2 {
@@ -66,10 +70,21 @@ font-size: 18px;
     display: inline-block;
     padding: 0;
     color: #1B1B1B;
-    font-size: 15px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 600;
     line-height: 24px; 
     letter-spacing: 0.15px;
+    border-top: 1px solid rgba(129, 129, 129, 0.19);
+    width: 100%;
+    text-align: left;
     
   }
+
+
+.pending-orders {
+    background-image: url('../../assets/pink-bg.svg'); /* Added background image */
+    background-size: cover; /* Optional: Adjusts the size of the background image */
+    background-repeat: no-repeat; 
+    background-position: center 60px;
+}

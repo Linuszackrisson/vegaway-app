@@ -36,14 +36,14 @@ const PendingOrders: React.FC = () => {
   }
 
   return (
-    <div className="pending-orders">
+    <div className="pending-orders wrapper">
       {pendingOrders.length === 0 ? (
         <p>Inga pending ordrar.</p> 
       ) : (
         <div className="order-cards">
           {pendingOrders.map((order) => (
             <div className="order-card" key={order.orderId}>
-              <h2>Order ID {order.orderId}</h2>
+              <h2>{`${order.orderId}`.charAt(0).toUpperCase() + `${order.orderId}`.slice(1)}</h2>
               <Link to={`/pending-orders/${order.orderId}`} className="no-underline"><p>Edit</p></Link> 
               <p>Note: <input type="text" placeholder="Antecking till kocken" defaultValue={order.note || ""} /></p> {/* Textinmatning för anteckning */}
               <button onClick={() => confirmOrder(order.orderId)}>Confirm</button>
