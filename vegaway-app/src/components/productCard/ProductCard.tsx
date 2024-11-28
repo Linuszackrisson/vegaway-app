@@ -22,31 +22,31 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
   };
 
   return (
-    <li className="product-card">
-      <div className="product-card__image-container">
-        <img
-          className="product-card__image"
-          src={item.imageUrl}
-          alt={item.name}
-        />
-        <button
-          className="product-card__add-button button__first"
-          onClick={handleAddToCart}
-        >
-          <Plus />
-        </button>
-      </div>
-      <div className="product-card__info">
-        <div className="product-card__title-price">
-          <h3 className="product-card__title">{item.name}</h3>
-          <p className="product-card__price">${item.price.toFixed(2)}</p>
-        </div>
-        <button className="product-card__info-button" onClick={handleInfoClick}>
-          Info
-        </button>
-      </div>
-    </li>
-  );
+		<li className="product-card">
+			<div className="product-card__image-container">
+				<img
+					className="product-card__image"
+					src={item.imageUrl}
+					alt={item.name}
+				/>
+				<button
+					className="product-card__add-button button--first"
+					onClick={handleAddToCart}
+				>
+					<Plus />
+				</button>
+			</div>
+			<div className="product-card__info">
+				<div className="product-card__title-price">
+					<h3 className="product-card__title">{item.name}</h3>
+					<p className="product-card__price">${item.price.toFixed(2)}</p>
+				</div>
+				<button className="product-card__info-button" onClick={handleInfoClick}>
+					Info
+				</button>
+			</div>
+		</li>
+	);
 };
 
 export default ProductCard;
