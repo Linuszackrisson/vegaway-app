@@ -107,3 +107,8 @@ export default PendingOrders;
 /* Författare: Linus
  * Denna filen hanterar pending orders och innehåller funktioner för att hantera ordrar.
  */
+
+/* 
+Uppdatering: Isak
+La funktionalitet på confirm knappen för att markera en order som hanterad
+*/
