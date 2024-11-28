@@ -10,7 +10,8 @@ import OrderConfirmationPage from "./pages/orderConfirmationPage/OrderConfirmati
 import CallbackPage from "./pages/callbackPage/CallbackPage";
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import Header from "./components/header/Header";
-import DashboardPage from "./pages/dashboardPage/DashboardPage";
+import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import PendingOrders from "./pages/pendingOrdersPage/PendingOrders";
 import "./App.css";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path="/" element={<HomePage />} />
+				<Route path="/pending-orders" element={<PendingOrders />} />
 				<Route path="/contact" element={<ContactPage />} />
 				<Route path="/menu" element={<MenuPage />} />
 				<Route path="/product/:id" element={<ProductPage />} />
@@ -34,3 +36,8 @@ function App() {
 }
 
 export default App;
+
+/* Författare: Linus
+* Denna filen hanterar routningen av sidan och innehåller alla routes som finns i våran hemsida.
+* Jacob / Isak lagt till övriga routes.
+*/ 

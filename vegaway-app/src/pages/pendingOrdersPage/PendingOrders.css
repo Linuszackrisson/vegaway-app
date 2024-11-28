@@ -1,0 +1,20 @@
+.pending-orders {
+  padding: 20px;
+}
+
+.pending-orders h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.pending-orders ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.pending-orders li {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
