@@ -145,9 +145,9 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 #### Torsdag (2024-11-28)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |       Pending-order ui & vilat                       |     Kanske vila mer, pending-order-item-ui                   |   Feber                      |
+| Isak       |        Current order state. Orders table GSI. Order history request. Order history handler and route. Update order handler / request. Cart btn update. Conditionally render refresh button.                      |       Kolla på design med Jacob, confirm-order button-function. Order-history                 |  Nej.                       |
+| Jacob      |          Global-css, dashboard-page, lite routes för cart-btn o design                    |  Design för order-history                      |    Nej.                     |
 
 ### Sprint Review (Fredag)
 - **Resultat**:
