@@ -12,31 +12,33 @@ import Header from "./components/header/Header";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import PendingOrders from "./pages/pendingOrdersPage/PendingOrders";
 import "./App.css";
+import OrderHistoryPage from "./pages/orderHistoryPage/OrderHistory";
 
 function App() {
   return (
-		<Router>
-			<Header />
-			<Routes>
-				<Route path="/" element={<HomePage />} />
-				<Route path="/pending-orders" element={<PendingOrders />} />
-				<Route path="/contact" element={<ContactPage />} />
-				<Route path="/menu" element={<MenuPage />} />
-				<Route path="/product/:id" element={<ProductPage />} />
-				<Route path="/dashboard" element={<DashboardPage />} />
-				<Route path="/cart" element={<CartPage />} />
-				<Route path="/order-confirmation" element={<OrderConfirmationPage />} />
-				<Route path="/callback" element={<CallbackPage />} />
-				<Route path="/profile" element={<ProfilePage />} />
-			</Routes>
-			<CartButton />
-		</Router>
-	);
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/pending-orders" element={<PendingOrders />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
+        <Route path="/callback" element={<CallbackPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/order-history" element={<OrderHistoryPage />} />
+      </Routes>
+      <CartButton />
+    </Router>
+  );
 }
 
 export default App;
 
 /* Författare: Linus
-* Denna filen hanterar routningen av sidan och innehåller alla routes som finns i våran hemsida.
-* Jacob / Isak lagt till övriga routes.
-*/ 
+ * Denna filen hanterar routningen av sidan och innehåller alla routes som finns i våran hemsida.
+ * Jacob / Isak lagt till övriga routes.
+ */
