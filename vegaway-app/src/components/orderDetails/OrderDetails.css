@@ -1,0 +1,13 @@
+.order-details {
+    padding: 12px;
+    background-image: url('../../assets/pink-bg.svg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center 190px;
+}
+
+.order-details__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
