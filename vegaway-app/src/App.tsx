@@ -12,7 +12,7 @@ import Header from "./components/header/Header";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import PendingOrders from "./pages/pendingOrdersPage/PendingOrders";
 import "./App.css";
-import OrderHistoryPage from "./pages/orderHistoryPage/OrderHistory";
+import OrderHistoryPage from "./pages/orderHistoryPage/OrderHistoryPage";
 
 function App() {
   return (
