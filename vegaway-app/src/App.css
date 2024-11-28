@@ -56,7 +56,7 @@ body {
   font-family: 'Darker Grotesque Variable', sans-serif;
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-p);
-  line-height: 1.6;
+  line-height: 1;
   background-color: var(--color-background);
   color: var(--color-text);
   display: flex;
