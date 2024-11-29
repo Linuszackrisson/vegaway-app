@@ -7,12 +7,8 @@
     width: 100%;
     margin: auto;
     position: relative;
-    
-    
-    
-    
-
 }
+
 .hero-background {
     background-image: url(../../assets/Gubbe.svg);
     height: 100%;
@@ -31,24 +27,12 @@
     align-items: center;
     justify-content: center;
     gap: 4px;
-    max-width: 250px;
     margin: auto;
     height: auto;   
     position: absolute; 
     top: 50%; 
     left: 50%; 
     transform: translate(-50%, -50%);
-
-    
-    
-    
-    
-    
-}
-.homepage {
-   
-    height: 100vh;
-    
 }
 
 .pink-button {
@@ -60,59 +44,31 @@
     margin-left: -30px;
 }
 
-
-
 .new-icon {
     width: 55px;
     align-self: center;
     margin-bottom: -25px;
-    
 }
+
 .home-page__slider {
     display: flex;
     flex-direction: column;
-   
 }
+
 .like-icon {
     width: 36px;;
     align-self: flex-end;
 }
 
-.button__first.ig-white {
-    background-color: white;
-    font-family: Darker Grotesque;
-    
+.homepage__heading {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: var(--color-card-background);
+    border: 1px solid var(--color-text);
     line-height: normal;
     padding-left: 12px;
     padding-right: 12px;
     padding-bottom: 4px;
     transform: rotate(1.006deg);
     height: auto;
-}
-
-.button__first.ig-white p {
-    color: var(--primary, #000);
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 100%; 
-    display: inline-block;
-}
-
-.button__first.ig-yellow {
-    display: flex;
-    height: 100%;
-    padding: 6px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-}
-
-.button__first.ig-yellow p {
-    display: inline-block;
-    line-height: 100%;
-    font-size: 18px;
-    font-weight: 500;
-
 }

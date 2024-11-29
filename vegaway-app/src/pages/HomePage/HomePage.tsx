@@ -22,37 +22,37 @@ function HomePage() {
   }, []);
 
   return (
-    <>
+		<>
+			<div className="homepage wrapper">
+				<div className="homepage-hero">
+					<div className="hero-background"></div>
+					<div className="button-container">
+						<img className="like-icon" src={likeIcon} alt="like" />
+						<h1 className="homepage__heading">We're on Instagram</h1>
+						<button className="homepage__button button--first">
+							<img src={instagramIcon} alt="Instagram" />
+							<span>Check us out</span>
+							<img src={chevronIcon} alt="Chevron Right" />
+						</button>
+					</div>
+				</div>
+				<div className="home-page__slider">
+					<img className="new-icon" src={newIcon} alt="newIcon" />
 
-    <div className="homepage wrapper">
-    <div className="homepage-hero">
-      <div className="hero-background"></div>
-      <div className="button-container">
-        <img className='like-icon' src={likeIcon} alt="like"/>
-        <button className='button__first ig-white'> <p>We're on Instagram</p></button>
-        <button className='button__first ig-yellow'>
-          <img src={instagramIcon} alt="Instagram"/>
-          <p>Check us out</p>
-          <img src={chevronIcon} alt="Chevron Right"/>
-        </button>
-        </div>
-
-      
-      </div>
-      <div className="home-page__slider">
-      <img className='new-icon' src={newIcon} alt="newIcon"/>
-
-      {featuredProducts.length > 0 && (
-        <ProductSlider title="New Releases" items={featuredProducts} />
-      )}
-      </div>
-      <Link to="/contact">
-        <img className="pink-button" src={aboutPink} alt="Pink About Button" />
-      </Link>
-
-      </div>
-    </>
-  );
+					{featuredProducts.length > 0 && (
+						<ProductSlider title="New Releases" items={featuredProducts} />
+					)}
+				</div>
+				<Link to="/contact">
+					<img
+						className="pink-button"
+						src={aboutPink}
+						alt="Pink About Button"
+					/>
+				</Link>
+			</div>
+		</>
+	);
 }
 
 export default HomePage;

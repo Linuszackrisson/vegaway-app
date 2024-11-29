@@ -104,33 +104,28 @@ label,
 li,
 button {
   color: var(--color-text);
-  font-family: inherit;
-  font-weight: inherit;
   box-sizing: content-box;
+    line-height: 1;
 }
 
 h1 {
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-semibold);
-  line-height: 1.2;
 }
 
 h2 {
   font-size: var(--font-size-h2);
   font-weight: var(--font-weight-medium);
-  line-height: 1.2;
 }
 
 h3 {
   font-size: var(--font-size-h3);
   font-weight: var(--font-weight-semibold);
-  line-height: 1.2;
 }
 
 p {
   font-size: var(--font-size-p);
   font-weight: var(--font-weight-regular);
-  line-height: 1.6;
 }
 
 span,
@@ -138,8 +133,8 @@ label,
 li,
 button {
   font-size: var(--font-size-p);
-  font-weight: var(--font-weight-regular);
-  line-height: 1.5;
+  font-weight: var(--font-weight-light);
+  line-height: 1;
 }
 
 a {
@@ -152,6 +147,7 @@ button {
   background: none;
   border: none;
   padding: 0;
+  line-height: 1;
 }
 
 /* SVG */
@@ -175,17 +171,28 @@ svg {
 }
 
 .button--first {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-yellow);
   color: var(--color-text);
   border: 1px solid var(--color-text);
+  border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+  padding: 0 .5rem 
 }
 
 .button--second {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-card-background);
   color: var(--color-text);
   border: 1px solid var(--color-text);
   box-shadow: var(--box-shadow);
+  padding: 0 .5rem
 }
 
 .button--third {
@@ -205,6 +212,17 @@ svg {
 .button--first:hover,
 .button--second:hover {
   filter: brightness(0.95);
+}
+
+.button--first img,
+.button--second img {
+  margin: 0 0.25rem;
+}
+
+.button--first span,
+.button--second span {
+  display: inline-block;
+  padding: 0 0.25rem;
 }
 
 .button--third:hover {
