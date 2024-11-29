@@ -151,11 +151,11 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 
 ### Sprint Review (Fredag)
 - **Resultat**:
-  - Vad har uppnåtts under veckan?
-  - Vad fungerade bra, och vad kan förbättras?
+  - Vad har uppnåtts under veckan?  Knytit ihop kundens användarflöde. 
+  - Vad fungerade bra, och vad kan förbättras? Vi har förbättras på kommunikation och vågar ställa på varann. Vi hade kunnat bli överens om konventioner tidiagare. 
 - **Feedback**:
-  - Ge och ta emot feedback från alla teammedlemmar.
-  - Identifiera åtgärder för förbättring inför nästa vecka.
+  - Ge och ta emot feedback från alla teammedlemmar. Det har vi tagit på discord.
+  - Identifiera åtgärder för förbättring inför nästa vecka. Vi har inga nya förbättringar i nuläget.
 
 ---
 
