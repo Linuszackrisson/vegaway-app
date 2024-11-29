@@ -19,7 +19,6 @@ const OrderConfirmationPage: React.FC = () => {
     (state) => state.updateOrderField
   );
   const currentOrder = useCurrentOrderStore((state) => state.order);
-  const resetOrder = useCurrentOrderStore((state) => state.resetOrder);
 
   useEffect(() => {
     if (currentOrder?.isConfirmed === "true") {
@@ -29,13 +28,6 @@ const OrderConfirmationPage: React.FC = () => {
 
   const orderId = currentOrder?.orderId;
   console.log(currentOrder?.orderId);
-
-  useEffect(() => {
-    // Cleanup: reset the order state when the component unmounts
-    return () => {
-      resetOrder();
-    };
-  }, [resetOrder]);
 
   const refreshOrderStatus = async () => {
     if (!orderId) return;
@@ -109,6 +101,5 @@ export default OrderConfirmationPage;
 
 /* 
 Uppdatering: Isak
-Nollställer order state i useCurrentOrderStore när komponenten unmountar.
-Renderar ett vänligt meddelande om kund försöker nå denna sida på felaktigt sätt, t.ex att manuellt skriva in denna url.
+Renderar ett vänligt meddelande om kund försöker nå denna sida då order state är null
 */
