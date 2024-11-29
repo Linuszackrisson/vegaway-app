@@ -71,9 +71,11 @@ const OrderConfirmationPage: React.FC = () => {
         className="order-confirmation__image"
       />
       <p className="order-confirmation__message">
-        {orderConfirmed
-          ? "Your order has been confirmed!"
-          : "Your order is awaiting confirmation from our staff."}
+        {currentOrder
+          ? orderConfirmed
+            ? "Your order has been confirmed!"
+            : "Your order is awaiting confirmation from our staff."
+          : "Please visit your order history to select an order"}
       </p>
       {currentOrder?.isConfirmed === "false" && (
         <button
@@ -96,3 +98,8 @@ export default OrderConfirmationPage;
  * Författare: [Ditt namn]
  * OrderConfirmationPage-komponent som låter användaren uppdatera orderstatus och redigera sin order.
  */
+
+/* 
+Uppdatering: Isak
+Renderar ett vänligt meddelande om kund försöker nå denna sida då order state är null
+*/
