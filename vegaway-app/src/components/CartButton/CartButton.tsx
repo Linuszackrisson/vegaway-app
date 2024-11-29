@@ -36,6 +36,8 @@ const CartButton: React.FC = () => {
     } else if (isOrderConfirmationPage) {
       if (currentOrder?.isConfirmed === "true") {
         navigate("/menu");
+      } else if (!currentOrder) {
+        navigate("/order-history");
       } else {
         navigate("/order-confirmation?edit=true");
       }
@@ -51,12 +53,19 @@ const CartButton: React.FC = () => {
     buttonIcon = <CreditCard />;
     buttonText = "Complete Order";
   } else if (isOrderConfirmationPage) {
-    buttonIcon =
-      currentOrder?.isConfirmed === "true" ? <ShoppingBag /> : <Edit3 />;
-    buttonText =
-      currentOrder?.isConfirmed === "true"
-        ? "Order Something More"
-        : "Edit Your Order";
+    if (currentOrder === null) {
+      // If the currentOrder is null, show "Go to order history" and no icon
+      buttonIcon = null; // You can also set this to "" if preferred
+      buttonText = "Go to order history";
+    } else {
+      // Otherwise, show the usual order confirmation buttons
+      buttonIcon =
+        currentOrder.isConfirmed === "true" ? <ShoppingBag /> : <Edit3 />;
+      buttonText =
+        currentOrder.isConfirmed === "true"
+          ? "Order Something More"
+          : "Edit Your Order";
+    }
   } else {
     buttonIcon = <ShoppingCart />;
     buttonText = "See Your Cart";
