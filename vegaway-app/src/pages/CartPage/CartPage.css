@@ -1,0 +1,20 @@
+.cartpage {
+    padding: 14px;
+}
+.cartpage__title {
+    margin-bottom: 5px;
+}
+
+.cartpage__image {
+    margin-bottom: 34px;
+    max-width: 10rem;
+}
+
+.cartpage {
+    background-image: url('../../assets/greenellipse.svg');
+    background-position: left;
+    background-position: left 100px;
+    background-repeat: no-repeat;
+    background-size: fit;
+    min-height: calc(100vh - 70px);
+  }

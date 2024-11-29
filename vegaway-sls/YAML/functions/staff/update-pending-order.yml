@@ -1,0 +1,6 @@
+handler: handlers/updatePendingOrder.handler
+events:
+  - httpApi:
+      path: /staff/orders/pending
+      method: put
+      authorizer: cognitoAuthorizer

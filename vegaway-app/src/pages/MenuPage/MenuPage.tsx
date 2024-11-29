@@ -4,13 +4,6 @@ import { fetchMenuItems, MenuItem } from "../../api/menuApi";
 import "./MenuPage.css";
 import ProductSlider from "../../components/productSlider/ProductSlider";
 
-
-interface ProductItem {
-	id: string;
-	name: string;
-	price: number;
-}
-
 function MenuPage() {
 	const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
 
@@ -22,18 +15,19 @@ function MenuPage() {
 		getMenuItems();
 	}, []);
 
-	const groupedItems: Record<string, ProductItem[]> = {}; 
-
-	menuItems.forEach(item => {
-		const productItem: ProductItem = { id: item.menuId, name: item.name, price: item.price };
-		if (!groupedItems[item.category]) {
-			groupedItems[item.category] = []; // 
-		}
-		groupedItems[item.category].push(productItem); 
-	});
+	const groupedItems = menuItems.reduce<Record<string, MenuItem[]>>(
+		(acc, item) => {
+			if (!acc[item.category]) {
+				acc[item.category] = [];
+			}
+			acc[item.category].push(item);
+			return acc;
+		},
+		{}
+	);
 
 	return (
-		<div className="menu-page">
+		<div className="menu-page wrapper">
 			{Object.entries(groupedItems).map(([category, items]) => (
 				<ProductSlider key={category} title={category} items={items} />
 			))}
@@ -47,5 +41,7 @@ export default MenuPage;
  * Författare Linus
  * Implementerat en menyvisning som hämtar och grupperar menyobjekt
  * baserat på kategori och visar dem med hjälp av ProductSlider-komponenten.
+ * 
+ * Uppdaterad Jacob
+ * förenklat dataflöte
  */
- 

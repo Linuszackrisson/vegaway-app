@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/0d0afc31-ff00-4641-b935-86f83d27a8f3)# Sprint Planering och Översikt
 
 Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för vårt team under de kommande fyra veckorna. Teammedlemmarna är:
 - Linus
@@ -92,31 +91,31 @@ Inga ännu, förutom att Linus ska vara barnvakt 13-15.
 #### Tisdag (2024-11-19)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |                Contact-page/about              |   Avsluta gårdagens projekt och påbörja cart.js                     |      Tennis kl 17:00                   |
+| Isak       |                 Fungerande inlogg             |         Bilder till menu db               |           Nej.              |
+| Jacob      |                  Skiss och diverse frontend            |        Namnge matkatategorier och göra nav                |           Nej.              |
 
 #### Onsdag (2024-11-20)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |             CartStore med Zustand, localstorage, skickas till CartPage.                 |     Mer frontend issues                   |        Nej                 |
+| Isak       |                        Placeorder handler och api fil för placeorder, and it works! Token validation feature.    | Serverless work. Mappstruktur. Ta en kik op JOI.   |        Nej.           |
+| Jacob      |          Utökade produkterna och kategorier, jobbat med att få bilder till produkterna. Allmänt CSS arbete.          |          NAV-barmenu & collapse menu.              |           Bilderna krånglar, gemensam felsökning behövs.              |
 
 #### Torsdag (2024-11-21)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |      Cartpage påbörjat.                        |        Cartpage och productview page.                |         Nej, tid kanske. CSS tar tid.                |
+| Isak       |                   Order confirmation function           |                 Staff notes & protected routes.       |        Nej.                 |
+| Jacob      |        Header / Nav och en slider menu.                      |     Fortsätta med gårdagen och avsluta.                   |        Behöver möjligtvis hjälp.                 |
 
 ### Sprint Review (Fredag)
 - **Resultat**:
-  - Vad har uppnåtts under veckan?
-  - Vad fungerade bra, och vad kan förbättras?
+  - Vad har uppnåtts under veckan? Login function, majoriteten av frontend pages. Navigation. Cart. Zustand. 
+  - Vad fungerade bra, och vad kan förbättras? Alla har bidragit mycket och vi visar samma engangemang. Git kan vi möjligtvis bli bättre på. 
 - **Feedback**:
-  - Ge och ta emot feedback från alla teammedlemmar.
-  - Identifiera åtgärder för förbättring inför nästa vecka.
+  - Ge och ta emot feedback från alla teammedlemmar. Linus sprider positiv feedback. Kommunikationen har stärkts under veckan. 
+  - Identifiera åtgärder för förbättring inför nästa vecka. En issue för varje enstaka sak och regelbundna commits. Gå igenom flowchart så den även passar med design flowcharten så dom är på samma bana. 
 
 ---
 
@@ -126,40 +125,40 @@ Inga ännu, förutom att Linus ska vara barnvakt 13-15.
 - **Mål**: Definiera veckans mål och uppgifter.
 - **Teammedlemmar**: Linus, Isak, Jacob.
 - **Diskussioner**:
-  - Vad ska prioriteras under denna vecka?
-  - Vilka uppgifter har högsta prioritet?
-  - Förväntade hinder och lösningar.
+  - Vad ska prioriteras under denna vecka? Avslutade kundflödet och påbörja staff-flödet. 
+  - Vilka uppgifter har högsta prioritet? Kundflödet. 
+  - Förväntade hinder och lösningar. Inte ännu. 
 
 ### Daily Scrum (Tisdag - Torsdag)
 
 #### Tisdag (2024-11-26)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |            Home-page sidan                  |   Justera den sista styling och eventuellt börja med ui för staff.                     |                         |
+| Isak       |                  Api request file, staff order confirm, refresh order status med testknapp, x-cognito-id, order status handler, gosi orders table, sorts key to gsi, api request file get orders, test buttons fetch orders och buggfix med Jacob.          |                        |    Resercha lösningar för kommande utmaningar. Möjligtvis påbörja lite ui i frontend.                     |
+| Jacob      |            OrderConfirm Page, påbörjat edit order component. Buggfix                  |   Edit order component                     |          Kan möjligtvis behöva hjälp.               |
 
 #### Onsdag (2024-11-27)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |       Home-page                       |     Vila & frontend                   |       Sjukdom                  |
+| Isak       |       ny zustand store för order, småfix                       |     Mer av den typen                   |         Nej.                |
+| Jacob      |  Hjälpt Isak                            |        staff-dashboard-page                |            Nej.             |
 
 #### Torsdag (2024-11-28)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |       Pending-order ui & vilat                       |     Kanske vila mer, pending-order-item-ui                   |   Feber                      |
+| Isak       |        Current order state. Orders table GSI. Order history request. Order history handler and route. Update order handler / request. Cart btn update. Conditionally render refresh button.                      |       Kolla på design med Jacob, confirm-order button-function. Order-history                 |  Nej.                       |
+| Jacob      |          Global-css, dashboard-page, lite routes för cart-btn o design                    |  Design för order-history                      |    Nej.                     |
 
 ### Sprint Review (Fredag)
 - **Resultat**:
-  - Vad har uppnåtts under veckan?
-  - Vad fungerade bra, och vad kan förbättras?
+  - Vad har uppnåtts under veckan?  Knytit ihop kundens användarflöde. 
+  - Vad fungerade bra, och vad kan förbättras? Vi har förbättras på kommunikation och vågar ställa på varann. Vi hade kunnat bli överens om konventioner tidiagare. 
 - **Feedback**:
-  - Ge och ta emot feedback från alla teammedlemmar.
-  - Identifiera åtgärder för förbättring inför nästa vecka.
+  - Ge och ta emot feedback från alla teammedlemmar. Det har vi tagit på discord.
+  - Identifiera åtgärder för förbättring inför nästa vecka. Vi har inga nya förbättringar i nuläget.
 
 ---
 

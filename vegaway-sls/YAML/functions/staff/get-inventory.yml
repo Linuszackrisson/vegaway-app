@@ -1,0 +1,6 @@
+handler: handlers/getInventory.handler
+events:
+  - httpApi:
+      path: /staff/inventory
+      method: get
+      authorizer: cognitoAuthorizer

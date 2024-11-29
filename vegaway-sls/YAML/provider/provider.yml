@@ -1,0 +1,32 @@
+name: aws
+stage: dev
+runtime: nodejs20.x
+region: eu-north-1
+iam:
+  role: ${env:MY_ROLE_ARN} # Define MY_ROLE_ARN in .env
+httpApi:
+  cors:
+    allowedOrigins:
+      - "*"
+    allowedHeaders:
+      - Content-Type
+      - Authorization
+      - x-api-key
+      - x-cognito-auth
+      - x-cognito-id
+    allowedMethods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+      - OPTIONS
+    exposedResponseHeaders:
+      - Special-Response-Header
+    maxAge: 6000 # In seconds
+  authorizers:
+    cognitoAuthorizer:
+      type: jwt
+      identitySource: $request.header.x-cognito-auth
+      issuerUrl: !Sub "https://cognito-idp.${self:provider.region}.amazonaws.com/${CognitoUserPool}"
+      audience:
+        - !Ref CognitoUserPoolClient

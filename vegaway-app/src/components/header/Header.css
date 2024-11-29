@@ -1,0 +1,51 @@
+/* src/components/header/Header.css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 20px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 16px;
+}
+
+.header__profile {
+    display: flex;
+    align-items: center;
+}
+
+.header__profile a,
+.header__profile button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header__profile svg {
+    width: 24px;
+    height: 24px;
+}

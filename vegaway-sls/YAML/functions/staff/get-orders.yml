@@ -1,0 +1,6 @@
+handler: handlers/getOrders.handler
+events:
+  - httpApi:
+      path: /staff/orders/{isConfirmed}
+      method: get
+      authorizer: cognitoAuthorizer

@@ -1,0 +1,6 @@
+handler: handlers/getStaffMenu.handler
+events:
+  - httpApi:
+      path: /staff/menu
+      method: get
+      authorizer: cognitoAuthorizer

@@ -1,0 +1,87 @@
+/* src/components/sliderMenu/SliderMenu.css */
+.slider-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100%;
+    background-color: white;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--text-color);
+}
+
+.slider-menu.open {
+    transform: translateX(0);
+}
+
+.menu-header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.back-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1;
+    margin-left: 24px;
+}
+
+.menu-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.menu-nav a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.menu-nav .icon {
+    margin-right: 12px;
+}
+
+.slider-menu__login {
+    margin: 0 auto;
+    padding: 0;
+    height: 2rem;
+    width: 85%;
+}
+
+.login-button {
+    border: none;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+}
+
+.slider-menu__graf {
+    bottom: 0;
+}
+
+.menu-footer .login-button {
+    margin-bottom: 16px;
+}
