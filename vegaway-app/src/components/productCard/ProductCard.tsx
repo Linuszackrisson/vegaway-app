@@ -25,7 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 		<li className="product-card">
 			<div className="product-card__image-container">
 				<img className="product-card__image" src={item.imageUrl} alt={item.name} />
-				<button className="button product-card__add-button button--first" onClick={handleAddToCart}>
+				<button className="button button--first product-card__add-button" onClick={handleAddToCart}>
 					<Plus className="icon" strokeWidth={1.5} />
 				</button>
 			</div>
@@ -34,9 +34,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 					<h3 className="product-card__title">{item.name}</h3>
 					<p className="product-card__price">${item.price.toFixed(2)}</p>
 				</div>
-				<button className="product-card__info-button" onClick={handleInfoClick}>
-					<span>Info</span>
-					<ChevronRight className="icon" strokeWidth={1.5} />
+				<button className="button button--third product-card__info-button" onClick={handleInfoClick}>
+					<span className="button__text">Info</span>
+					<ChevronRight className="button__icon" strokeWidth={1.5} />
 				</button>
 			</div>
 		</li>
@@ -44,10 +44,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 };
 
 export default ProductCard;
+
 /*
- * Uppdaterade komponenten så att den fungerar enligt issuen.
- * Adderade funktion för att knappen ska lägga till i varukorgen
- * Lade till logs så vi ser om det fungerar (it actually does)
+ * Uppdaterade komponenten:
+ * - Lade till onClick-hanterare för "Info"-knappen för att navigera till produktens sida.
+ * - "Info"-knappen anropar nu handleInfoClick vid klick.
  *
  * Uppdaterad Jacob
  * Förenklade propsen använder menuItem

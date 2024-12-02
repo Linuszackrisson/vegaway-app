@@ -1,11 +1,11 @@
 // src/pages/ProductPage/ProductPage.tsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchMenuItems, MenuItem } from "../../api/menuApi"; // Importera API-funktionen
+import { fetchMenuItems, MenuItem } from "../../api/menuApi";
 import { useCartStore } from '../../store/cartStore';
-import ProductSlider from '../../components/productSlider/ProductSlider'; // Importera slider komponenten
-import './ProductPage.css'; // Importera CSS för styling
+import ProductSlider from '../../components/productSlider/ProductSlider';
 import { Plus } from "lucide-react";
+import './ProductPage.css';
 
 const ProductPage: React.FC = () => {
 	const { id } = useParams<{ id: string }>();
