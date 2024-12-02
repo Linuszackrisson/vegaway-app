@@ -162,12 +162,12 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 ## Sprint 4 - Vecka 4 (Startdatum: 2024-12-02)
 
 ### Sprint Planning (Måndag)
-- **Mål**: Definiera veckans mål och uppgifter.
+- **Mål**: Definiera veckans mål och uppgifter. Göra klart backend och staff-flödet. 
 - **Teammedlemmar**: Linus, Isak, Jacob.
 - **Diskussioner**:
-  - Vad ska prioriteras under denna vecka?
-  - Vilka uppgifter har högsta prioritet?
-  - Förväntade hinder och lösningar.
+  - Vad ska prioriteras under denna vecka? All form av flöde, så vi tar finputset till sista veckan. 
+  - Vilka uppgifter har högsta prioritet? Flödet. 
+  - Förväntade hinder och lösningar. Nej men det kommer säkert att uppstå. 
 
 ### Daily Scrum (Tisdag - Torsdag)
 
