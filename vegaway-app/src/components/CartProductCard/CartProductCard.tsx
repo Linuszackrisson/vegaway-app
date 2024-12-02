@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./CardProductCard.css";
 import { MenuItem } from "../../api/menuApi";
 import { useCartStore } from "../../store/cartStore";
@@ -11,12 +11,14 @@ interface CartProductCardProps {
   item: MenuItem;
   editOrder?: boolean;
   isStaffOrderDetails?: boolean;
+  onUpdateItem?: (menuId: string, updatedQuantity: number) => void;
 }
 
 const CartProductCard: React.FC<CartProductCardProps> = ({
   item,
   editOrder,
   isStaffOrderDetails,
+  onUpdateItem,
 }) => {
   const navigate = useNavigate();
   // Cart store actions
@@ -41,13 +43,12 @@ const CartProductCard: React.FC<CartProductCardProps> = ({
   // Staff order details actions
   const [localQuantity, setLocalQuantity] = useState<number>(item.quantity);
 
-  const decreaseQuantityInOrderStaff = () => {
-    setLocalQuantity((prev) => (prev > 0 ? prev - 1 : 0)); // Decrease the local quantity directly, but not below 0
-  };
-
-  const increaseQuantityInOrderStaff = () => {
-    setLocalQuantity((prev) => prev + 1); // Increase the local quantity directly
-  };
+  useEffect(() => {
+    // Ensure the updated quantity is propagated to the parent on change
+    if (onUpdateItem) {
+      onUpdateItem(item.menuId, localQuantity);
+    }
+  }, [localQuantity]); // Effect runs when localQuantity changes
 
   // Determine the item count (quantity) from the current order if editOrder is true, else from cart
   const itemCount = editOrder
@@ -63,7 +64,7 @@ const CartProductCard: React.FC<CartProductCardProps> = ({
     if (editOrder) {
       increaseQuantityInOrder(item); // Add item to the current order store
     } else if (isStaffOrderDetails) {
-      increaseQuantityInOrderStaff();
+      setLocalQuantity((prev) => prev + 1);
     } else {
       addToCart(item); // Add item to the cart store
     }
@@ -78,7 +79,7 @@ const CartProductCard: React.FC<CartProductCardProps> = ({
         removeFromOrder(item.menuId); // Remove item from current order
       }
     } else if (isStaffOrderDetails) {
-      decreaseQuantityInOrderStaff();
+      setLocalQuantity((prev) => (prev > 0 ? prev - 1 : 0));
     } else {
       if (itemCount > 1) {
         decreaseQuantity(item.menuId); // Decrease quantity in cart
@@ -154,4 +155,10 @@ export default CartProductCard;
 Uppdatering: Isak
 
 Använder funktioner villkorligt beroende på props som skickas med till denna komponent.
+*/
+
+/* 
+Uppdatering: Isak
+
+Tar emot onUpdateItem som prop för att skicka tillbaka korrekt värden till förälder komponent när isStaffOrderDetails är true
 */
