@@ -5,7 +5,7 @@
     flex: 0 0 auto;
     overflow: hidden;
     border: 2px solid var(--color-text);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-card);
     margin-bottom: 10px;
     box-shadow: var(--box-shadow);
     background-color: var(--color-card-background);

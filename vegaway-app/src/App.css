@@ -44,8 +44,15 @@
 	--border-radius-card: clamp(6px, 1.5vw, 12px);
 	/* Shadows */
 	--box-shadow: 2px 2px 0px 0px var(--color-text);
-	/* Icon Size */
+	/* Icons */
 	--icon-size: clamp(18px, 2vw, 26px);
+	--icon-size-large: clamp(24px, 3vw, 32px);
+	--icon-size-xl: clamp(30px, 3vw, 38px);
+	--icon-stroke-width: 1.5;
+	--icon-stroke-width-large: 2;
+	/* Button Sizes */
+	--button-add-size-small: clamp(30px, 5vw, 40px);
+	--button-add-size-large: clamp(40px, 5vw, 60px);
 }
 
 /* Root Element */
@@ -141,6 +148,15 @@ button {
 	width: var(--icon-size);
 	height: var(--icon-size);
 	display: inline-block;
+	stroke-width: var(--icon-stroke-width);
+}
+
+.icon,
+.button__icon {
+	width: var(--icon-size);
+	height: var(--icon-size);
+	display: inline-block;
+	stroke-width: var(--icon-stroke-width);
 }
 
 /* Buttons */
@@ -187,6 +203,39 @@ button {
 .button--fourth {
 	background-color: transparent;
 	padding: 0.5rem;
+}
+
+.button--add {
+	background-color: var(--color-yellow);
+	border: 1px solid var(--color-text);
+	box-shadow: var(--box-shadow);
+	border-radius: 50%;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button--add--small {
+	width: var(--button-add-size-small);
+	height: var(--button-add-size-small);
+}
+
+.button--add--large {
+	width: var(--button-add-size-large);
+	height: var(--button-add-size-large);
+}
+
+.button--add--small .icon {
+	width: var(--icon-size-large);
+	height: var(--icon-size-large);
+	stroke-width: var(--icon-stroke-width-large);
+}
+
+.button--add--large .icon {
+	width: var(--icon-size-xl);
+	height: var(--icon-size-xl);
+	stroke-width: var(--icon-stroke-width-large);
 }
 
 .button--first .button__icon:first-child,
