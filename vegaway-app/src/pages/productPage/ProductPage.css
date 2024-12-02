@@ -21,18 +21,14 @@
 }
 
 .product-page__description {
-    padding: 0 14px;
     padding-bottom: 24px;
     border-bottom: 2px solid #262626;
     margin-bottom: 4px;
     
 }
-.product-page__info {
-    padding: 0 14px;
-    letter-spacing: 0.18px;
-    margin-bottom: 14px;
-    
 
+.product-page__price {
+    font-size: clamp(1.5rem, 4vw, 1.85rem);
 }
 
 .product-page__add-button {
@@ -44,14 +40,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.product-page__price {
-    font-weight: 600;
-    font-size: 18px;
-    letter-spacing: 0.18px;
-}
-
-.product-page__title {
-
 }

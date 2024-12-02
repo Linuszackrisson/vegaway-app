@@ -36,7 +36,7 @@
 	--font-size-h2: clamp(1.55rem, 3.5vw, 1.75rem);
 	--font-size-h3: clamp(1.225rem, 3vw, 1.35rem);
 	--font-size-p: clamp(1rem, 2.5vw, 1.25rem);
-	--font-size-button: clamp(.9rem, 2vw, 1rem);
+	--font-size-button: clamp(.9rem, 2vw, .9rem);
 	/* Button Sizes */
 	--button-add-size-small: clamp(30px, 5vw, 40px);
 	--button-add-size-large: clamp(40px, 5vw, 60px);
@@ -243,16 +243,20 @@ button {
 	height: var(--icon-size);
 }
 
+/* Uppdaterade regler för :active */
 .button--first:active,
 .button--second:active,
 .button--third:active,
-.button--fourth:active {
+.button--fourth:active,
+.button--add:active {
 	transform: translate(2px, 2px);
 	box-shadow: none;
 }
 
+/* Uppdaterade regler för :hover */
 .button--first:hover,
-.button--second:hover {
+.button--second:hover,
+.button--add:hover {
 	filter: brightness(0.95);
 }
 
@@ -293,8 +297,8 @@ button {
 
 /* Utility Classes */
 .button .button__text {
-  font-size: var(--font-size-button);
-  line-height: normal;
+	font-size: var(--font-size-button);
+	line-height: normal;
 }
 
 .text-center {

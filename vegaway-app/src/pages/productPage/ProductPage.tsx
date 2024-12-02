@@ -46,11 +46,11 @@ const ProductPage: React.FC = () => {
 					<Icon name="Plus" className="icon" />
 				</button>
 			</div>
-			<div className="product-page__info">
+			<div className="product-page__info px-1">
 				<h1 className="product-page__title">{product.name}</h1>
 				<p className="product-page__price">${product.price.toFixed(2)}</p>
 			</div>
-			<p className="product-page__description">{product.description}</p>
+			<p className="product-page__description px-1">{product.description}</p>
 
 			{relatedProducts.length > 0 && <ProductSlider title="Similar Dishes" items={relatedProducts} />}
 		</div>
