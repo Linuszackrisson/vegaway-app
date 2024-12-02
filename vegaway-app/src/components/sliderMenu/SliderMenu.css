@@ -1,4 +1,5 @@
 /* src/components/sliderMenu/SliderMenu.css */
+
 .slider-menu {
     position: fixed;
     top: 0;
@@ -12,7 +13,7 @@
     z-index: 999;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid var(--text-color);
+    border-right: 1px solid var(--color-text);
 }
 
 .slider-menu.open {
@@ -26,14 +27,7 @@
 }
 
 .back-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.back-button svg {
-    width: 24px;
-    height: 24px;
+    /* Inga extra stilar behövs eftersom vi använder knappklasser */
 }
 
 .menu-content {
@@ -50,38 +44,44 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 1rem;
 }
 
-.menu-nav a {
+.menu-nav .button {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     text-decoration: none;
-    font-size: 20px;
+    color: var(--color-text);
+    width: 100%;
+    background: none;
+    border: none;
 }
 
-.menu-nav .icon {
+.button--menu {
+    justify-content: flex-start;
+    padding: 0.5rem 0;
+}
+
+.button--menu:hover {
+    background-color: var(--color-green);
+}
+
+.menu-nav .button__icon {
     margin-right: 12px;
 }
 
-.slider-menu__login {
-    margin: 0 auto;
-    padding: 0;
-    height: 2rem;
-    width: 85%;
+.menu-nav .button__text {
+    font-size: var(--font-size-p);
 }
 
-.login-button {
-    border: none;
-    background-color: transparent;
-    height: 100%;
-    width: 100%;
+.slider-menu__login {
+    margin: 0 auto 16px;
+    width: 85%;
 }
 
 .slider-menu__graf {
     bottom: 0;
-}
-
-.menu-footer .login-button {
-    margin-bottom: 16px;
+    width: 100%;
+    object-fit: cover;
 }
