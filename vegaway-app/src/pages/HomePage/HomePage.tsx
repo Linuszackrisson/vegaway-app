@@ -29,7 +29,7 @@ function HomePage() {
 					<div className="button-container">
 						<img className="like-icon" src={likeIcon} alt="like" />
 						<h1 className="homepage__heading">We're on Instagram</h1>
-						<button className="homepage__button button--first">
+						<button className="button button--first">
 							<img src={instagramIcon} alt="Instagram" />
 							<span>Check us out</span>
 							<img src={chevronIcon} alt="Chevron Right" />

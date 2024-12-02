@@ -37,7 +37,7 @@
 	/* Spacing */
 	--spacing-section: 2rem;
 	/* Border Radius */
-	--border-radius: 6px;
+	--border-radius: 10px;
 	/* Shadows */
 	--box-shadow: 2px 2px 0px 0px var(--color-text);
 	/* Icon Size */
@@ -175,7 +175,7 @@ svg {
 	justify-content: center;
 	border: 1px solid var(--color-text);
 	box-shadow: var(--box-shadow);
-	padding: 0 0.5rem;
+	padding: 0.4rem 0.5rem;
 }
 
 .button--first {
