@@ -2,6 +2,7 @@ const middy = require("@middy/core");
 const validateKey = require("../middlewares/validateKey");
 const errorHandler = require("../middlewares/errorHandler");
 const createResponse = require("../utils/response");
+const { DynamoDB } = require("aws-sdk");
 
 const dynamoDB = new DynamoDB.DocumentClient();
 
