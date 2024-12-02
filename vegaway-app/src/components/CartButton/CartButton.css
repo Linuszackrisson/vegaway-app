@@ -1,23 +1,8 @@
 /* src/components/cartButton/CartButton.css */
-
 .cart-button {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 0.5rem 0 1.5rem;
     z-index: 1000;
-    /* Använder den globala stilen för .button och .button--first */
-}
-
-/* Justera innehållets alignment inom knappen */
-.cart-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Justera mellanrum mellan ikoner och text om det behövs */
-.cart-button .button__icon {
-    margin: 0 0.5rem;
 }

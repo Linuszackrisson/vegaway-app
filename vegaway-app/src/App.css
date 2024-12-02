@@ -144,22 +144,6 @@ button {
 	padding: 0;
 }
 
-/* Icons */
-.icon {
-	width: var(--icon-size);
-	height: var(--icon-size);
-	display: inline-block;
-	stroke-width: var(--icon-stroke-width);
-}
-
-.icon,
-.button__icon {
-	width: var(--icon-size);
-	height: var(--icon-size);
-	display: inline-block;
-	stroke-width: var(--icon-stroke-width);
-}
-
 /* Buttons */
 .button {
 	display: inline-flex;
@@ -275,6 +259,36 @@ button {
 .button--third:hover,
 .button--fourth:hover {
 	filter: grayscale(1);
+}
+
+/* Icons */
+.icon {
+	width: var(--icon-size);
+	height: var(--icon-size);
+	display: inline-block;
+	stroke-width: var(--icon-stroke-width);
+}
+
+.icon,
+.button__icon {
+	width: var(--icon-size);
+	height: var(--icon-size);
+	display: inline-block;
+	stroke-width: var(--icon-stroke-width);
+}
+
+/* Ikoner */
+.button__icon {
+	margin-right: 0.5rem;
+	width: var(--icon-size);
+	height: var(--icon-size);
+	stroke-width: var(--icon-stroke-width);
+}
+
+/* Om du vill att ikonen till höger inte ska ha margin-right */
+.button__icon:last-child {
+	margin-right: 0;
+	margin-left: auto;
 }
 
 /* Utility Classes */
