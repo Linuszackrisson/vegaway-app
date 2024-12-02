@@ -57,3 +57,19 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
+/* 
+Författare: Jacob
+
+Header-komponent som renderar knappar och slider-menu
+
+Uppdatering: Isak
+Använder nu Zustand store för att göra filen enklare.
+
+Ytterligare uppdatering:
+Menyn kan nu öppnas och stängas med menyknappen i headern.
+
+Uppdaterad: Jacob
+- Använde Icon-komponenten för ikoner.
+- Implementerade signin/signout-ikon tillsammans med texten i headern via LoginButton.
+*/
