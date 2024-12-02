@@ -1,8 +1,9 @@
-import "./ProductCard.css";
-import { useNavigate } from "react-router-dom";
-import { Plus } from "lucide-react";
-import { MenuItem } from "../../api/menuApi";
-import { useCartStore } from "../../store/cartStore";
+// src/components/ProductCard/ProductCard.tsx
+import './ProductCard.css';
+import { useNavigate } from 'react-router-dom';
+import Icon from '../icon/Icon';
+import { MenuItem } from '../../api/menuApi';
+import { useCartStore } from '../../store/cartStore';
 
 interface ProductCardProps {
   item: MenuItem;
@@ -10,7 +11,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
   const navigate = useNavigate();
-  const addToCart = useCartStore((state) => state.addToCart);
+  const addToCart = useCartStore(state => state.addToCart);
 
   const handleInfoClick = () => {
     navigate(`/product/${item.menuId}`);
@@ -18,22 +19,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 
   const handleAddToCart = () => {
     addToCart(item);
-    console.log("Varukorg:", useCartStore.getState().items);
+    console.log('Varukorg:', useCartStore.getState().items);
   };
 
   return (
     <li className="product-card">
       <div className="product-card__image-container">
-        <img
-          className="product-card__image"
-          src={item.imageUrl}
-          alt={item.name}
-        />
-        <button
-          className="product-card__add-button button__first"
-          onClick={handleAddToCart}
-        >
-          <Plus />
+        <img className="product-card__image" src={item.imageUrl} alt={item.name} />
+        <button className="button button--add button--add--small product-card__add-button" onClick={handleAddToCart}>
+          <Icon name="Plus" className="icon" />
         </button>
       </div>
       <div className="product-card__info">
@@ -41,8 +35,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
           <h3 className="product-card__title">{item.name}</h3>
           <p className="product-card__price">${item.price.toFixed(2)}</p>
         </div>
-        <button className="product-card__info-button" onClick={handleInfoClick}>
-          Info
+        <button className="button button--third product-card__info-button" onClick={handleInfoClick}>
+          <span className="button__text">Info</span>
+          <Icon name="ChevronRight" className="button__icon" />
         </button>
       </div>
     </li>
@@ -50,12 +45,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 };
 
 export default ProductCard;
-/*
- * Uppdaterade komponenten så att den fungerar enligt issuen.
- * Adderade funktion för att knappen ska lägga till i varukorgen
- * Lade till logs så vi ser om det fungerar (it actually does)
- *
- * Uppdaterad Jacob
- * Förenklade propsen använder menuItem
- */
 
+/*
+ * Uppdaterade komponenten:
+ * - Använde Icon-komponenten för ikonerna.
+ * - Lade till className="button button--add" på "Lägg till"-knappen.
+ */

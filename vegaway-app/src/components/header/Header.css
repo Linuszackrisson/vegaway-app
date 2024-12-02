@@ -1,4 +1,5 @@
 /* src/components/header/Header.css */
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -6,46 +7,22 @@
     padding: 16px;
 }
 
-.header__left {
-    display: flex;
-    align-items: center;
-}
-
+.header__left,
 .header__right {
     display: flex;
     align-items: center;
 }
 
 .logo {
-    height: 20px;
+    width: clamp(5rem, 8vw, 7rem);
 }
 
-.back-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
+.back-button,
 .menu-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-right: 16px;
+    padding: 0;
 }
 
 .header__profile {
     display: flex;
     align-items: center;
-}
-
-.header__profile a,
-.header__profile button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.header__profile svg {
-    width: 24px;
-    height: 24px;
 }

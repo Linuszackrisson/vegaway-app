@@ -2,57 +2,50 @@ import { useEffect, useState } from 'react';
 import './HomePage.css';
 import { fetchMenuItems, MenuItem } from '../../api/menuApi';
 import ProductSlider from '../../components/productSlider/ProductSlider';
+import { Instagram, ChevronRight } from 'lucide-react';
 import likeIcon from '../../assets/like.svg';
-import instagramIcon from '../../assets/instagram.svg';
 import newIcon from '../../assets/new.svg';
-import chevronIcon from '../../assets/chevron-right2.svg';
 import aboutPink from '../../assets/pink-about.svg';
 import { Link } from 'react-router-dom';
 
 function HomePage() {
-  const [featuredProducts, setFeaturedProducts] = useState<MenuItem[]>([]);
+	const [featuredProducts, setFeaturedProducts] = useState<MenuItem[]>([]);
 
-  useEffect(() => {
-    const loadFeaturedProducts = async () => {
-      const items = await fetchMenuItems();
-      const featured = items.filter(item => item.category === 'New Releases' || item.price < 10);
-      setFeaturedProducts(featured.slice(0, 5)); 
-    };
-    loadFeaturedProducts();
-  }, []);
+	useEffect(() => {
+		const loadFeaturedProducts = async () => {
+			const items = await fetchMenuItems();
+			const featured = items.filter(item => item.category === 'New Releases' || item.price < 10);
+			setFeaturedProducts(featured.slice(0, 5));
+		};
+		loadFeaturedProducts();
+	}, []);
 
-  return (
-    <>
+	return (
+		<>
+			<div className="homepage wrapper">
+				<div className="homepage-hero">
+					<div className="hero-background"></div>
+					<div className="button-container">
+						<img className="like-icon" src={likeIcon} alt="like" />
+						<h1 className="homepage__heading">We're on Instagram</h1>
+						<button className="button button--first">
+							<Instagram className="button__icon" strokeWidth={1.5} />
+							<span className="button__text">Check us out</span>
+							<ChevronRight className="button__icon" strokeWidth={1.5} />
+						</button>
+					</div>
+				</div>
+				<div className="home-page__slider">
+					<img className="new-icon" src={newIcon} alt="newIcon" />
 
-    <div className="homepage wrapper">
-    <div className="homepage-hero">
-      <div className="hero-background"></div>
-      <div className="button-container">
-        <img className='like-icon' src={likeIcon} alt="like"/>
-        <button className='button__first ig-white'> <p>We're on Instagram</p></button>
-        <button className='button__first ig-yellow'>
-          <img src={instagramIcon} alt="Instagram"/>
-          <p>Check us out</p>
-          <img src={chevronIcon} alt="Chevron Right"/>
-        </button>
-        </div>
-
-      
-      </div>
-      <div className="home-page__slider">
-      <img className='new-icon' src={newIcon} alt="newIcon"/>
-
-      {featuredProducts.length > 0 && (
-        <ProductSlider title="New Releases" items={featuredProducts} />
-      )}
-      </div>
-      <Link to="/contact">
-        <img className="pink-button" src={aboutPink} alt="Pink About Button" />
-      </Link>
-
-      </div>
-    </>
-  );
+					{featuredProducts.length > 0 && <ProductSlider title="New Releases" items={featuredProducts} />}
+				</div>
+				<Link to="/contact">
+					<img className="pink-button" src={aboutPink} alt="Pink About Button" />
+				</Link>
+			</div>
+		</>
+	);
 }
 
 export default HomePage;

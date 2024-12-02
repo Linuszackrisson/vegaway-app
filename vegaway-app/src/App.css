@@ -1,168 +1,349 @@
-@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@100;300;400;500;700;900&display=swap');
+@import '@fontsource-variable/darker-grotesque';
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  user-select: none;
-  -webkit-user-drag: none;
-  -moz-user-select: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	user-select: none;
+	-webkit-user-drag: none;
+	-moz-user-select: none;
 }
 
+/* Root Variables */
 :root {
-  --text-color: #1B1B1B;
-  --button-color: #FFC704;
-  --bg-color: #FCFCFC;
+	/* Site Colors */
+	--color-text: #3E3E3E;
+	--color-background: #FCFCFC;
+	--color-card-background: #FFFFFF;
+	/* Branding Colors */
+	--color-purple: #A259FF;
+	--color-blue: #5651FF;
+	--color-yellow: #FFC704;
+	--color-red: #FF7D7D;
+	/* Also for error and active states */
+	--color-green: #EDEDF1;
+	/* Also for success and confirmed states */
+	/* Font Weights */
+	--font-weight-light: 300;
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+	/* Font Sizes */
+	--font-size-h1: clamp(1.6rem, 4vw, 1.85rem);
+	--font-size-h2: clamp(1.55rem, 3.5vw, 1.75rem);
+	--font-size-h3: clamp(1.225rem, 3vw, 1.35rem);
+	--font-size-p: clamp(1rem, 2.5vw, 1.25rem);
+	--font-size-button: clamp(.9rem, 2vw, .9rem);
+	/* Button Sizes */
+	--button-add-size-small: clamp(30px, 5vw, 40px);
+	--button-add-size-large: clamp(40px, 5vw, 60px);
+	/* Spacing */
+	--spacing-section: 2rem;
+	/* Border Radius */
+	--border-radius-button: clamp(4px, 1vw, 8px);
+	--border-radius-card: clamp(6px, 1.5vw, 12px);
+	/* Shadows */
+	--box-shadow: 2px 2px 0px 0px var(--color-text);
+	/* Icons */
+	--icon-size: clamp(18px, 2vw, 26px);
+	--icon-size-large: clamp(24px, 3vw, 32px);
+	--icon-size-xl: clamp(30px, 3vw, 38px);
+	--icon-stroke-width: 1.5;
+	--icon-stroke-width-large: 2;
 }
 
+/* Root Element */
 #root {
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
+/* Global Font Settings */
+html {
+	font-family: 'Darker Grotesque Variable', sans-serif;
+	font-size: var(--font-size-p);
+	line-height: normal;
+}
+
+/* Body */
 body {
-  margin: 0 auto;
-  padding: 0;
-  max-width: 1100px;
-  font-family: 'Darker Grotesque', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+	margin: 0 auto;
+	padding: 0;
+	max-width: 1100px;
+	background-color: var(--color-background);
+	color: var(--color-text);
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+/* Scrollbar Styling */
+body::-webkit-scrollbar {
+	width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+	background: var(--color-background);
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: var(--color-text);
+	border-radius: 6px;
+	border: 3px solid var(--color-background);
+}
+
+/* Main Content Wrappers */
+.wrapper,
+.staff__wrapper {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
 
 .wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 4rem;
-  width: 100%;
+	padding-bottom: 4rem;
 }
 
-.staff__wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 14px;
-  width: 100%;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span,
-a,
-label,
-li {
-  margin: 0;
-  padding: 0;
-  color: var(--text-color);
-  box-sizing: content-box;
-}
-
+/* Typography */
 h1 {
-  font-size: clamp(1.6rem, 5vw, 2.2rem);
-  font-weight: 600;
+	font-size: var(--font-size-h1);
+	font-weight: var(--font-weight-semibold);
 }
 
 h2 {
-  font-size: clamp(1.6rem, 4vw, 2rem);
-  font-style: normal;
-  font-weight: 500;
+	font-size: var(--font-size-h2);
+	font-weight: var(--font-weight-medium);
 }
 
 h3 {
-  font-size: clamp(1.4rem, 3vw, 1.6rem);
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1;
+	font-size: var(--font-size-h3);
+	font-weight: var(--font-weight-semibold);
 }
 
 p {
-  font-size: clamp(1.3rem, 3vw, 1.5rem);
-  font-weight: 500;
-  line-height: 1.2;
+	font-size: var(--font-size-p);
+	font-weight: var(--font-weight-regular);
 }
 
-span {
-  font-size: clamp(1.3rem,3vw, 1.2rem);
-  font-weight: 500;
-  line-height: 1;
-  box-sizing: content-box;
-  vertical-align: middle;
+a {
+	text-decoration: none;
+	color: inherit;
+	padding: 0;
 }
 
 button {
-  font-size: clamp(1.1rem, 4vw, 1.2rem);
-  font-weight: 500;
-  line-height: 1;
-  vertical-align: middle;
+	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
 }
 
-svg {
-  margin: 0;
-  padding: 0;
-  box-sizing: content-box;
-  vertical-align: middle;
+/* Buttons */
+.button {
+	display: inline-flex;
+	align-items: stretch;
+	justify-content: center;
+	padding: .5rem .75rem;
+	font-size: var(--font-size-p);
+	font-weight: var(--font-weight-medium);
+	border-radius: var(--border-radius-button);
+	transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+	-webkit-tap-highlight-color: transparent;
+	touch-action: manipulation;
+	color: var(--color-text);
+	background-color: var(--color-card-background);
+	border: none;
+	box-shadow: none;
 }
 
-.button__first,
-.button__second {
-  cursor: pointer;
-  border: 1px solid var(--text-color);
-  border-radius: 6px;
-  box-shadow: 2px 2px var(--text-color);
-  transition: all 0.1s ease;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
+.button--first,
+.button--second {
+	border: 1px solid var(--color-text);
+	box-shadow: var(--box-shadow);
 }
 
-.button__third {
-    cursor: pointer;
-    border: transparent;
-    box-shadow: transparent;
-    transition: all 0.1s ease;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+/* Ikon > text > ikon (ChevronRight) */
+.button--first {
+	background-color: var(--color-yellow);
 }
 
-.button__first:active,
-.button__second:active,
-.button__third:active {
-  transform: translate(2px, 2px);
-  box-shadow: none;
+/* Ikon > text > ikon (ChevronRight) */
+.button--second {
+	background-color: var(--color-card-background);
 }
 
-.button__first:hover,
-.button__second:hover {
-  filter: brightness(98%);
+/* Text > ikon (ChevronRight) */
+.button--third {
+	background-color: transparent;
+	padding: .5rem 0;
 }
 
-.button__third:hover {
-  filter: grayscale(1.1);
+/* Endast ikon */
+.button--fourth {
+	background-color: transparent;
+	padding: 0.5rem;
 }
 
-.button__first {
-  background-color: var(--button-color);
-  color: var(--text-color);
+.button--add {
+	background-color: var(--color-yellow);
+	border: 1px solid var(--color-text);
+	box-shadow: var(--box-shadow);
+	border-radius: 50%;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.button__second {
-  background-color: white;
-  color: var(--text-color);
+.button--add--small {
+	width: var(--button-add-size-small);
+	height: var(--button-add-size-small);
 }
 
-.button__third {
-  background-color: white;
-  color: var(--text-color);
+.button--add--large {
+	width: var(--button-add-size-large);
+	height: var(--button-add-size-large);
 }
 
-/**
- * Författare Linus
- * Global CSS för hela appen.
- * Modiferad av Jacob. Lagt till rader.
- */
+.button--add--small .icon {
+	width: var(--icon-size-large);
+	height: var(--icon-size-large);
+	stroke-width: var(--icon-stroke-width-large);
+}
+
+.button--add--large .icon {
+	width: var(--icon-size-xl);
+	height: var(--icon-size-xl);
+	stroke-width: var(--icon-stroke-width-large);
+}
+
+.button--first .button__icon:first-child,
+.button--second .button__icon:first-child {
+	margin-right: 0.6rem;
+}
+
+.button--first .button__icon:last-child,
+.button--second .button__icon:last-child,
+.button--third .button__icon {
+	margin-left: 0.2rem;
+}
+
+.button--first .button__icon,
+.button--second .button__icon,
+.button--third .button__icon,
+.button--fourth .button__icon {
+	display: inline-block;
+	width: var(--icon-size);
+	height: var(--icon-size);
+}
+
+/* Uppdaterade regler för :active */
+.button--first:active,
+.button--second:active,
+.button--third:active,
+.button--fourth:active,
+.button--add:active {
+	transform: translate(2px, 2px);
+	box-shadow: none;
+}
+
+/* Uppdaterade regler för :hover */
+.button--first:hover,
+.button--second:hover,
+.button--add:hover {
+	filter: brightness(0.95);
+}
+
+.button--third:hover,
+.button--fourth:hover {
+	filter: grayscale(1);
+}
+
+/* Icons */
+.icon {
+	width: var(--icon-size);
+	height: var(--icon-size);
+	display: inline-block;
+	stroke-width: var(--icon-stroke-width);
+}
+
+.icon,
+.button__icon {
+	width: var(--icon-size);
+	height: var(--icon-size);
+	display: inline-block;
+	stroke-width: var(--icon-stroke-width);
+}
+
+/* Ikoner */
+.button__icon {
+	margin-right: 0.5rem;
+	width: var(--icon-size);
+	height: var(--icon-size);
+	stroke-width: var(--icon-stroke-width);
+}
+
+/* Om du vill att ikonen till höger inte ska ha margin-right */
+.button__icon:last-child {
+	margin-right: 0;
+	margin-left: auto;
+}
+
+/* Utility Classes */
+.button .button__text {
+	font-size: var(--font-size-button);
+	line-height: normal;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.card {
+	background-color: var(--color-card-background);
+	border: 2px solid var(--color-text);
+	border-radius: var(--border-radius-card);
+	box-shadow: var(--box-shadow);
+	padding: 1rem;
+}
+
+input,
+textarea,
+select {
+	width: 100%;
+	padding: 0.75rem;
+	font-size: var(--font-size-p);
+	border: 1px solid var(--color-text);
+	border-radius: var(--border-radius-button);
+	background-color: var(--color-card-background);
+	color: var(--color-text);
+	margin-bottom: 1rem;
+}
+
+a.button {
+	text-decoration: none;
+}
+
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Default padding */
+.px-1 {
+	padding-left: clamp(1rem, 2vw, 2rem);
+	padding-right: clamp(1rem, 2vw, 2rem);
+}
