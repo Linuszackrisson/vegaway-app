@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { MenuItem } from "../api/menuApi";
 
-interface Order {
+export interface Order {
   orderId: string;
   customerEmail: string;
   createdAt: number;
