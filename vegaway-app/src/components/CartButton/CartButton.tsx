@@ -74,8 +74,20 @@ const CartButton: React.FC = () => {
 export default CartButton;
 
 /**
- * Author: Jacob
- * CartButton component that changes based on the current page.
- *
- * Updated to use Icon component and button classes for consistent styling.
+Author: Jacob
+/
+CartButton component that changes based on the current page.
+Updated to use Icon component and button classes for consistent styling.
+Updated: Isak
+Added the createOrder function to click handler
+/
+Updated: Jacob
+Uppdated to show different buttons on different pages
+/
+Updated: Jacob
+Conditionally render null if staffpage
+/
+Updated: Isak
+Removed local state and use the current order zustand store state instead.
+Cart button displayes and acts correctly if order has been confirmed.
  */
