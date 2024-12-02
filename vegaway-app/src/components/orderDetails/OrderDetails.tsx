@@ -1,9 +1,12 @@
 // Rätta till importerna
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams, useLocation } from "react-router-dom";
 import { Order } from "../../api/utils/orderInterface";
 import CartProductCard from "../CartProductCard/CartProductCard";
 import "./OrderDetails.css";
+import { updateOrder } from "../../api/updateOrderStaff";
+import { MenuItem } from "../../api/menuApi";
 
 const OrderDetails: React.FC = () => {
   const { orderId } = useParams<{ orderId: string }>();
@@ -11,6 +14,8 @@ const OrderDetails: React.FC = () => {
   const [orderDetails, setOrderDetails] = useState<Order | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const orderDetailsRef = useRef(orderDetails);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getOrderDetails = async () => {
@@ -31,6 +36,67 @@ const OrderDetails: React.FC = () => {
 
     getOrderDetails();
   }, [orderId]);
+
+  useEffect(() => {
+    orderDetailsRef.current = orderDetails; // Sync the ref with the state value
+  }, [orderDetails]);
+
+  useEffect(() => {
+    console.log("Updated orderDetails (ref):", orderDetailsRef.current);
+  }, [orderDetailsRef.current]); // This will log the latest value immediately after the update
+
+  const handleUpdateOrder = async () => {
+    if (!orderDetails) return;
+
+    const { orderId, items, totalPrice } = orderDetails;
+
+    try {
+      const response = await updateOrder(
+        orderId,
+        items as MenuItem[],
+        totalPrice
+      );
+      console.log("Update response:", response);
+      navigate("/pending-orders");
+    } catch (err) {
+      console.error("Failed to update order:", err);
+    }
+  };
+
+  const updateItemInOrder = (menuId: string, updatedQuantity: number) => {
+    if (!orderDetails) return;
+
+    // Find the item template (the first item matching the menuId)
+    const itemTemplate = orderDetails.items.find(
+      (item) => item.menuId === menuId
+    );
+
+    if (!itemTemplate) return;
+
+    // Create a new array with the desired quantity
+    const updatedItems = [
+      ...orderDetails.items.filter((item) => item.menuId !== menuId), // Keep other items unchanged
+      ...Array.from({ length: updatedQuantity }, () => ({
+        ...itemTemplate, // Copy the item template (menuId, price, etc.)
+      })),
+    ];
+
+    // Recalculate total price whenever the items are updated
+    const updatedTotalPrice = calculateTotalPrice(updatedItems as MenuItem[]);
+
+    // This triggers a re-render and updates the state correctly
+    setOrderDetails((prev) => {
+      // Ensure you are creating a new object for the state update
+      return prev
+        ? { ...prev, items: updatedItems, totalPrice: updatedTotalPrice }
+        : null;
+    });
+  };
+
+  // Function to calculate the total price based on the items' prices only
+  const calculateTotalPrice = (items: MenuItem[]) => {
+    return items.reduce((total, item) => total + item.price, 0);
+  };
 
   if (loading) {
     return <p>Laddar orderdetaljer...</p>;
@@ -71,13 +137,23 @@ const OrderDetails: React.FC = () => {
 
           return (
             <div key={menuId}>
-              <CartProductCard item={updatedItem} isStaffOrderDetails={true} />
+              <CartProductCard
+                item={updatedItem}
+                isStaffOrderDetails={true}
+                onUpdateItem={updateItemInOrder}
+              />
             </div>
           );
         }
 
         return null; // In case no item was found for this menuId
       })}
+      <button
+        className="order-details__update-button"
+        onClick={handleUpdateOrder}
+      >
+        Update Order
+      </button>
     </div>
   );
 };
@@ -87,3 +163,10 @@ export default OrderDetails;
 /* Författare: Linus
  * Denna filen hanterar orderdetaljer och innehåller funktioner för att hantera ordrar.
  */
+
+/* 
+Uppdatering: Isak
+
+Lagt till knapp som gör ett api anrop med uppdaterad order.
+Implementerat funktionalitet för att låta CartProductCard uppdatera orderDetails.
+*/
