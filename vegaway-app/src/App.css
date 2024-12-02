@@ -21,8 +21,10 @@
 	--color-purple: #A259FF;
 	--color-blue: #5651FF;
 	--color-yellow: #FFC704;
-	--color-red: #FF7D7D; /* Also for error and active states */
-	--color-green: #EDEDF1; /* Also for success and confirmed states */
+	--color-red: #FF7D7D;
+	/* Also for error and active states */
+	--color-green: #EDEDF1;
+	/* Also for success and confirmed states */
 	/* Font Weights */
 	--font-weight-light: 300;
 	--font-weight-regular: 400;
@@ -37,7 +39,8 @@
 	/* Spacing */
 	--spacing-section: 2rem;
 	/* Border Radius */
-	--border-radius: 10px;
+	--border-radius-button: clamp(4px, 1vw, 8px);
+	--border-radius-card: clamp(6px, 1.5vw, 12px);
 	/* Shadows */
 	--box-shadow: 2px 2px 0px 0px var(--color-text);
 	/* Icon Size */
@@ -118,15 +121,6 @@ h3 {
 p {
 	font-size: var(--font-size-p);
 	font-weight: var(--font-weight-regular);
-	line-height: 1.6;
-}
-
-span,
-label,
-li,
-button {
-	font-size: var(--font-size-p);
-	font-weight: var(--font-weight-light);
 	line-height: 1.5;
 }
 
@@ -142,15 +136,11 @@ button {
 	padding: 0;
 }
 
-/* SVG */
-svg {
-	display: inline-block;
-	vertical-align: middle;
-}
-
+/* Icons */
 .icon {
 	width: var(--icon-size);
 	height: var(--icon-size);
+	display: inline-block;
 }
 
 /* Buttons */
@@ -158,46 +148,70 @@ svg {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding: 0.75rem 1.5rem;
+	padding: .5rem .75rem;
 	font-size: var(--font-size-p);
 	font-weight: var(--font-weight-medium);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-button);
 	transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
 	-webkit-tap-highlight-color: transparent;
 	touch-action: manipulation;
-}
-
-.button--first,
-.button--second {
-	display: flex;
-	flex-wrap: nowrap;
-	align-items: center;
-	justify-content: center;
-	border: 1px solid var(--color-text);
-	box-shadow: var(--box-shadow);
-	padding: 0.4rem 0.5rem;
-}
-
-.button--first {
-	background-color: var(--color-yellow);
 	color: var(--color-text);
-}
-
-.button--second {
 	background-color: var(--color-card-background);
-	color: var(--color-text);
-}
-
-.button--third {
-	background-color: transparent;
-	color: var(--color-text);
 	border: none;
 	box-shadow: none;
 }
 
+.button--first,
+.button--second {
+	border: 1px solid var(--color-text);
+	box-shadow: var(--box-shadow);
+}
+
+/* Ikon > text > ikon (ChevronRight) */
+.button--first {
+	background-color: var(--color-yellow);
+}
+
+/* Ikon > text > ikon (ChevronRight) */
+.button--second {
+	background-color: var(--color-card-background);
+}
+
+/* Text > ikon (ChevronRight) */
+.button--third {
+	background-color: transparent;
+}
+
+/* Endast ikon */
+.button--fourth {
+	background-color: transparent;
+	padding: 0.5rem;
+}
+
+.button--first .button__icon:first-child,
+.button--second .button__icon:first-child {
+	margin-right: 0.5rem;
+}
+
+.button--first .button__icon:last-child,
+.button--second .button__icon:last-child,
+.button--third .button__icon {
+	margin-left: 0.5rem;
+}
+
+.button--first .button__icon,
+.button--second .button__icon,
+.button--third .button__icon,
+.button--fourth .button__icon {
+	display: inline-block;
+	width: var(--icon-size);
+	height: var(--icon-size);
+}
+
 .button--first:active,
 .button--second:active,
-.button--third:active {
+.button--third:active,
+.button--fourth:active {
 	transform: translate(2px, 2px);
 	box-shadow: none;
 }
@@ -207,19 +221,9 @@ svg {
 	filter: brightness(0.95);
 }
 
-.button--third:hover {
+.button--third:hover,
+.button--fourth:hover {
 	filter: grayscale(1);
-}
-
-.button--first img,
-.button--second img {
-	margin: 0 0.25rem;
-}
-
-.button--first span,
-.button--second span {
-	display: inline-block;
-	padding: 0 0.25rem;
 }
 
 /* Utility Classes */
@@ -230,7 +234,7 @@ svg {
 .card {
 	background-color: var(--color-card-background);
 	border: 2px solid var(--color-text);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-card);
 	box-shadow: var(--box-shadow);
 	padding: 1rem;
 }
@@ -242,7 +246,7 @@ select {
 	padding: 0.75rem;
 	font-size: var(--font-size-p);
 	border: 1px solid var(--color-text);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-button);
 	background-color: var(--color-card-background);
 	color: var(--color-text);
 	margin-bottom: 1rem;

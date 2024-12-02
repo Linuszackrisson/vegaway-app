@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import './HomePage.css';
 import { fetchMenuItems, MenuItem } from '../../api/menuApi';
 import ProductSlider from '../../components/productSlider/ProductSlider';
+import { Instagram, ChevronRight } from 'lucide-react';
 import likeIcon from '../../assets/like.svg';
-import instagramIcon from '../../assets/instagram.svg';
 import newIcon from '../../assets/new.svg';
-import chevronIcon from '../../assets/chevron-right2.svg';
 import aboutPink from '../../assets/pink-about.svg';
 import { Link } from 'react-router-dom';
 
@@ -30,9 +29,9 @@ function HomePage() {
 						<img className="like-icon" src={likeIcon} alt="like" />
 						<h1 className="homepage__heading">We're on Instagram</h1>
 						<button className="button button--first">
-							<img src={instagramIcon} alt="Instagram" />
-							<span>Check us out</span>
-							<img src={chevronIcon} alt="Chevron Right" />
+							<Instagram className="button__icon" strokeWidth={1.5} />
+							<span className="button__text">Check us out</span>
+							<ChevronRight className="button__icon" strokeWidth={1.5} />
 						</button>
 					</div>
 				</div>

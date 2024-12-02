@@ -1,39 +1,32 @@
-import "./ProductCard.css";
-import { useNavigate } from "react-router-dom";
-import { Plus } from "lucide-react";
-import { MenuItem } from "../../api/menuApi";
-import { useCartStore } from "../../store/cartStore";
+import './ProductCard.css';
+import { useNavigate } from 'react-router-dom';
+import { Plus, ChevronRight } from 'lucide-react';
+import { MenuItem } from '../../api/menuApi';
+import { useCartStore } from '../../store/cartStore';
 
 interface ProductCardProps {
-  item: MenuItem;
+	item: MenuItem;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
-  const navigate = useNavigate();
-  const addToCart = useCartStore((state) => state.addToCart);
+	const navigate = useNavigate();
+	const addToCart = useCartStore(state => state.addToCart);
 
-  const handleInfoClick = () => {
-    navigate(`/product/${item.menuId}`);
-  };
+	const handleInfoClick = () => {
+		navigate(`/product/${item.menuId}`);
+	};
 
-  const handleAddToCart = () => {
-    addToCart(item);
-    console.log("Varukorg:", useCartStore.getState().items);
-  };
+	const handleAddToCart = () => {
+		addToCart(item);
+		console.log('Varukorg:', useCartStore.getState().items);
+	};
 
-  return (
+	return (
 		<li className="product-card">
 			<div className="product-card__image-container">
-				<img
-					className="product-card__image"
-					src={item.imageUrl}
-					alt={item.name}
-				/>
-				<button
-					className="product-card__add-button button--first"
-					onClick={handleAddToCart}
-				>
-					<Plus />
+				<img className="product-card__image" src={item.imageUrl} alt={item.name} />
+				<button className="button product-card__add-button button--first" onClick={handleAddToCart}>
+					<Plus className="icon" strokeWidth={1.5} />
 				</button>
 			</div>
 			<div className="product-card__info">
@@ -42,7 +35,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 					<p className="product-card__price">${item.price.toFixed(2)}</p>
 				</div>
 				<button className="product-card__info-button" onClick={handleInfoClick}>
-					Info
+					<span>Info</span>
+					<ChevronRight className="icon" strokeWidth={1.5} />
 				</button>
 			</div>
 		</li>
@@ -58,4 +52,3 @@ export default ProductCard;
  * Uppdaterad Jacob
  * Förenklade propsen använder menuItem
  */
-

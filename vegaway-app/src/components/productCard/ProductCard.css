@@ -4,12 +4,11 @@
     flex-direction: column;
     flex: 0 0 auto;
     overflow: hidden;
-    min-width: 200px;
-    border: 1px solid black;
-    border-radius: 8px;
-    margin-bottom: 2px;
-    box-shadow: 1px 1px black, 2px 2px black;
-    background-color: white;
+    border: 2px solid var(--color-text);
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-card-background);
 }
 
 .product-card__image-container {
@@ -27,8 +26,6 @@
 }
 
 .product-card__add-button {
-    width: 30px;
-    height: 30px;
     position: absolute;
     bottom: 5px;
     right: 7px;
@@ -36,6 +33,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
 }
 
 .product-card__info {
@@ -50,6 +48,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin: 0;
 }
 
 .product-card__title,
@@ -66,4 +65,9 @@
     cursor: pointer;
     display: flex;
     margin-top: auto;
+}
+
+.product-card__info-button .icon {
+    margin-left: 0.25rem;
+    /* Justera värdet efter behov */
 }
