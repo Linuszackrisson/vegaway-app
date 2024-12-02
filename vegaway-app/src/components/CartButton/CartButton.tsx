@@ -20,7 +20,7 @@ const CartButton: React.FC = () => {
 
 	const isCartPage = location.pathname === '/cart';
 	const isOrderConfirmationPage = location.pathname === '/order-confirmation';
-
+ 
 	const handleClick = async () => {
 		if (isCartPage) {
 			await createOrder();
