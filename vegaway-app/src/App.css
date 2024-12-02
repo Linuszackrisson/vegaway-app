@@ -36,6 +36,7 @@
 	--font-size-h2: clamp(1.35rem, 3.5vw, 1.65rem);
 	--font-size-h3: clamp(1.225rem, 3vw, 1.4rem);
 	--font-size-p: clamp(1rem, 2.5vw, 1.3rem);
+	--font-size-button: clamp(.9rem, 2.5vw, 1rem);
 	/* Spacing */
 	--spacing-section: 2rem;
 	/* Border Radius */
@@ -227,6 +228,12 @@ button {
 }
 
 /* Utility Classes */
+.button .button__text {
+  font-size: var(--font-size-button);
+  line-height: normal;
+  font-weight: var(--font-weight-light);
+}
+
 .text-center {
 	text-align: center;
 }

@@ -1,35 +1,23 @@
 /* src/components/cartButton/CartButton.css */
+
 .cart-button {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    min-height: 2.5rem;
-    background-color: var(--color-yellow);
-    color: var(--text-color);
-    padding: .5rem 0 1.5rem;
-    border-color: transparent;
-    border-top: 1px solid var(--color-text);
-    cursor: pointer;
-    text-align: left;
+    padding: 0.5rem 0 1.5rem;
+    z-index: 1000;
+    /* Använder den globala stilen för .button och .button--first */
+}
+
+/* Justera innehållets alignment inom knappen */
+.cart-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
 }
 
-.cart-button-content {
-    display: flex;
-    align-items: center;
+/* Justera mellanrum mellan ikoner och text om det behövs */
+.cart-button .button__icon {
+    margin: 0 0.5rem;
 }
-
-.cart-button-content svg {
-    margin: 0 10px;
-}
-
-.cart-button-content span {
-    flex-grow: 1;
-    text-align: center;
-}
-
-
