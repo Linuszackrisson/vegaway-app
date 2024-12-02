@@ -10,18 +10,18 @@ import aboutPink from '../../assets/pink-about.svg';
 import { Link } from 'react-router-dom';
 
 function HomePage() {
-  const [featuredProducts, setFeaturedProducts] = useState<MenuItem[]>([]);
+	const [featuredProducts, setFeaturedProducts] = useState<MenuItem[]>([]);
 
-  useEffect(() => {
-    const loadFeaturedProducts = async () => {
-      const items = await fetchMenuItems();
-      const featured = items.filter(item => item.category === 'New Releases' || item.price < 10);
-      setFeaturedProducts(featured.slice(0, 5)); 
-    };
-    loadFeaturedProducts();
-  }, []);
+	useEffect(() => {
+		const loadFeaturedProducts = async () => {
+			const items = await fetchMenuItems();
+			const featured = items.filter(item => item.category === 'New Releases' || item.price < 10);
+			setFeaturedProducts(featured.slice(0, 5));
+		};
+		loadFeaturedProducts();
+	}, []);
 
-  return (
+	return (
 		<>
 			<div className="homepage wrapper">
 				<div className="homepage-hero">
@@ -39,16 +39,10 @@ function HomePage() {
 				<div className="home-page__slider">
 					<img className="new-icon" src={newIcon} alt="newIcon" />
 
-					{featuredProducts.length > 0 && (
-						<ProductSlider title="New Releases" items={featuredProducts} />
-					)}
+					{featuredProducts.length > 0 && <ProductSlider title="New Releases" items={featuredProducts} />}
 				</div>
 				<Link to="/contact">
-					<img
-						className="pink-button"
-						src={aboutPink}
-						alt="Pink About Button"
-					/>
+					<img className="pink-button" src={aboutPink} alt="Pink About Button" />
 				</Link>
 			</div>
 		</>
