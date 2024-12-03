@@ -26,7 +26,6 @@ function App() {
         <Routes>
           {/* CUSTOMER ROUTES */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/active-orders" element={<ActiveOrders />} />         
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
@@ -61,6 +60,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <OrderDetails />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/active-orders"
+            element={
+              <ProtectedRoute>
+                <ActiveOrders />
               </ProtectedRoute>
             }
           />
