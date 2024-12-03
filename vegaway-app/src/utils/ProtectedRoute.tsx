@@ -23,7 +23,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
       try {
         // Decode the id_token to get the user's groups
         const decoded: DecodedTokenGroups = jwtDecode(idToken);
-        const userGroups: string[] = decoded["cognito:groups"];
+        const userGroups: string[] = decoded["cognito:groups"] || [];
 
         // Check if the user is in the "Staff" group
         setIsStaff(userGroups.includes("Staff"));
