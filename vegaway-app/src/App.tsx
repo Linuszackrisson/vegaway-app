@@ -75,8 +75,8 @@ function App() {
         </Routes>
       </ResetCurrentOrder>
       <CartButton />
-      <Feedback />
-      {/* Component that conditionally displayss feedback message */}
+
+      <Feedback /* Component that conditionally displays feedback message */ />
     </Router>
   );
 }
@@ -98,4 +98,10 @@ Uppdatering: Isak
 
 Skyddar staff routes från användare som inte är staff med hjälp av ProtectedRoute komponent.
 Extra validering finns även i backend som backup så ingen request i dessa routes går att göra om man inte är staff.
+*/
+
+/* 
+Uppdatering: Isak
+
+Renderar feedback komponent här för enkel åtkomst. Komponenten sköter logiken för om den ska visas själv
 */
