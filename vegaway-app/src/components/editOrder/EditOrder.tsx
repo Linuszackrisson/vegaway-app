@@ -109,3 +109,9 @@ export default EditOrder;
  * Författare: Jacob
  * Component that opens a popup from bottom page for user to edit order.
  */
+
+/* 
+Uppdatering: Isak
+
+Använder feedback komponenten för att ge användaren feedback på vad som händer. Klick på update knappen stänger nu även edit vyn.
+*/
