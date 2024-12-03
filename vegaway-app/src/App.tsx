@@ -17,6 +17,7 @@ import "./App.css";
 import OrderHistoryPage from "./pages/orderHistoryPage/OrderHistoryPage";
 import ResetCurrentOrder from "./utils/ResetCurrentOrder";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import Feedback from "./components/feedback/Feedback";
 
 function App() {
   return (
@@ -74,6 +75,8 @@ function App() {
         </Routes>
       </ResetCurrentOrder>
       <CartButton />
+      <Feedback />
+      {/* Component that conditionally displayss feedback message */}
     </Router>
   );
 }
