@@ -2,6 +2,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { useCartStore } from "../store/cartStore";
 import { useCurrentOrderStore } from "../store/useCurrentOrderStore";
+import { useFeedbackStore } from "../store/useFeedbackStore";
 
 const invokeUrl = import.meta.env.VITE_INVOKE_URL;
 const API_KEY = "MY_API_KEY";
@@ -33,6 +34,12 @@ export async function createOrder() {
   try {
     const idToken = localStorage.getItem("id_token");
     if (!idToken) {
+      // Get the setter functions from Zustand store
+      const { setMessage, setVisibility } = useFeedbackStore.getState();
+
+      // Set the feedback message and make the overlay visible
+      setMessage("Please login to complete the order.");
+      setVisibility(true);
       throw new Error("ID token not found.");
     }
 
@@ -101,4 +108,10 @@ Saving orderID in local storage.
 Updated: Isak
 
 Saving the order to useCurrentOrderStore
+*/
+
+/* 
+Uppdatering: Isak
+
+Triggar feedback komponenten om användaren inte är inloggad
 */

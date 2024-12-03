@@ -5,12 +5,14 @@ import "./PendingOrders.css";
 import { confirmOrder } from "../../api/confirmOrderStaff";
 import { OrderIdAndNote } from "../../api/confirmOrderStaff";
 import { validateNote } from "../../utils/joi";
+import { useFeedbackStore } from "../../store/useFeedbackStore";
 
 const PendingOrders: React.FC = () => {
   const [pendingOrders, setPendingOrders] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [notes, setNotes] = useState<Record<string, string>>({});
+  const { setMessage, setVisibility } = useFeedbackStore.getState();
 
   useEffect(() => {
     const getPendingOrders = async () => {
@@ -19,6 +21,7 @@ const PendingOrders: React.FC = () => {
         setPendingOrders(result.orders);
       } catch (err) {
         setError("Kunde inte hämta ordrar.");
+        console.log(error);
       } finally {
         setLoading(false);
       }
@@ -40,6 +43,11 @@ const PendingOrders: React.FC = () => {
     const validationError = validateNote(note);
     if (validationError) {
       setError(validationError);
+
+      // Trigger feedback component
+      setMessage(validationError);
+      setVisibility(true);
+
       return; // Return early to avoid sending request if validation fails
     }
 
@@ -60,10 +68,6 @@ const PendingOrders: React.FC = () => {
 
   if (loading) {
     return <p>Laddar ordrar...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
   }
 
   const handleNoteChange = (orderId: string, note: string) => {
@@ -127,4 +131,11 @@ La funktionalitet på confirm knappen för att markera en order som hanterad
 Uppdatering: Isak
 
 Implementerade joi för att validera user input på note. Förhindrar skadlig input
+*/
+
+/* 
+Uppdatering: Isak
+
+Tog bort renderingen av error message.
+Använder istället Feedback komponenten för att rendera meddelande till användaren.
 */

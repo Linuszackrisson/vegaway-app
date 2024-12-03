@@ -1,5 +1,6 @@
 import axios from "axios";
 import { FetchOrdersResponse } from "./utils/orderInterface";
+import { useFeedbackStore } from "../store/useFeedbackStore";
 
 const invokeUrl = import.meta.env.VITE_INVOKE_URL;
 const API_KEY = "MY_API_KEY";
@@ -15,6 +16,12 @@ export async function fetchOrders(
     const accessToken = localStorage.getItem("access_token");
     const idToken = localStorage.getItem("id_token");
     if (!accessToken || !idToken) {
+      // Get the setter functions from Zustand store
+      const { setMessage, setVisibility } = useFeedbackStore.getState();
+
+      // Set the feedback message and make the overlay visible
+      setMessage("Please login to fetch orders");
+      setVisibility(true);
       throw new Error("Access token or id token not found.");
     }
 
@@ -47,3 +54,9 @@ export async function fetchOrders(
  * Använd "true" som argument för att hämta active orders
  * Använd "false" som argument för att hämta pending orders
  */
+
+/* 
+Uppdatering: Isak
+
+Triggar feedback komponenten om användaren inte är inloggad
+*/
