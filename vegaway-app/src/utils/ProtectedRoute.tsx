@@ -7,8 +7,8 @@ interface DecodedTokenGroups {
 }
 
 // ProtectedRoute component
-const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({
-  element,
+const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
+  children,
 }) => {
   const navigate = useNavigate(); // Using useNavigate hook for navigation
 
@@ -44,7 +44,7 @@ const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({
     return null; // Return null to prevent the route from rendering
   }
 
-  return <>{element}</>; // Render the protected route's element if the user is a staff member
+  return <>{children}</>; // Render the protected route's element if the user is a staff member
 };
 
 export default ProtectedRoute;
