@@ -104,6 +104,7 @@ body::-webkit-scrollbar-thumb {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	
 }
 
 .wrapper {
