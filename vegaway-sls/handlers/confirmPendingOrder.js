@@ -3,6 +3,7 @@ const middy = require("@middy/core");
 const validateKey = require("../middlewares/validateKey");
 const errorHandler = require("../middlewares/errorHandler");
 const createResponse = require("../utils/response");
+const validateStaff = require("../middlewares/validateStaff");
 
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
@@ -48,7 +49,8 @@ module.exports.handler = middy(async (event) => {
   }
 })
   .use(validateKey())
-  .use(errorHandler());
+  .use(errorHandler())
+  .use(validateStaff());
 
 /* 
 Författare: Isak
@@ -61,4 +63,10 @@ Handlern förväntar sig ett värde för "orderId" i request body.
 Uppdatering: Isak
 
 Extraherar note från request bodyn. Om ingen note finns med används ett default value. orderNote skickas sedan med i ordern när den blir confirmad.
+*/
+
+/* 
+Uppdatering: Isak
+
+La till staff middleware validering
 */
