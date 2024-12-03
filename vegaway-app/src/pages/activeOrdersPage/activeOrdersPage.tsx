@@ -6,9 +6,7 @@ import "./activeOrderspage.css";
 
 const ActiveOrders: React.FC = () => {
   const [pendingOrders, setPendingOrders] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [notes, setNotes] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const getPendingOrders = async () => {
@@ -17,8 +15,6 @@ const ActiveOrders: React.FC = () => {
         setPendingOrders(result.orders);
       } catch (err) {
         setError("Kunde inte hämta ordrar.");
-      } finally {
-        setLoading(false);
       }
     };
 
