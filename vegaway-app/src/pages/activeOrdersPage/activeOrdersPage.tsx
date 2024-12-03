@@ -5,7 +5,7 @@ import "./activeOrderspage.css";
 import { confirmOrder } from "../../api/confirmOrderStaff";
 import { OrderIdAndNote } from "../../api/confirmOrderStaff";
 
-const PendingOrders: React.FC = () => {
+const ActiveOrders: React.FC = () => {
   const [pendingOrders, setPendingOrders] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -91,13 +91,12 @@ const PendingOrders: React.FC = () => {
   );
 };
 
-export default PendingOrders;
+export default ActiveOrders;
 
 /* Författare: Linus
- * Denna filen hanterar pending orders och innehåller funktioner för att hantera ordrar.
+ * Denna filen hanterar active orders för kocken, dvs ordrar som behöver bekräftas av staff.
+ * Innehåller en note från staff
+ * Fun fact: Denna filen är helt identisk med pendingOrdersPage, men denna filen hanterar bara bekräftade ordrar.
  */
 
-/* 
-Uppdatering: Isak
-La funktionalitet på confirm knappen för att markera en order som hanterad
-*/
+
