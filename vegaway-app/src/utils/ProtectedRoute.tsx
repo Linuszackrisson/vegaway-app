@@ -17,7 +17,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
   const [isStaff, setIsStaff] = useState<boolean | null>(null);
 
   // Get the setter functions from Zustand store
-  const { setMessage, setVisibility, isVisible } = useFeedbackStore.getState();
+  const { setMessage, setVisibility } = useFeedbackStore.getState();
 
   useEffect(() => {
     // Fetch the id_token from localStorage
@@ -43,18 +43,13 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
   // Once the isStaff state is set, check if it's false and navigate the user away from this page
   useEffect(() => {
     if (isStaff === false) {
+      // Always trigger feedback when isStaff is false
       setMessage("You do not have access to this");
       setVisibility(true);
       console.error(401, "Unauthorized");
+      navigate("/");
     }
   }, [isStaff]);
-
-  // This only runs when the feedback component has been closed
-  useEffect(() => {
-    if (!isVisible && isStaff === false) {
-      navigate("/"); // Redirect after feedback is dismissed
-    }
-  }, [isVisible, isStaff]);
 
   // If the isStaff state hasn't been determined yet, don't render anything
   if (isStaff === null) {
