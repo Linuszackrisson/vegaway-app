@@ -1,6 +1,5 @@
-const { jwtDecode } = require("jwt-decode"); // Use the jwt-decode function
-const createResponse = require("../utils/response"); // Your existing response utility function
-
+const { jwtDecode } = require("jwt-decode");
+const createResponse = require("../utils/response");
 module.exports = () => ({
   before: (handler) => {
     const token = handler.event.headers["x-cognito-id"];
