@@ -39,7 +39,8 @@ const ActiveOrders: React.FC = () => {
                 {`${order.orderId}`.charAt(0).toUpperCase() +
                   `${order.orderId}`.slice(1)}
               </h2>
-              <h2>Note to chef:{order.note}</h2>
+              <div className="chef-note-container">
+              <h2>Note to chef:</h2><p>{order.note}</p></div>
               <Link
                 to={`/pending-orders/${order.orderId}`}
                 state={{ order }}

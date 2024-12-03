@@ -2,3 +2,11 @@
 
 /* Den är i nuläget tom då den använder samma styling som pendingOrdersPage */
 /* Finns enbart om man skulle vilja ha en egen styling för activeOrdersPage i framtiden */
+
+
+.chef-note-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
