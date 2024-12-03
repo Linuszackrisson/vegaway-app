@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./PendingOrders.css";
 import { confirmOrder } from "../../api/confirmOrderStaff";
 import { OrderIdAndNote } from "../../api/confirmOrderStaff";
+import { validateNote } from "../../utils/joi";
 
 const PendingOrders: React.FC = () => {
   const [pendingOrders, setPendingOrders] = useState<any[]>([]);
@@ -34,6 +35,14 @@ const PendingOrders: React.FC = () => {
   const handleConfirmation = async (orderId: string) => {
     // Extract note for the order
     const note = notes[orderId] || ""; // Default to empty string if no note
+
+    // Validate the note using JOI
+    const validationError = validateNote(note);
+    if (validationError) {
+      setError(validationError);
+      return; // Return early to avoid sending request if validation fails
+    }
+
     const orderData: OrderIdAndNote = {
       orderId,
       note,
@@ -80,16 +89,17 @@ const PendingOrders: React.FC = () => {
               >
                 <p className="view-edit-p">View / Edit</p>
               </Link>
-              
-                <input className="chef-note"
-                  type="text"
-                  placeholder="Note to chef"
-                  defaultValue={order.note || ""}
-                  onChange={(e) =>
-                    handleNoteChange(order.orderId, e.target.value)
-                  }
-                />
-              
+
+              <input
+                className="chef-note"
+                type="text"
+                placeholder="Note to chef"
+                defaultValue={order.note || ""}
+                onChange={(e) =>
+                  handleNoteChange(order.orderId, e.target.value)
+                }
+              />
+
               <button onClick={() => handleConfirmation(order.orderId)}>
                 Confirm
               </button>
@@ -109,5 +119,12 @@ export default PendingOrders;
 
 /* 
 Uppdatering: Isak
+
 La funktionalitet på confirm knappen för att markera en order som hanterad
+*/
+
+/* 
+Uppdatering: Isak
+
+Implementerade joi för att validera user input på note. Förhindrar skadlig input
 */
