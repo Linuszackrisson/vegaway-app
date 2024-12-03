@@ -16,8 +16,9 @@ export interface OrderIdAndNote {
 export async function confirmOrder(order: OrderIdAndNote) {
   try {
     const accessToken = localStorage.getItem("access_token");
-    if (!accessToken) {
-      throw new Error("Access token not found.");
+    const idToken = localStorage.getItem("id_token");
+    if (!accessToken || !idToken) {
+      throw new Error("Access token or id token not found.");
     }
 
     // Initiate the POST request
@@ -29,6 +30,7 @@ export async function confirmOrder(order: OrderIdAndNote) {
           "Content-Type": "application/json",
           Authorization: API_KEY,
           "x-cognito-auth": `Bearer ${accessToken}`,
+          "x-cognito-id": `Bearer ${idToken}`,
         },
       }
     );
@@ -44,4 +46,10 @@ export async function confirmOrder(order: OrderIdAndNote) {
 Författare: Isak
 
 Funktion confirmOrder låter personalen bekräfta en order
+*/
+
+/* 
+Uppdatering: Isak
+
+Inkluderar id_token i request för att validera att användarkonto är staff
 */

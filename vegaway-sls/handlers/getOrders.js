@@ -4,6 +4,7 @@ const createResponse = require("../utils/response");
 const middy = require("@middy/core");
 const validateKey = require("../middlewares/validateKey");
 const errorHandler = require("../middlewares/errorHandler");
+const validateStaff = require("../middlewares/validateStaff");
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 module.exports.handler = middy(async (event) => {
@@ -42,9 +43,10 @@ module.exports.handler = middy(async (event) => {
   }
 })
   .use(validateKey())
-  .use(errorHandler());
+  .use(errorHandler())
+  .use(validateStaff());
 
 /* 
 Författare: Isak
-Handler som hämtar beställningar från databasen baserat på isConfirmed
+Handler för staff som hämtar beställningar från databasen baserat på isConfirmed
 */
