@@ -62,7 +62,7 @@ const PendingOrders: React.FC = () => {
   };
 
   return (
-    <div className="pending-orders wrapper">
+    <div className="pending-orders wrapper px-1">
       {pendingOrders.length === 0 ? (
         <p>Inga pending ordrar.</p>
       ) : (
