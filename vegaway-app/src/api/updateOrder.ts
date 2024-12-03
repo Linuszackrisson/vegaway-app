@@ -5,15 +5,15 @@ const invokeUrl = import.meta.env.VITE_INVOKE_URL;
 const API_KEY = "MY_API_KEY";
 import { useCurrentOrderStore } from "../store/useCurrentOrderStore";
 
+// Get the setter functions from Zustand store
+const { setMessage, setVisibility } = useFeedbackStore.getState();
+
 export async function updateOrder() {
   try {
     const accessToken = localStorage.getItem("access_token");
     const idToken = localStorage.getItem("id_token");
 
     if (!idToken || !accessToken) {
-      // Get the setter functions from Zustand store
-      const { setMessage, setVisibility } = useFeedbackStore.getState();
-
       // Set the feedback message and make the overlay visible
       setMessage("Please login to update order");
       setVisibility(true);
@@ -37,10 +37,9 @@ export async function updateOrder() {
       // Accessing error.response safely
       const errorMessage =
         error.response?.data?.message || "Unknown error occurred";
-      console.error(
-        "%cError updating order: " + errorMessage,
-        "color: red; font-size: 16px; font-weight: bold; background-color: yellow; padding: 2px 5px; border-radius: 4px;"
-      );
+      setMessage(errorMessage);
+      setVisibility(true);
+
       throw new Error(errorMessage);
     } else {
       console.error("Unexpected error:", error);
