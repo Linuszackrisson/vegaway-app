@@ -62,13 +62,13 @@ const PendingOrders: React.FC = () => {
   };
 
   return (
-    <div className="pending-orders wrapper">
+    <div className="pending-orders wrapper px-1">
       {pendingOrders.length === 0 ? (
         <p>Inga pending ordrar.</p>
       ) : (
         <div className="order-cards">
           {pendingOrders.map((order) => (
-            <div className="order-card" key={order.orderId}>
+            <div className="order-card card" key={order.orderId}>
               <h2>
                 {`${order.orderId}`.charAt(0).toUpperCase() +
                   `${order.orderId}`.slice(1)}
@@ -76,21 +76,20 @@ const PendingOrders: React.FC = () => {
               <Link
                 to={`/pending-orders/${order.orderId}`}
                 state={{ order }}
-                className="no-underline"
+                className="view-edit"
               >
-                <p>View / Edit</p>
+                <p className="view-edit-p">View / Edit</p>
               </Link>
-              <p>
-                Note:{" "}
-                <input
+              
+                <input className="chef-note"
                   type="text"
-                  placeholder="Antecking till kocken"
+                  placeholder="Note to chef"
                   defaultValue={order.note || ""}
                   onChange={(e) =>
                     handleNoteChange(order.orderId, e.target.value)
                   }
                 />
-              </p>
+              
               <button onClick={() => handleConfirmation(order.orderId)}>
                 Confirm
               </button>

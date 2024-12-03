@@ -11,6 +11,7 @@ import ProfilePage from "./pages/profilePage/ProfilePage";
 import Header from "./components/header/Header";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import PendingOrders from "./pages/pendingOrdersPage/PendingOrders";
+import ActiveOrders from "./pages/activeOrdersPage/activeOrdersPage";
 import OrderDetails from "./components/orderDetails/OrderDetails";
 import "./App.css";
 import OrderHistoryPage from "./pages/orderHistoryPage/OrderHistoryPage";
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/pending-orders" element={<PendingOrders />} />
+          <Route path="/active-orders" element={<ActiveOrders />} />
           <Route path="/pending-orders/:orderId" element={<OrderDetails />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/menu" element={<MenuPage />} />
