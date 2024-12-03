@@ -3,6 +3,7 @@ const validateKey = require("../middlewares/validateKey");
 const errorHandler = require("../middlewares/errorHandler");
 const createResponse = require("../utils/response");
 const { DynamoDB } = require("aws-sdk");
+const validateStaff = require("../middlewares/validateStaff");
 
 const dynamoDB = new DynamoDB.DocumentClient();
 
@@ -53,7 +54,8 @@ module.exports.handler = middy(async (event) => {
   }
 })
   .use(validateKey())
-  .use(errorHandler());
+  .use(errorHandler())
+  .use(validateStaff());
 
 /* 
 Författare: Isak
