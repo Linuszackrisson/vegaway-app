@@ -31,14 +31,10 @@
     border-radius: 0;
     border-right: none;
     padding: 0;
-    font-size: 12px;
+    font-size: var(--font-size-small);
     line-height: 24px;
-    margin-bottom: -4px;
-
-}
-.chef-note::placeholder {
- 
-
+    font-weight: 400;
+    padding-top: .5rem;
 }
 
 .view-edit {
@@ -49,12 +45,18 @@
   text-align: left;
   display: flex;
   justify-content: flex-start;
+
+}
+
+.view-edit p {
+  height: 100%;
   
 }
  
 .note {
   width: 100%;
   border-top: 1px solid var(--color-text);
+ 
 
 }
 
@@ -64,24 +66,22 @@
     background: transparent;
     border: none;
     font-size: var(--font-size-small);
-    line-height: var(--font-size-small);
-    color: var(--text-color);
+    line-height: 24px;
     display: inline-block;
     padding: 0;
     color: #1B1B1B;
-    font-size: 12px;
     font-weight: 600;
-    line-height: 24px; 
     letter-spacing: 0.15px;
     width: 100%;
     text-align: left;
     border-top: 1px solid var(--color-text);
+    padding-top: .5rem;
 }
 
 
 .pending-orders {
-    background-image: url('../../assets/pink-bg.svg'); /* Added background image */
-    background-size: cover; /* Optional: Adjusts the size of the background image */
+    background-image: url('../../assets/pink-bg.svg'); 
+    background-size: cover; 
     background-repeat: no-repeat; 
     background-position: center 60px;
 }

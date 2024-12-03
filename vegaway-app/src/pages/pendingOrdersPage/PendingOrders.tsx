@@ -78,7 +78,7 @@ const PendingOrders: React.FC = () => {
                 state={{ order }}
                 className="view-edit"
               >
-                <p>View / Edit</p>
+                <p className="view-edit-p">View / Edit</p>
               </Link>
               
                 <input className="chef-note"

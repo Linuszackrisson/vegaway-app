@@ -13,3 +13,10 @@
   width: 100%;
   
 }
+
+.active-orders {
+  background-image: url('../../assets/bluebgfigure.svg'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center 80px;
+}

@@ -24,7 +24,7 @@ const ActiveOrders: React.FC = () => {
 
 
   return (
-    <div className="pending-orders wrapper px-1">
+    <div className="active-orders wrapper px-1">
       {pendingOrders.length === 0 ? (
         <p>Inga pending ordrar.</p>
       ) : (
