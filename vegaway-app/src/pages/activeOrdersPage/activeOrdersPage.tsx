@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchOrders } from "../../api/ordersStaff";
 import { Link } from "react-router-dom";
 import "./activeOrderspage.css";
-import { confirmOrder } from "../../api/confirmOrderStaff";
-import { OrderIdAndNote } from "../../api/confirmOrderStaff";
+
 
 const ActiveOrders: React.FC = () => {
   const [pendingOrders, setPendingOrders] = useState<any[]>([]);
@@ -27,27 +26,31 @@ const ActiveOrders: React.FC = () => {
   }, []);
 
 
+
   return (
-    <div className="pending-orders wrapper">
+    <div className="pending-orders wrapper px-1">
       {pendingOrders.length === 0 ? (
         <p>Inga pending ordrar.</p>
       ) : (
         <div className="order-cards">
           {pendingOrders.map((order) => (
-            <div className="order-card" key={order.orderId}>
+            <div className="order-card card" key={order.orderId}>
               <h2>
                 {`${order.orderId}`.charAt(0).toUpperCase() +
                   `${order.orderId}`.slice(1)}
               </h2>
-              <div className="chef-note-container">
-              <h2 className="underline-p">Note to chef:</h2><p>{order.note}</p></div>
               <Link
                 to={`/pending-orders/${order.orderId}`}
                 state={{ order }}
-                className="underline-p"
+                className="view-edit"
               >
-                <p className="underline-p">View full order</p>
-              </Link>    
+                <p className="note">View full order</p>
+              </Link>
+              <div className="chef-note-container">
+                <p>Note to chef:</p>
+                <p>{order.note}</p></div>
+              
+              
             </div>
           ))}
         </div>
@@ -59,9 +62,8 @@ const ActiveOrders: React.FC = () => {
 export default ActiveOrders;
 
 /* Författare: Linus
- * Denna filen hanterar active orders för kocken, dvs ordrar som behöver bekräftas av staff.
- * Innehåller en note från staff
- * Fun fact: Denna filen är helt identisk med pendingOrdersPage, men denna filen hanterar bara bekräftade ordrar.
+ * Denna filen hanterar färdiga ordrar för kocken
  */
+
 
 
