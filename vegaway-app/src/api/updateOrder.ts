@@ -58,5 +58,5 @@ export async function updateOrder() {
 /* 
 Uppdatering: Isak
 
-Triggar feedback komponenten om användaren inte är inloggad
+Triggar feedback komponenten om användaren inte är inloggad eller om ordern redan är confirmed
 */
