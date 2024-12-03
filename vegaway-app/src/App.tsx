@@ -66,6 +66,14 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/active-orders"
+            element={
+              <ProtectedRoute>
+                <ActiveOrders />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </ResetCurrentOrder>
       <CartButton />
