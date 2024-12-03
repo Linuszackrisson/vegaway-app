@@ -13,7 +13,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
   const navigate = useNavigate(); // Using useNavigate hook for navigation
 
   // Define the state and effect for checking if the user is in the "Staff" group
-  const [isStaff, setIsStaff] = useState<boolean>(false);
+  const [isStaff, setIsStaff] = useState<boolean | null>(null);
 
   useEffect(() => {
     // Fetch the id_token from localStorage
@@ -36,12 +36,17 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
     }
   }, []);
 
-  // If the user is not in the "Staff" group, navigate to a different route
-  if (!isStaff) {
-    console.error(401, "Unauthorized");
+  // Once the isStaff state is set, check if it's false and navigate away if necessary
+  useEffect(() => {
+    if (isStaff === false) {
+      console.error(401, "Unauthorized");
+      navigate("/"); // Redirect to homepage or any other page if not a staff member
+    }
+  }, [isStaff, navigate]);
 
-    navigate("/"); // Redirect to homepage or any other page if not a staff member
-    return null; // Return null to prevent the route from rendering
+  // If the isStaff state hasn't been determined yet, don't render anything
+  if (isStaff === null) {
+    return null; // Set a loader here while isStaff is being proccessed
   }
 
   return <>{children}</>; // Render the protected route's element if the user is a staff member
