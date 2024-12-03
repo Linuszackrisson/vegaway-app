@@ -13,9 +13,9 @@ export async function fetchOrders(
     }
 
     const accessToken = localStorage.getItem("access_token");
-
-    if (!accessToken) {
-      throw new Error("Access token not found.");
+    const idToken = localStorage.getItem("id_token");
+    if (!accessToken || !idToken) {
+      throw new Error("Access token or id token not found.");
     }
 
     const response = await axios.get(
@@ -25,6 +25,7 @@ export async function fetchOrders(
           "Content-Type": "application/json",
           Authorization: API_KEY,
           "x-cognito-auth": `Bearer ${accessToken}`,
+          "x-cognito-id": `Bearer ${idToken}`,
         },
       }
     );
