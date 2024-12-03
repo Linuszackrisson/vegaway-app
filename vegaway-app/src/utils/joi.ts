@@ -3,9 +3,10 @@ import Joi from "joi";
 // Define JOI schema for note validation
 export const noteSchema = Joi.object({
   note: Joi.string()
+    .allow("")
     .max(500)
     .regex(/^[A-Za-z0-9\s,.;!?'"()]*$/)
-    .required()
+    .optional()
     .messages({
       "string.base": "Note must be a string",
       "string.max": "Note must be less than or equal to 500 characters",
