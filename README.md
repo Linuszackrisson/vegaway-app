@@ -174,9 +174,9 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 #### Tisdag (2024-12-03)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |                     activeOrderPage         |         Fortsätta               |     Nej.                    |
+| Isak       |                 Request & Handler till pending-order.             |            Cancel-order            |      Nej.                   |
+| Jacob      |        Global-css styling och fix                      |         Frontend               |             Motivation            |
 
 #### Onsdag (2024-12-04)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
