@@ -26,40 +26,6 @@ const ActiveOrders: React.FC = () => {
     getPendingOrders();
   }, []);
 
-  // Log pendingOrders state whenever it changes
-  useEffect(() => {
-    console.log("Pending orders:", pendingOrders);
-  }, [pendingOrders]); // This useEffect runs whenever pendingOrders changes
-
-  const handleConfirmation = async (orderId: string) => {
-    // Extract note for the order
-    const note = notes[orderId] || ""; // Default to empty string if no note
-    const orderData: OrderIdAndNote = {
-      orderId,
-      note,
-    };
-
-    // Send the orderData object to the confirmOrder function
-    const response = await confirmOrder(orderData);
-    console.log("Trying to update order:", response);
-
-    // Remove the confirmed order from the list
-    setPendingOrders((prevOrders) =>
-      prevOrders.filter((order) => order.orderId !== orderId)
-    );
-  };
-
-  if (loading) {
-    return <p>Laddar ordrar...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
-
-  const handleNoteChange = (orderId: string, note: string) => {
-    setNotes((prevNotes) => ({ ...prevNotes, [orderId]: note }));
-  };
 
   return (
     <div className="pending-orders wrapper">
@@ -80,9 +46,7 @@ const ActiveOrders: React.FC = () => {
                 className="no-underline"
               >
                 <p>View full order</p>
-              </Link>
-              
-              
+              </Link>    
             </div>
           ))}
         </div>
