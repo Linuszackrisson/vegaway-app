@@ -109,3 +109,9 @@ Updated: Isak
 
 Saving the order to useCurrentOrderStore
 */
+
+/* 
+Uppdatering: Isak
+
+Triggar feedback komponenten om användaren inte är inloggad
+*/

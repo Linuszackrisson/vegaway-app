@@ -55,3 +55,9 @@ export async function updateOrder() {
  * Api request för att låta kund uppdatera en order
  * Skickar order från useCurrentOrderStore till backend som hanterar uppdateringen
  */
+
+/* 
+Uppdatering: Isak
+
+Triggar feedback komponenten om användaren inte är inloggad
+*/
