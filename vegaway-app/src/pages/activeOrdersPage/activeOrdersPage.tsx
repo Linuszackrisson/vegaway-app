@@ -40,13 +40,13 @@ const ActiveOrders: React.FC = () => {
                   `${order.orderId}`.slice(1)}
               </h2>
               <div className="chef-note-container">
-              <h2>Note to chef:</h2><p>{order.note}</p></div>
+              <h2 className="underline-p">Note to chef:</h2><p>{order.note}</p></div>
               <Link
                 to={`/pending-orders/${order.orderId}`}
                 state={{ order }}
-                className="no-underline"
+                className="underline-p"
               >
-                <p>View full order</p>
+                <p className="underline-p">View full order</p>
               </Link>    
             </div>
           ))}

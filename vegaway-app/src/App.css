@@ -310,7 +310,7 @@ button {
 	border: 2px solid var(--color-text);
 	border-radius: var(--border-radius-card);
 	box-shadow: var(--box-shadow);
-	padding: 1rem;
+	
 }
 
 input,
@@ -323,7 +323,6 @@ select {
 	border-radius: var(--border-radius-button);
 	background-color: var(--color-card-background);
 	color: var(--color-text);
-	margin-bottom: 1rem;
 }
 
 a.button {
