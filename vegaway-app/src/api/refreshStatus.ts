@@ -45,3 +45,9 @@ Författare: Isak
 
 Api request som används för att kolla statusen på en order.
 */
+
+/* 
+Uppdatering: Isak
+
+Triggar feedback komponenten om användaren inte är inloggad
+*/

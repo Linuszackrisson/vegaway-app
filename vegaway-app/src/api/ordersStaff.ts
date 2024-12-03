@@ -54,3 +54,9 @@ export async function fetchOrders(
  * Använd "true" som argument för att hämta active orders
  * Använd "false" som argument för att hämta pending orders
  */
+
+/* 
+Uppdatering: Isak
+
+Triggar feedback komponenten om användaren inte är inloggad
+*/

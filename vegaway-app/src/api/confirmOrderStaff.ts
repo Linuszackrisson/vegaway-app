@@ -61,3 +61,9 @@ Uppdatering: Isak
 
 Inkluderar id_token i request för att validera att användarkonto är staff
 */
+
+/* 
+Uppdatering: Isak
+
+Triggar feedback komponenten om användaren inte är inloggad
+*/

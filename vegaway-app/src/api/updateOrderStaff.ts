@@ -52,3 +52,9 @@ Författare: Isak
 
 Request fil som låter staff uppdatera en pending order. 
 */
+
+/* 
+Uppdatering: Isak
+
+Triggar feedback komponenten om användaren inte är inloggad
+*/
