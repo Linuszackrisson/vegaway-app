@@ -6,10 +6,6 @@
     text-align: left;
 }
 
-.contact-container-page {
-    padding: 14px;
-
-}
 .contact-page__title {
     align-self: flex-start;
     margin-bottom: 22px;
@@ -31,40 +27,22 @@
 
 .contact-page__textarea {
     width: 100%;
-    margin-bottom: 22px;
-    border: 1px solid black;
-    border-radius: 6px;
-    min-height: 156px;
-    font-family: 'Darker Grotesque', sans-serif; 
-    font-weight: 500;
-    box-shadow: 1px 1px black, 2px 2px black;
-
 }
 
 .contact-page__button {
-    min-width: 104px;
-    min-height: 42px;
     align-self: flex-end;
-    background-color: white;
-    font-family: 'Darker Grotesque', sans-serif; 
-    font-weight: 600;
-    font-size: 16px;
     display: flex;
-    gap: 8px;
     justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    margin-bottom: 22px;
-    
+    align-items: center; 
 }
 
-.contact-page__textarea::placeholder {
-    padding: 12px;
+#kontaktForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.button_p {
-    margin-bottom: 4px;
-}
+
 
 .about-group-icon {
     width: 100%;

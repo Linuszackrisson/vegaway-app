@@ -1,7 +1,7 @@
 import './ContactPage.css'; 
-import navigationIcon from '../../assets/navigation.png';
-import arrowIcon from '../../assets/arrowright.png';
 import AboutGroup from '../../assets/Aboutgroup.svg';
+import Icon from '../../components/icon/Icon';
+
 
 function ContactPage() {
   return (
@@ -13,7 +13,7 @@ function ContactPage() {
 					className="about-group-icon"
 				/>
 			</a>
-			<div className="contact-container-page">
+			<div className="contact-container-page px-1">
 				<h2 className="contact-page__title">About Vegaway</h2>
 
 				<p className="contact-page__description">
@@ -41,14 +41,11 @@ function ContactPage() {
 						className="contact-page__textarea"
 						placeholder="Write your message ..."
 					></textarea>
-					<button type="submit" className="contact-page__button">
-						<img
-							src={navigationIcon}
-							alt="Navigation"
-							className="button-icon"
-						/>
+					<button type="submit" className="button button--second contact-page__button">
+						<Icon name="Navigation" className="button__icon" />
 						<p className="button_p">Send</p>
-						<img src={arrowIcon} alt="Arrow Right" className="button-icon" />
+						<Icon name="ChevronRight" className="button__icon" />
+
 					</button>
 				</form>
 			</div>
