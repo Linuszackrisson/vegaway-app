@@ -181,9 +181,9 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 #### Onsdag (2024-12-04)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |                     Pending-order & Active-order rework         |     About-rework                    |      Nej.                   |
+| Isak       |                   Joi, user-group staff cognito, navigate staff to dashboard vid login, validering på staff request handlers, route wrapper för staff-routes. feedback-component, feedback zustandstore. samt implementerat dem.           |       CSP research & s3 bucket research                 |               Nej.          |
+| Jacob      |                  Broken interface, global styling            |            Fortsätta            |        Nej.                 |
 
 #### Torsdag (2024-12-05)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
