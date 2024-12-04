@@ -16,6 +16,7 @@ import OrderDetails from "./components/orderDetails/OrderDetails";
 import "./App.css";
 import OrderHistoryPage from "./pages/orderHistoryPage/OrderHistoryPage";
 import ResetCurrentOrder from "./utils/ResetCurrentOrder";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Header />
       <ResetCurrentOrder>
         <Routes>
+          {/* CUSTOMER ROUTES */}
           <Route path="/" element={<HomePage />} />
           <Route path="/pending-orders" element={<PendingOrders />} />
           <Route path="/active-orders" element={<ActiveOrders />} />
@@ -30,7 +32,6 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route
             path="/order-confirmation"
@@ -39,6 +40,32 @@ function App() {
           <Route path="/callback" element={<CallbackPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/order-history" element={<OrderHistoryPage />} />
+
+          {/* STAFF ROUTES */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/pending-orders"
+            element={
+              <ProtectedRoute>
+                <PendingOrders />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/pending-orders/:orderId"
+            element={
+              <ProtectedRoute>
+                <OrderDetails />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </ResetCurrentOrder>
       <CartButton />
@@ -56,4 +83,11 @@ export default App;
 /* 
 Uppdatering: Isak
 Wrappar routes i en komponent som återställer order state i useCurrentOrderStore då användaren inte befinner sig på route /order-confirmation
+*/
+
+/*
+Uppdatering: Isak
+
+Skyddar staff routes från användare som inte är staff med hjälp av ProtectedRoute komponent.
+Extra validering finns även i backend som backup så ingen request i dessa routes går att göra om man inte är staff.
 */
