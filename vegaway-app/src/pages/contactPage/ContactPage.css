@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     text-align: left;
+    position: relative;
 }
 
 .contact-page__title {
@@ -50,5 +51,32 @@
 }
 
 .kontaktLink {
-    align-self: flex-end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    display: block;
+    
+}
+.first-paragraph-contact {
+    max-width: 50%;
+}
+
+.second-paragraph-contact {
+    max-width: 70%;
+}
+.contact-container-page {
+    z-index: -1;
+}
+
+@media (max-width: 868px) {
+    .kontaktLink {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .kontaktLink {
+        max-width: 200px;
+    }
 }
