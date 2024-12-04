@@ -1,7 +1,8 @@
 .cart-button {
     margin: 0 auto;
+    padding: 0;
     max-width: 1100px;
-    height: var(--cart-button-size, 3rem) !important;
+    height: var(--cart-button-size);
     position: fixed;
     bottom: 2px;
     left: 0;
