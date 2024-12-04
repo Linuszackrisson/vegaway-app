@@ -66,8 +66,3 @@
     align-self: flex-start;
     margin-top: auto;
 }
-
-.product-card__info-button .icon {
-    margin-left: 0.25rem;
-    /* Justera värdet efter behov */
-}
