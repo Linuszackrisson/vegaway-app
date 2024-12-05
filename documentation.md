@@ -43,11 +43,22 @@ När du loggar in som kund möts du av **Homepage**, där du kan:
    - Se nya releases.  
    - Klicka på korten för att läsa mer eller lägga till i varukorgen.
 
-2. **Navigationsmeny**  
-   - Tillgång till hela menyn, med rätter sorterade efter kategori.  
-   - Lägg produkter direkt i varukorgen.
+2. **Navigationsmeny/Slider-menu**  
+   - Hem 
+   - Menu
+   - Order History
+   - Contact Us
+   - Sign out
+3. **Menu**
+   - Se hela menyn och kategorier.
+   - Filtrera efter pris
+4. **Order History**
+   - Se inloggade användares orderhistorik
+5. **Contact Us**
+   - Läsa mer information om Vegaway
+   - Kontaktformulär
 
-3. **Varukorg**  
+6. **Varukorg**  
    - En gul knapp längst ned på sidan följer alltid med dig.  
    - Klicka på knappen för att öppna din varukorg:  
      - Ändra din order.  
