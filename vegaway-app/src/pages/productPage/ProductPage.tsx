@@ -60,10 +60,11 @@ export default ProductPage;
 
 /*
  * Författare: Linus
- * - Komponenten visar information om en enskild produkt baserat på dess ID.
+ * - Komponent som visar information om en enskild produkt baserat på dess ID.
+ * - Byggd enligt skiss.
  * - Hämtar och visar relaterade produkter inom samma kategori.
  * - Inkluderar en knapp för att lägga till produkten i varukorgen.
- /
+ * 
  * Jacob Uppdate:
  * - Använde Icon-komponenten för ikonerna.
  * - Lade till className="button button--add" på "Lägg till"-knappen.

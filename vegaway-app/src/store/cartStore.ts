@@ -55,6 +55,8 @@ export const useCartStore = create<CartStore>()(
 
 /**
  * Författare Linus
- * Basic cartStore, kan behöva modifieras längre fram.
- * Lade till localstorage så det sparas vid omladdning av sidan. Annars bevaras bara kundvagnen när man navigerar via routes.
+ * CartStore, hanterar varukorgen och dess funktioner.
+ * Funktion för att lägga till, ta bort och ändra antal produkter i varukorgen.
+ * Funktioner för att räkna totala antal och totala priset i varukorgen.
+ * 
  */

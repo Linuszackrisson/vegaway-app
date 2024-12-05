@@ -45,7 +45,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 
 export default ProductCard;
 
-/*
+/* Författare: Linus
+ * Produktkort som används i menyerna och slidersen på sidan
+ * AddtoCart button som lägger till produkterna i CartStore
+ * Info button som navigerar till produktens info-sida
+ * Byggd enligt skiss. (Omdesignad Later av Jacob med globala styles)
+
  * Uppdaterade komponenten:
  * - Använde Icon-komponenten för ikonerna.
  * - Lade till className="button button--add" på "Lägg till"-knappen.

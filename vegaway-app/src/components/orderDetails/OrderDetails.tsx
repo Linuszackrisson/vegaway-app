@@ -170,7 +170,9 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ isActiveOrder }) => {
 export default OrderDetails;
 
 /* Författare: Linus
- * Denna filen hanterar orderdetaljer och innehåller funktioner för att hantera ordrar.
+ * Sub-komponent till pendingOrders, visar ordern mer i detalj. Vid klick av View / Edit så navigeras man hit.
+ * Listar alla produkter i ordern och visar i kortform.
+ * Byggd enligt skiss.
  */
 
 /* 

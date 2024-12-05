@@ -10,12 +10,12 @@ För att testa applikationen, navigera till:
 ## Inloggningsuppgifter
 
 ### Kund
-- **E-post**: `kund@hotmail.com`  
-- **Lösenord**: `kund123`
+- **E-post**: `vegawaykund@gmail.com`  
+- **Lösenord**: `gTaE83PxkVh9e2!`
 
 ### Personal
 - **E-post**: `vegaway.master@gmail.com`  
-- **Lösenord**: `Vegaway2024!`
+- **Lösenord**: `DVIMwxVYv64h9s!`
 
 ---
 
@@ -28,6 +28,7 @@ När du loggar in som personal, navigeras du direkt till **Staff Dashboard**. H�
 1. **Pending Orders (Pågående beställningar)**  
    - Visar en lista med **ej godkända** ordrar.  
    - Klicka på en order för att göra ändringar.
+   - Godkänna order och inkludera en anteckning
 
 2. **Active Orders (Aktiva beställningar)**  
    - Visar en lista med **godkända** ordrar.  
@@ -74,6 +75,13 @@ När du loggar in som kund möts du av **Homepage**, där du kan:
    - Klicka på **Refresh-knappen** för att uppdatera statusen.
 
 2. När ordern har godkänts, visas ett nytt meddelande.
+
+---
+
+## Felhantering
+
+Testa gärna göra fel, mycket energi är lagd på felhantering och användar-feedback.  
+Till exempel, försök komma åt staff routes med ett kund konto.  
 
 ---
 
