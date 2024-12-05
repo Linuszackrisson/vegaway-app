@@ -30,7 +30,7 @@
 	--font-weight-semibold: 600;
 	--font-weight-bold: 700;
 	/* Font Sizes */
-	--font-size-h1: clamp(1.6rem, 5.5vw, 1.85rem);
+	--font-size-h1: clamp(1.6rem, 5.5vw, 2.2rem);
 	--font-size-h2: clamp(1.55rem, 4.5vw, 1.95rem);
 	--font-size-h3: clamp(1.225rem, 3vw, 1.35rem);
 	--font-size-p: clamp(1.1rem, 2vw, 1.25rem);
@@ -114,6 +114,7 @@ body::-webkit-scrollbar {
 	padding: 3rem 0;
 	margin: 0 2px 2px 0;
 	overflow-y: auto;
+	z-index: 10;
 }
 
 .staff__wrapper {
@@ -188,6 +189,7 @@ button {
 	background: none;
 	border: none;
 	padding: 0;
+	z-index: 9;
 }
 
 /* Buttons */

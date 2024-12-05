@@ -1,10 +1,10 @@
 /* src/components/OrderHistory/OrderHistory.css */
 .order-history {
-    border: 2px solid #262626;
-    box-shadow: 2px 2px 0px 0px #3a3a3a;
-    border-radius: 6px;
+    border: 1px solid var(--color-text);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius-card);
     background: #fff;
-    margin-bottom: 14px;
+    margin-bottom: 1rem;
     overflow: hidden;
 }
 
@@ -13,7 +13,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: .5rem;
 }
 
 .order-history__header-left,
@@ -29,7 +29,9 @@
 }
 
 .order-history__order-id {
-    font-weight: bold;
+    font-size: clamp(1.225rem, 3vw, 1.35rem);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
 }
 
 .order-history__status-indicator {
@@ -41,11 +43,12 @@
 }
 
 .order-history__status {
-    font-weight: bold;
+    font-weight: var(--font-weight-semibold);
+    margin: -4px 0 0 4px;
 }
 
 .order-history__total-price {
-    font-weight: bold;
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
 }
 
 .order-history__toggle-button {
@@ -55,14 +58,10 @@
     padding: 0;
 }
 
-.order-history__toggle-button svg {
-    color: #1b1b1b;
-}
-
 /* Items Dropdown */
 .order-history__items {
-    padding: 10px;
-    border-top: 1px solid #e0e0e0;
+    padding: 1.25rem .7rem 2rem;
+    border-top: 1px solid var(--color-text);
 }
 
 .order-history__items-list {
@@ -72,9 +71,13 @@
 }
 
 .order-history__item {
+    border: 1px solid var(--color-text);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius-button);
     display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    align-items: stretch;
+    margin-bottom: 14px;
+    overflow: hidden;
 }
 
 .order-history__item:last-child {
@@ -82,11 +85,11 @@
 }
 
 .order-history__item-image-container {
-    width: 67px;
-    height: 67px;
+    width: var(--img-size);
+    aspect-ratio: 2 / 1;
     overflow: hidden;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    flex-shrink: 0;
+    border-right: 1px solid var(--color-text);
 }
 
 .order-history__item-image {
@@ -102,11 +105,8 @@
 
 .order-history__item-title {
     margin: 0;
-    font-size: 1rem;
 }
 
 .order-history__item-price {
     margin: 0;
-    font-weight: bold;
-    color: #1b1b1b;
 }

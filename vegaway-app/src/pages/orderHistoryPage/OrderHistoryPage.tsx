@@ -29,9 +29,9 @@ const OrderHistoryPage = () => {
 
   return (
     <div className="wrapper order-history-page">
-      <h1 className="order-history-page__heading">Order History</h1>
+      <h1 className="order-history-page__heading px-1">Order History</h1>
       {orderHistory ? (
-        <ul className="order-history-page___ul">
+        <ul className="order-history-page___ul px-1">
           {orderHistory.map((order) => (
             <li className="order-history-page__list-item" key={order.orderId}>
               {/* Replace this li with the OrderHistory component */}
