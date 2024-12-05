@@ -138,4 +138,8 @@ Uppdatering: Isak
 
 Tog bort renderingen av error message.
 Använder istället Feedback komponenten för att rendera meddelande till användaren.
+
+Uppdatering: Linus
+
+Global och responsiv styling
 */

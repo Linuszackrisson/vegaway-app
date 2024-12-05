@@ -27,9 +27,6 @@ function App() {
         <Routes>
           {/* CUSTOMER ROUTES */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/pending-orders" element={<PendingOrders />} />
-          <Route path="/active-orders" element={<ActiveOrders />} />
-          <Route path="/pending-orders/:orderId" element={<OrderDetails />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/product/:id" element={<ProductPage />} />

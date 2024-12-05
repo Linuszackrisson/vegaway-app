@@ -52,6 +52,7 @@ const ActiveOrders: React.FC = () => {
         </div>
       )}
     </div>
+    
   );
 };
 
@@ -59,6 +60,7 @@ export default ActiveOrders;
 
 /* Författare: Linus
  * Denna filen hanterar färdiga ordrar för kocken
+ * Uppdaterad: 2024-12-04 med global och responsiv styling
  */
 
 
