@@ -14,7 +14,7 @@ function HomePage() {
 		const loadFeaturedProducts = async () => {
 			const items = await fetchMenuItems();
 			const featured = items.filter(item => item.category === 'New Releases' || item.price < 10);
-			setFeaturedProducts(featured.slice(0, 5));
+			setFeaturedProducts(featured.slice(0, 6));
 		};
 		loadFeaturedProducts();
 	}, []);
@@ -56,4 +56,7 @@ export default HomePage;
  * Hämtar featured produkter från menuApi
  * Fantastisk med snygg design, men en mardröm att implementera.
  * OBS! Filtreringsknapp skall vara en go-to menu istället, skapar issue för detta separata ärende.
+ * 
+ * Uppdatering Linus : 05/12/2024 
+ * Ändrade funktionen för att hämta featured produkter, så att den hämtar 6 produkter istället för 5.
  */
