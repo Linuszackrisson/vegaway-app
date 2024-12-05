@@ -78,4 +78,6 @@ export default ContactPage
  * Författare Linus
  * Boiler plate code and folder structure. Samt innehåll. 
  * Uppdaterad: 2024-12-04 med global och responsiv styling
+ * 
+ * Uppdaterad: 2024-12-05 med responsiv styling och rework.
  */

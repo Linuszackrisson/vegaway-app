@@ -2,10 +2,21 @@
     left: 0;
     flex: 1;
     
+    
 }
 
 .kontaktLink img {
     width: 100%;
+}
+
+#kontaktForm {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+
+#kontaktForm button {
+    align-self: flex-end;
 }
 
 .contact-page-hero {
@@ -19,10 +30,24 @@
     padding-left: clamp(.5rem, 3vw, 4rem);
     flex: 1;
     height: 100%;
-    margin: 2rem 0 0;
 
 }
-.contact-page p, h1 {
+.contact-page p, h1, h2  {
     margin: 1rem 0;
+}
+
+@media (max-width: 568px) {
+    .contact-page-hero {
+        flex-direction: column-reverse;
+           
+    }
+
+    .contact-page-title-container  {
+        padding-right: clamp(.5rem, 3vw, 4rem);
+
+    }
+    .kontaktLink {
+        align-self: flex-end;
+    }   
 }
 
