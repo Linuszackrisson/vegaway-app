@@ -1,10 +1,9 @@
 // src/components/ProductCard/ProductCard.tsx
-import './ProductCard.css';
 import { useNavigate } from 'react-router-dom';
 import Icon from '../icon/Icon';
 import { MenuItem } from '../../api/menuApi';
 import { useCartStore } from '../../store/cartStore';
-
+import "./productCard.css";
 interface ProductCardProps {
   item: MenuItem;
 }

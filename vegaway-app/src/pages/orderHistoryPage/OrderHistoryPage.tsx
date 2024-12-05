@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchOrderHistory } from "../../api/orderHistory";
 import { FetchOrdersResponse, Order } from "../../api/utils/orderInterface";
 import OrderHistory from "../../components/orderHistory/OrderHistory";
-import "./OrderHistoryPage.css";
+import "./orderHistoryPage.css";
 
 const OrderHistoryPage = () => {
   const [orderHistory, setOrderHistory] = useState<Order[] | null>(null);

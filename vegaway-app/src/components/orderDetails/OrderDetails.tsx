@@ -1,12 +1,12 @@
 // Rätta till importerna
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useParams, useLocation } from 'react-router-dom';
 import { Order } from '../../api/utils/orderInterface';
 import CartProductCard from '../cartProductCard/CartProductCard';
-import './OrderDetails.css';
 import { updateOrder } from '../../api/updateOrderStaff';
 import { MenuItem } from '../../api/menuApi';
+import "./orderDetails.css";
 
 const OrderDetails: React.FC = () => {
 	const { orderId } = useParams<{ orderId: string }>();

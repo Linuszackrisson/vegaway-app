@@ -1,7 +1,6 @@
-import './ContactPage.css'; 
 import AboutGroup from '../../assets/Aboutgroup.svg';
 import Icon from '../../components/icon/Icon';
-
+import "./contactPage.css";
 
 function ContactPage() {
   return (

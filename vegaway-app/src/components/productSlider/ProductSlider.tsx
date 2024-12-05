@@ -1,9 +1,9 @@
 // src/components/productSlider/ProductSlider.tsx
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import ProductCard from "../productCard/ProductCard";
-import "./ProductSlider.css";
 import { CircleDollarSign, MoveDown, MoveUp } from "lucide-react";
 import { MenuItem } from "../../api/menuApi";
+import "./productSlider.css";
 
 interface ProductSliderProps {
 	title: string;

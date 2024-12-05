@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import Icon from '../icon/Icon';
 import LoginButton from '../loginButton/LoginButton';
 import useLoggedInStore from '../../store/useLoggedInStore';
-import './SliderMenu.css';
+import Slidervector from '../../assets/slider-vector.svg';
+import './sliderMenu.css';
+
 
 interface SliderMenuProps {
 	isOpen: boolean;
@@ -54,7 +56,7 @@ const SliderMenu: React.FC<SliderMenuProps> = ({ isOpen, onClose }) => {
 			<div className="slider-menu__login">
 				<LoginButton variant="full" />
 			</div>
-			<img src="/src/assets/slider-vector.svg" alt="Vegaway Illustration" className="slider-menu__graf" />
+			<img src={Slidervector} alt="Vegaway Illustration" className="slider-menu__graf" />
 		</div>
 	);
 };

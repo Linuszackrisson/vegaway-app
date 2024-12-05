@@ -1,9 +1,9 @@
 // src/components/cartButton/CartButton.tsx
 import { useLocation, useNavigate } from "react-router-dom";
 import Icon from "../icon/Icon";
-import "./CartButton.css";
 import { createOrder } from "../../api/placeOrder";
 import { useCurrentOrderStore } from "../../store/useCurrentOrderStore";
+import "./cartButton.css";
 
 const CartButton: React.FC = () => {
 	const location = useLocation();

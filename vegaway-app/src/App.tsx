@@ -1,23 +1,23 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage";
+import HomePage from "./pages/homePage/HomePage";
 import ContactPage from "./pages/contactPage/ContactPage";
-import MenuPage from "./pages/MenuPage/MenuPage";
+import MenuPage from "./pages/menuPage/MenuPage";
 import ProductPage from "./pages/productPage/ProductPage";
-import CartPage from "./pages/CartPage/CartPage";
-import CartButton from "./components/CartButton/CartButton";
+import CartPage from "./pages/cartPage/CartPage";
+import CartButton from "./components/cartButton/CartButton";
 import OrderConfirmationPage from "./pages/orderConfirmationPage/OrderConfirmationPage";
 import CallbackPage from "./pages/callbackPage/CallbackPage";
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import Header from "./components/header/Header";
-import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import DashboardPage from "./pages/dashboardPage/DashboardPage";
 import PendingOrders from "./pages/pendingOrdersPage/PendingOrders";
-import ActiveOrders from "./pages/activeOrdersPage/activeOrdersPage";
+import ActiveOrders from "./pages/activeOrdersPage/ActiveOrdersPage";
 import OrderDetails from "./components/orderDetails/OrderDetails";
-import "./App.css";
 import OrderHistoryPage from "./pages/orderHistoryPage/OrderHistoryPage";
 import ResetCurrentOrder from "./utils/ResetCurrentOrder";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Feedback from "./components/feedback/Feedback";
+import "./app.css";
 
 function App() {
   return (

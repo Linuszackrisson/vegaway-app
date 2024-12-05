@@ -1,5 +1,5 @@
 // src/components/loginButton/LoginButton.tsx
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import useAuthStore from '../../store/useLoggedInStore'; // Import the Zustand store
 import Icon from '../icon/Icon'; // Import the Icon component
 

@@ -1,12 +1,11 @@
 // src/components/EditOrder/EditOrder.tsx
 import React, { useEffect, useRef, useState } from "react";
-import "./EditOrder.css";
 import CartProductCard from "../cartProductCard/CartProductCard";
 import { useCurrentOrderStore } from "../../store/useCurrentOrderStore";
 import { MenuItem } from "../../api/menuApi";
 import { updateOrder } from "../../api/updateOrder";
 import { useFeedbackStore } from "../../store/useFeedbackStore";
-
+import "./editOrder.css";
 interface EditOrderProps {
   onClose: () => void;
 }
@@ -64,7 +63,7 @@ const EditOrder: React.FC<EditOrderProps> = ({ onClose }) => {
   return (
     <div className="edit-order">
       <div className="edit-order__overlay" onClick={onClose}></div>
-      <div className="edit-order__content" ref={contentRef}>
+      <div className="edit-order__content wrapper" ref={contentRef}>
         <button
           className="edit-order__update-button"
           onClick={handleUpdateOrder}

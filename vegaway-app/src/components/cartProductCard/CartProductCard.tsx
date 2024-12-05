@@ -5,7 +5,7 @@ import { useCartStore } from '../../store/cartStore';
 import { useNavigate } from 'react-router-dom';
 import { useCurrentOrderStore } from '../../store/useCurrentOrderStore';
 import Icon from '../icon/Icon';
-import './CartProductCard.css';
+import "./cartProductCard.css";
 
 interface CartProductCardProps {
   item: MenuItem;
