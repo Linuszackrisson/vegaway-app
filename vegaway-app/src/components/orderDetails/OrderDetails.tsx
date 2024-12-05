@@ -113,7 +113,7 @@ const OrderDetails: React.FC = () => {
 	});
 
 	return (
-		<div className="order-details wrapper">
+		<div className="order-details wrapper px-1">
 			<h2 className="order-details__title">
 				{orderDetails.orderId.charAt(0).toUpperCase() + orderDetails.orderId.slice(1)}
 			</h2>
@@ -135,7 +135,7 @@ const OrderDetails: React.FC = () => {
 
 				return null; // In case no item was found for this menuId
 			})}
-			<button className="order-details__update-button" onClick={handleUpdateOrder}>
+			<button className="button button--second order-details__update-button" onClick={handleUpdateOrder}>
 				Update Order
 			</button>
 		</div>
