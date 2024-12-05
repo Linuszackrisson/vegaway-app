@@ -4,6 +4,7 @@
 - Add the following key/values pairs to `.env` (replace ... with correct values):
 
   - `VITE_APP_URL` - http://localhost:5174/
+  - `VITE_API_KEY` - (Request the key)
   - `VITE_INVOKE_URL` - ...
   - `VITE_COGNITO_DOMAIN` - ...
   - `VITE_COGNITO_REDIRECT_URI` - http://localhost:5174/callback
