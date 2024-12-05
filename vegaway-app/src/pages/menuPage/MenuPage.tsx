@@ -39,8 +39,9 @@ export default MenuPage;
 
 /**
  * Författare Linus
- * Implementerat en menyvisning som hämtar och grupperar menyobjekt
- * baserat på kategori och visar dem med hjälp av ProductSlider-komponenten.
+ * MenuPage, visar alla produkter i menyerna.
+ * Byggd enligt skiss.
+ * Använder ProductSlider för att visa produkterna i varje meny.
  * 
  * Uppdaterad Jacob
  * förenklat dataflöte

@@ -61,8 +61,9 @@ export default ContactPage;
 
 /**
  * Författare Linus
- * Boiler plate code and folder structure. Samt innehåll.
- * Uppdaterad: 2024-12-04 med global och responsiv styling
- *
- * Uppdaterad: 2024-12-05 med responsiv styling och rework.
+ * Kontakt-sida, visar vår vision och hur man kan kontakta oss.
+ * Innehållet kan vara något fiktivt. 
+ * Byggd enligt skiss. Spenderade på tok för mycket tid här.
+ * Implementerade form för att kunna skicka meddelanden. (Som inte fungerar)
+* Uppdaterad Jacob: 2024-12-05 med responsiv styling och rework.
  */
