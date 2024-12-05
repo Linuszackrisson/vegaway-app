@@ -60,7 +60,7 @@ function App() {
             path="/pending-orders/:orderId"
             element={
               <ProtectedRoute>
-                <OrderDetails />
+                <OrderDetails isActiveOrder={false} />
               </ProtectedRoute>
             }
           />
@@ -69,6 +69,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <ActiveOrders />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/active-orders/:orderId"
+            element={
+              <ProtectedRoute>
+                <OrderDetails isActiveOrder={true} />
               </ProtectedRoute>
             }
           />
