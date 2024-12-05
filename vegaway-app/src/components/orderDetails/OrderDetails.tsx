@@ -153,12 +153,15 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ isActiveOrder }) => {
 
         return null; // In case no item was found for this menuId
       })}
-      <button
-        className="order-details__update-button"
-        onClick={handleUpdateOrder}
-      >
-        Update Order
-      </button>
+      {/* Render the Update Order button only when isActiveOrder is false */}
+      {!isActiveOrder && (
+        <button
+          className="order-details__update-button"
+          onClick={handleUpdateOrder}
+        >
+          Update Order
+        </button>
+      )}
     </div>
   );
 };
