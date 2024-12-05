@@ -36,5 +36,6 @@ export default CartPage;
 /* Författare Linus
  * Hela komponenten ink alla funktioner och styling, nu ska det fungera som väntat.
  * Implementerade total price och total items.
- *
  */
+
+
