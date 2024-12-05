@@ -122,3 +122,9 @@ Uppdatering: Isak
 
 Renderar feedback komponent här för enkel åtkomst. Komponenten sköter logiken för om den ska visas själv
 */
+
+/* 
+Uppdatering: Isak
+
+Använder store funktion i useEffect för att checka om en användare är inloggad varje gång App mountar
+*/
