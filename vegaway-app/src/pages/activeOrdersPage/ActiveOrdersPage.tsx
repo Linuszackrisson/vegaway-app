@@ -12,6 +12,7 @@ const ActiveOrders: React.FC = () => {
       try {
         const result = await fetchOrders("true");
         setPendingOrders(result.orders);
+        console.log(error);
       } catch (err) {
         setError("Kunde inte hämta ordrar.");
       }
