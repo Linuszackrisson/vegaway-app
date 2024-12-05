@@ -6,7 +6,8 @@ import "./cartPage.css";
 function CartPage() {
 	const cartItems = useCartStore(state => state.items);
 	const uniqueCartItems = Array.from(new Map(cartItems.map(item => [item.menuId, item])).values());
-
+	const totalPrice = useCartStore(state => state.getTotalPrice()).toFixed(2);
+	
 	return (
 		<div className="cartpage wrapper px-1">
 			<h1 className="cartpage__title">Your Cart</h1>
@@ -21,6 +22,9 @@ function CartPage() {
 							<CartProductCard key={item.menuId} item={{ ...item, count: itemCount } as MenuItem & { count: number }} />
 						);
 					})}
+					<div className="cartpage__total-price">
+						<h2>Total price: ${totalPrice}</h2>
+					</div>
 				</div>
 			)}
 		</div>
@@ -31,5 +35,6 @@ export default CartPage;
 
 /* Författare Linus
  * Hela komponenten ink alla funktioner och styling, nu ska det fungera som väntat.
+ * Implementerade total price och total items.
  *
  */
