@@ -73,14 +73,14 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ title, items }) => {
 
 	return (
 		<div className="product-slider">
-			<div className="titleToggle-box">
+			<div className="titleToggle-box px-2">
 				<h2 className="product-slider__title">{title}</h2>
 				<button className="filter-button button__third" onClick={filterByPrice}>
 					{renderSortIcon()}
 				</button>
 			</div>
-			<ul className="product-slider__list">
-				{filteredItems.map((item) => (
+			<ul className="product-slider__list px-2">
+				{filteredItems.map(item => (
 					<ProductCard key={item.menuId} item={item} />
 				))}
 			</ul>
