@@ -51,7 +51,7 @@
 
 .cart-product-card__price {
     font-weight: var(--font-weight-semibold);
-
+    align-self: flex-start;
 }
 
 .cart-product-card__info-button {
