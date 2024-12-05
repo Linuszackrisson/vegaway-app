@@ -188,9 +188,9 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 #### Torsdag (2024-12-05)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |                 order-conformatin rework, name changes             |      avsluta gårdagen, ändra slider item antal. med mer.  Show-total-price.                |  Nej.                       |
+| Isak       |                    CSP research. Skapat domain i route-53, SSL-certifikat via ACN. Hostad sidan i S3. Cloudfrount disruption. DNS config i route-53          |             Implementera CSP i s3.           |     Nej.                    |
+| Jacob      |               Responsivitet layout fix över hela sidan, implementerade globala variabler CSS.               |     CSS-fix och finslip.                   |     Nej.                    |
 
 ### Sprint Review (Fredag)
 - **Resultat**:
