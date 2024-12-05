@@ -1,12 +1,11 @@
 // src/components/OrderHistory/OrderHistory.tsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./OrderHistory.css";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Order } from "../../api/utils/orderInterface";
 import { useCurrentOrderStore } from "../../store/useCurrentOrderStore";
 import { MenuItem } from "../../api/menuApi";
-
+import "./orderHistory.css";
 interface OrderHistoryProps {
   order: Order;
 }

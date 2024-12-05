@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { fetchOrders } from "../../api/ordersStaff";
 import { Link } from "react-router-dom";
-import "./PendingOrders.css";
 import { confirmOrder } from "../../api/confirmOrderStaff";
 import { OrderIdAndNote } from "../../api/confirmOrderStaff";
 import { validateNote } from "../../utils/joi";
 import { useFeedbackStore } from "../../store/useFeedbackStore";
+import "./pendingOrders.css";
+
 
 const PendingOrders: React.FC = () => {
   const [pendingOrders, setPendingOrders] = useState<any[]>([]);

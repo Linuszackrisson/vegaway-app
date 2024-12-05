@@ -1,7 +1,7 @@
 // StaffDashboardPage.tsx
 import { Link } from "react-router-dom";
 import { Clock, Activity, Box, Edit } from "lucide-react";
-import "./DashboardPage.css";
+import "./dashboardPage.css";
 
 const DashboardPage: React.FC = () => {
 	return (

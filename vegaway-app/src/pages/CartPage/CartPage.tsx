@@ -1,9 +1,8 @@
 import { useCartStore } from '../../store/cartStore';
-import './CartPage.css';
 import CartProductCard from '../../components/cartProductCard/CartProductCard';
 import { MenuItem } from '../../api/menuApi';
 import Underline_06 from '../../assets/Underline_06.svg';
-
+import "./cartPage.css";
 function CartPage() {
 	const cartItems = useCartStore(state => state.items);
 	const uniqueCartItems = Array.from(new Map(cartItems.map(item => [item.menuId, item])).values());

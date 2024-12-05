@@ -1,12 +1,13 @@
 // src/pages/OrderConfirmationPage/OrderConfirmationPage.tsx
 import React, { useState, useEffect } from "react";
-import "./OrderConfirmationPage.css";
 import { RefreshCw } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { refreshStatus } from "../../api/refreshStatus";
 import EditOrder from "../../components/editOrder/EditOrder";
 import Underline_06 from "../../assets/Underline_06.svg";
 import { useCurrentOrderStore } from "../../store/useCurrentOrderStore";
+import "./orderConfirmationPage.css";
+
 
 const OrderConfirmationPage: React.FC = () => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);

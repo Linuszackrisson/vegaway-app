@@ -6,7 +6,7 @@ import LoginButton from '../loginButton/LoginButton';
 import SliderMenu from '../sliderMenu/SliderMenu';
 import useLoggedInStore from '../../store/useLoggedInStore';
 import Logo from '../../assets/logo.svg';
-import './Header.css';
+import './header.css';
 
 const Header: React.FC = () => {
 	const { updateLoginState } = useLoggedInStore();

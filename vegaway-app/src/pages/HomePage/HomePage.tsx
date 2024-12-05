@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './HomePage.css';
 import { fetchMenuItems, MenuItem } from '../../api/menuApi';
 import ProductSlider from '../../components/productSlider/ProductSlider';
 import { Instagram, ChevronRight } from 'lucide-react';
@@ -7,7 +6,7 @@ import likeIcon from '../../assets/like.svg';
 import newIcon from '../../assets/new.svg';
 import aboutPink from '../../assets/pink-about.svg';
 import { Link } from 'react-router-dom';
-
+import "./homePage.css";
 function HomePage() {
 	const [featuredProducts, setFeaturedProducts] = useState<MenuItem[]>([]);
 

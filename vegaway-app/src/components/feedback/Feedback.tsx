@@ -1,5 +1,5 @@
 import { useFeedbackStore } from "../../store/useFeedbackStore";
-import "./Feedback.css"; // You can style the component here
+import "./feedback.css"; // You can style the component here
 
 const Feedback: React.FC = ({}) => {
   // Access the store's state and actions

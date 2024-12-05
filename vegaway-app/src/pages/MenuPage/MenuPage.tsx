@@ -1,8 +1,8 @@
 // src/pages/MenuPage/MenuPage.tsx
 import { useEffect, useState } from "react";
 import { fetchMenuItems, MenuItem } from "../../api/menuApi";
-import "./MenuPage.css";
 import ProductSlider from "../../components/productSlider/ProductSlider";
+import "./menuPage.css";
 
 function MenuPage() {
 	const [menuItems, setMenuItems] = useState<MenuItem[]>([]);

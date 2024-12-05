@@ -5,7 +5,7 @@ import { fetchMenuItems, MenuItem } from '../../api/menuApi';
 import { useCartStore } from '../../store/cartStore';
 import ProductSlider from '../../components/productSlider/ProductSlider';
 import Icon from '../../components/icon/Icon';
-import './ProductPage.css';
+import './productPage.css';
 
 const ProductPage: React.FC = () => {
 	const { id } = useParams<{ id: string }>();
