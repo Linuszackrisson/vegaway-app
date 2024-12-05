@@ -151,8 +151,8 @@ const CartProductCard: React.FC<CartProductCardProps> = ({
 export default CartProductCard;
 
 /* Författare Linus
- *  Hela komponenten, nu ska det sänka och höja som väntat och se ut enligt skiss.
-/
+ *  Produktkortet i varukorgen, implemeneterade funktioner för att fungera tillsammans med cartstore.
+ * Html och css för att se ut enligt skiss.
 Uppdatering: Isak
 Använder funktioner villkorligt beroende på props som skickas med till denna komponent.
 /

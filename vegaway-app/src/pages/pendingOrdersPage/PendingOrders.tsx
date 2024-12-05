@@ -119,7 +119,11 @@ const PendingOrders: React.FC = () => {
 export default PendingOrders;
 
 /* Författare: Linus
- * Denna filen hanterar pending orders och innehåller funktioner för att hantera ordrar.
+ * PendingOrders, visar alla pending orders.
+ * Byggd enligt skiss.
+ * Använder OrderDetails för att visa ordern i detalj.
+ * Möjligt att skriva en note till chefen.
+ * Möjliggör att navigera till OrderDetails med view full order.
  */
 
 /* 

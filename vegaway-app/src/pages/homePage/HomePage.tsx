@@ -53,12 +53,10 @@ export default HomePage;
 
 /**
  * Författare Linus
- * Importerar befintlig ProductSlider
- * All ovanstående kod + css.
- * Hämtar featured produkter från menuApi
- * Fantastisk med snygg design, men en mardröm att implementera.
- * OBS! Filtreringsknapp skall vara en go-to menu istället, skapar issue för detta separata ärende.
- *
- * Uppdatering Linus : 05/12/2024
+ * Huvudsidan, visar featured produkter och en knapp till kontakt-sida.
+ * Byggd enligt skiss.
  * Ändrade funktionen för att hämta featured produkter, så att den hämtar 6 produkter istället för 5.
+ * Navigerar till kontakt-sida med en knapp.
+ * 
+ * Uppdaterad Jacob: 2024-12-05 med responsiv styling och finslipning.
  */

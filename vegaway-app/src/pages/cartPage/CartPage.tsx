@@ -34,8 +34,11 @@ function CartPage() {
 export default CartPage;
 
 /* Författare Linus
- * Hela komponenten ink alla funktioner och styling, nu ska det fungera som väntat.
- * Implementerade total price och total items.
+ * CartPage, visar varukorgen och totalpriset.
+ * Byggd enligt skiss.
+ * Implementerar CartProductCard för att visa varje produkt i varukorgen.	
+ * Implemterade funktionen för att visa totalpriset med hjälp av CartStore.
+ * Visar meddelande om tom varukorg.
  */
 
 
