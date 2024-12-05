@@ -3,7 +3,6 @@ import { fetchOrders } from "../../api/ordersStaff";
 import { Link } from "react-router-dom";
 import "./activeOrderspage.css";
 
-
 const ActiveOrders: React.FC = () => {
   const [pendingOrders, setPendingOrders] = useState<any[]>([]);
   const [error, setError] = useState("");
@@ -21,8 +20,6 @@ const ActiveOrders: React.FC = () => {
     getPendingOrders();
   }, []);
 
-
-
   return (
     <div className="active-orders wrapper px-1">
       {pendingOrders.length === 0 ? (
@@ -36,7 +33,7 @@ const ActiveOrders: React.FC = () => {
                   `${order.orderId}`.slice(1)}
               </h2>
               <Link
-                to={`/pending-orders/${order.orderId}`}
+                to={`/active-orders/${order.orderId}`}
                 state={{ order }}
                 className="view-edit"
               >
@@ -44,15 +41,13 @@ const ActiveOrders: React.FC = () => {
               </Link>
               <div className="chef-note-container">
                 <p>Note to chef:</p>
-                <p>{order.note}</p></div>
-              
-              
+                <p>{order.note}</p>
+              </div>
             </div>
           ))}
         </div>
       )}
     </div>
-    
   );
 };
 
@@ -62,6 +57,3 @@ export default ActiveOrders;
  * Denna filen hanterar färdiga ordrar för kocken
  * Uppdaterad: 2024-12-04 med global och responsiv styling
  */
-
-
-
