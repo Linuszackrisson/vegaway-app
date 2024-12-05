@@ -1,8 +1,6 @@
 .kontaktLink {
     left: 0;
     flex: 1;
-    
-    
 }
 
 .kontaktLink img {
@@ -23,23 +21,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 }
 
 .contact-page-title-container {
     padding-left: clamp(.5rem, 3vw, 4rem);
-    flex: 1;
-    height: 100%;
-
+    flex: 2;
 }
+
+.contact {
+    padding-top: .5rem;
+    padding-bottom: 3.5rem;
+}
+
 .contact-page p, h1, h2  {
     margin: 1rem 0;
+}
+
+.contact-page__title-contact {
+    margin-bottom: 1.5rem;
 }
 
 @media (max-width: 568px) {
     .contact-page-hero {
         flex-direction: column-reverse;
-           
     }
 
     .contact-page-title-container  {

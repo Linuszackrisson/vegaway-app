@@ -1,12 +1,16 @@
 /* src/pages/OrderConfirmationPage/OrderConfirmationPage.css */
 .order-confirmation {
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.order-confirmation__title {
-    font-size: 24px;
-    margin-bottom: 10px;
+.order-confirmation__content {
+    max-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .order-confirmation__image {
@@ -16,17 +20,33 @@
 }
 
 .order-confirmation__message {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.order-confirmation__refresh-button {
-    display: inline-flex;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
     align-items: center;
-    cursor: pointer;
-    font-size: 16px;
+    justify-content: center;
+    background-color: var(--color-card-background);
+    border: 1px solid var(--color-text);
+    box-shadow: var(--box-shadow);
+    line-height: normal;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 4px;
+    transform: rotate(1.006deg);
+    z-index: 99;
 }
 
-.order-confirmation__refresh-button svg {
-    margin-right: 8px;
+.order-confirmation__message-2 {
+    transform: rotate(-.2deg);
+}
+
+.order-confirmation__refresh {
+    margin: .7rem 0 0 ;
+}
+
+.star-illustration {
+    position: absolute;
+    z-index: 1;
+    width: 90%;
+    max-width: 40rem;
 }
