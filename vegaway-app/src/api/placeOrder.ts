@@ -5,7 +5,7 @@ import { useCurrentOrderStore } from "../store/useCurrentOrderStore";
 import { useFeedbackStore } from "../store/useFeedbackStore";
 
 const invokeUrl = import.meta.env.VITE_INVOKE_URL;
-const API_KEY = "MY_API_KEY";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export interface Order {
   customerEmail: string;

@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useFeedbackStore } from "../store/useFeedbackStore";
+import { useCurrentOrderStore } from "../store/useCurrentOrderStore";
 
 const invokeUrl = import.meta.env.VITE_INVOKE_URL;
-const API_KEY = "MY_API_KEY";
-import { useCurrentOrderStore } from "../store/useCurrentOrderStore";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 // Get the setter functions from Zustand store
 const { setMessage, setVisibility } = useFeedbackStore.getState();
