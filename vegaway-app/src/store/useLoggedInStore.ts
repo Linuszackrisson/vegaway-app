@@ -32,6 +32,12 @@ const useLoggedInStore = create<AuthState>((set) => ({
       }
     }
 
+    // If the token is invalid, remove tokens from localStorage
+    if (!isValid) {
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("id_token");
+    }
+
     set({ isLoggedIn: isValid });
   },
 }));
