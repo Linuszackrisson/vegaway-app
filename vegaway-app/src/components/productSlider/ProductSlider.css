@@ -7,7 +7,6 @@
 .titleToggle-box {
     display: flex;
     justify-content: space-between;
-    padding: 0 5px 0 14px;
     height: auto;
 }
 
@@ -23,7 +22,6 @@
 
 .product-slider__list {
     margin: 7px auto 12px;
-    padding: 0 14px;
     display: flex;
     overflow-x: auto;
     gap: 11px;
@@ -35,24 +33,19 @@
 }
 
 .product-card {
-    flex: 0 0 clamp(290px, 70%, 350px);
+    flex: 0 0 clamp(340px, 70%, 350px);
     scroll-snap-align: start;
 }
 
-@media (min-width: 650px) {
+@media (min-width: 790px) {
     .product-slider__list {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        padding: 0 24px;
-        gap: 11px;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: .8rem;
         overflow: visible;
     }
 
     .product-card {
         flex: unset;
-    }
-
-    .titleToggle-box {
-        padding: 0 18px 0 24px;
     }
 }

@@ -14,7 +14,7 @@
 .product-card__image-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 3 / 1;
+    aspect-ratio: 4 / 1;
     overflow: hidden;
     border-bottom: 1px solid var(--color-text);
 }
@@ -58,16 +58,8 @@
 }
 
 .product-card__info-button {
-    background: none;
-    border: none;
     text-decoration: underline;
-    cursor: pointer;
     display: flex;
     align-self: flex-start;
     margin-top: auto;
-}
-
-.product-card__info-button .icon {
-    margin-left: 0.25rem;
-    /* Justera värdet efter behov */
 }

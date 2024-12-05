@@ -1,10 +1,9 @@
-/* src/components/header/Header.css */
-
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
+    height: var(--header-size);
+    margin: 0;
 }
 
 .header__left,
@@ -14,7 +13,9 @@
 }
 
 .logo {
-    width: clamp(5rem, 8vw, 7rem);
+    margin: .7em 0 0 .5rem;
+    width: clamp(4rem, 12vw, 6.5rem);
+
 }
 
 .back-button,
