@@ -5,14 +5,8 @@ import "./contactPage.css";
 function ContactPage() {
   return (
 		<div className="contact-page wrapper">
-			<a className="kontaktLink" href="#kontaktForm">
-				<img
-					src={AboutGroup}
-					alt="About Vegaway"
-					className="about-group-icon"
-				/>
-			</a>
-			<div className="contact-container-page px-1">
+			<div className="contact-page-hero">
+			<div className="contact-page-title-container">
 				<h1 className="contact-page__title">About Vegaway</h1>
 
 				<p className="contact-page__description first-paragraph-contact">
@@ -27,6 +21,24 @@ function ContactPage() {
 					deliveries in Malmö, the company quickly gained popularity for its
 					high-quality, eco-friendly approach.
 				</p>
+			</div>
+			<a className="kontaktLink" href="#kontaktForm">
+				<img
+					src={AboutGroup}
+					alt="About Vegaway"
+					className="about-group-icon"
+				/>
+			</a>
+
+
+
+			</div>
+			
+			<div className="contact-container-page px-1">
+				
+				
+			
+				
 				<h2 className="contact-page__title">Our vision</h2>
 
 				<p className="contact-page__description">
