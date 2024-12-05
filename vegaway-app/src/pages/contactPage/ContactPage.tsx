@@ -5,14 +5,8 @@ import "./contactPage.css";
 function ContactPage() {
   return (
 		<div className="contact-page wrapper">
-			<a className="kontaktLink" href="#kontaktForm">
-				<img
-					src={AboutGroup}
-					alt="About Vegaway"
-					className="about-group-icon"
-				/>
-			</a>
-			<div className="contact-container-page px-1">
+			<div className="contact-page-hero">
+			<div className="contact-page-title-container">
 				<h1 className="contact-page__title">About Vegaway</h1>
 
 				<p className="contact-page__description first-paragraph-contact">
@@ -27,6 +21,24 @@ function ContactPage() {
 					deliveries in Malmö, the company quickly gained popularity for its
 					high-quality, eco-friendly approach.
 				</p>
+			</div>
+			<a className="kontaktLink" href="#kontaktForm">
+				<img
+					src={AboutGroup}
+					alt="About Vegaway"
+					className="about-group-icon"
+				/>
+			</a>
+
+
+
+			</div>
+			
+			<div className="contact-container-page px-1">
+				
+				
+			
+				
 				<h2 className="contact-page__title">Our vision</h2>
 
 				<p className="contact-page__description">
@@ -50,7 +62,7 @@ function ContactPage() {
 					></textarea>
 					<button type="submit" className="button button--second contact-page__button">
 						<Icon name="Navigation" className="button__icon" />
-						<p className="button_p">Send</p>
+						<span className="button__text">Send</span>
 						<Icon name="ChevronRight" className="button__icon" />
 
 					</button>
@@ -66,4 +78,6 @@ export default ContactPage
  * Författare Linus
  * Boiler plate code and folder structure. Samt innehåll. 
  * Uppdaterad: 2024-12-04 med global och responsiv styling
+ * 
+ * Uppdaterad: 2024-12-05 med responsiv styling och rework.
  */
