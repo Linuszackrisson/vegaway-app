@@ -62,7 +62,7 @@ function ContactPage() {
 					></textarea>
 					<button type="submit" className="button button--second contact-page__button">
 						<Icon name="Navigation" className="button__icon" />
-						<p className="button_p">Send</p>
+						<span className="button__text">Send</span>
 						<Icon name="ChevronRight" className="button__icon" />
 
 					</button>
