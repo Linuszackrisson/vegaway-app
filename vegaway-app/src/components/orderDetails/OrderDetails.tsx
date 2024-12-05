@@ -8,6 +8,7 @@ import { updateOrder } from "../../api/updateOrderStaff";
 import { MenuItem } from "../../api/menuApi";
 import "./orderDetails.css";
 
+
 interface OrderDetailsProps {
   isActiveOrder: boolean; // Optional prop
 }
@@ -125,7 +126,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ isActiveOrder }) => {
   });
 
   return (
-    <div className="order-details wrapper">
+    <div className="order-details wrapper px-1">
       <h2 className="order-details__title">
         {orderDetails.orderId.charAt(0).toUpperCase() +
           orderDetails.orderId.slice(1)}
@@ -156,7 +157,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ isActiveOrder }) => {
       {/* Render the Update Order button only when isActiveOrder is false */}
       {!isActiveOrder && (
         <button
-          className="order-details__update-button"
+          className="button button--second order-details__update-button"
           onClick={handleUpdateOrder}
         >
           Update Order
