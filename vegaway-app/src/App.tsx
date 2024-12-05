@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/homePage/HomePage";
 import ContactPage from "./pages/contactPage/ContactPage";
@@ -17,9 +18,17 @@ import OrderHistoryPage from "./pages/orderHistoryPage/OrderHistoryPage";
 import ResetCurrentOrder from "./utils/ResetCurrentOrder";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Feedback from "./components/feedback/Feedback";
+import useLoggedInStore from "./store/useLoggedInStore";
 import "./app.css";
 
 function App() {
+  const updateLoginState = useLoggedInStore((state) => state.updateLoginState);
+
+  // Use useEffect to check login status when the component mounts. Tokens are removed from local storage if no user is logged in
+  useEffect(() => {
+    updateLoginState();
+  }, [updateLoginState]);
+
   return (
     <Router>
       <Header />
