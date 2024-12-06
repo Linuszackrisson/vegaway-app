@@ -14,7 +14,7 @@ const OrderHistory: React.FC<OrderHistoryProps> = ({ order }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const setOrder = useCurrentOrderStore((state) => state.setOrder);
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   // Map isConfirmed to status
   const status = order.isConfirmed === "true" ? "Confirmed" : "Active";
@@ -105,3 +105,15 @@ const OrderHistory: React.FC<OrderHistoryProps> = ({ order }) => {
 };
 
 export default OrderHistory;
+
+/* 
+Författare: Jacob
+
+Skapat boilerplate och preppat inför funktionalitet
+*/
+
+/* 
+Uppdatering: Isak
+
+Implementerar handle click för att sätta current order baserat på klickad order, samt navigering till order-confirmation som renderar content baserat på current order state.
+*/
