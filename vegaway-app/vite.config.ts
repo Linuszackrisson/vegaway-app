@@ -7,4 +7,7 @@ export default defineConfig({
   server: {
     port: 5174,
   },
+  build: {
+    assetsInlineLimit: 0, // Disable inlining of assets (including SVGs)
+  },
 });
