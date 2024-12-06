@@ -398,6 +398,12 @@ button {
   box-shadow: var(--box-shadow);
 }
 
+.order-card__bundled {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
 /* Illustration positionerad till höger */
 .illustration-right {
   position: absolute;
