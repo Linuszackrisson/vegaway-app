@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/homePage/HomePage";
 import ContactPage from "./pages/contactPage/ContactPage";
@@ -18,17 +17,10 @@ import OrderHistoryPage from "./pages/orderHistoryPage/OrderHistoryPage";
 import ResetCurrentOrder from "./utils/ResetCurrentOrder";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Feedback from "./components/feedback/Feedback";
-import useLoggedInStore from "./store/useLoggedInStore";
+import LocationWatcher from "./utils/LocationWatcher";
 import "./app.css";
 
 function App() {
-  const updateLoginState = useLoggedInStore((state) => state.updateLoginState);
-
-  // Use useEffect to check login status when the component mounts. Tokens are removed from local storage if no user is logged in
-  useEffect(() => {
-    updateLoginState();
-  }, [updateLoginState]);
-
   return (
     <Router>
       <Header />
@@ -94,6 +86,7 @@ function App() {
       <CartButton />
 
       <Feedback /* Component that conditionally displays feedback message */ />
+      <LocationWatcher /* Component that checks if the user is logged in */ />
     </Router>
   );
 }
@@ -126,5 +119,5 @@ Renderar feedback komponent här för enkel åtkomst. Komponenten sköter logike
 /* 
 Uppdatering: Isak
 
-Använder store funktion i useEffect för att checka om en användare är inloggad varje gång App mountar
+Renderar komponent som kollar om användare är inloggad samt updaterar useLoggedInStore
 */
