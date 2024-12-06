@@ -33,6 +33,7 @@ const ActiveOrders: React.FC = () => {
                 {`${order.orderId}`.charAt(0).toUpperCase() +
                   `${order.orderId}`.slice(1)}
               </h2>
+              <p>{order.customerEmail}</p>
               <Link
                 to={`/active-orders/${order.orderId}`}
                 state={{ order }}
