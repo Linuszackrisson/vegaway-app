@@ -7,7 +7,6 @@ import { validateNote } from "../../utils/joi";
 import { useFeedbackStore } from "../../store/useFeedbackStore";
 import "./pendingOrders.css";
 
-
 const PendingOrders: React.FC = () => {
   const [pendingOrders, setPendingOrders] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -87,6 +86,7 @@ const PendingOrders: React.FC = () => {
                 {`${order.orderId}`.charAt(0).toUpperCase() +
                   `${order.orderId}`.slice(1)}
               </h2>
+              <p>{order.customerEmail}</p>
               <Link
                 to={`/pending-orders/${order.orderId}`}
                 state={{ order }}
