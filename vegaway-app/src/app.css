@@ -141,6 +141,7 @@ h1 {
 h2 {
   font-size: var(--font-size-h2);
   font-weight: var(--font-weight-medium);
+  margin: 0;
 }
 
 h3 {
