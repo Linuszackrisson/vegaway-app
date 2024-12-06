@@ -29,11 +29,14 @@ const ActiveOrders: React.FC = () => {
         <div className="order-cards">
           {pendingOrders.map((order) => (
             <div className="order-card card" key={order.orderId}>
-              <h2>
-                {`${order.orderId}`.charAt(0).toUpperCase() +
-                  `${order.orderId}`.slice(1)}
-              </h2>
-              <p>{order.customerEmail}</p>
+              <div className="order-card__bundled">
+                <h2>
+                  {`${order.orderId}`.charAt(0).toUpperCase() +
+                    `${order.orderId}`.slice(1)}
+                </h2>
+                <p>{order.customerEmail}</p>
+              </div>
+
               <Link
                 to={`/active-orders/${order.orderId}`}
                 state={{ order }}
