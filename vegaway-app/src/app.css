@@ -399,9 +399,15 @@ button {
 }
 
 .order-card__bundled {
+  /* Används i active och pending orders */
   display: flex;
   flex-direction: column;
   margin-bottom: 0.5rem;
+}
+
+.order-card__bundled p {
+  /* Används i active och pending orders */
+  margin-top: -0.25rem;
 }
 
 /* Illustration positionerad till höger */
