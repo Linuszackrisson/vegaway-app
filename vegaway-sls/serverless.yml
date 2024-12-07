@@ -34,6 +34,6 @@ resources:
     AuthUserRole: ${file(./YAML/resources/auth-user-role.yml)}
     CognitoIdentityPoolRoleAttachment: ${file(./YAML/resources/cognito-identity-pool-role-attachment.yml)}
 #
-# Författare: Isak
+# Författare (för hela serverless repot): Isak
 #
 # Entry point för yml kod. Importerar konfigureringar för att hålla huvudfilen clean
