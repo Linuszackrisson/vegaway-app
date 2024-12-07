@@ -10,3 +10,8 @@ const GetOrderHistoryBtn = () => {
 };
 
 export default GetOrderHistoryBtn;
+
+/* Författare: Isak
+ *
+ * Testknappt för att hämta order historik
+ */

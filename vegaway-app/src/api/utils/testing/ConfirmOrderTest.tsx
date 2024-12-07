@@ -18,8 +18,7 @@ const ConfirmOrderButton: React.FC = () => {
 
 export default ConfirmOrderButton;
 
-/* 
-Författare: Isak
-
-Test-knapp för att markera en order som behandlad.
-*/
+/* Författare: Isak
+ *
+ * Test-knapp för att markera en order som behandlad.
+ */
