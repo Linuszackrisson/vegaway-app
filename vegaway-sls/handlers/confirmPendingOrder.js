@@ -52,21 +52,18 @@ module.exports.handler = middy(async (event) => {
   .use(errorHandler())
   .use(validateStaff());
 
-/* 
-Författare: Isak
+/* Författare: Isak
+ *
+ * Handler som tar emot en order och markerar den som behandlad.
+ * Handlern förväntar sig ett värde för "orderId" i request body.
+ */
 
-Handler som tar emot en order och markerar den som behandlad.
-Handlern förväntar sig ett värde för "orderId" i request body. 
-*/
+/* Uppdatering: Isak
+ *
+ * Extraherar note från request bodyn. Om ingen note finns med används ett default value. orderNote skickas sedan med i ordern när den blir confirmad.
+ */
 
-/* 
-Uppdatering: Isak
-
-Extraherar note från request bodyn. Om ingen note finns med används ett default value. orderNote skickas sedan med i ordern när den blir confirmad.
-*/
-
-/* 
-Uppdatering: Isak
-
-La till staff middleware validering
-*/
+/* Uppdatering: Isak
+ *
+ * La till staff middleware validering
+ */

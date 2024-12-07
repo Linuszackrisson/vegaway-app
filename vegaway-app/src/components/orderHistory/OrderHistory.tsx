@@ -106,14 +106,12 @@ const OrderHistory: React.FC<OrderHistoryProps> = ({ order }) => {
 
 export default OrderHistory;
 
-/* 
-Författare: Jacob
+/* Författare: Jacob
+ *
+ * Skapat boilerplate och preppat inför funktionalitet
+ */
 
-Skapat boilerplate och preppat inför funktionalitet
-*/
-
-/* 
-Uppdatering: Isak
-
-Implementerar handle click för att sätta current order baserat på klickad order, samt navigering till order-confirmation som renderar content baserat på current order state.
-*/
+/* Uppdatering: Isak
+ *
+ * Implementerar handle click för att sätta current order baserat på klickad order, samt navigering till order-confirmation som renderar content baserat på current order state.
+ */

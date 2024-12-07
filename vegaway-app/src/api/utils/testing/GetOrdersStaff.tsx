@@ -20,3 +20,8 @@ const GetOrdersStaff = () => {
 };
 
 export default GetOrdersStaff;
+
+/* Författare: Isak
+ *
+ * Testknapp för att hämta ordrar som staff
+ */

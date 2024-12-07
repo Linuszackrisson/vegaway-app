@@ -47,16 +47,14 @@ export async function fetchOrders(
   }
 }
 
-/*
- * Författare: Isak
+/* Författare: Isak
  *
  * Api request som låter staff hämta orders baserat på isConfirmed på ordern i databasen.
  * Använd "true" som argument för att hämta active orders
  * Använd "false" som argument för att hämta pending orders
  */
 
-/* 
-Uppdatering: Isak
-
-Triggar feedback komponenten om användaren inte är inloggad
-*/
+/* Uppdatering: Isak
+ *
+ * Triggar feedback komponenten om användaren inte är inloggad
+ */

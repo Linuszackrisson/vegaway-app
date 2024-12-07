@@ -8,7 +8,6 @@ import { updateOrder } from "../../api/updateOrderStaff";
 import { MenuItem } from "../../api/menuApi";
 import "./orderDetails.css";
 
-
 interface OrderDetailsProps {
   isActiveOrder: boolean; // Optional prop
 }
@@ -170,14 +169,14 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ isActiveOrder }) => {
 export default OrderDetails;
 
 /* Författare: Linus
+ *
  * Sub-komponent till pendingOrders, visar ordern mer i detalj. Vid klick av View / Edit så navigeras man hit.
  * Listar alla produkter i ordern och visar i kortform.
  * Byggd enligt skiss.
  */
 
-/* 
-Uppdatering: Isak
-
-Lagt till knapp som gör ett api anrop med uppdaterad order.
-Implementerat funktionalitet för att låta CartProductCard uppdatera orderDetails.
-*/
+/* Uppdatering: Isak
+ *
+ * Lagt till knapp som gör ett api anrop med uppdaterad order.
+ * Implementerat funktionalitet för att låta CartProductCard uppdatera orderDetails.
+ */

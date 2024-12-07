@@ -28,7 +28,7 @@ module.exports.handler = middy(async (event) => {
   .use(validateKey())
   .use(errorHandler());
 
-/* 
-Författare isak
-Handler som hämtar meny från databasen
-*/
+/* Författare: Isak
+ *
+ * Handler som hämtar meny från databasen
+ */

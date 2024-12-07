@@ -50,20 +50,17 @@ export async function confirmOrder(order: OrderIdAndNote) {
   }
 }
 
-/* 
-Författare: Isak
+/* Författare: Isak
+ *
+ * Funktion confirmOrder låter personalen bekräfta en order
+ */
 
-Funktion confirmOrder låter personalen bekräfta en order
-*/
+/* Uppdatering: Isak
+ *
+ * Inkluderar id_token i request för att validera att användarkonto är staff
+ */
 
-/* 
-Uppdatering: Isak
-
-Inkluderar id_token i request för att validera att användarkonto är staff
-*/
-
-/* 
-Uppdatering: Isak
-
-Triggar feedback komponenten om användaren inte är inloggad
-*/
+/* Uppdatering: Isak
+ *
+ * Triggar feedback komponenten om användaren inte är inloggad
+ */

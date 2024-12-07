@@ -39,14 +39,12 @@ export async function fetchOrderHistory(): Promise<FetchOrdersResponse> {
   }
 }
 
-/*
- * Författare: Isak
+/* Författare: Isak
  *
  * Api request fil som hämtar en användares order history
  */
 
-/* 
-Uppdatering: Isak
-
-Triggar feedback komponenten om användaren inte är inloggad
-*/
+/* Uppdatering: Isak
+ *
+ * Triggar feedback komponenten om användaren inte är inloggad
+ */

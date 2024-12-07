@@ -46,7 +46,7 @@ module.exports.handler = middy(async (event) => {
   .use(errorHandler())
   .use(validateStaff());
 
-/* 
-Författare: Isak
-Handler för staff som hämtar beställningar från databasen baserat på isConfirmed
-*/
+/* Författare: Isak
+ *
+ * Handler för staff som hämtar beställningar från databasen baserat på isConfirmed
+ */

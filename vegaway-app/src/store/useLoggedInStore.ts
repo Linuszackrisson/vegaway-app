@@ -46,8 +46,7 @@ const useLoggedInStore = create<AuthState>((set) => ({
 
 export default useLoggedInStore;
 
-/* 
-Författare: Isak
-
-Zustand store för att hålla koll på om en användare är inloggad
-*/
+/* Författare: Isak
+ *
+ * Zustand store för att hålla koll på om en användare är inloggad
+ */

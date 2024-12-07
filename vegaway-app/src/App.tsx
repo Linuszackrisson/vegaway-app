@@ -94,30 +94,28 @@ function App() {
 export default App;
 
 /* Författare: Linus
+ *
  * Denna filen hanterar routningen av sidan och innehåller alla routes som finns i våran hemsida.
  * Jacob / Isak lagt till övriga routes.
  */
 
-/* 
-Uppdatering: Isak
-Wrappar routes i en komponent som återställer order state i useCurrentOrderStore då användaren inte befinner sig på route /order-confirmation
-*/
+/* Uppdatering: Isak
+ *
+ * Wrappar routes i en komponent som återställer order state i useCurrentOrderStore då användaren inte befinner sig på route /order-confirmation
+ */
 
-/*
-Uppdatering: Isak
+/* Uppdatering: Isak
+ *
+ * Skyddar staff routes från användare som inte är staff med hjälp av ProtectedRoute komponent.
+ * Extra validering finns även i backend som backup så ingen request i dessa routes går att göra om man inte är staff.
+ */
 
-Skyddar staff routes från användare som inte är staff med hjälp av ProtectedRoute komponent.
-Extra validering finns även i backend som backup så ingen request i dessa routes går att göra om man inte är staff.
-*/
+/* Uppdatering: Isak
+ *
+ * Renderar feedback komponent här för enkel åtkomst. Komponenten sköter logiken för om den ska visas själv
+ */
 
-/* 
-Uppdatering: Isak
-
-Renderar feedback komponent här för enkel åtkomst. Komponenten sköter logiken för om den ska visas själv
-*/
-
-/* 
-Uppdatering: Isak
-
-Renderar komponent som kollar om användare är inloggad samt updaterar useLoggedInStore
-*/
+/* Uppdatering: Isak
+ *
+ * Renderar komponent som kollar om användare är inloggad samt updaterar useLoggedInStore
+ */

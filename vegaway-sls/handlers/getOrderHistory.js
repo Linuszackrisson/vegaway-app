@@ -60,3 +60,8 @@ module.exports.handler = middy(async (event) => {
 })
   .use(validateKey())
   .use(errorHandler());
+
+/* Författare: Isak
+ *
+ * Handler som hämtar en användares order historik
+ */

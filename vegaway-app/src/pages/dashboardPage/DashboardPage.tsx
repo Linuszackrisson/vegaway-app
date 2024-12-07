@@ -27,3 +27,8 @@ const DashboardPage: React.FC = () => {
 };
 
 export default DashboardPage;
+
+/* Författare: Jacob
+ *
+ * Landing page för staff efter inloggning
+ */

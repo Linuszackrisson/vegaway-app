@@ -12,8 +12,7 @@ const RefreshStatusBtn = () => {
 
 export default RefreshStatusBtn;
 
-/* 
-Författare: Isak
-
-Test knapp för att se en specifik orders status.
-*/
+/* Författare: Isak
+ *
+ * Test knapp för att se en specifik orders status.
+ */

@@ -24,8 +24,7 @@ export const validateNote = (note: string) => {
   return null; // Return null if no error
 };
 
-/* 
-Författare: Isak
-
-Joi schema och validation för att se till så användarens input är okej
-*/
+/* Författare: Isak
+ *
+ * Joi schema och validation för att se till så användarens input är okej
+ */

@@ -11,3 +11,5 @@ module.exports.handler = middy(async (event) => {
 })
   .use(validateKey())
   .use(errorHandler());
+
+/* NOT IN USE */

@@ -40,14 +40,12 @@ export async function refreshStatus(orderId: string): Promise<OrderStatus> {
   }
 }
 
-/* 
-Författare: Isak
+/* Författare: Isak
+ *
+ * Api request som används för att kolla statusen på en order.
+ */
 
-Api request som används för att kolla statusen på en order.
-*/
-
-/* 
-Uppdatering: Isak
-
-Triggar feedback komponenten om användaren inte är inloggad
-*/
+/* Uppdatering: Isak
+ *
+ * Triggar feedback komponenten om användaren inte är inloggad
+ */

@@ -57,9 +57,7 @@ module.exports.handler = middy(async (event) => {
   .use(errorHandler())
   .use(validateStaff());
 
-/* 
-Författare: Isak
-
-Handler som låter staff uppdatera en pending order
-
-*/
+/* Författare: Isak
+ *
+ * Handler som låter staff uppdatera en pending order
+ */
