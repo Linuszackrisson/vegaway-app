@@ -21,8 +21,7 @@ const ResetCurrentOrder: React.FC<{ children: React.ReactNode }> = ({
 
 export default ResetCurrentOrder;
 
-/*
-Författare: Isak
-
-React komponent som används för att nollställa order state i useCurrentOrderStore när URL inte är /order-confirmation.
-*/
+/* Författare: Isak
+ *
+ * React komponent som används för att nollställa order state i useCurrentOrderStore när URL inte är /order-confirmation.
+ */

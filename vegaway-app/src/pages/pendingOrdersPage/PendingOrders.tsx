@@ -121,6 +121,7 @@ const PendingOrders: React.FC = () => {
 export default PendingOrders;
 
 /* Författare: Linus
+ *
  * PendingOrders, visar alla pending orders.
  * Byggd enligt skiss.
  * Använder OrderDetails för att visa ordern i detalj.
@@ -128,25 +129,23 @@ export default PendingOrders;
  * Möjliggör att navigera till OrderDetails med view full order.
  */
 
-/* 
-Uppdatering: Isak
+/* Uppdatering: Isak
+ *
+ * La funktionalitet på confirm knappen för att markera en order som hanterad
+ */
 
-La funktionalitet på confirm knappen för att markera en order som hanterad
-*/
+/* Uppdatering: Isak
+ *
+ * Implementerade joi för att validera user input på note. Förhindrar skadlig input
+ */
 
-/* 
-Uppdatering: Isak
+/* Uppdatering: Isak
+ *
+ * Tog bort renderingen av error message.
+ * Använder istället Feedback komponenten för att rendera meddelande till användaren.
+ */
 
-Implementerade joi för att validera user input på note. Förhindrar skadlig input
-*/
-
-/* 
-Uppdatering: Isak
-
-Tog bort renderingen av error message.
-Använder istället Feedback komponenten för att rendera meddelande till användaren.
-
-Uppdatering: Linus
-
-Global och responsiv styling
-*/
+/* Uppdatering: Linus
+ *
+ * Global och responsiv styling
+ */

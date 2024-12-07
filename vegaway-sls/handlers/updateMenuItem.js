@@ -78,7 +78,7 @@ module.exports.handler = middy(async (event) => {
   .use(errorHandler())
   .use(validateStaff());
 
-/* 
-Författare: Isak
-Handler som uppdaterar en menyartikel i databasen
-*/
+/* Författare: Isak
+ *
+ * Handler som uppdaterar en menyartikel i databasen
+ */

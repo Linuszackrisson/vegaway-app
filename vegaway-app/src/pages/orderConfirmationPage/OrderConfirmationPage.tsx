@@ -111,12 +111,12 @@ const OrderConfirmationPage: React.FC = () => {
 
 export default OrderConfirmationPage;
 
-/**
- * Författare: [Ditt namn]
+/* Författare: Jacob
+ *
  * OrderConfirmationPage-komponent som låter användaren uppdatera orderstatus och redigera sin order.
  */
 
-/* 
-Uppdatering: Isak
-Renderar ett vänligt meddelande om kund försöker nå denna sida då order state är null
-*/
+/* Uppdatering: Isak
+ *
+ * Renderar ett vänligt meddelande om kund försöker nå denna sida då order state är null
+ */

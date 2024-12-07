@@ -47,14 +47,12 @@ export const updateOrder = async (
   }
 };
 
-/* 
-Författare: Isak
+/* Författare: Isak
+ *
+ * Request fil som låter staff uppdatera en pending order.
+ */
 
-Request fil som låter staff uppdatera en pending order. 
-*/
-
-/* 
-Uppdatering: Isak
-
-Triggar feedback komponenten om användaren inte är inloggad
-*/
+/* Uppdatering: Isak
+ *
+ * Triggar feedback komponenten om användaren inte är inloggad.
+ */

@@ -46,3 +46,8 @@ const OrderHistoryPage = () => {
   );
 };
 export default OrderHistoryPage;
+
+/* Författare: Isak
+ *
+ * Sida som hämtar och visar order historik för inloggad kund
+ */

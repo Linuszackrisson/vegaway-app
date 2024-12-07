@@ -35,8 +35,7 @@ module.exports.handler = middy(async (event) => {
   .use(validateKey())
   .use(errorHandler());
 
-/* 
-Författare: Isak
-
-Handler som tar emot innehåll från varukorgen och gör det till en order
-*/
+/* Författare: Isak
+ *
+ * Handler som tar emot innehåll från varukorgen och gör det till en order
+ */

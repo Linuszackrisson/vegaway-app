@@ -69,12 +69,12 @@ const LoginButton: React.FC<LoginButtonProps> = ({ variant = "full" }) => {
 
 export default LoginButton;
 
-/* 
-Författare: Isak
+/* Författare: Isak
+ *
+ * Boilerplate och conditional rendering/functionality för login knapp beroende på zustand state
+ */
 
-Boilerplate och conditional rendering/functionality för login knapp beroende på zustand state
-*/
-
-/* Uppdaterad: Jacob
--Två varianter av knappen, en med endast ikon och en med text + ikon
-*/
+/* Uppdatering: Jacob
+ *
+ * - Två varianter av knappen, en med endast ikon och en med text + ikon
+ */

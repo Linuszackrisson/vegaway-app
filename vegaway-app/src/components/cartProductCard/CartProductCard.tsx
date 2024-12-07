@@ -150,15 +150,23 @@ const CartProductCard: React.FC<CartProductCardProps> = ({
 
 export default CartProductCard;
 
-/* Författare Linus
- *  Produktkortet i varukorgen, implemeneterade funktioner för att fungera tillsammans med cartstore.
+/* Författare: Linus
+ *
+ * Produktkortet i varukorgen, implementerade funktioner för att fungera tillsammans med cartstore.
  * Html och css för att se ut enligt skiss.
-Uppdatering: Isak
-Använder funktioner villkorligt beroende på props som skickas med till denna komponent.
-/
-Uppdatering: Isak
-Tar emot onUpdateItem som prop för att skicka tillbaka korrekt värden till förälder komponent när isStaffOrderDetails är true
-/
-Uppdatering: Jacob
-Globala klassvariabler, lagat broken design, uppdaterad förenklad CSS, ny styling på increase/decrease knappar.
-*/
+ */
+
+/* Uppdatering: Isak
+ *
+ * Använder funktioner villkorligt beroende på props som skickas med till denna komponent.
+ */
+
+/* Uppdatering: Isak
+ *
+ * Tar emot onUpdateItem som prop för att skicka tillbaka korrekt värden till förälder komponent när isStaffOrderDetails är true.
+ */
+
+/* Uppdatering: Jacob
+ *
+ * Globala klassvariabler, lagat broken design, uppdaterad förenklad CSS, ny styling på increase/decrease knappar.
+ */

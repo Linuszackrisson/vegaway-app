@@ -92,26 +92,23 @@ export async function createOrder() {
   }
 }
 
-/* 
-Författare: Isak
+/* Författare: Isak
+ *
+ * Funktion createOrder hämtar cart state och lägger en order.
+ * Helper funktion getEmailFromIdToken används för att decoda id token så användarens mail kan läggas till i ordern.
+ */
 
-Funktion createOrder hämtar cart state och lägger en order.
-Helper funktion getEmailFromIdToken används för att decoda id token så användarens mail kan läggas till i ordern.
-*/
+/* Uppdatering: Jacob
+ *
+ * Saving orderID in local storage.
+ */
 
-/* 
-Uppdated Jacob
-Saving orderID in local storage. 
-*/
+/* Uppdatering: Isak
+ *
+ * Saving the order to useCurrentOrderStore
+ */
 
-/* 
-Updated: Isak
-
-Saving the order to useCurrentOrderStore
-*/
-
-/* 
-Uppdatering: Isak
-
-Triggar feedback komponenten om användaren inte är inloggad
-*/
+/* Uppdatering: Isak
+ *
+ * Triggar feedback komponenten om användaren inte är inloggad
+ */

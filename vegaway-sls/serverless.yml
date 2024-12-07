@@ -33,3 +33,7 @@ resources:
     GuestUserRole: ${file(./YAML/resources/guest-user-role.yml)}
     AuthUserRole: ${file(./YAML/resources/auth-user-role.yml)}
     CognitoIdentityPoolRoleAttachment: ${file(./YAML/resources/cognito-identity-pool-role-attachment.yml)}
+#
+# Författare: Isak
+#
+# Entry point för yml kod. Importerar konfigureringar för att hålla huvudfilen clean

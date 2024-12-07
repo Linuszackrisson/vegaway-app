@@ -15,9 +15,8 @@ function LocationWatcher() {
 
 export default LocationWatcher;
 
-/* 
-Författare: Isak
-
-Komponent som använder updateLoginState för att se om en användare är inloggad baserat på tokens i local storage.
-Om tokens är expired så rensas local storage på sparad data.
-*/
+/* Författare: Isak
+ *
+ * Komponent som använder updateLoginState för att se om en användare är inloggad baserat på tokens i local storage.
+ * Om tokens är expired så rensas local storage på sparad data.
+ */

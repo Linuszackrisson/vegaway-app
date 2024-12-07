@@ -30,8 +30,7 @@ module.exports = () => ({
   },
 });
 
-/* 
-Författare: Isak
-
-Middleware som verifierar att avnändaren finns i Staff user group i cognito
-*/
+/* Författare: Isak
+ *
+ * Middleware som verifierar att användaren finns i Staff user group i cognito
+ */

@@ -48,15 +48,13 @@ export async function updateOrder() {
   }
 }
 
-/*
- * Författare: Isak
+/* Författare: Isak
  *
- * Api request för att låta kund uppdatera en order
- * Skickar order från useCurrentOrderStore till backend som hanterar uppdateringen
+ * Api request för att låta kund uppdatera en order.
+ * Skickar order från useCurrentOrderStore till backend som hanterar uppdateringen.
  */
 
-/* 
-Uppdatering: Isak
-
-Triggar feedback komponenten om användaren inte är inloggad eller om ordern redan är confirmed
-*/
+/* Uppdatering: Isak
+ *
+ * Triggar feedback komponenten om användaren inte är inloggad eller om ordern redan är confirmed.
+ */

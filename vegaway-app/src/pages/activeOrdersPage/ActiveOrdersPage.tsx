@@ -59,10 +59,15 @@ const ActiveOrders: React.FC = () => {
 export default ActiveOrders;
 
 /* Författare: Linus
+ *
  * Sida för kocken att se färdiga ordrar som blivit "confirmed"
  * Byggd enligt skiss.
  * Återanvänder OrderDetails för att visa ordern i detalj.
  * Visar note to chef. som ej går att redigera.
  * Möjliggör att navigera till OrderDetails med view full order.
- * Uppdaterad: 2024-12-04 med global och responsiv styling
+ */
+
+/* Uppdaterad: Linus
+ *
+ * Global och responsiv styling
  */

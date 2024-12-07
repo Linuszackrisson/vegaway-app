@@ -32,3 +32,8 @@ const Feedback: React.FC = ({}) => {
 };
 
 export default Feedback;
+
+/* Författare: Isak
+ *
+ * Komponent som används för att ge användaren feedback vid diverse händelser eller fel
+ */

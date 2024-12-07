@@ -15,3 +15,8 @@ export const useFeedbackStore = create<FeedbackState>((set) => ({
   setVisibility: (isVisible: boolean) => set({ isVisible }),
   clearFeedback: () => set({ message: null, isVisible: false }),
 }));
+
+/* Författare: Isak
+ *
+ * Store för att hantera visibility samt message content för feedback componenten
+ */

@@ -65,8 +65,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
 
 export default ProtectedRoute;
 
-/* 
-Författare: Isak
-
-Komponent som skyddar staff routes.
-*/
+/* Författare: Isak
+ *
+ * Komponent som skyddar staff routes.
+ */
