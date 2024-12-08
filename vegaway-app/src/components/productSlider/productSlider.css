@@ -26,7 +26,7 @@
 }
 
 .product-slider__list {
-    margin: 7px auto 12px;
+    margin: .5rem auto;
     display: flex;
     overflow-x: auto;
     gap: 11px;
