@@ -1,4 +1,3 @@
-
 Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för vårt team under de kommande fyra veckorna. Teammedlemmarna är:
 - Linus
 - Isak
@@ -208,5 +207,6 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 - **Förberedelse för nästa sprint**: Vad ska vi fokusera på i nästa sprintcykel?
 
 ---
+
 
 
