@@ -18,13 +18,13 @@ const Feedback: React.FC = ({}) => {
 
   return (
     <div className="feedback feedback--overlay">
-      <div className="feedback__content">
+      <div className="card feedback__content">
         <p className="feedback__message">{message}</p>
         <button
-          className="feedback__button button button--first"
+          className="button feedback__button button button--first"
           onClick={handleClose}
         >
-          Close
+          <span className="button__text">Close</span>
         </button>
       </div>
     </div>
