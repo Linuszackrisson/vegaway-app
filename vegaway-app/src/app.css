@@ -415,7 +415,7 @@ button {
 .order-card__bundled {
   display: flex;
   flex-direction: column;
-  margin: 0 0 .5rem;
+  margin: -.7rem 0 .5rem;
 }
 
 /* Används i active och pending orders */
