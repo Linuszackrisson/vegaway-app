@@ -1,5 +1,5 @@
 // src/pages/OrderConfirmationPage/OrderConfirmationPage.tsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Icon from "../../components/icon/Icon";
 import { useNavigate, useLocation } from "react-router-dom";
 import { refreshStatus } from "../../api/refreshStatus";
