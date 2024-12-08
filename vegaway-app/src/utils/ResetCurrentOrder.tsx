@@ -12,7 +12,6 @@ const ResetCurrentOrder: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     if (!location.pathname.includes("/order-confirmation")) {
       resetOrder();
-      console.log("Order state reset due to navigation.");
     }
   }, [location, resetOrder]);
 
