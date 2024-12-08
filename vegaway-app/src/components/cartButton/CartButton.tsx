@@ -1,14 +1,19 @@
 // src/components/cartButton/CartButton.tsx
+import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Icon from "../icon/Icon";
 import { createOrder } from "../../api/placeOrder";
 import { useCurrentOrderStore } from "../../store/useCurrentOrderStore";
+import { useCartStore } from "../../store/cartStore";
 import "./cartButton.css";
 
 const CartButton: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const currentOrder = useCurrentOrderStore((state) => state.order);
+  const { items } = useCartStore((state) => state);
+  const [isFlashing, setIsFlashing] = useState(false);
+  const prevItemsLength = useRef(items.length);
 
   const hideCartButtonPaths = [
     "/dashboard",
@@ -44,6 +49,23 @@ const CartButton: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    // Only trigger the flash if the length of items has increased (item added)
+    if (items.length > prevItemsLength.current) {
+      setIsFlashing(true);
+
+      // Reset the flash effect after a short duration
+      const flashTimer = setTimeout(() => {
+        setIsFlashing(false);
+      }, 200);
+
+      return () => clearTimeout(flashTimer); // Clean up the timer if the component is unmounted
+    }
+
+    // Update the previous items length
+    prevItemsLength.current = items.length;
+  }, [items.length]);
+
   let buttonIcon;
   let buttonText;
 
@@ -72,7 +94,12 @@ const CartButton: React.FC = () => {
   }
 
   return (
-    <button className="button button--first cart-button" onClick={handleClick}>
+    <button
+      className={`button button--first cart-button ${
+        isFlashing ? "flashing" : ""
+      }`}
+      onClick={handleClick}
+    >
       <div className="button__left">
         {buttonIcon}
         <span className="button__text">{buttonText}</span>
