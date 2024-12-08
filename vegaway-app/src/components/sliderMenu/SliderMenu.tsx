@@ -128,4 +128,5 @@ export default SliderMenu;
  *
  * Använder Icon-komponenten för ikoner.
  * Justerade LoginButton för att använda rätt knappklass.
+ * uppdaterade hovers och klickeffekter
  */
