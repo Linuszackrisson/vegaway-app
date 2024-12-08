@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchOrderHistory } from "../../api/orderHistory";
 import { FetchOrdersResponse, Order } from "../../api/utils/orderInterface";
 import OrderHistory from "../../components/orderHistory/OrderHistory";
-import "./OrderHistoryPage.css";
+import "./orderHistoryPage.css";
 
 const OrderHistoryPage = () => {
   const [orderHistory, setOrderHistory] = useState<Order[] | null>(null);
@@ -11,7 +11,6 @@ const OrderHistoryPage = () => {
     const fetchData = async () => {
       try {
         const response: FetchOrdersResponse = await fetchOrderHistory();
-        console.log("Response:", response);
 
         setOrderHistory(response.orders);
       } catch (err) {
@@ -22,16 +21,11 @@ const OrderHistoryPage = () => {
     fetchData();
   }, []);
 
-  // Log orderHistory after it updates
-  useEffect(() => {
-    console.log("Order history state updated:", orderHistory);
-  }, [orderHistory]); // This useEffect runs whenever orderHistory changes
-
   return (
     <div className="wrapper order-history-page">
-      <h1 className="order-history-page__heading">Order History</h1>
+      <h1 className="order-history-page__heading px-1">Order History</h1>
       {orderHistory ? (
-        <ul className="order-history-page___ul">
+        <ul className="order-history-page___ul px-1">
           {orderHistory.map((order) => (
             <li className="order-history-page__list-item" key={order.orderId}>
               {/* Replace this li with the OrderHistory component */}
@@ -46,3 +40,8 @@ const OrderHistoryPage = () => {
   );
 };
 export default OrderHistoryPage;
+
+/* Författare: Isak
+ *
+ * Sida som hämtar och visar order historik för inloggad kund
+ */

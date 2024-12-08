@@ -1,4 +1,3 @@
-import React from "react";
 import { fetchOrderHistory } from "../../orderHistory";
 
 const GetOrderHistoryBtn = () => {
@@ -11,3 +10,8 @@ const GetOrderHistoryBtn = () => {
 };
 
 export default GetOrderHistoryBtn;
+
+/* Författare: Isak
+ *
+ * Testknappt för att hämta order historik
+ */

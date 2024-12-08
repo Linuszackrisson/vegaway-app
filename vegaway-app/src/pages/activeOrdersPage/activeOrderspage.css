@@ -1,0 +1,22 @@
+/* CSS for activeOrdersPage */
+
+/* Den är i nuläget tom då den använder samma styling som pendingOrdersPage */
+/* Finns enbart om man skulle vilja ha en egen styling för activeOrdersPage i framtiden */
+
+
+.chef-note-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--color-text);
+  width: 100%;
+  
+}
+
+.active-orders {
+  background-image: url('../../assets/bluebgfigure.svg'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center 80px;
+}

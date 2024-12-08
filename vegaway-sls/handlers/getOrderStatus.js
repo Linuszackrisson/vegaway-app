@@ -65,3 +65,8 @@ module.exports.handler = middy(async (event) => {
 })
   .use(validateKey())
   .use(errorHandler());
+
+/* Författare: Isak
+ *
+ * Handler som kollar status på en order genom att läsa av värdet på isConfirmed
+ */

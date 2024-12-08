@@ -334,10 +334,12 @@ const populateMenu = async () => {
 
 populateMenu();
 
-/* 
-Author Isak
-A temporary file to quickly populate the menu with data
+/* Författare: Isak
+ *
+ * En tillfällig fil för att snabbt fylla menyn med data
+ */
 
-Updated
-by Jacob - Six categories, six dishes in each, imageURL m.m
-*/
+/* Uppdatering: Jacob
+ *
+ * Sex kategorier, sex rätter i varje, imageURL m.m
+ */

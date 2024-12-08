@@ -1,0 +1,55 @@
+/* src/components/ProductSlider/ProductSlider.css */
+.product-slider {
+    margin: 0;
+    padding: 0;
+}
+
+.titleToggle-box {
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+}
+
+.filter-button {
+    border: transparent;
+    background: none;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.button-text__see-menu {
+    font-weight: var(--font-weight-medium);
+}
+
+.product-slider__list {
+    margin: .5rem auto;
+    display: flex;
+    overflow-x: auto;
+    gap: 11px;
+    list-style: none;
+}
+
+.product-slider__list::-webkit-scrollbar {
+    display: none;
+}
+
+.product-card {
+    flex: 0 0 clamp(340px, 70%, 350px);
+    scroll-snap-align: start;
+}
+
+@media (min-width: 790px) {
+    .product-slider__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        overflow: visible;
+    }
+
+    .product-card {
+        flex: unset;
+    }
+}

@@ -1,11 +1,11 @@
 // src/components/EditOrder/EditOrder.tsx
-import React, { useEffect, useRef, useState } from "react";
-import "./EditOrder.css";
-import CartProductCard from "../CartProductCard/CartProductCard";
+import { useEffect, useRef, useState } from "react";
+import CartProductCard from "../cartProductCard/CartProductCard";
 import { useCurrentOrderStore } from "../../store/useCurrentOrderStore";
 import { MenuItem } from "../../api/menuApi";
 import { updateOrder } from "../../api/updateOrder";
-
+import { useFeedbackStore } from "../../store/useFeedbackStore";
+import "./editOrder.css";
 interface EditOrderProps {
   onClose: () => void;
 }
@@ -13,24 +13,30 @@ interface EditOrderProps {
 const EditOrder: React.FC<EditOrderProps> = ({ onClose }) => {
   // Update order handler
   const [errorMessage, setErrorMessage] = useState("");
+  const { setMessage, setVisibility } = useFeedbackStore.getState();
+
   const handleUpdateOrder = async () => {
     try {
-      const response = await updateOrder();
-      console.log("Updated order response:", response);
+      await updateOrder();
 
-      setErrorMessage("");
+      setMessage("Order updated successfully");
+      setVisibility(true);
+      onClose(); // Close the edit overlay when order has been updated
     } catch (error) {
       if (error instanceof Error) {
         setErrorMessage(error.message); // Store the error message if an error occurs
+        console.log(errorMessage);
+        onClose();
       } else {
         setErrorMessage("An unexpected error occurred.");
+        console.log(errorMessage);
+        onClose();
       }
     }
   };
 
   // Get the current order from the store
   const order = useCurrentOrderStore((state) => state.order);
-  console.log("Logging order state:", order);
 
   // Ensure only unique items are used, based on menuId
   const uniqueOrderItems = Array.from(
@@ -54,29 +60,23 @@ const EditOrder: React.FC<EditOrderProps> = ({ onClose }) => {
 
   return (
     <div className="edit-order">
-      {errorMessage !== "" && (
-        <div className="edit-order__error-message">
+      <div className="edit-order__overlay" onClick={onClose}></div>
+      <div className="card edit-order__content wrapper px-1" ref={contentRef}>
+        <div className="edit-order__header">
           <button
-            className="edit-order__error-message__close"
+            className="button button--second edit-order__update-button"
+            onClick={handleUpdateOrder}
+          >
+            <span className="button__text">Update</span>
+          </button>
+          <h3 className="edit-order__title">Edit Your Order</h3>
+          <button
+            className="button button--second edit-order__close-button"
             onClick={onClose}
           >
-            X
+            <span className="button__text">Close</span>
           </button>
-          {errorMessage}
         </div>
-      )}
-      <div className="edit-order__overlay" onClick={onClose}></div>
-      <div className="edit-order__content" ref={contentRef}>
-        <button
-          className="edit-order__update-button"
-          onClick={handleUpdateOrder}
-        >
-          Update
-        </button>
-        <button className="edit-order__close-button" onClick={onClose}>
-          Close
-        </button>
-        <h2 className="edit-order__title">Edit Your Order</h2>
         <div className="edit-order__items">
           {/* Conditionally render based on the existence of items */}
           {uniqueOrderItems.length > 0 ? (
@@ -107,7 +107,12 @@ const EditOrder: React.FC<EditOrderProps> = ({ onClose }) => {
 
 export default EditOrder;
 
-/**
- * Författare: Jacob
+/* Författare: Jacob
+ *
  * Component that opens a popup from bottom page for user to edit order.
+ */
+
+/* Uppdatering: Isak
+ *
+ * Använder feedback komponenten för att ge användaren feedback på vad som händer. Klick på update knappen stänger nu även edit vyn.
  */

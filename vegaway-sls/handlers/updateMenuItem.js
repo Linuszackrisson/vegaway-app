@@ -5,6 +5,7 @@ const middy = require("@middy/core");
 const validateKey = require("../middlewares/validateKey");
 const errorHandler = require("../middlewares/errorHandler");
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
+const validateStaff = require("../middlewares/validateStaff");
 
 module.exports.handler = middy(async (event) => {
   try {
@@ -74,9 +75,10 @@ module.exports.handler = middy(async (event) => {
   }
 })
   .use(validateKey())
-  .use(errorHandler());
+  .use(errorHandler())
+  .use(validateStaff());
 
-/* 
-Författare: Isak
-Handler som uppdaterar en menyartikel i databasen
-*/
+/* Författare: Isak
+ *
+ * Handler som uppdaterar en menyartikel i databasen
+ */

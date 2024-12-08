@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-size);
+    margin: 0;
+}
+
+.header__left,
+.header__right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin: .7em 0 0 .5rem;
+    width: clamp(4rem, 12vw, 6.5rem);
+
+}
+
+.back-button,
+.menu-button {
+    padding: 0;
+}
+
+.header__profile {
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,10 @@
+.order-details {
+    background-image: url('../../assets/pink-bg.svg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center 190px;
+}
+
+.order-details__title {
+    margin: 0 0 2rem;
+}

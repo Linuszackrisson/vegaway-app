@@ -1,0 +1,88 @@
+.order-cards {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+
+.order-card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: .5rem;
+    padding: .5rem;
+
+}
+
+.underline-p {
+  width: 100%;
+  border-top: 1px solid var(--color-text);
+
+}
+
+
+.chef-note[type="text"] {
+    border-top: 1px solid var(--color-text);
+    margin: 0;
+    text-align: left;
+    border-bottom: none;
+    border-left: none;
+    border-radius: 0;
+    border-right: none;
+    padding: 0;
+    font-size: var(--font-size-small);
+    line-height: 24px;
+    font-weight: 400;
+    padding-top: .5rem;
+}
+
+.view-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+.view-edit p {
+  height: 100%;
+  
+}
+ 
+.note {
+  width: 100%;
+  border-top: 1px solid var(--color-text);
+ 
+
+}
+
+
+
+  .order-card button {
+    background: transparent;
+    border: none;
+    font-size: var(--font-size-small);
+    line-height: 24px;
+    display: inline-block;
+    padding: 0;
+    color: #1B1B1B;
+    font-weight: 600;
+    letter-spacing: 0.15px;
+    width: 100%;
+    text-align: left;
+    border-top: 1px solid var(--color-text);
+    padding-top: .5rem;
+}
+
+
+.pending-orders {
+    background-image: url('../../assets/pink-bg.svg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center 60px;
+}
+

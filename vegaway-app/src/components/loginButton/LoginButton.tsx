@@ -1,7 +1,13 @@
+// src/components/loginButton/LoginButton.tsx
 import { useEffect } from "react";
-import useAuthStore from "../../store/useLoggedInStore"; // Import the Zustand store
+import useAuthStore from "../../store/useLoggedInStore";
+import Icon from "../icon/Icon";
 
-const LoginButton: React.FC = () => {
+interface LoginButtonProps {
+  variant?: "icon-only" | "full";
+}
+
+const LoginButton: React.FC<LoginButtonProps> = ({ variant = "full" }) => {
   const { isLoggedIn, updateLoginState } = useAuthStore(); // Zustand state and updater
 
   useEffect(() => {
@@ -27,7 +33,7 @@ const LoginButton: React.FC = () => {
 
     // Clear local storage
     localStorage.removeItem("access_token");
-    localStorage.removeItem("id_token"); // Assuming you store id_token as well
+    localStorage.removeItem("id_token");
 
     // Update global state
     updateLoginState();
@@ -36,14 +42,39 @@ const LoginButton: React.FC = () => {
     window.location.href = logoutUrl;
   };
 
+  if (variant === "icon-only") {
+    return (
+      <button
+        className="button button--fourth login-button"
+        onClick={isLoggedIn ? handleLogout : handleLogin}
+      >
+        <Icon name={isLoggedIn ? "LogOut" : "LogIn"} className="icon" />
+      </button>
+    );
+  }
+
   return (
     <button
-      className="login-button"
+      className="button button--second login-button"
       onClick={isLoggedIn ? handleLogout : handleLogin}
     >
-      {isLoggedIn ? "Log Out" : "Sign In"}
+      <Icon name={isLoggedIn ? "LogOut" : "LogIn"} className="button__icon" />
+      <span className="button__text">
+        {isLoggedIn ? "Sign Out" : "Sign In"}
+      </span>
+      <Icon name="ChevronRight" className="button__icon" />
     </button>
   );
 };
 
 export default LoginButton;
+
+/* Författare: Isak
+ *
+ * Boilerplate och conditional rendering/functionality för login knapp beroende på zustand state
+ */
+
+/* Uppdatering: Jacob
+ *
+ * - Två varianter av knappen, en med endast ikon och en med text + ikon
+ */

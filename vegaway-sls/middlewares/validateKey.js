@@ -23,7 +23,7 @@ module.exports = () => ({
   },
 });
 
-/* 
-Author Isak
-Middleware for checking if the provided API key is valid
-*/
+/* Författare: Isak
+ *
+ * Middleware for checking if the provided API key is valid
+ */

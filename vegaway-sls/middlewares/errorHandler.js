@@ -12,7 +12,7 @@ module.exports = () => ({
   },
 });
 
-/* 
-Author Isak
-Error handler middleware
-*/
+/* Författare: Isak
+ *
+ * Error handler middleware
+ */

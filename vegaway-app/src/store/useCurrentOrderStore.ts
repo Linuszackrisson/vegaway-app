@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { MenuItem } from "../api/menuApi";
 
-interface Order {
+export interface Order {
   orderId: string;
   customerEmail: string;
   createdAt: number;
@@ -40,8 +40,6 @@ export const useCurrentOrderStore = create<CurrentOrderStore>()(
               (total, item) => total + item.price,
               0
             );
-            console.log("Updated items:", updatedItems);
-            console.log("Updated Total Price:", updatedTotalPrice);
 
             return {
               order: {

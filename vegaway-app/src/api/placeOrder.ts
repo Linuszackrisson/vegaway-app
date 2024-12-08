@@ -2,9 +2,10 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { useCartStore } from "../store/cartStore";
 import { useCurrentOrderStore } from "../store/useCurrentOrderStore";
+import { useFeedbackStore } from "../store/useFeedbackStore";
 
 const invokeUrl = import.meta.env.VITE_INVOKE_URL;
-const API_KEY = "MY_API_KEY";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export interface Order {
   customerEmail: string;
@@ -33,6 +34,12 @@ export async function createOrder() {
   try {
     const idToken = localStorage.getItem("id_token");
     if (!idToken) {
+      // Get the setter functions from Zustand store
+      const { setMessage, setVisibility } = useFeedbackStore.getState();
+
+      // Set the feedback message and make the overlay visible
+      setMessage("Please login to complete the order.");
+      setVisibility(true);
       throw new Error("ID token not found.");
     }
 
@@ -63,8 +70,6 @@ export async function createOrder() {
       },
     });
 
-    console.log(response.data.data);
-
     const orderData = response.data.data;
     // Save the full order in the useCurrentOrderStore
     useCurrentOrderStore.getState().setOrder({
@@ -85,20 +90,23 @@ export async function createOrder() {
   }
 }
 
-/* 
-Författare: Isak
+/* Författare: Isak
+ *
+ * Funktion createOrder hämtar cart state och lägger en order.
+ * Helper funktion getEmailFromIdToken används för att decoda id token så användarens mail kan läggas till i ordern.
+ */
 
-Funktion createOrder hämtar cart state och lägger en order.
-Helper funktion getEmailFromIdToken används för att decoda id token så användarens mail kan läggas till i ordern.
-*/
+/* Uppdatering: Jacob
+ *
+ * Saving orderID in local storage.
+ */
 
-/* 
-Uppdated Jacob
-Saving orderID in local storage. 
-*/
+/* Uppdatering: Isak
+ *
+ * Saving the order to useCurrentOrderStore
+ */
 
-/* 
-Updated: Isak
-
-Saving the order to useCurrentOrderStore
-*/
+/* Uppdatering: Isak
+ *
+ * Triggar feedback komponenten om användaren inte är inloggad
+ */

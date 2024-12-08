@@ -1,0 +1,52 @@
+/* src/pages/OrderConfirmationPage/OrderConfirmationPage.css */
+.order-confirmation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-confirmation__content {
+    max-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-confirmation__image {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.order-confirmation__message {
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-card-background);
+    border: 1px solid var(--color-text);
+    box-shadow: var(--box-shadow);
+    line-height: normal;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 4px;
+    transform: rotate(1.006deg);
+    z-index: 99;
+}
+
+.order-confirmation__message-2 {
+    transform: rotate(-.2deg);
+}
+
+.order-confirmation__refresh {
+    margin: .7rem 0 0 ;
+}
+
+.star-illustration {
+    position: absolute;
+    z-index: 1;
+    width: 90%;
+    max-width: 40rem;
+}

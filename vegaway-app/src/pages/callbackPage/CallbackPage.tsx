@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import { DecodedTokenGroups } from "../../utils/ProtectedRoute";
 
 const CallbackPage: React.FC = () => {
   const navigate = useNavigate();
@@ -10,8 +12,6 @@ const CallbackPage: React.FC = () => {
     const authorizationCode = urlParams.get("code");
 
     if (authorizationCode) {
-      console.log("Authorization Code:", authorizationCode);
-
       // Exchange the authorization code for tokens
       const tokenExchange = async () => {
         try {
@@ -35,14 +35,22 @@ const CallbackPage: React.FC = () => {
 
           if (response.ok) {
             // Save the tokens (in localStorage/sessionStorage or state)
-            console.log("Tokens:", data);
 
-            // Example: Saving tokens to localStorage
             localStorage.setItem("access_token", data.access_token);
             localStorage.setItem("id_token", data.id_token);
 
-            // Redirect to the home page or your main route
-            navigate("/");
+            // Decode the ID token to check the user's groups
+            const decoded: DecodedTokenGroups = jwtDecode(data.id_token);
+            const userGroups: string[] = decoded["cognito:groups"] || [];
+
+            // Check if the user is in the "Staff" group
+            if (userGroups.includes("Staff")) {
+              // If the user is staff, navigate to the dashboard
+              navigate("/dashboard");
+            } else {
+              // If not staff, navigate to the home page
+              navigate("/");
+            }
 
             // Reload the page after navigation to update the UI
             window.location.reload();
@@ -70,10 +78,8 @@ const CallbackPage: React.FC = () => {
 
 export default CallbackPage;
 
-/* 
-Författare: Isak
-
-Middleman för cognitos hosted ui och våran frontend. Användare blir navigarade till denna komponent efter lyckad inloggning. Denna komponent ansvarar för att hämta JWT access token.
-
-Efter token har blivit hämtad och sparad i local storage navigerar den till default routen "/".
-*/
+/* Författare: Isak
+ *
+ * Middleman för cognitos hosted ui och våran frontend. Användare blir navigarade till denna komponent efter lyckad inloggning. Denna komponent ansvarar för att hämta JWT access token.
+ * Efter token har blivit hämtad och sparad i local storage navigerar den till default routen "/".
+ */

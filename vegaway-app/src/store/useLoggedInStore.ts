@@ -15,8 +15,6 @@ const useLoggedInStore = create<AuthState>((set) => ({
   isLoggedIn: false,
 
   updateLoginState: () => {
-    console.log("Checking if user is logged in...");
-
     const accessToken = localStorage.getItem("access_token");
     const idToken = localStorage.getItem("id_token");
     let isValid = false;
@@ -32,14 +30,21 @@ const useLoggedInStore = create<AuthState>((set) => ({
       }
     }
 
+    // If the token is invalid, remove tokens from localStorage
+    if (!isValid) {
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("id_token");
+      localStorage.removeItem("cart-storage");
+      localStorage.removeItem("current-order");
+    }
+
     set({ isLoggedIn: isValid });
   },
 }));
 
 export default useLoggedInStore;
 
-/* 
-Författare: Isak
-
-Zustand store för att hålla koll på om en användare är inloggad
-*/
+/* Författare: Isak
+ *
+ * Zustand store för att hålla koll på om en användare är inloggad
+ */

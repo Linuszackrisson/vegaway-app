@@ -1,9 +1,9 @@
-import "./ProductCard.css";
+// src/components/ProductCard/ProductCard.tsx
 import { useNavigate } from "react-router-dom";
-import { Plus } from "lucide-react";
+import Icon from "../icon/Icon";
 import { MenuItem } from "../../api/menuApi";
 import { useCartStore } from "../../store/cartStore";
-
+import "./productCard.css";
 interface ProductCardProps {
   item: MenuItem;
 }
@@ -18,11 +18,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 
   const handleAddToCart = () => {
     addToCart(item);
-    console.log("Varukorg:", useCartStore.getState().items);
   };
 
   return (
-    <li className="product-card">
+    <li className="card product-card">
       <div className="product-card__image-container">
         <img
           className="product-card__image"
@@ -30,10 +29,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
           alt={item.name}
         />
         <button
-          className="product-card__add-button button__first"
+          className="button button--add button--add--small product-card__add-button"
           onClick={handleAddToCart}
         >
-          <Plus />
+          <Icon name="Plus" className="icon" />
         </button>
       </div>
       <div className="product-card__info">
@@ -41,8 +40,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
           <h3 className="product-card__title">{item.name}</h3>
           <p className="product-card__price">${item.price.toFixed(2)}</p>
         </div>
-        <button className="product-card__info-button" onClick={handleInfoClick}>
-          Info
+        <button
+          className="button button--third product-card__info-button"
+          onClick={handleInfoClick}
+        >
+          <span className="button__text">Info</span>
+          <Icon name="ChevronRight" className="button__icon" />
         </button>
       </div>
     </li>
@@ -50,12 +53,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 };
 
 export default ProductCard;
-/*
- * Uppdaterade komponenten så att den fungerar enligt issuen.
- * Adderade funktion för att knappen ska lägga till i varukorgen
- * Lade till logs så vi ser om det fungerar (it actually does)
+
+/* Författare: Linus
  *
- * Uppdaterad Jacob
- * Förenklade propsen använder menuItem
+ * Produktkort som används i menyerna och slidersen på sidan
+ * AddtoCart button som lägger till produkterna i CartStore
+ * Info button som navigerar till produktens info-sida
+ * Byggd enligt skiss. (Omdesignad Later av Jacob med globala styles)
  */
 
+/* Uppdatering: Linus
+ *
+ * Använde Icon-komponenten för ikonerna.
+ * Lade till className="button button--add" på "Lägg till"-knappen.
+ */

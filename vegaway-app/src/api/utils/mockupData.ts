@@ -74,7 +74,7 @@ export const pendingOrders: Order[] = [
   { orderId: 4, customerId: 1, items: [1], status: "Pending" },
 ];
 
-/* 
-Författare: Isak
-Data för att simulera vad backend ska returna till frontend
-*/
+/* Författare: Isak
+ *
+ * Data för att simulera vad backend ska returna till frontend
+ */

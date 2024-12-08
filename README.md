@@ -1,4 +1,3 @@
-
 Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för vårt team under de kommande fyra veckorna. Teammedlemmarna är:
 - Linus
 - Isak
@@ -80,11 +79,8 @@ Denna README.md-fil dokumenterar sprintplaneringen och sprintöversikten för v�
 - **Teammedlemmar**: Linus, Isak, Jacob.
 - **Diskussioner**:
   - Vad ska prioriteras under denna vecka?
-Frontend flöde och cart, vi kommer köra zustand
   - Vilka uppgifter har högsta prioritet?
-Cart och frontend
   - Förväntade hinder och lösningar.
-Inga ännu, förutom att Linus ska vara barnvakt 13-15. 
 
 ### Daily Scrum (Tisdag - Torsdag)
 
@@ -165,35 +161,35 @@ Inga ännu, förutom att Linus ska vara barnvakt 13-15.
 ## Sprint 4 - Vecka 4 (Startdatum: 2024-12-02)
 
 ### Sprint Planning (Måndag)
-- **Mål**: Definiera veckans mål och uppgifter.
+- **Mål**: Definiera veckans mål och uppgifter. Göra klart backend och staff-flödet. 
 - **Teammedlemmar**: Linus, Isak, Jacob.
 - **Diskussioner**:
-  - Vad ska prioriteras under denna vecka?
-  - Vilka uppgifter har högsta prioritet?
-  - Förväntade hinder och lösningar.
+  - Vad ska prioriteras under denna vecka? All form av flöde, så vi tar finputset till sista veckan. 
+  - Vilka uppgifter har högsta prioritet? Flödet. 
+  - Förväntade hinder och lösningar. Nej men det kommer säkert att uppstå. 
 
 ### Daily Scrum (Tisdag - Torsdag)
 
 #### Tisdag (2024-12-03)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |                     activeOrderPage         |         Fortsätta               |     Nej.                    |
+| Isak       |                 Request & Handler till pending-order.             |            Cancel-order            |      Nej.                   |
+| Jacob      |        Global-css styling och fix                      |         Frontend               |             Motivation            |
 
 #### Onsdag (2024-12-04)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |                     Pending-order & Active-order rework         |     About-rework                    |      Nej.                   |
+| Isak       |                   Joi, user-group staff cognito, navigate staff to dashboard vid login, validering på staff request handlers, route wrapper för staff-routes. feedback-component, feedback zustandstore. samt implementerat dem.           |       CSP research & s3 bucket research                 |               Nej.          |
+| Jacob      |                  Broken interface, global styling            |            Fortsätta            |        Nej.                 |
 
 #### Torsdag (2024-12-05)
 | Teammedlem | Vad har jag gjort sedan sist? | Vad ska jag göra idag? | Finns det några hinder? |
 |------------|------------------------------|------------------------|-------------------------|
-| Linus      |                              |                        |                         |
-| Isak       |                              |                        |                         |
-| Jacob      |                              |                        |                         |
+| Linus      |                 order-conformatin rework, name changes             |      avsluta gårdagen, ändra slider item antal. med mer.  Show-total-price.                |  Nej.                       |
+| Isak       |                    CSP research. Skapat domain i route-53, SSL-certifikat via ACN. Hostad sidan i S3. Cloudfrount disruption. DNS config i route-53          |             Implementera CSP i s3.           |     Nej.                    |
+| Jacob      |               Responsivitet layout fix över hela sidan, implementerade globala variabler CSS.               |     CSS-fix och finslip.                   |     Nej.                    |
 
 ### Sprint Review (Fredag)
 - **Resultat**:
@@ -211,5 +207,6 @@ Inga ännu, förutom att Linus ska vara barnvakt 13-15.
 - **Förberedelse för nästa sprint**: Vad ska vi fokusera på i nästa sprintcykel?
 
 ---
+
 
 
