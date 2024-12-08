@@ -25,10 +25,6 @@ const CartButton: React.FC = () => {
     location.pathname.startsWith(path)
   );
 
-  if (shouldHideCartButton) {
-    return null;
-  }
-
   const isCartPage = location.pathname === "/cart";
   const isOrderConfirmationPage = location.pathname === "/order-confirmation";
 
@@ -65,6 +61,10 @@ const CartButton: React.FC = () => {
     // Update the previous items length
     prevItemsLength.current = items.length;
   }, [items.length]);
+
+  if (shouldHideCartButton) {
+    return null;
+  }
 
   let buttonIcon;
   let buttonText;
