@@ -27,12 +27,12 @@ function MenuPage() {
   );
 
   return (
-    <div className="menu-page wrapper">
-      {Object.entries(groupedItems).map(([category, items]) => (
-        <ProductSlider key={category} title={category} items={items} />
-      ))}
-    </div>
-  );
+		<div className="menu-page wrapper">
+			{Object.entries(groupedItems).map(([category, items]) => (
+				<ProductSlider key={category} title={category} items={items} pageType="menu" />
+			))}
+		</div>
+	);
 }
 
 export default MenuPage;
@@ -47,4 +47,5 @@ export default MenuPage;
 /* Uppdaterad: Jacob
  *
  * förenklat dataflöte
+ * pagetype: "menu" -> "product"
  */

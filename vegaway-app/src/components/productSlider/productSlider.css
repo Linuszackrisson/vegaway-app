@@ -16,8 +16,13 @@
     box-shadow: none;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.button-text__see-menu {
+    font-weight: var(--font-weight-medium);
 }
 
 .product-slider__list {
@@ -41,7 +46,6 @@
     .product-slider__list {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-        gap: .8rem;
         overflow: visible;
     }
 
