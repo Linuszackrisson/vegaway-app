@@ -18,7 +18,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 
   const handleAddToCart = () => {
     addToCart(item);
-    console.log("Varukorg:", useCartStore.getState().items);
   };
 
   return (

@@ -12,8 +12,6 @@ const CallbackPage: React.FC = () => {
     const authorizationCode = urlParams.get("code");
 
     if (authorizationCode) {
-      console.log("Authorization Code:", authorizationCode);
-
       // Exchange the authorization code for tokens
       const tokenExchange = async () => {
         try {
@@ -37,9 +35,7 @@ const CallbackPage: React.FC = () => {
 
           if (response.ok) {
             // Save the tokens (in localStorage/sessionStorage or state)
-            console.log("Tokens:", data);
 
-            // Example: Saving tokens to localStorage
             localStorage.setItem("access_token", data.access_token);
             localStorage.setItem("id_token", data.id_token);
 

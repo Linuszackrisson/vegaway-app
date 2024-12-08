@@ -15,8 +15,6 @@ const useLoggedInStore = create<AuthState>((set) => ({
   isLoggedIn: false,
 
   updateLoginState: () => {
-    console.log("Checking if user is logged in...");
-
     const accessToken = localStorage.getItem("access_token");
     const idToken = localStorage.getItem("id_token");
     let isValid = false;

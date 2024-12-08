@@ -29,14 +29,12 @@ const OrderConfirmationPage: React.FC = () => {
   }, [currentOrder?.isConfirmed]);
 
   const orderId = currentOrder?.orderId;
-  console.log(currentOrder?.orderId);
 
   const refreshOrderStatus = async () => {
     if (!orderId) return;
     setIsLoading(true);
     try {
       const response = await refreshStatus(orderId);
-      console.log("Response:", response);
 
       if (response.isConfirmed === "true") {
         updateOrderField("isConfirmed", "true");

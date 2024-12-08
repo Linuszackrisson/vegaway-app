@@ -45,22 +45,13 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ isActiveOrder }) => {
     orderDetailsRef.current = orderDetails; // Sync the ref with the state value
   }, [orderDetails]);
 
-  useEffect(() => {
-    console.log("Updated orderDetails (ref):", orderDetailsRef.current);
-  }, [orderDetailsRef.current]); // This will log the latest value immediately after the update
-
   const handleUpdateOrder = async () => {
     if (!orderDetails) return;
 
     const { orderId, items, totalPrice } = orderDetails;
 
     try {
-      const response = await updateOrder(
-        orderId,
-        items as MenuItem[],
-        totalPrice
-      );
-      console.log("Update response:", response);
+      await updateOrder(orderId, items as MenuItem[], totalPrice);
       navigate("/pending-orders");
     } catch (err) {
       console.error("Failed to update order:", err);

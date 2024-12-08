@@ -17,8 +17,7 @@ const EditOrder: React.FC<EditOrderProps> = ({ onClose }) => {
 
   const handleUpdateOrder = async () => {
     try {
-      const response = await updateOrder();
-      console.log("Updated order response:", response);
+      await updateOrder();
 
       setMessage("Order updated successfully");
       setVisibility(true);
@@ -38,7 +37,6 @@ const EditOrder: React.FC<EditOrderProps> = ({ onClose }) => {
 
   // Get the current order from the store
   const order = useCurrentOrderStore((state) => state.order);
-  console.log("Logging order state:", order);
 
   // Ensure only unique items are used, based on menuId
   const uniqueOrderItems = Array.from(
@@ -61,42 +59,50 @@ const EditOrder: React.FC<EditOrderProps> = ({ onClose }) => {
   }, []);
 
   return (
-		<div className="edit-order">
-			<div className="edit-order__overlay" onClick={onClose}></div>
-			<div className="card edit-order__content wrapper px-1" ref={contentRef}>
-				<div className="edit-order__header">
-					<button className="button button--second edit-order__update-button" onClick={handleUpdateOrder}>
-						<span className="button__text">Update</span>
-					</button>
-					<h3 className="edit-order__title">Edit Your Order</h3>
-					<button className="button button--second edit-order__close-button" onClick={onClose}>
-						<span className="button__text">Close</span>
-					</button>
-				</div>
-				<div className="edit-order__items">
-					{/* Conditionally render based on the existence of items */}
-					{uniqueOrderItems.length > 0 ? (
-						uniqueOrderItems.map(item => {
-							const itemCount = order?.items.filter(orderItem => orderItem.menuId === item.menuId).length;
-							return (
-								<CartProductCard
-									key={item.menuId}
-									editOrder={true}
-									item={
-										{ ...item, count: itemCount } as MenuItem & {
-											count: number;
-										}
-									}
-								/>
-							);
-						})
-					) : (
-						<p>No items in your order.</p>
-					)}
-				</div>
-			</div>
-		</div>
-	);
+    <div className="edit-order">
+      <div className="edit-order__overlay" onClick={onClose}></div>
+      <div className="card edit-order__content wrapper px-1" ref={contentRef}>
+        <div className="edit-order__header">
+          <button
+            className="button button--second edit-order__update-button"
+            onClick={handleUpdateOrder}
+          >
+            <span className="button__text">Update</span>
+          </button>
+          <h3 className="edit-order__title">Edit Your Order</h3>
+          <button
+            className="button button--second edit-order__close-button"
+            onClick={onClose}
+          >
+            <span className="button__text">Close</span>
+          </button>
+        </div>
+        <div className="edit-order__items">
+          {/* Conditionally render based on the existence of items */}
+          {uniqueOrderItems.length > 0 ? (
+            uniqueOrderItems.map((item) => {
+              const itemCount = order?.items.filter(
+                (orderItem) => orderItem.menuId === item.menuId
+              ).length;
+              return (
+                <CartProductCard
+                  key={item.menuId}
+                  editOrder={true}
+                  item={
+                    { ...item, count: itemCount } as MenuItem & {
+                      count: number;
+                    }
+                  }
+                />
+              );
+            })
+          ) : (
+            <p>No items in your order.</p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default EditOrder;

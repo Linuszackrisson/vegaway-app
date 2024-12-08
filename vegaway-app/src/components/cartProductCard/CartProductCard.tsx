@@ -59,7 +59,6 @@ const CartProductCard: React.FC<CartProductCardProps> = ({
     : isStaffOrderDetails
     ? localQuantity // Use the provided quantity directly when isStaffOrderDetails is true
     : cartItems.filter((cartItem) => cartItem.menuId === item.menuId).length;
-  console.log("Item count:", itemCount);
 
   // Handle increasing the quantity of an item
   const handleIncrease = () => {

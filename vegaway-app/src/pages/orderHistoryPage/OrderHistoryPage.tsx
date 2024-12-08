@@ -11,7 +11,6 @@ const OrderHistoryPage = () => {
     const fetchData = async () => {
       try {
         const response: FetchOrdersResponse = await fetchOrderHistory();
-        console.log("Response:", response);
 
         setOrderHistory(response.orders);
       } catch (err) {
@@ -21,11 +20,6 @@ const OrderHistoryPage = () => {
 
     fetchData();
   }, []);
-
-  // Log orderHistory after it updates
-  useEffect(() => {
-    console.log("Order history state updated:", orderHistory);
-  }, [orderHistory]); // This useEffect runs whenever orderHistory changes
 
   return (
     <div className="wrapper order-history-page">

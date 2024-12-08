@@ -40,8 +40,6 @@ export const useCurrentOrderStore = create<CurrentOrderStore>()(
               (total, item) => total + item.price,
               0
             );
-            console.log("Updated items:", updatedItems);
-            console.log("Updated Total Price:", updatedTotalPrice);
 
             return {
               order: {

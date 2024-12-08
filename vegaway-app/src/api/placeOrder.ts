@@ -70,8 +70,6 @@ export async function createOrder() {
       },
     });
 
-    console.log(response.data.data);
-
     const orderData = response.data.data;
     // Save the full order in the useCurrentOrderStore
     useCurrentOrderStore.getState().setOrder({
