@@ -21,9 +21,8 @@
 }
 
 .product-page__description {
-    padding-bottom: 2rem;
+    padding: 1rem 0;
     border-bottom: 1px solid var(--color-text);
-    margin-bottom: 1rem;
 }
 
 .product-page__title {

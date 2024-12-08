@@ -22,7 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
   };
 
   return (
-    <li className="product-card">
+    <li className="card product-card">
       <div className="product-card__image-container">
         <img
           className="product-card__image"
